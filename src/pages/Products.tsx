@@ -35,7 +35,7 @@ export default function Products() {
                     </span>
                   </div>
                   <p className="text-m3-primary dark:text-m3-dark-primary text-sm font-medium mb-2">{product.tagline}</p>
-                  <p className="text-m3-on-surface-variant text-sm line-clamp-3">{product.description}</p>
+                  <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm line-clamp-3">{product.description}</p>
                 </div>
                 <div className="mt-4 flex items-center text-m3-primary dark:text-m3-dark-primary text-sm font-semibold group-hover:gap-2 transition-all duration-200">
                   View Details →

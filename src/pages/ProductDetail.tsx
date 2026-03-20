@@ -74,7 +74,7 @@ export default function ProductDetail() {
             {/* Description */}
             <div>
               <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">About {product.name}</h2>
-              <p className="text-m3-on-surface-variant leading-relaxed text-lg">{product.description}</p>
+              <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant leading-relaxed text-lg">{product.description}</p>
             </div>
 
             {/* Features */}
