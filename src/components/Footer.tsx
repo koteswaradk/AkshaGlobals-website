@@ -71,7 +71,7 @@ const FooterLogo = () => {
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-gray-200 pt-14 pb-0">
+    <footer className="bg-m3-on-primary-container dark:bg-m3-dark-surface-container text-gray-200 pt-14 pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
@@ -81,7 +81,7 @@ export default function Footer() {
               <FooterLogo />
               <div>
                 <div className="text-white text-xl font-bold leading-tight">Aksha Globals</div>
-                <div className="text-teal-300 text-sm font-medium">Imagination to Innovation</div>
+                <div className="text-m3-primary-container text-sm font-medium">Imagination to Innovation</div>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-300 mt-4">
@@ -92,10 +92,10 @@ export default function Footer() {
 
           {/* Contact Us */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-5">Contact Us</h3>
+            <h3 className="text-white text-lg font-medium tracking-wide mb-5">Contact Us</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-teal-300 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                <svg className="w-5 h-5 text-m3-primary-container mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                 </svg>
@@ -106,13 +106,13 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                <svg className="w-5 h-5 text-m3-primary-container flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                 </svg>
                 <span className="text-gray-300">+91 98765 43210</span>
               </li>
               <li className="flex items-center gap-3">
-                <svg className="w-5 h-5 text-teal-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                <svg className="w-5 h-5 text-m3-primary-container flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
                 <span className="text-gray-300">info@akshaglobals.com</span>
@@ -122,7 +122,7 @@ export default function Footer() {
 
           {/* Connect With Us */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-5">Connect With Us</h3>
+            <h3 className="text-white text-lg font-medium tracking-wide mb-5">Connect With Us</h3>
             <div className="flex gap-3 mb-5">
               {socialLinks.map(social => (
                 <a
@@ -130,7 +130,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 flex items-center justify-center rounded-lg border border-teal-600 bg-teal-800/50 text-gray-300 hover:bg-teal-600 hover:text-white transition-colors duration-200"
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-m3-dark-primary-container text-m3-dark-on-primary-container hover:bg-m3-primary hover:text-m3-on-primary transition-colors duration-200"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -144,12 +144,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-teal-700 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
+        <div className="border-t border-m3-outline-variant/30 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Aksha Globals. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
-            <Link to="/contact" className="hover:text-teal-300 transition-colors duration-200">Privacy Policy</Link>
-            <Link to="/contact" className="hover:text-teal-300 transition-colors duration-200">Terms of Service</Link>
-            <Link to="/contact" className="hover:text-teal-300 transition-colors duration-200">Support</Link>
+            <Link to="/contact" className="hover:text-m3-dark-primary transition-colors duration-200">Privacy Policy</Link>
+            <Link to="/contact" className="hover:text-m3-dark-primary transition-colors duration-200">Terms of Service</Link>
+            <Link to="/contact" className="hover:text-m3-dark-primary transition-colors duration-200">Support</Link>
           </div>
         </div>
       </div>

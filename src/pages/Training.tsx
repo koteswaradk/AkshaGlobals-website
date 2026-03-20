@@ -39,7 +39,7 @@ export default function Training() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
+    <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       {/* Hero */}
       <div className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -57,10 +57,10 @@ export default function Training() {
             <div
               key={course.id}
               onClick={() => handleCourseSelect(course.id)}
-              className={`group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer border-2 ${
+              className={`group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer border-2 ${
                 selectedCourse === course.id
-                  ? 'border-teal-500 dark:border-teal-400 shadow-2xl'
-                  : 'border-transparent shadow-md hover:shadow-2xl hover:border-teal-500 dark:hover:border-teal-400'
+                  ? 'border-m3-primary dark:border-m3-dark-primary shadow-m3-3'
+                  : 'border-transparent shadow-m3-1 hover:shadow-m3-3 hover:border-m3-primary dark:hover:border-m3-dark-primary'
               }`}
               style={selectedCourse === course.id ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
             >
@@ -70,17 +70,17 @@ export default function Training() {
               <div className="p-6">
                 <h2 className={`text-xl font-bold mb-1 transition-colors duration-300 ${
                   selectedCourse === course.id
-                    ? 'text-teal-600 dark:text-teal-400'
-                    : 'text-gray-900 dark:text-white'
+                    ? 'text-m3-primary dark:text-m3-dark-primary'
+                    : 'text-m3-on-surface dark:text-m3-dark-on-surface'
                 }`}>{course.name}</h2>
-                <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-3">{course.tagline}</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">{course.description}</p>
+                <p className="text-m3-primary dark:text-m3-dark-primary text-sm font-medium mb-3">{course.tagline}</p>
+                <p className="text-m3-on-surface-variant text-sm mb-4 line-clamp-2">{course.description}</p>
                 <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3">
                   {course.levels.map(level => (
-                    <div key={level.name} className="flex-1 min-w-[80px] bg-gray-50 dark:bg-gray-700 rounded-lg p-2 sm:p-3 text-center">
-                      <div className="text-xs font-semibold text-gray-900 dark:text-white">{level.name}</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{level.duration}</div>
-                      <div className="text-sm font-bold text-teal-600 dark:text-teal-400 mt-1">
+                    <div key={level.name} className="flex-1 min-w-[80px] bg-m3-surface-container dark:bg-m3-dark-surface-container rounded-m3 p-2 sm:p-3 text-center">
+                      <div className="text-xs font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{level.name}</div>
+                      <div className="text-xs text-m3-on-surface-variant mt-0.5">{level.duration}</div>
+                      <div className="text-sm font-bold text-m3-primary dark:text-m3-dark-primary mt-1">
                         ₹{level.price.toLocaleString()}
                       </div>
                     </div>
@@ -88,7 +88,7 @@ export default function Training() {
                 </div>
                 <Link
                   to={`/training/${course.id}`}
-                  className="mt-4 inline-block text-teal-600 dark:text-teal-400 text-sm font-semibold hover:underline"
+                  className="mt-4 inline-block text-m3-primary dark:text-m3-dark-primary text-sm font-semibold hover:underline"
                   onClick={(e) => e.stopPropagation()}
                 >
                   View Course Details →

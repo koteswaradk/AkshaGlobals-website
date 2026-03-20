@@ -19,17 +19,17 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-m3-surface dark:bg-m3-dark-surface">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Product Not Found</h1>
-          <Link to="/products" className="text-teal-600 hover:underline">← Back to Products</Link>
+          <Link to="/products" className="text-m3-primary hover:underline">← Back to Products</Link>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
+    <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       {/* Hero */}
       <div className={`bg-gradient-to-br ${product.color} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +47,7 @@ export default function ProductDetail() {
                   href={product.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white rounded-xl hover:bg-gray-900 transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition-colors duration-200 text-sm font-semibold"
                 >
                   <PlayStoreIcon />
                   Get on Google Play
@@ -56,7 +56,7 @@ export default function ProductDetail() {
                   href={product.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white rounded-xl hover:bg-gray-900 transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition-colors duration-200 text-sm font-semibold"
                 >
                   <AppStoreIcon />
                   Download on App Store
@@ -73,18 +73,18 @@ export default function ProductDetail() {
           <div className="lg:col-span-2 space-y-8">
             {/* Description */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">About {product.name}</h2>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">{product.description}</p>
+              <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">About {product.name}</h2>
+              <p className="text-m3-on-surface-variant leading-relaxed text-lg">{product.description}</p>
             </div>
 
             {/* Features */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Features</h2>
+              <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Key Features</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {product.features.map((feature, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                    <span className="text-teal-500 font-bold mt-0.5">✓</span>
-                    <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
+                  <div key={i} className="flex items-start gap-3 p-3 bg-m3-surface-container dark:bg-m3-dark-surface-container rounded-m3">
+                    <span className="text-m3-primary font-bold mt-0.5">✓</span>
+                    <span className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -93,14 +93,14 @@ export default function ProductDetail() {
 
           {/* Specs Sidebar */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Specifications</h2>
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden">
+            <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Specifications</h2>
+            <div className="bg-m3-surface-container dark:bg-m3-dark-surface-container rounded-m3-xl overflow-hidden">
               <table className="w-full">
                 <tbody>
                   {product.specs.map((spec, i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-white dark:bg-gray-800' : 'bg-gray-50 dark:bg-gray-750'}>
-                      <td className="px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-400">{spec.label}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-gray-900 dark:text-white">{spec.value}</td>
+                    <tr key={i} className={i % 2 === 0 ? 'bg-m3-surface-container-lowest' : 'bg-m3-surface-container'}>
+                      <td className="px-4 py-3 text-sm font-medium text-m3-on-surface-variant">{spec.label}</td>
+                      <td className="px-4 py-3 text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{spec.value}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -112,7 +112,7 @@ export default function ProductDetail() {
                 href={product.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-xl transition-colors duration-200 font-semibold"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-full transition-colors duration-200 font-semibold"
               >
                 <PlayStoreIcon />
                 Google Play Store
@@ -121,7 +121,7 @@ export default function ProductDetail() {
                 href={product.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-xl transition-colors duration-200 font-semibold"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-colors duration-200 font-semibold"
               >
                 <AppStoreIcon />
                 Apple App Store
