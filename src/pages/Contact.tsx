@@ -1,8 +1,4 @@
-import { useTheme } from '../context/ThemeContext'
-
 export default function Contact() {
-  const { isDark } = useTheme()
-
   // Coordinates for 23 Tech Park, Hyderabad Telangana, India 500001
   const lat = 17.3850
   const lng = 78.4867
@@ -11,54 +7,54 @@ export default function Contact() {
   const mapSrc = `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`
 
   return (
-    <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 ${isDark ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-m3-surface dark:bg-m3-dark-surface text-m3-on-surface dark:text-m3-dark-on-surface">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-teal-500 mb-2">Contact Us</h1>
-        <p className={`text-center mb-10 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+        <h1 className="text-4xl font-bold text-center text-m3-primary dark:text-m3-dark-primary mb-2">Contact Us</h1>
+        <p className="text-center mb-10 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
           We'd love to hear from you. Reach out to us anytime.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Contact Details */}
-          <div className={`rounded-2xl shadow-lg p-8 flex flex-col gap-6 ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
-            <h2 className="text-2xl font-semibold text-teal-500">Get in Touch</h2>
+          <div className="rounded-m3-xl shadow-m3-1 p-8 flex flex-col gap-6 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high">
+            <h2 className="text-2xl font-semibold text-m3-primary dark:text-m3-dark-primary">Get in Touch</h2>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">📍</span>
               <div>
-                <p className="font-medium">Address</p>
-                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>{address}</p>
+                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Address</p>
+                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{address}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">📞</span>
               <div>
-                <p className="font-medium">Phone</p>
-                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>+91 98765 43210</p>
+                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Phone</p>
+                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">+91 98765 43210</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">✉️</span>
               <div>
-                <p className="font-medium">Email</p>
-                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>info@akshaglobals.com</p>
+                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Email</p>
+                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">info@akshaglobals.com</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">🕐</span>
               <div>
-                <p className="font-medium">Business Hours</p>
-                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Mon – Fri: 9:00 AM – 6:00 PM</p>
-                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Sat: 10:00 AM – 2:00 PM</p>
+                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Business Hours</p>
+                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Mon – Fri: 9:00 AM – 6:00 PM</p>
+                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Sat: 10:00 AM – 2:00 PM</p>
               </div>
             </div>
           </div>
 
           {/* Google Map */}
-          <div className={`rounded-2xl shadow-lg overflow-hidden ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
+          <div className="rounded-m3-xl shadow-m3-1 overflow-hidden bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high">
             <iframe
               title="Aksha Globals Location"
               src={mapSrc}
@@ -73,8 +69,8 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div className={`mt-10 rounded-2xl shadow-lg p-8 ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
-          <h2 className="text-2xl font-semibold text-teal-500 mb-6">Send Us a Message</h2>
+        <div className="mt-10 rounded-m3-xl shadow-m3-1 p-8 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high">
+          <h2 className="text-2xl font-semibold text-m3-primary dark:text-m3-dark-primary mb-6">Send Us a Message</h2>
           <form
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
             onSubmit={e => {
@@ -83,45 +79,33 @@ export default function Contact() {
             }}
           >
             <div className="flex flex-col gap-1">
-              <label className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Name</label>
+              <label className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant font-medium">Name</label>
               <input
                 type="text"
                 placeholder="Your name"
-                className={`rounded-lg px-4 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-teal-400 ${
-                  isDark
-                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                    : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400'
-                }`}
+                className="rounded-xs px-4 py-2 text-sm border border-m3-outline dark:border-m3-dark-outline bg-transparent text-m3-on-surface dark:text-m3-dark-on-surface focus:outline-none focus:border-m3-primary focus:border-2 placeholder-m3-on-surface-variant dark:placeholder-m3-dark-on-surface-variant"
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Email</label>
+              <label className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant font-medium">Email</label>
               <input
                 type="email"
                 placeholder="Your email"
-                className={`rounded-lg px-4 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-teal-400 ${
-                  isDark
-                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                    : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400'
-                }`}
+                className="rounded-xs px-4 py-2 text-sm border border-m3-outline dark:border-m3-dark-outline bg-transparent text-m3-on-surface dark:text-m3-dark-on-surface focus:outline-none focus:border-m3-primary focus:border-2 placeholder-m3-on-surface-variant dark:placeholder-m3-dark-on-surface-variant"
               />
             </div>
             <div className="flex flex-col gap-1 sm:col-span-2">
-              <label className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Message</label>
+              <label className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant font-medium">Message</label>
               <textarea
                 rows={4}
                 placeholder="Write your message..."
-                className={`rounded-lg px-4 py-2 text-sm border focus:outline-none focus:ring-2 focus:ring-teal-400 resize-none ${
-                  isDark
-                    ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
-                    : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-400'
-                }`}
+                className="rounded-xs px-4 py-2 text-sm border border-m3-outline dark:border-m3-dark-outline bg-transparent text-m3-on-surface dark:text-m3-dark-on-surface focus:outline-none focus:border-m3-primary focus:border-2 resize-none placeholder-m3-on-surface-variant dark:placeholder-m3-dark-on-surface-variant"
               />
             </div>
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3 rounded-lg bg-teal-500 hover:bg-teal-600 text-white font-semibold text-sm transition-colors duration-200"
+                className="w-full sm:w-auto px-8 py-3 rounded-full bg-m3-primary text-m3-on-primary hover:shadow-m3-1 font-semibold text-sm transition-colors duration-200"
               >
                 Send Message
               </button>
