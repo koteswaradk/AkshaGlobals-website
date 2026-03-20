@@ -2,14 +2,30 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 
-const Logo = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="20" r="20" fill="#2A7A8C"/>
-    <ellipse cx="20" cy="22" rx="10" ry="7" stroke="#4DB8D6" strokeWidth="2" fill="none"/>
-    <circle cx="20" cy="22" r="3" fill="#4DB8D6"/>
-    <text x="20" y="16" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="serif">A</text>
-  </svg>
-)
+const Logo = () => {
+  const [imgError, setImgError] = useState(false)
+
+  if (imgError) {
+    return (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" fill="#1a6a7a"/>
+        <circle cx="20" cy="20" r="18" fill="none" stroke="#4DB8D6" strokeWidth="1.5"/>
+        <text x="20" y="27" textAnchor="middle" fill="white" fontSize="20" fontWeight="bold" fontFamily="serif">A</text>
+      </svg>
+    )
+  }
+
+  return (
+    <img
+      src="https://github.com/user-attachments/assets/a3566f73-012a-405e-a33f-dd12f0982201"
+      alt="Aksha Globals Logo"
+      width="40"
+      height="40"
+      className="rounded-full object-cover"
+      onError={() => setImgError(true)}
+    />
+  )
+}
 
 export default function Navbar() {
   const { isDark, toggleTheme } = useTheme()
