@@ -39,20 +39,20 @@ export default function Navbar() {
   ]
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+    `px-3 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
       isActive
-        ? 'text-teal-400 border-b-2 border-teal-400'
-        : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400'
+        ? 'text-m3-on-primary-container dark:text-m3-dark-on-primary-container bg-m3-primary-container dark:bg-m3-dark-primary-container'
+        : 'text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:text-m3-primary dark:hover:text-m3-dark-primary'
     }`
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50">
+    <nav className="bg-m3-surface-container-low dark:bg-m3-dark-surface-container shadow-m3-1 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3">
             <Logo />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              Aksha<span className="text-teal-500"> Globals</span>
+            <span className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
+              Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Globals</span>
             </span>
           </Link>
 
@@ -65,7 +65,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={toggleTheme}
-              className="ml-4 p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+              className="ml-4 p-2 rounded-full bg-m3-surface-container-high dark:bg-m3-dark-surface-container-high hover:bg-m3-surface-container-highest dark:hover:bg-m3-dark-surface-container-highest transition-colors duration-200"
               aria-label="Toggle theme"
             >
               {isDark ? '☀️' : '🌙'}
@@ -76,14 +76,14 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
+              className="p-2 rounded-full bg-m3-surface-container-high dark:bg-m3-dark-surface-container-high"
               aria-label="Toggle theme"
             >
               {isDark ? '☀️' : '🌙'}
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 rounded-full text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:bg-m3-surface-container-high dark:hover:bg-m3-dark-surface-container-high"
               aria-label="Open menu"
             >
               {menuOpen ? (
@@ -102,16 +102,16 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-4 py-3 flex flex-col gap-1">
+        <div className="md:hidden bg-m3-surface-container dark:bg-m3-dark-surface-container border-t border-m3-outline-variant dark:border-m3-dark-outline px-4 py-3 flex flex-col gap-1">
           {navLinks.map(link => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                `block px-3 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? 'text-teal-400 bg-teal-50 dark:bg-teal-900/20 border-l-2 border-teal-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                    ? 'text-m3-on-primary-container dark:text-m3-dark-on-primary-container bg-m3-primary-container dark:bg-m3-dark-primary-container'
+                    : 'text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:text-m3-primary dark:hover:text-m3-dark-primary hover:bg-m3-surface-container-high dark:hover:bg-m3-dark-surface-container-high'
                 }`
               }
               end={link.to === '/'}
