@@ -192,7 +192,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
 
   return (
     <section
-      className="py-0 bg-white dark:bg-gray-900"
+      className="pt-16 bg-white dark:bg-gray-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
