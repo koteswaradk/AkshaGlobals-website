@@ -40,7 +40,7 @@ export const products: Product[] = [
     ],
     playStoreUrl: 'https://play.google.com',
     appStoreUrl: 'https://apps.apple.com',
-    color: 'from-blue-500 to-blue-700',
+    color: 'from-m3-primary to-m3-primary-10',
   },
   {
     id: 'shopease',
@@ -69,7 +69,7 @@ export const products: Product[] = [
     ],
     playStoreUrl: 'https://play.google.com',
     appStoreUrl: 'https://apps.apple.com',
-    color: 'from-orange-500 to-orange-700',
+    color: 'from-m3-secondary to-m3-secondary-10',
   },
   {
     id: 'healthsync',
@@ -98,7 +98,7 @@ export const products: Product[] = [
     ],
     playStoreUrl: 'https://play.google.com',
     appStoreUrl: 'https://apps.apple.com',
-    color: 'from-green-500 to-green-700',
+    color: 'from-m3-primary-10 to-m3-primary',
   },
   {
     id: 'payquick',
@@ -127,6 +127,6 @@ export const products: Product[] = [
     ],
     playStoreUrl: 'https://play.google.com',
     appStoreUrl: 'https://apps.apple.com',
-    color: 'from-purple-500 to-purple-700',
+    color: 'from-m3-tertiary to-m3-tertiary-10',
   },
 ]

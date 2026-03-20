@@ -42,7 +42,7 @@ const blogArticles = [
     author: 'Aksha Globals Team',
     date: 'March 10, 2024',
     readTime: '8 min read',
-    color: 'from-teal-500 to-cyan-600',
+    color: 'from-m3-primary to-m3-primary-10',
   },
   {
     icon: '🤖',
@@ -53,7 +53,7 @@ const blogArticles = [
     author: 'Aksha Globals Team',
     date: 'February 22, 2024',
     readTime: '6 min read',
-    color: 'from-purple-500 to-indigo-600',
+    color: 'from-m3-tertiary to-m3-tertiary-10',
   },
   {
     icon: '🚀',
@@ -64,7 +64,7 @@ const blogArticles = [
     author: 'Aksha Globals Team',
     date: 'January 15, 2024',
     readTime: '5 min read',
-    color: 'from-orange-500 to-amber-600',
+    color: 'from-m3-secondary to-m3-secondary-10',
   },
 ]
 
@@ -253,7 +253,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
             aria-label="Previous review"
             className="absolute -left-3 sm:-left-4 md:-left-14 top-1/2 -translate-y-1/2 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high border border-m3-outline-variant rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
           >
-            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <svg className="w-5 h-5 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -262,7 +262,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
             aria-label="Next review"
             className="absolute -right-3 sm:-right-4 md:-right-14 top-1/2 -translate-y-1/2 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high border border-m3-outline-variant rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
           >
-            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <svg className="w-5 h-5 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>

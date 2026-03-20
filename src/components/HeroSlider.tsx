@@ -24,11 +24,11 @@ const slides = [
 ]
 
 const gradients = [
-  'from-teal-700 via-teal-600 to-cyan-600',
-  'from-blue-700 via-blue-600 to-indigo-700',
-  'from-orange-600 via-orange-500 to-amber-600',
-  'from-green-700 via-green-600 to-emerald-600',
-  'from-purple-700 via-purple-600 to-violet-700',
+  'from-m3-primary-10 via-m3-primary to-m3-secondary',
+  'from-m3-primary via-m3-secondary to-m3-tertiary',
+  'from-m3-secondary via-m3-primary to-m3-primary-10',
+  'from-m3-tertiary via-m3-primary to-m3-secondary',
+  'from-m3-primary-10 via-m3-tertiary to-m3-primary',
 ]
 
 export default function HeroSlider() {

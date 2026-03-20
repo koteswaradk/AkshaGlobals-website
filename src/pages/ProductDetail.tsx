@@ -21,7 +21,7 @@ export default function ProductDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-m3-surface dark:bg-m3-dark-surface">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Product Not Found</h1>
+          <h1 className="text-4xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Product Not Found</h1>
           <Link to="/products" className="text-m3-primary hover:underline">← Back to Products</Link>
         </div>
       </div>
@@ -47,7 +47,7 @@ export default function ProductDetail() {
                   href={product.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-primary-10 text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
                 >
                   <PlayStoreIcon />
                   Get on Google Play
@@ -56,7 +56,7 @@ export default function ProductDetail() {
                   href={product.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-black text-white rounded-full hover:bg-gray-900 transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-primary-10 text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
                 >
                   <AppStoreIcon />
                   Download on App Store
@@ -112,7 +112,7 @@ export default function ProductDetail() {
                 href={product.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-green-600 hover:bg-green-500 text-white rounded-full transition-colors duration-200 font-semibold"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary rounded-full transition-colors duration-200 font-semibold"
               >
                 <PlayStoreIcon />
                 Google Play Store
@@ -121,7 +121,7 @@ export default function ProductDetail() {
                 href={product.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full transition-colors duration-200 font-semibold"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-m3-secondary hover:bg-m3-secondary/90 text-m3-on-secondary rounded-full transition-colors duration-200 font-semibold"
               >
                 <AppStoreIcon />
                 Apple App Store
