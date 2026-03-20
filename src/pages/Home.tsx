@@ -1,26 +1,27 @@
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
-    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 8.25h3" />
+    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z" />
     </svg>
   ),
   'ios-dev': (
-    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.5 2 7 4 7 4s-1 .5-1 2c0 1 .5 1.5.5 1.5S5 8.5 5 10.5c0 3.5 2 6 3.5 7.5S12 20 12 20s1.5-.5 3.5-2 3.5-4 3.5-7.5c0-2-.5-3-.5-3S19 7 19 6c0-1.5-1-2-1-2s-1.5-2-6-2z" />
+    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
     </svg>
   ),
   'genai-ml': (
     <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .03 2.699-1.384 2.316l-2.8-.7m0 0l-1.38-.345a.75.75 0 00-.818.214l-1.4 1.75a.75.75 0 01-1.2 0l-1.4-1.75a.75.75 0 00-.818-.214l-1.38.345m9.396 0L12 21m-4.2-4.9l-1.38.345" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
     </svg>
   ),
   'prompt-engineering': (
     <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
     </svg>
   ),
 }
@@ -147,6 +148,133 @@ function CourseCard({ course }: { course: Course }) {
   )
 }
 
+function ReviewSlider({ reviews }: { reviews: { name: string; role: string; company: string; avatar: string; rating: number; review: string; course: string }[] }) {
+  const [current, setCurrent] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const total = reviews.length
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (isAnimating) return
+      setIsAnimating(true)
+      setCurrent(((index % total) + total) % total)
+      setTimeout(() => setIsAnimating(false), 500)
+    },
+    [isAnimating, total],
+  )
+
+  const next = useCallback(() => goTo(current + 1), [current, goTo])
+  const prev = useCallback(() => goTo(current - 1), [current, goTo])
+
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(next, 5000)
+    return () => clearInterval(timer)
+  }, [next, isPaused])
+
+  const review = reviews[current]
+
+  return (
+    <section
+      className="py-20 bg-white dark:bg-gray-900"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
+            Testimonials
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+            Reviews
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            Hear directly from our community — real experiences from real people who transformed
+            their careers with Aksha Globals.
+          </p>
+        </div>
+
+        <div className="relative max-w-3xl mx-auto">
+          {/* Review card */}
+          <div
+            key={current}
+            className="bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col gap-5"
+            style={{ animation: 'reviewFadeIn 0.5s ease-out' }}
+          >
+            {/* Stars */}
+            <div className="flex items-center justify-center gap-0.5">
+              {Array.from({ length: review.rating }).map((_, i) => (
+                <svg key={i} className="w-5 h-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            {/* Review text */}
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed italic text-center">
+              &ldquo;{review.review}&rdquo;
+            </p>
+            {/* Reviewer info */}
+            <div className="flex items-center justify-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-700 mt-auto">
+              <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
+                {review.avatar}
+              </div>
+              <div className="text-left">
+                <div className="font-bold text-gray-900 dark:text-white text-sm">{review.name}</div>
+                <div className="text-gray-500 dark:text-gray-400 text-xs">{review.role} · {review.company}</div>
+                <div className="text-teal-600 dark:text-teal-400 text-xs font-medium mt-0.5">{review.course}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Arrow buttons */}
+          <button
+            onClick={prev}
+            aria-label="Previous review"
+            className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-md"
+          >
+            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next review"
+            className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-md"
+          >
+            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dot navigation */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to review ${i + 1}`}
+                className={`transition-all duration-300 rounded-full ${
+                  i === current
+                    ? 'w-8 h-3 bg-teal-600 dark:bg-teal-400'
+                    : 'w-3 h-3 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes reviewFadeIn {
+          from { opacity: 0; transform: translateX(-16px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
+    </section>
+  )
+}
+
 export default function Home() {
   return (
     <div className="bg-white dark:bg-gray-900">
@@ -224,56 +352,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reviews from Students and Learners */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
-              Testimonials
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Reviews from Students &amp; Learners
-            </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-              Hear directly from our community — real experiences from real people who transformed
-              their careers with Aksha Globals.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {reviews.map(review => (
-              <div
-                key={review.name}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-300 flex flex-col gap-4"
-              >
-                {/* Stars */}
-                <div className="flex items-center gap-0.5">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                {/* Review text */}
-                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed italic">
-                  "{review.review}"
-                </p>
-                {/* Reviewer info */}
-                <div className="flex items-center gap-4 pt-2 border-t border-gray-100 dark:border-gray-700 mt-auto">
-                  <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
-                    {review.avatar}
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900 dark:text-white text-sm">{review.name}</div>
-                    <div className="text-gray-500 dark:text-gray-400 text-xs">{review.role} · {review.company}</div>
-                    <div className="text-teal-600 dark:text-teal-400 text-xs font-medium mt-0.5">{review.course}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Reviews */}
+      <ReviewSlider reviews={reviews} />
     </div>
   )
 }
