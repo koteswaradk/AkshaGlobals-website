@@ -54,7 +54,7 @@ export default function Training() {
               className={`group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer border-2 ${
                 selectedCourse === course.id
                   ? 'border-teal-500 dark:border-teal-400 shadow-2xl'
-                  : 'border-transparent shadow-md hover:shadow-2xl'
+                  : 'border-transparent shadow-md hover:shadow-2xl hover:border-teal-500 dark:hover:border-teal-400'
               }`}
               style={selectedCourse === course.id ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
             >
