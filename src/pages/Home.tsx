@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
@@ -61,6 +62,48 @@ const blogArticles = [
   },
 ]
 
+const reviews = [
+  {
+    name: 'Priya Sharma',
+    role: 'Android Developer',
+    company: 'TechCorp India',
+    avatar: '👩‍💻',
+    rating: 5,
+    review:
+      'The Android Development course at Aksha Globals completely transformed my career. The hands-on projects and mentorship helped me land my dream job within 2 months of completing the course!',
+    course: 'Android Development',
+  },
+  {
+    name: 'Rahul Verma',
+    role: 'AI/ML Engineer',
+    company: 'StartupHub',
+    avatar: '👨‍🔬',
+    rating: 5,
+    review:
+      'The GenAI and Prompt Engineering track was incredibly insightful. Real-world case studies and live sessions gave me the confidence to work on cutting-edge AI projects professionally.',
+    course: 'GenAI & Prompt Engineering',
+  },
+  {
+    name: 'Ananya Patel',
+    role: 'iOS Developer',
+    company: 'MobiSolutions',
+    avatar: '👩‍🎨',
+    rating: 5,
+    review:
+      "From zero experience to a full-time iOS developer in 4 months — that's what Aksha Globals did for me. The curriculum is industry-relevant and the instructors are genuinely passionate about teaching.",
+    course: 'iOS Development',
+  },
+  {
+    name: 'Kiran Reddy',
+    role: 'Full Stack Developer',
+    company: 'InnovateTech',
+    avatar: '👨‍💼',
+    rating: 5,
+    review:
+      'Exceptional training quality with a perfect balance of theory and practice. The placement support team went above and beyond to help me prepare for interviews. Highly recommended!',
+    course: 'Android Development',
+  },
+]
 
 function CourseCard({ course }: { course: Course }) {
   return (
@@ -105,6 +148,125 @@ function CourseCard({ course }: { course: Course }) {
   )
 }
 
+function ReviewSlider({ reviews }: { reviews: { name: string; role: string; company: string; avatar: string; rating: number; review: string; course: string }[] }) {
+  const [current, setCurrent] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const total = reviews.length
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (isAnimating) return
+      setIsAnimating(true)
+      setCurrent(((index % total) + total) % total)
+      setTimeout(() => setIsAnimating(false), 500)
+    },
+    [isAnimating, total],
+  )
+
+  const next = useCallback(() => goTo(current + 1), [current, goTo])
+  const prev = useCallback(() => goTo(current - 1), [current, goTo])
+
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(next, 5000)
+    return () => clearInterval(timer)
+  }, [next, isPaused])
+
+  const review = reviews[current]
+
+  return (
+    <section
+      className="py-20 bg-white dark:bg-gray-900"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
+            Testimonials
+          </span>
+        </div>
+
+        <div className="relative max-w-3xl mx-auto">
+          {/* Review card */}
+          <div
+            key={current}
+            className="bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col gap-5"
+            style={{ animation: 'reviewFadeIn 0.5s ease-out' }}
+          >
+            {/* Stars */}
+            <div className="flex items-center justify-center gap-0.5">
+              {Array.from({ length: review.rating }).map((_, i) => (
+                <svg key={i} className="w-5 h-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            {/* Review text */}
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed italic text-center">
+              &ldquo;{review.review}&rdquo;
+            </p>
+            {/* Reviewer info */}
+            <div className="flex items-center justify-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-700 mt-auto">
+              <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
+                {review.avatar}
+              </div>
+              <div className="text-left">
+                <div className="font-bold text-gray-900 dark:text-white text-sm">{review.name}</div>
+                <div className="text-gray-500 dark:text-gray-400 text-xs">{review.role} · {review.company}</div>
+                <div className="text-teal-600 dark:text-teal-400 text-xs font-medium mt-0.5">{review.course}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Arrow buttons */}
+          <button
+            onClick={prev}
+            aria-label="Previous review"
+            className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-md"
+          >
+            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next review"
+            className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-md"
+          >
+            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dot navigation */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to review ${i + 1}`}
+                className={`transition-all duration-300 rounded-full ${
+                  i === current
+                    ? 'w-8 h-3 bg-teal-600 dark:bg-teal-400'
+                    : 'w-3 h-3 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes reviewFadeIn {
+          from { opacity: 0; transform: translateX(-16px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+      `}</style>
+    </section>
+  )
+}
 
 export default function Home() {
   return (
@@ -183,6 +345,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <ReviewSlider reviews={reviews} />
     </div>
   )
 }
