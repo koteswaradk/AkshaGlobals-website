@@ -16,6 +16,10 @@ export interface Course {
   description: string
   icon: string
   color: string
+  students: string
+  rating: number
+  instructor: string
+  featured?: boolean
   levels: CourseLevel[]
 }
 
@@ -23,10 +27,13 @@ export const courses: Course[] = [
   {
     id: 'android-dev',
     name: 'Android Development',
-    tagline: 'Build powerful Android apps',
+    tagline: 'Master Android app development with Kotlin and Jetpack Compose',
     description: 'Master Android app development from fundamentals to advanced concepts. Learn to build production-ready apps using Kotlin, Jetpack Compose, and modern Android architecture patterns.',
     icon: '🤖',
     color: 'from-green-500 to-emerald-700',
+    students: '15,000+',
+    rating: 4.8,
+    instructor: 'Rahul Sharma',
     levels: [
       {
         name: 'Basic',
@@ -78,10 +85,13 @@ export const courses: Course[] = [
   {
     id: 'ios-dev',
     name: 'iOS Development',
-    tagline: 'Create stunning iPhone & iPad apps',
+    tagline: 'Build stunning iOS apps with Swift and SwiftUI',
     description: 'Learn iOS app development with Swift and SwiftUI. From App Store guidelines to advanced animations, this course takes you from beginner to job-ready iOS developer.',
     icon: '🍎',
     color: 'from-gray-600 to-gray-900',
+    students: '12,500+',
+    rating: 4.9,
+    instructor: 'Priya Kapoor',
     levels: [
       {
         name: 'Basic',
@@ -132,11 +142,15 @@ export const courses: Course[] = [
   },
   {
     id: 'genai-ml',
-    name: 'GenAI & Machine Learning',
-    tagline: 'Build AI-powered applications',
-    description: 'Dive deep into Generative AI and Machine Learning. Build LLM-powered applications, fine-tune models, and deploy scalable AI solutions using industry-leading tools and frameworks.',
+    name: 'Generative AI',
+    tagline: 'Harness the power of AI for creative and business applications',
+    description: 'Dive deep into Generative AI and its applications. Build LLM-powered applications, work with image generation models, and deploy scalable AI solutions using industry-leading tools and frameworks.',
     icon: '🧠',
     color: 'from-purple-500 to-violet-700',
+    students: '20,000+',
+    rating: 4.9,
+    instructor: 'Dr. Arjun Patel',
+    featured: true,
     levels: [
       {
         name: 'Basic',
@@ -188,10 +202,13 @@ export const courses: Course[] = [
   {
     id: 'prompt-engineering',
     name: 'Prompt Engineering',
-    tagline: 'Master the art of AI prompting',
+    tagline: 'Master the art of communicating with AI systems effectively',
     description: 'Become a Prompt Engineering expert. Learn advanced techniques to craft effective prompts for ChatGPT, Claude, Gemini, and other LLMs to build powerful AI-driven workflows and applications.',
     icon: '✨',
     color: 'from-yellow-500 to-amber-600',
+    students: '18,000+',
+    rating: 4.7,
+    instructor: 'Sneha Reddy',
     levels: [
       {
         name: 'Basic',
