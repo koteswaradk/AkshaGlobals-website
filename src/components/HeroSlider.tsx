@@ -110,7 +110,7 @@ export default function HeroSlider() {
                 {slide.product.features.slice(0, 3).map(f => (
                   <span
                     key={f}
-                    className="text-xs bg-white/15 backdrop-blur-sm border border-white/25 px-3 py-1.5 rounded-full font-medium"
+                    className="text-xs bg-white/15 backdrop-blur-sm border border-white/25 px-3 py-2 rounded-full font-medium"
                   >
                     ✓ {f}
                   </span>
@@ -137,13 +137,13 @@ export default function HeroSlider() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 to={slide.cta.to}
-                className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
+                className="px-8 py-4 bg-white text-m3-primary font-bold rounded-full hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
               >
                 {slide.cta.label}
               </Link>
               <Link
                 to={slide.ctaAlt.to}
-                className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
+                className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
               >
                 {slide.ctaAlt.label}
               </Link>
@@ -157,7 +157,7 @@ export default function HeroSlider() {
             style={{ animation: 'fadeSlideInRight 0.5s ease-out' }}
           >
             {slide.product ? (
-              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-white/20 shadow-2xl text-center">
+              <div className="bg-white/10 backdrop-blur-md rounded-m3-xl p-5 sm:p-8 border border-white/20 shadow-2xl text-center">
                 <div className="text-6xl md:text-8xl mb-6 drop-shadow-xl">{slide.icon}</div>
                 <div className="text-2xl font-bold mb-1">{slide.product.name}</div>
                 <div className="text-white/70 text-sm mb-6">{slide.product.tagline}</div>
@@ -178,7 +178,7 @@ export default function HeroSlider() {
                     href={slide.product.playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-200"
+                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
                   >
                     <span>▶</span> Play Store
                   </a>
@@ -186,7 +186,7 @@ export default function HeroSlider() {
                     href={slide.product.appStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-xl px-4 py-2 text-xs font-semibold transition-all duration-200"
+                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
                   >
                     <span>🍎</span> App Store
                   </a>
@@ -198,7 +198,7 @@ export default function HeroSlider() {
                   <Link
                     key={p.id}
                     to={`/products/${p.id}`}
-                    className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center hover:bg-white/20 transition-all duration-200 hover:-translate-y-1 shadow-lg"
+                    className="bg-white/10 backdrop-blur-md rounded-m3-lg p-5 border border-white/20 text-center hover:bg-white/20 transition-all duration-200 hover:-translate-y-1 shadow-lg"
                   >
                     <div className="text-4xl mb-2">{p.icon}</div>
                     <div className="text-sm font-bold">{p.name}</div>
