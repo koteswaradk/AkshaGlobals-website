@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { courses } from '../data/courses'
 
@@ -25,6 +26,12 @@ const courseIcons: Record<string, JSX.Element> = {
 }
 
 export default function Training() {
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null)
+
+  const handleCourseSelect = (id: string) => {
+    setSelectedCourse(prev => (prev === id ? null : id))
+  }
+
   return (
     <div className="bg-white dark:bg-gray-900 min-h-screen">
       {/* Hero */}
@@ -41,16 +48,25 @@ export default function Training() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {courses.map(course => (
-            <Link
+            <div
               key={course.id}
-              to={`/training/${course.id}`}
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+              onClick={() => handleCourseSelect(course.id)}
+              className={`group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer border-2 ${
+                selectedCourse === course.id
+                  ? 'border-teal-500 dark:border-teal-400 shadow-2xl'
+                  : 'border-transparent shadow-md hover:shadow-2xl'
+              }`}
+              style={selectedCourse === course.id ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
             >
               <div className={`bg-gradient-to-br ${course.color} p-10 flex items-center justify-center`}>
                 {courseIcons[course.id] || <span className="text-7xl">{course.icon}</span>}
               </div>
               <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{course.name}</h2>
+                <h2 className={`text-xl font-bold mb-1 transition-colors duration-300 ${
+                  selectedCourse === course.id
+                    ? 'text-teal-600 dark:text-teal-400'
+                    : 'text-gray-900 dark:text-white'
+                }`}>{course.name}</h2>
                 <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-3">{course.tagline}</p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">{course.description}</p>
                 <div className="flex gap-3">
@@ -64,11 +80,15 @@ export default function Training() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 text-teal-600 dark:text-teal-400 text-sm font-semibold">
+                <Link
+                  to={`/training/${course.id}`}
+                  className="mt-4 inline-block text-teal-600 dark:text-teal-400 text-sm font-semibold hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   View Course Details →
-                </div>
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
