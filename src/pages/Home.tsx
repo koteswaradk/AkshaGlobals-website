@@ -112,7 +112,7 @@ function CourseCard({ course, isSelected, onSelect }: { course: Course; isSelect
       className={`group bg-white dark:bg-gray-800 rounded-2xl border-2 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
         isSelected
           ? 'border-teal-500 dark:border-teal-400 shadow-lg'
-          : 'border-gray-200 dark:border-gray-700'
+          : 'border-gray-200 dark:border-gray-700 hover:border-teal-500 dark:hover:border-teal-400'
       }`}
       style={isSelected ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
     >
@@ -192,7 +192,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
 
   return (
     <section
-      className="pt-20 pb-10 bg-white dark:bg-gray-900"
+      className="py-0 bg-white dark:bg-gray-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
