@@ -105,11 +105,16 @@ const reviews = [
   },
 ]
 
-function CourseCard({ course }: { course: Course }) {
+function CourseCard({ course, isSelected, onSelect }: { course: Course; isSelected: boolean; onSelect: (id: string) => void }) {
   return (
-    <Link
-      to={`/training/${course.id}`}
-      className={`group bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
+    <div
+      onClick={() => onSelect(course.id)}
+      className={`group bg-white dark:bg-gray-800 rounded-2xl border-2 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
+        isSelected
+          ? 'border-teal-500 dark:border-teal-400 shadow-lg'
+          : 'border-gray-200 dark:border-gray-700'
+      }`}
+      style={isSelected ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
     >
       {/* Icon */}
       <div className="flex justify-center mb-5">
@@ -118,7 +123,11 @@ function CourseCard({ course }: { course: Course }) {
         </div>
       </div>
       {/* Name & tagline */}
-      <h3 className="text-center font-bold text-gray-900 dark:text-white text-lg mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">{course.name}</h3>
+      <h3 className={`text-center font-bold text-lg mb-2 transition-colors duration-300 ${
+        isSelected
+          ? 'text-teal-600 dark:text-teal-400'
+          : 'text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400'
+      }`}>{course.name}</h3>
       <p className="text-center text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5">{course.tagline}</p>
       {/* Stats */}
       <div className="space-y-2 mb-5 text-sm">
@@ -141,10 +150,16 @@ function CourseCard({ course }: { course: Course }) {
         </div>
       </div>
       {/* Button */}
-      <div className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 bg-teal-600 group-hover:bg-teal-500 text-white font-semibold rounded-xl transition-colors duration-200">
+      <Link
+        to={`/training/${course.id}`}
+        className={`mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 text-white font-semibold rounded-xl transition-colors duration-200 ${
+          isSelected ? 'bg-teal-500' : 'bg-teal-600 group-hover:bg-teal-500'
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
         Learn More <span aria-hidden="true">→</span>
-      </div>
-    </Link>
+      </Link>
+    </div>
   )
 }
 
@@ -266,6 +281,12 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
 }
 
 export default function Home() {
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null)
+
+  const handleCourseSelect = (id: string) => {
+    setSelectedCourse(prev => (prev === id ? null : id))
+  }
+
   return (
     <div className="bg-white dark:bg-gray-900">
       {/* Hero Slider */}
@@ -284,7 +305,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {courses.map(course => (
-              <CourseCard key={course.id} course={course} />
+              <CourseCard key={course.id} course={course} isSelected={selectedCourse === course.id} onSelect={handleCourseSelect} />
             ))}
           </div>
         </div>
