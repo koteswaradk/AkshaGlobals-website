@@ -42,10 +42,10 @@ export default function TrainingDetail() {
 
   if (!course) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-m3-surface dark:bg-m3-dark-surface">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Course Not Found</h1>
-          <Link to="/training" className="text-teal-600 hover:underline">← Back to Training</Link>
+          <h1 className="text-4xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Course Not Found</h1>
+          <Link to="/training" className="text-m3-primary hover:underline">← Back to Training</Link>
         </div>
       </div>
     )
@@ -59,7 +59,7 @@ export default function TrainingDetail() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
+    <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       {/* Hero */}
       <div className={`bg-gradient-to-br ${course.color} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,22 +79,22 @@ export default function TrainingDetail() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Description */}
         <div className="mb-10">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Course Overview</h2>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg max-w-3xl">{course.description}</p>
+          <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-3">Course Overview</h2>
+          <p className="text-m3-on-surface-variant leading-relaxed text-lg max-w-3xl">{course.description}</p>
         </div>
 
         {/* Level Tabs */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Choose Your Level</h2>
-          <div className="flex gap-2 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
+          <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Choose Your Level</h2>
+          <div className="flex gap-1 bg-m3-surface-container dark:bg-m3-dark-surface-container p-1 rounded-full overflow-x-auto">
             {course.levels.map(level => (
               <button
                 key={level.name}
                 onClick={() => setActiveLevel(level.name)}
-                className={`px-3 py-2 sm:px-6 sm:py-3 font-semibold text-sm transition-colors duration-200 border-b-2 -mb-px whitespace-nowrap ${
+                className={`font-semibold text-sm transition-colors duration-200 whitespace-nowrap rounded-full px-4 py-2 ${
                   activeLevel === level.name
-                    ? 'border-teal-500 text-teal-600 dark:text-teal-400'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
+                    ? 'bg-m3-secondary-container dark:bg-m3-dark-secondary-container text-m3-on-secondary-container'
+                    : 'text-m3-on-surface-variant hover:bg-m3-surface-container-high'
                 }`}
               >
                 {level.name}
@@ -107,16 +107,16 @@ export default function TrainingDetail() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Curriculum */}
           <div className="lg:col-span-2">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">
               {activeLevel} Curriculum
             </h3>
             <div className="space-y-2">
               {currentLevel.curriculum.map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <span className="bg-teal-100 dark:bg-teal-900/50 text-teal-700 dark:text-teal-300 text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div key={i} className="flex items-start gap-3 p-3 bg-m3-surface-container dark:bg-m3-dark-surface-container rounded-m3">
+                  <span className="bg-m3-primary-container dark:bg-m3-dark-primary-container text-m3-on-primary-container dark:text-m3-dark-on-primary-container text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
                     {i + 1}
                   </span>
-                  <span className="text-gray-700 dark:text-gray-300 text-sm">{item}</span>
+                  <span className="text-m3-on-surface-variant text-sm">{item}</span>
                 </div>
               ))}
             </div>
@@ -124,17 +124,17 @@ export default function TrainingDetail() {
 
           {/* Enrollment Card */}
           <div>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 sticky top-24">
+            <div className="bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-2 p-6 border border-m3-outline-variant sticky top-24">
               <div className="text-center mb-6">
-                <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                <div className="text-3xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
                   ₹{currentLevel.price.toLocaleString()}
                 </div>
-                <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                <div className="text-m3-on-surface-variant text-sm mt-1">
                   {currentLevel.duration} program
                 </div>
               </div>
 
-              <div className="space-y-3 mb-6 text-sm text-gray-600 dark:text-gray-400">
+              <div className="space-y-3 mb-6 text-sm text-m3-on-surface-variant">
                 <div className="flex items-center gap-2">✅ {currentLevel.curriculum.length} topics covered</div>
                 <div className="flex items-center gap-2">✅ Certificate of completion</div>
                 <div className="flex items-center gap-2">✅ Mentor support</div>
@@ -143,12 +143,12 @@ export default function TrainingDetail() {
 
               <button
                 onClick={() => handleRegister(currentLevel)}
-                className="w-full py-3 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl transition-colors duration-200 text-lg"
+                className="w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary font-bold rounded-full transition-colors duration-200 text-lg"
               >
                 Register &amp; Pay
               </button>
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-gray-400 dark:text-gray-500 text-xs">
+              <div className="mt-4 flex items-center justify-center gap-2 text-m3-on-surface-variant text-xs">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
@@ -158,18 +158,18 @@ export default function TrainingDetail() {
 
             {/* All levels quick register */}
             <div className="mt-6">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm">All Levels</h3>
+              <h3 className="font-semibold text-m3-on-surface dark:text-m3-dark-on-surface mb-3 text-sm">All Levels</h3>
               {course.levels.map(level => (
-                <div key={level.name} className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg mb-2">
+                <div key={level.name} className="flex items-center justify-between p-3 border border-m3-outline-variant dark:border-m3-dark-outline rounded-m3 mb-2">
                   <div>
-                    <div className="text-sm font-semibold text-gray-900 dark:text-white">{level.name}</div>
-                    <div className="text-xs text-gray-500">{level.duration}</div>
+                    <div className="text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{level.name}</div>
+                    <div className="text-xs text-m3-on-surface-variant">{level.duration}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm font-bold text-teal-600 dark:text-teal-400">₹{level.price.toLocaleString()}</div>
+                    <div className="text-sm font-bold text-m3-primary dark:text-m3-dark-primary">₹{level.price.toLocaleString()}</div>
                     <button
                       onClick={() => handleRegister(level)}
-                      className="text-xs text-teal-600 dark:text-teal-400 hover:underline"
+                      className="text-xs text-m3-primary dark:text-m3-dark-primary hover:underline"
                     >
                       Enroll →
                     </button>
