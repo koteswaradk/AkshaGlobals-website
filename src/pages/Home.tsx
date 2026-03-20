@@ -5,17 +5,17 @@ import HeroSlider from '../components/HeroSlider'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
-    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="currentColor">
+    <svg className="w-8 h-8 text-m3-primary dark:text-m3-dark-primary" viewBox="0 0 24 24" fill="currentColor">
       <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.75-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z" />
     </svg>
   ),
   'ios-dev': (
-    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" viewBox="0 0 24 24" fill="currentColor">
+    <svg className="w-8 h-8 text-m3-primary dark:text-m3-dark-primary" viewBox="0 0 24 24" fill="currentColor">
       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
     </svg>
   ),
   'genai-ml': (
-    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <svg className="w-8 h-8 text-m3-primary dark:text-m3-dark-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 5v13" />
@@ -26,7 +26,7 @@ const courseIcons: Record<string, JSX.Element> = {
     </svg>
   ),
   'prompt-engineering': (
-    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <svg className="w-8 h-8 text-m3-primary dark:text-m3-dark-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
     </svg>
   ),
@@ -115,35 +115,35 @@ function CourseCard({ course, isSelected, onSelect }: { course: Course; isSelect
   return (
     <div
       onClick={() => onSelect(course.id)}
-      className={`group bg-white dark:bg-gray-800 rounded-2xl border-2 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
+      className={`group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl border-2 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer ${
         isSelected
-          ? 'border-teal-500 dark:border-teal-400 shadow-lg'
-          : 'border-gray-200 dark:border-gray-700 hover:border-teal-500 dark:hover:border-teal-400'
+          ? 'border-m3-primary dark:border-m3-dark-primary shadow-lg'
+          : 'border-m3-outline-variant dark:border-m3-dark-outline hover:border-m3-primary dark:hover:border-m3-dark-primary'
       }`}
       style={isSelected ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
     >
       {/* Icon */}
       <div className="flex justify-center mb-5">
-        <div className="w-16 h-16 rounded-full bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-m3-primary-container dark:bg-m3-dark-primary-container flex items-center justify-center">
           {courseIcons[course.id]}
         </div>
       </div>
       {/* Name & tagline */}
       <h3 className={`text-center font-bold text-lg mb-2 transition-colors duration-300 ${
         isSelected
-          ? 'text-teal-600 dark:text-teal-400'
-          : 'text-gray-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400'
+          ? 'text-m3-primary dark:text-m3-dark-primary'
+          : 'text-m3-on-surface dark:text-m3-dark-on-surface group-hover:text-m3-primary dark:group-hover:text-m3-dark-primary'
       }`}>{course.name}</h3>
-      <p className="text-center text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5">{course.tagline}</p>
+      <p className="text-center text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm leading-relaxed mb-5">{course.tagline}</p>
       {/* Stats */}
       <div className="space-y-2 mb-5 text-sm">
         <div className="flex items-center justify-between">
-          <span className="text-gray-500 dark:text-gray-400">Students:</span>
-          <span className="font-bold text-gray-900 dark:text-white">{course.students}</span>
+          <span className="text-m3-on-surface-variant">Students:</span>
+          <span className="font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.students}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500 dark:text-gray-400">Rating:</span>
-          <span className="flex items-center gap-1 font-bold text-gray-900 dark:text-white">
+          <span className="text-m3-on-surface-variant">Rating:</span>
+          <span className="flex items-center gap-1 font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
             <svg className="w-4 h-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
@@ -151,16 +151,14 @@ function CourseCard({ course, isSelected, onSelect }: { course: Course; isSelect
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500 dark:text-gray-400">Instructor:</span>
-          <span className="font-bold text-gray-900 dark:text-white">{course.instructor}</span>
+          <span className="text-m3-on-surface-variant">Instructor:</span>
+          <span className="font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.instructor}</span>
         </div>
       </div>
       {/* Button */}
       <Link
         to={`/training/${course.id}`}
-        className={`mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 text-white font-semibold rounded-xl transition-colors duration-200 ${
-          isSelected ? 'bg-teal-500' : 'bg-teal-600 group-hover:bg-teal-500'
-        }`}
+        className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 bg-m3-primary text-m3-on-primary font-semibold rounded-full transition-colors duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         Learn More <span aria-hidden="true">→</span>
@@ -209,13 +207,13 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
 
   return (
     <section
-      className="pt-16 bg-white dark:bg-gray-900"
+      className="pt-16 bg-m3-surface dark:bg-m3-dark-surface"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
+          <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3 bg-m3-primary-container text-m3-on-primary-container border border-m3-primary-container px-4 py-1 rounded-full">
             Testimonials
           </span>
         </div>
@@ -224,7 +222,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
           {/* Review card */}
           <div
             key={current}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-10 shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col gap-5"
+            className="bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl p-8 md:p-10 shadow-sm border border-m3-outline-variant flex flex-col gap-5"
             style={{ animation: 'reviewFadeIn 0.5s ease-out' }}
           >
             {/* Stars */}
@@ -236,15 +234,15 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
               ))}
             </div>
             {/* Review text */}
-            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed italic text-center">
+            <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-base sm:text-lg leading-relaxed italic text-center">
               &ldquo;{review.review}&rdquo;
             </p>
             {/* Reviewer info */}
             <div className="flex justify-end mt-auto">
               <div className="text-right">
-                <div className="font-bold text-gray-900 dark:text-white text-sm">{review.name}</div>
-                <div className="text-gray-500 dark:text-gray-400 text-xs">{review.role} · {review.company}</div>
-                <div className="text-teal-600 dark:text-teal-400 text-xs font-medium mt-0.5">{review.course}</div>
+                <div className="font-bold text-m3-on-surface dark:text-m3-dark-on-surface text-sm">{review.name}</div>
+                <div className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-xs">{review.role} · {review.company}</div>
+                <div className="text-m3-primary dark:text-m3-dark-primary text-xs font-medium mt-0.5">{review.course}</div>
               </div>
             </div>
           </div>
@@ -253,7 +251,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
           <button
             onClick={prev}
             aria-label="Previous review"
-            className="absolute -left-3 sm:-left-4 md:-left-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
+            className="absolute -left-3 sm:-left-4 md:-left-14 top-1/2 -translate-y-1/2 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high border border-m3-outline-variant rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
           >
             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -262,7 +260,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
           <button
             onClick={next}
             aria-label="Next review"
-            className="absolute -right-3 sm:-right-4 md:-right-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
+            className="absolute -right-3 sm:-right-4 md:-right-14 top-1/2 -translate-y-1/2 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high border border-m3-outline-variant rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
           >
             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -278,8 +276,8 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
                 aria-label={`Go to review ${i + 1}`}
                 className={`transition-all duration-300 rounded-full ${
                   i === current
-                    ? 'w-8 h-3 bg-teal-600 dark:bg-teal-400'
-                    : 'w-3 h-3 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                    ? 'w-8 h-3 bg-m3-primary dark:bg-m3-dark-primary'
+                    : 'w-3 h-3 bg-m3-outline-variant dark:bg-m3-dark-outline'
                 }`}
               />
             ))}
@@ -305,18 +303,18 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-m3-surface dark:bg-m3-dark-surface">
       {/* Hero Slider */}
       <HeroSlider />
 
       {/* Training Programs */}
-      <section className="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+      <section className="py-20 bg-m3-surface dark:bg-m3-dark-surface border-t border-m3-outline-variant dark:border-m3-dark-outline">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">
               Professional Training Programs
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            <p className="text-m3-on-surface-variant max-w-2xl mx-auto text-lg">
               Master the latest technologies with our comprehensive, industry-aligned training courses
             </p>
           </div>
@@ -329,10 +327,10 @@ export default function Home() {
       </section>
 
       {/* Blog and Technical Articles */}
-      <section className="pt-20 pb-10 bg-gray-50 dark:bg-gray-800/60">
+      <section className="pt-20 pb-10 bg-m3-surface-container dark:bg-m3-dark-surface-container">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
+            <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3 bg-m3-primary-container text-m3-on-primary-container border border-m3-primary-container px-4 py-1 rounded-full">
               Insights
             </span>
 
@@ -342,7 +340,7 @@ export default function Home() {
             {blogArticles.map(article => (
               <article
                 key={article.title}
-                className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 flex flex-col group"
+                className="bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl overflow-hidden shadow-sm hover:shadow-xl border border-m3-outline-variant transition-all duration-300 hover:-translate-y-1 flex flex-col group"
               >
                 {/* Colored header banner */}
                 <div className={`bg-gradient-to-br ${article.color} px-6 py-7 text-white`}>
@@ -353,13 +351,13 @@ export default function Home() {
                 </div>
                 {/* Card body */}
                 <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-lg font-extrabold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
+                  <h3 className="text-lg font-extrabold text-m3-on-surface dark:text-m3-dark-on-surface mb-3 group-hover:text-m3-primary dark:group-hover:text-m3-dark-primary transition-colors leading-snug">
                     {article.title}
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5 flex-1">
+                  <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm leading-relaxed mb-5 flex-1">
                     {article.excerpt}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700 text-xs text-gray-400 dark:text-gray-500">
+                  <div className="flex items-center justify-between pt-4 border-t border-m3-outline-variant text-xs text-m3-on-surface-variant">
                     <span className="font-medium">{article.author}</span>
                     <div className="flex items-center gap-2">
                       <span>{article.date}</span>
