@@ -102,12 +102,18 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-4 py-3 space-y-1">
+        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 px-4 py-3 flex flex-col gap-1">
           {navLinks.map(link => (
             <NavLink
               key={link.to}
               to={link.to}
-              className={linkClass}
+              className={({ isActive }) =>
+                `block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  isActive
+                    ? 'text-teal-400 bg-teal-50 dark:bg-teal-900/20 border-l-2 border-teal-400'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                }`
+              }
               end={link.to === '/'}
               onClick={() => setMenuOpen(false)}
             >

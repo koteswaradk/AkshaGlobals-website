@@ -64,8 +64,8 @@ export default function Training() {
               }`}
               style={selectedCourse === course.id ? { animation: 'cardSelectPulse 0.6s ease-out' } : undefined}
             >
-              <div className={`bg-gradient-to-br ${course.color} p-10 flex items-center justify-center`}>
-                {courseIcons[course.id] || <span className="text-7xl">{course.icon}</span>}
+              <div className={`bg-gradient-to-br ${course.color} p-6 sm:p-10 flex items-center justify-center`}>
+                {courseIcons[course.id] || <span className="text-5xl sm:text-7xl">{course.icon}</span>}
               </div>
               <div className="p-6">
                 <h2 className={`text-xl font-bold mb-1 transition-colors duration-300 ${
@@ -75,9 +75,9 @@ export default function Training() {
                 }`}>{course.name}</h2>
                 <p className="text-teal-600 dark:text-teal-400 text-sm font-medium mb-3">{course.tagline}</p>
                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">{course.description}</p>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3">
                   {course.levels.map(level => (
-                    <div key={level.name} className="flex-1 bg-gray-50 dark:bg-gray-700 rounded-lg p-3 text-center">
+                    <div key={level.name} className="flex-1 min-w-[80px] bg-gray-50 dark:bg-gray-700 rounded-lg p-2 sm:p-3 text-center">
                       <div className="text-xs font-semibold text-gray-900 dark:text-white">{level.name}</div>
                       <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{level.duration}</div>
                       <div className="text-sm font-bold text-teal-600 dark:text-teal-400 mt-1">

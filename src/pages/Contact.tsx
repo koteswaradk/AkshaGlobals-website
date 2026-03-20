@@ -64,7 +64,7 @@ export default function Contact() {
               src={mapSrc}
               width="100%"
               height="100%"
-              style={{ minHeight: '380px', border: 0 }}
+              style={{ minHeight: '280px', border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

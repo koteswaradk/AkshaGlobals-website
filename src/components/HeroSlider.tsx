@@ -157,8 +157,8 @@ export default function HeroSlider() {
             style={{ animation: 'fadeSlideInRight 0.5s ease-out' }}
           >
             {slide.product ? (
-              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl text-center">
-                <div className="text-8xl mb-6 drop-shadow-xl">{slide.icon}</div>
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-5 sm:p-8 border border-white/20 shadow-2xl text-center">
+                <div className="text-6xl md:text-8xl mb-6 drop-shadow-xl">{slide.icon}</div>
                 <div className="text-2xl font-bold mb-1">{slide.product.name}</div>
                 <div className="text-white/70 text-sm mb-6">{slide.product.tagline}</div>
                 <div className="grid grid-cols-2 gap-3">
