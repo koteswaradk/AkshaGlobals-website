@@ -208,7 +208,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
               &ldquo;{review.review}&rdquo;
             </p>
             {/* Reviewer info */}
-            <div className="flex items-center justify-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-700 mt-auto">
+            <div className="flex items-center justify-center gap-4 mt-auto">
               <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
                 {review.avatar}
               </div>
