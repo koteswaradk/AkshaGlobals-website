@@ -314,7 +314,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-extrabold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">
               Professional Training Programs
             </h2>
-            <p className="text-m3-on-surface-variant max-w-2xl mx-auto text-lg">
+            <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant max-w-2xl mx-auto text-lg">
               Master the latest technologies with our comprehensive, industry-aligned training courses
             </p>
           </div>

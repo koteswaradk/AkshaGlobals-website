@@ -80,7 +80,7 @@ export default function TrainingDetail() {
         {/* Description */}
         <div className="mb-10">
           <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-3">Course Overview</h2>
-          <p className="text-m3-on-surface-variant leading-relaxed text-lg max-w-3xl">{course.description}</p>
+          <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant leading-relaxed text-lg max-w-3xl">{course.description}</p>
         </div>
 
         {/* Level Tabs */}

@@ -74,7 +74,7 @@ export default function Training() {
                     : 'text-m3-on-surface dark:text-m3-dark-on-surface'
                 }`}>{course.name}</h2>
                 <p className="text-m3-primary dark:text-m3-dark-primary text-sm font-medium mb-3">{course.tagline}</p>
-                <p className="text-m3-on-surface-variant text-sm mb-4 line-clamp-2">{course.description}</p>
+                <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm mb-4 line-clamp-2">{course.description}</p>
                 <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3">
                   {course.levels.map(level => (
                     <div key={level.name} className="flex-1 min-w-[80px] bg-m3-surface-container dark:bg-m3-dark-surface-container rounded-m3 p-2 sm:p-3 text-center">
