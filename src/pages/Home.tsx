@@ -225,7 +225,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
               ))}
             </div>
             {/* Review text */}
-            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed italic text-center">
+            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed italic text-center">
               &ldquo;{review.review}&rdquo;
             </p>
             {/* Reviewer info */}
@@ -242,7 +242,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
           <button
             onClick={prev}
             aria-label="Previous review"
-            className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-md"
+            className="absolute -left-3 sm:-left-4 md:-left-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
           >
             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -251,7 +251,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
           <button
             onClick={next}
             aria-label="Next review"
-            className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-md"
+            className="absolute -right-3 sm:-right-4 md:-right-14 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 shadow-md z-10"
           >
             <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

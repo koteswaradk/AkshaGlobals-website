@@ -146,7 +146,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-teal-700 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Aksha Globals. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
             <Link to="/contact" className="hover:text-teal-300 transition-colors duration-200">Privacy Policy</Link>
             <Link to="/contact" className="hover:text-teal-300 transition-colors duration-200">Terms of Service</Link>
             <Link to="/contact" className="hover:text-teal-300 transition-colors duration-200">Support</Link>

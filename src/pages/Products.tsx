@@ -23,8 +23,8 @@ export default function Products() {
               to={`/products/${product.id}`}
               className="group bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
             >
-              <div className={`bg-gradient-to-br ${product.color} p-8 flex items-center justify-center min-w-[120px]`}>
-                <span className="text-6xl">{product.icon}</span>
+              <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px]`}>
+                <span className="text-4xl sm:text-6xl">{product.icon}</span>
               </div>
               <div className="p-6 flex flex-col justify-between">
                 <div>

@@ -67,7 +67,7 @@ export default function TrainingDetail() {
             ← All Courses
           </Link>
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
-            <div className="text-8xl">{courseIcons[course.id] || <span>{course.icon}</span>}</div>
+            <div className="text-6xl md:text-8xl">{courseIcons[course.id] || <span>{course.icon}</span>}</div>
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-2">{course.name}</h1>
               <p className="text-xl text-white/90">{course.tagline}</p>
@@ -86,12 +86,12 @@ export default function TrainingDetail() {
         {/* Level Tabs */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Choose Your Level</h2>
-          <div className="flex gap-2 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex gap-2 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
             {course.levels.map(level => (
               <button
                 key={level.name}
                 onClick={() => setActiveLevel(level.name)}
-                className={`px-6 py-3 font-semibold text-sm transition-colors duration-200 border-b-2 -mb-px ${
+                className={`px-3 py-2 sm:px-6 sm:py-3 font-semibold text-sm transition-colors duration-200 border-b-2 -mb-px whitespace-nowrap ${
                   activeLevel === level.name
                     ? 'border-teal-500 text-teal-600 dark:text-teal-400'
                     : 'border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
