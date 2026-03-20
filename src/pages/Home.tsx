@@ -177,7 +177,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
 
   return (
     <section
-      className="py-20 bg-white dark:bg-gray-900"
+      className="pt-20 pb-10 bg-white dark:bg-gray-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -208,11 +208,8 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
               &ldquo;{review.review}&rdquo;
             </p>
             {/* Reviewer info */}
-            <div className="flex items-center justify-center gap-4 mt-auto">
-              <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
-                {review.avatar}
-              </div>
-              <div className="text-left">
+            <div className="flex justify-end mt-auto">
+              <div className="text-right">
                 <div className="font-bold text-gray-900 dark:text-white text-sm">{review.name}</div>
                 <div className="text-gray-500 dark:text-gray-400 text-xs">{review.role} · {review.company}</div>
                 <div className="text-teal-600 dark:text-teal-400 text-xs font-medium mt-0.5">{review.course}</div>
@@ -294,19 +291,13 @@ export default function Home() {
       </section>
 
       {/* Blog and Technical Articles */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800/60">
+      <section className="pt-20 pb-10 bg-gray-50 dark:bg-gray-800/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
               Insights
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Blog &amp; Technical Articles
-            </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-              Stay ahead of the curve with expert insights, tutorials, and career guides crafted by
-              our instructors and industry professionals.
-            </p>
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
