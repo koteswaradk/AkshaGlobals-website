@@ -11,11 +11,6 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       colors: {
-        teal: {
-          light: '#4DB8D6',
-          DEFAULT: '#2A7A8C',
-          dark: '#1a5a6a',
-        },
         m3: {
           primary: '#006874',
           'on-primary': '#ffffff',

@@ -41,10 +41,10 @@ export default function Training() {
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-teal-600 to-teal-800 text-white py-16">
+      <div className="bg-gradient-to-br from-m3-on-primary-container to-m3-primary text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Training Programs</h1>
-          <p className="text-teal-100 text-lg max-w-2xl mx-auto">
+          <p className="text-m3-primary-container text-lg max-w-2xl mx-auto">
             Industry-aligned courses with three skill levels to accelerate your tech career.
           </p>
         </div>
