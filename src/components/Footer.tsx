@@ -71,7 +71,7 @@ const FooterLogo = () => {
 
 export default function Footer() {
   return (
-    <footer className="bg-m3-on-primary-container dark:bg-m3-dark-surface-container text-m3-dark-on-surface pt-14 pb-0">
+    <footer className="bg-m3-primary-10 dark:bg-m3-dark-surface-container text-m3-dark-on-surface pt-14 pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 

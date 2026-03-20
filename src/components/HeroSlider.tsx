@@ -24,11 +24,11 @@ const slides = [
 ]
 
 const gradients = [
-  'from-m3-on-primary-container via-m3-primary to-m3-secondary',
+  'from-m3-primary-10 via-m3-primary to-m3-secondary',
   'from-m3-primary via-m3-secondary to-m3-tertiary',
-  'from-m3-secondary via-m3-primary to-m3-on-primary-container',
+  'from-m3-secondary via-m3-primary to-m3-primary-10',
   'from-m3-tertiary via-m3-primary to-m3-secondary',
-  'from-m3-on-primary-container via-m3-tertiary to-m3-primary',
+  'from-m3-primary-10 via-m3-tertiary to-m3-primary',
 ]
 
 export default function HeroSlider() {

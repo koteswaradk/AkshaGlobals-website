@@ -42,7 +42,7 @@ const blogArticles = [
     author: 'Aksha Globals Team',
     date: 'March 10, 2024',
     readTime: '8 min read',
-    color: 'from-m3-primary to-m3-on-primary-container',
+    color: 'from-m3-primary to-m3-primary-10',
   },
   {
     icon: '🤖',
@@ -53,7 +53,7 @@ const blogArticles = [
     author: 'Aksha Globals Team',
     date: 'February 22, 2024',
     readTime: '6 min read',
-    color: 'from-m3-tertiary to-m3-on-primary-container',
+    color: 'from-m3-tertiary to-m3-tertiary-10',
   },
   {
     icon: '🚀',
@@ -64,7 +64,7 @@ const blogArticles = [
     author: 'Aksha Globals Team',
     date: 'January 15, 2024',
     readTime: '5 min read',
-    color: 'from-m3-secondary to-m3-on-primary-container',
+    color: 'from-m3-secondary to-m3-secondary-10',
   },
 ]
 

@@ -47,7 +47,7 @@ export default function ProductDetail() {
                   href={product.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-on-primary-container text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-primary-10 text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
                 >
                   <PlayStoreIcon />
                   Get on Google Play
@@ -56,7 +56,7 @@ export default function ProductDetail() {
                   href={product.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-on-primary-container text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-primary-10 text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
                 >
                   <AppStoreIcon />
                   Download on App Store
