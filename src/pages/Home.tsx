@@ -4,22 +4,22 @@ import HeroSlider from '../components/HeroSlider'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
-    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 8.25h3" />
     </svg>
   ),
   'ios-dev': (
-    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.5 2 7 4 7 4s-1 .5-1 2c0 1 .5 1.5.5 1.5S5 8.5 5 10.5c0 3.5 2 6 3.5 7.5S12 20 12 20s1.5-.5 3.5-2 3.5-4 3.5-7.5c0-2-.5-3-.5-3S19 7 19 6c0-1.5-1-2-1-2s-1.5-2-6-2z" />
     </svg>
   ),
   'genai-ml': (
-    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .03 2.699-1.384 2.316l-2.8-.7m0 0l-1.38-.345a.75.75 0 00-.818.214l-1.4 1.75a.75.75 0 01-1.2 0l-1.4-1.75a.75.75 0 00-.818-.214l-1.38.345m9.396 0L12 21m-4.2-4.9l-1.38.345" />
     </svg>
   ),
   'prompt-engineering': (
-    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <svg className="w-8 h-8 text-teal-600 dark:text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
     </svg>
   ),
@@ -108,26 +108,26 @@ function CourseCard({ course }: { course: Course }) {
   return (
     <Link
       to={`/training/${course.id}`}
-      className={`group bg-white rounded-2xl border-2 ${course.featured ? 'border-teal-400 shadow-lg shadow-teal-100' : 'border-gray-200'} p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
+      className={`group bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700 p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
     >
       {/* Icon */}
       <div className="flex justify-center mb-5">
-        <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center">
+        <div className="w-16 h-16 rounded-full bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center">
           {courseIcons[course.id]}
         </div>
       </div>
       {/* Name & tagline */}
-      <h3 className="text-center font-bold text-gray-900 text-lg mb-2 group-hover:text-teal-600 transition-colors">{course.name}</h3>
-      <p className="text-center text-gray-500 text-sm leading-relaxed mb-5">{course.tagline}</p>
+      <h3 className="text-center font-bold text-gray-900 dark:text-white text-lg mb-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">{course.name}</h3>
+      <p className="text-center text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5">{course.tagline}</p>
       {/* Stats */}
       <div className="space-y-2 mb-5 text-sm">
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Students:</span>
-          <span className="font-bold text-gray-900">{course.students}</span>
+          <span className="text-gray-500 dark:text-gray-400">Students:</span>
+          <span className="font-bold text-gray-900 dark:text-white">{course.students}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Rating:</span>
-          <span className="flex items-center gap-1 font-bold text-gray-900">
+          <span className="text-gray-500 dark:text-gray-400">Rating:</span>
+          <span className="flex items-center gap-1 font-bold text-gray-900 dark:text-white">
             <svg className="w-4 h-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
@@ -135,8 +135,8 @@ function CourseCard({ course }: { course: Course }) {
           </span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-gray-500">Instructor:</span>
-          <span className="font-bold text-gray-900">{course.instructor}</span>
+          <span className="text-gray-500 dark:text-gray-400">Instructor:</span>
+          <span className="font-bold text-gray-900 dark:text-white">{course.instructor}</span>
         </div>
       </div>
       {/* Button */}
@@ -149,18 +149,18 @@ function CourseCard({ course }: { course: Course }) {
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900">
       {/* Hero Slider */}
       <HeroSlider />
 
       {/* Training Programs */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
               Professional Training Programs
             </h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
               Master the latest technologies with our comprehensive, industry-aligned training courses
             </p>
           </div>
