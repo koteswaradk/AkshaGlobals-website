@@ -1,13 +1,28 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
 
-const courseImages: Record<string, string> = {
-  'android-dev': 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=600&q=80',
-  'ios-dev': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80',
-  'genai-ml': 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80',
-  'prompt-engineering': 'https://images.unsplash.com/photo-1655720408440-3debc14e5f3e?w=600&q=80',
+const courseIcons: Record<string, JSX.Element> = {
+  'android-dev': (
+    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 8.25h3" />
+    </svg>
+  ),
+  'ios-dev': (
+    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.5 2 7 4 7 4s-1 .5-1 2c0 1 .5 1.5.5 1.5S5 8.5 5 10.5c0 3.5 2 6 3.5 7.5S12 20 12 20s1.5-.5 3.5-2 3.5-4 3.5-7.5c0-2-.5-3-.5-3S19 7 19 6c0-1.5-1-2-1-2s-1.5-2-6-2z" />
+    </svg>
+  ),
+  'genai-ml': (
+    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1 1 .03 2.699-1.384 2.316l-2.8-.7m0 0l-1.38-.345a.75.75 0 00-.818.214l-1.4 1.75a.75.75 0 01-1.2 0l-1.4-1.75a.75.75 0 00-.818-.214l-1.38.345m9.396 0L12 21m-4.2-4.9l-1.38.345" />
+    </svg>
+  ),
+  'prompt-engineering': (
+    <svg className="w-8 h-8 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+    </svg>
+  ),
 }
 
 const blogArticles = [
@@ -90,64 +105,43 @@ const reviews = [
 ]
 
 function CourseCard({ course }: { course: Course }) {
-  const [imgError, setImgError] = useState(false)
-
   return (
     <Link
       to={`/training/${course.id}`}
-      className="group bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-2 flex flex-col"
+      className={`group bg-white rounded-2xl border-2 ${course.featured ? 'border-teal-400 shadow-lg shadow-teal-100' : 'border-gray-200'} p-6 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}
     >
-      {/* Real course image */}
-      <div className="relative h-44 overflow-hidden">
-        {imgError ? (
-          <div className={`absolute inset-0 bg-gradient-to-br ${course.color} flex items-center justify-center`}>
-            <span className="text-6xl drop-shadow-lg">{course.icon}</span>
-          </div>
-        ) : (
-          <img
-            src={courseImages[course.id]}
-            alt={course.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            onError={() => setImgError(true)}
-          />
-        )}
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-        {/* Course level badges */}
-        <div className="absolute bottom-3 left-3 flex gap-1.5 flex-wrap">
-          {course.levels.map(l => (
-            <span
-              key={l.name}
-              className="text-xs bg-white/20 backdrop-blur-sm text-white border border-white/30 px-2 py-0.5 rounded-full font-semibold"
-            >
-              {l.name}
-            </span>
-          ))}
-        </div>
-        {/* Icon badge */}
-        <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-xl border border-white/30">
-          {course.icon}
+      {/* Icon */}
+      <div className="flex justify-center mb-5">
+        <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center">
+          {courseIcons[course.id]}
         </div>
       </div>
-
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-bold text-gray-900 dark:text-white text-lg mb-1 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
-          {course.name}
-        </h3>
-        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-1">
-          {course.tagline}
-        </p>
-        <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
-          <span className="text-xs text-gray-400 dark:text-gray-500">
-            Starting from{' '}
-            <span className="font-bold text-teal-600 dark:text-teal-400">
-              ₹{Math.min(...course.levels.map(l => l.price)).toLocaleString('en-IN')}
-            </span>
-          </span>
-          <span className="text-teal-600 dark:text-teal-400 text-sm font-semibold group-hover:translate-x-1 transition-transform inline-block">
-            →
+      {/* Name & tagline */}
+      <h3 className="text-center font-bold text-gray-900 text-lg mb-2 group-hover:text-teal-600 transition-colors">{course.name}</h3>
+      <p className="text-center text-gray-500 text-sm leading-relaxed mb-5">{course.tagline}</p>
+      {/* Stats */}
+      <div className="space-y-2 mb-5 text-sm">
+        <div className="flex items-center justify-between">
+          <span className="text-gray-500">Students:</span>
+          <span className="font-bold text-gray-900">{course.students}</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-gray-500">Rating:</span>
+          <span className="flex items-center gap-1 font-bold text-gray-900">
+            <svg className="w-4 h-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+            {course.rating}
           </span>
         </div>
+        <div className="flex items-center justify-between">
+          <span className="text-gray-500">Instructor:</span>
+          <span className="font-bold text-gray-900">{course.instructor}</span>
+        </div>
+      </div>
+      {/* Button */}
+      <div className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 bg-teal-600 group-hover:bg-teal-500 text-white font-semibold rounded-xl transition-colors duration-200">
+        Learn More <span aria-hidden="true">→</span>
       </div>
     </Link>
   )
@@ -155,36 +149,25 @@ function CourseCard({ course }: { course: Course }) {
 
 export default function Home() {
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-white">
       {/* Hero Slider */}
       <HeroSlider />
 
       {/* Training Programs */}
-      <section className="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+      <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
-              Skill Up
-            </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Training Programs
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              Professional Training Programs
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-              Industry-aligned courses designed to fast-track your technology career.
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+              Master the latest technologies with our comprehensive, industry-aligned training courses
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {courses.map(course => (
               <CourseCard key={course.id} course={course} />
             ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              to="/training"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-600 text-white font-bold rounded-xl hover:bg-teal-500 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            >
-              Explore All Courses <span aria-hidden="true">→</span>
-            </Link>
           </div>
         </div>
       </section>
