@@ -93,8 +93,8 @@ export default function TrainingDetail() {
                 onClick={() => setActiveLevel(level.name)}
                 className={`font-semibold text-sm transition-colors duration-200 whitespace-nowrap rounded-full px-4 py-2 ${
                   activeLevel === level.name
-                    ? 'bg-m3-secondary-container dark:bg-m3-dark-secondary-container text-m3-on-secondary-container'
-                    : 'text-m3-on-surface-variant hover:bg-m3-surface-container-high'
+                    ? 'bg-m3-secondary-container dark:bg-m3-dark-secondary-container text-m3-on-secondary-container dark:text-m3-dark-on-secondary-container'
+                    : 'text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:bg-m3-surface-container-high dark:hover:bg-m3-dark-surface-container-high'
                 }`}
               >
                 {level.name}
@@ -116,7 +116,7 @@ export default function TrainingDetail() {
                   <span className="bg-m3-primary-container dark:bg-m3-dark-primary-container text-m3-on-primary-container dark:text-m3-dark-on-primary-container text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0 mt-0.5">
                     {i + 1}
                   </span>
-                  <span className="text-m3-on-surface-variant text-sm">{item}</span>
+                  <span className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm">{item}</span>
                 </div>
               ))}
             </div>
@@ -124,17 +124,17 @@ export default function TrainingDetail() {
 
           {/* Enrollment Card */}
           <div>
-            <div className="bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-2 p-6 border border-m3-outline-variant sticky top-24">
+            <div className="bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-2 p-6 border border-m3-outline-variant dark:border-m3-dark-outline sticky top-24">
               <div className="text-center mb-6">
                 <div className="text-3xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
                   ₹{currentLevel.price.toLocaleString()}
                 </div>
-                <div className="text-m3-on-surface-variant text-sm mt-1">
+                <div className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm mt-1">
                   {currentLevel.duration} program
                 </div>
               </div>
 
-              <div className="space-y-3 mb-6 text-sm text-m3-on-surface-variant">
+              <div className="space-y-3 mb-6 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
                 <div className="flex items-center gap-2">✅ {currentLevel.curriculum.length} topics covered</div>
                 <div className="flex items-center gap-2">✅ Certificate of completion</div>
                 <div className="flex items-center gap-2">✅ Mentor support</div>
@@ -148,7 +148,7 @@ export default function TrainingDetail() {
                 Register &amp; Pay
               </button>
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-m3-on-surface-variant text-xs">
+              <div className="mt-4 flex items-center justify-center gap-2 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-xs">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
@@ -163,7 +163,7 @@ export default function TrainingDetail() {
                 <div key={level.name} className="flex items-center justify-between p-3 border border-m3-outline-variant dark:border-m3-dark-outline rounded-m3 mb-2">
                   <div>
                     <div className="text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{level.name}</div>
-                    <div className="text-xs text-m3-on-surface-variant">{level.duration}</div>
+                    <div className="text-xs text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{level.duration}</div>
                   </div>
                   <div className="text-right">
                     <div className="text-sm font-bold text-m3-primary dark:text-m3-dark-primary">₹{level.price.toLocaleString()}</div>

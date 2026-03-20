@@ -98,8 +98,8 @@ export default function ProductDetail() {
               <table className="w-full">
                 <tbody>
                   {product.specs.map((spec, i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-m3-surface-container-lowest' : 'bg-m3-surface-container'}>
-                      <td className="px-4 py-3 text-sm font-medium text-m3-on-surface-variant">{spec.label}</td>
+                    <tr key={i} className={i % 2 === 0 ? 'bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container' : 'bg-m3-surface-container dark:bg-m3-dark-surface-container-high'}>
+                      <td className="px-4 py-3 text-sm font-medium text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{spec.label}</td>
                       <td className="px-4 py-3 text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{spec.value}</td>
                     </tr>
                   ))}

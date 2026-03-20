@@ -79,7 +79,7 @@ export default function Training() {
                   {course.levels.map(level => (
                     <div key={level.name} className="flex-1 min-w-[80px] bg-m3-surface-container dark:bg-m3-dark-surface-container rounded-m3 p-2 sm:p-3 text-center">
                       <div className="text-xs font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{level.name}</div>
-                      <div className="text-xs text-m3-on-surface-variant mt-0.5">{level.duration}</div>
+                      <div className="text-xs text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant mt-0.5">{level.duration}</div>
                       <div className="text-sm font-bold text-m3-primary dark:text-m3-dark-primary mt-1">
                         ₹{level.price.toLocaleString()}
                       </div>
