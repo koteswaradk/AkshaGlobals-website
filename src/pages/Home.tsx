@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
@@ -174,25 +174,36 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
   const [isPaused, setIsPaused] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const total = reviews.length
+  const currentRef = useRef(current)
+  const isAnimatingRef = useRef(isAnimating)
+
+  currentRef.current = current
+  isAnimatingRef.current = isAnimating
 
   const goTo = useCallback(
     (index: number) => {
-      if (isAnimating) return
+      if (isAnimatingRef.current) return
       setIsAnimating(true)
+      isAnimatingRef.current = true
       setCurrent(((index % total) + total) % total)
-      setTimeout(() => setIsAnimating(false), 500)
+      setTimeout(() => {
+        setIsAnimating(false)
+        isAnimatingRef.current = false
+      }, 500)
     },
-    [isAnimating, total],
+    [total],
   )
 
-  const next = useCallback(() => goTo(current + 1), [current, goTo])
-  const prev = useCallback(() => goTo(current - 1), [current, goTo])
+  const next = useCallback(() => goTo(currentRef.current + 1), [goTo])
+  const prev = useCallback(() => goTo(currentRef.current - 1), [goTo])
 
   useEffect(() => {
     if (isPaused) return
-    const timer = setInterval(next, 5000)
+    const timer = setInterval(() => {
+      goTo(currentRef.current + 1)
+    }, 5000)
     return () => clearInterval(timer)
-  }, [next, isPaused])
+  }, [goTo, isPaused])
 
   const review = reviews[current]
 
