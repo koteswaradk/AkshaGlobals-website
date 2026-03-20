@@ -3,13 +3,6 @@ import { useState } from 'react'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
 
-const stats = [
-  { number: '200K+', label: 'App Downloads', icon: '📲' },
-  { number: '4', label: 'Training Courses', icon: '🎓' },
-  { number: '5K+', label: 'Students Trained', icon: '👩‍💻' },
-  { number: '98%', label: 'Placement Rate', icon: '🏆' },
-]
-
 const courseImages: Record<string, string> = {
   'android-dev': 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=600&q=80',
   'ios-dev': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80',
@@ -17,39 +10,82 @@ const courseImages: Record<string, string> = {
   'prompt-engineering': 'https://images.unsplash.com/photo-1655720408440-3debc14e5f3e?w=600&q=80',
 }
 
-const techActivities = [
+const blogArticles = [
   {
-    icon: '💻',
-    title: 'Technical Content',
+    icon: '📱',
+    category: 'Android Development',
+    title: 'Getting Started with Android Development in 2024',
+    excerpt:
+      "A complete beginner's guide covering Kotlin fundamentals, Jetpack Compose, and building your first real-world Android app from scratch.",
+    author: 'Aksha Globals Team',
+    date: 'March 10, 2024',
+    readTime: '8 min read',
     color: 'from-teal-500 to-cyan-600',
-    items: [
-      'In-depth Android & iOS development modules',
-      'GenAI, LLM & Prompt Engineering tracks',
-      'Live coding sessions & project walkthroughs',
-      'Real-world case studies and industry use-cases',
-    ],
   },
   {
-    icon: '🏅',
-    title: 'Activities & Participations',
+    icon: '🤖',
+    category: 'GenAI & Prompt Engineering',
+    title: 'Mastering Prompt Engineering: Tips, Tricks & Best Practices',
+    excerpt:
+      'Unlock the full potential of large language models with proven prompt design strategies used by AI engineers in top tech companies.',
+    author: 'Aksha Globals Team',
+    date: 'February 22, 2024',
+    readTime: '6 min read',
     color: 'from-purple-500 to-indigo-600',
-    items: [
-      'Hackathons & coding competitions',
-      'Industry seminars and tech talks',
-      'Open-source contribution drives',
-      'Peer collaboration and team projects',
-    ],
   },
   {
-    icon: '🎯',
-    title: 'Achievement Goals',
+    icon: '🚀',
+    category: 'Career Growth',
+    title: 'How Our Students Land Top Tech Jobs After Training',
+    excerpt:
+      'Real stories and actionable strategies from our alumni who cracked placements at leading product companies and startups.',
+    author: 'Aksha Globals Team',
+    date: 'January 15, 2024',
+    readTime: '5 min read',
     color: 'from-orange-500 to-amber-600',
-    items: [
-      'Certification upon course completion',
-      '98% placement assistance & career support',
-      'Build a professional portfolio of projects',
-      'Mentorship from industry practitioners',
-    ],
+  },
+]
+
+const reviews = [
+  {
+    name: 'Priya Sharma',
+    role: 'Android Developer',
+    company: 'TechCorp India',
+    avatar: '👩‍💻',
+    rating: 5,
+    review:
+      'The Android Development course at Aksha Globals completely transformed my career. The hands-on projects and mentorship helped me land my dream job within 2 months of completing the course!',
+    course: 'Android Development',
+  },
+  {
+    name: 'Rahul Verma',
+    role: 'AI/ML Engineer',
+    company: 'StartupHub',
+    avatar: '👨‍🔬',
+    rating: 5,
+    review:
+      'The GenAI and Prompt Engineering track was incredibly insightful. Real-world case studies and live sessions gave me the confidence to work on cutting-edge AI projects professionally.',
+    course: 'GenAI & Prompt Engineering',
+  },
+  {
+    name: 'Ananya Patel',
+    role: 'iOS Developer',
+    company: 'MobiSolutions',
+    avatar: '👩‍🎨',
+    rating: 5,
+    review:
+      "From zero experience to a full-time iOS developer in 4 months — that's what Aksha Globals did for me. The curriculum is industry-relevant and the instructors are genuinely passionate about teaching.",
+    course: 'iOS Development',
+  },
+  {
+    name: 'Kiran Reddy',
+    role: 'Full Stack Developer',
+    company: 'InnovateTech',
+    avatar: '👨‍💼',
+    rating: 5,
+    review:
+      'Exceptional training quality with a perfect balance of theory and practice. The placement support team went above and beyond to help me prepare for interviews. Highly recommended!',
+    course: 'Android Development',
   },
 ]
 
@@ -123,30 +159,8 @@ export default function Home() {
       {/* Hero Slider */}
       <HeroSlider />
 
-      {/* Stats bar */}
-      <section className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map(stat => (
-              <div
-                key={stat.label}
-                className="flex flex-col items-center gap-1 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700"
-              >
-                <span className="text-2xl">{stat.icon}</span>
-                <div className="text-3xl md:text-4xl font-extrabold text-teal-600 dark:text-teal-400 leading-none">
-                  {stat.number}
-                </div>
-                <div className="text-gray-500 dark:text-gray-400 text-xs font-medium tracking-wide uppercase">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Training Programs */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800/60">
+      <section className="py-20 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
@@ -175,86 +189,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technical Content, Activities & Achievement Goals */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      {/* Blog and Technical Articles */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
-              What We Offer
+              Insights
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-              Technical Content, Activities &amp; Achievement Goals
+              Blog &amp; Technical Articles
             </h2>
             <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-              A holistic learning ecosystem that goes beyond the classroom — from expert-crafted
-              content to real-world competitions and career milestones.
+              Stay ahead of the curve with expert insights, tutorials, and career guides crafted by
+              our instructors and industry professionals.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {techActivities.map(section => (
-              <div
-                key={section.title}
-                className="relative rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-xl transition-all duration-300 group"
+            {blogArticles.map(article => (
+              <article
+                key={article.title}
+                className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 flex flex-col group"
               >
-                {/* Gradient header */}
-                <div className={`bg-gradient-to-br ${section.color} px-6 py-8 text-white`}>
-                  <div className="text-5xl mb-3">{section.icon}</div>
-                  <h3 className="text-xl font-extrabold">{section.title}</h3>
+                {/* Colored header banner */}
+                <div className={`bg-gradient-to-br ${article.color} px-6 py-7 text-white`}>
+                  <span className="text-xs font-semibold tracking-widest uppercase bg-white/20 backdrop-blur-sm border border-white/30 px-3 py-0.5 rounded-full">
+                    {article.category}
+                  </span>
+                  <div className="text-5xl mt-4 mb-1 drop-shadow">{article.icon}</div>
                 </div>
-                {/* Items list */}
-                <ul className="bg-white dark:bg-gray-800 p-6 space-y-3">
-                  {section.items.map(item => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 dark:bg-teal-900/40 flex items-center justify-center">
-                        <svg
-                          className="w-3 h-3 text-teal-600 dark:text-teal-400"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={3}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </span>
-                      <span className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                {/* Card body */}
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-lg font-extrabold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5 flex-1">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700 text-xs text-gray-400 dark:text-gray-500">
+                    <span className="font-medium">{article.author}</span>
+                    <div className="flex items-center gap-2">
+                      <span>{article.date}</span>
+                      <span>·</span>
+                      <span>{article.readTime}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-20 bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/5" />
-          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-white/5" />
-        </div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-teal-100 mb-10 text-lg max-w-2xl mx-auto">
-            Join thousands of students who trust Aksha Globals to power their tech career.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/training"
-              className="px-8 py-4 bg-white text-teal-700 font-bold rounded-xl hover:bg-white/90 transition-all duration-200 shadow-xl hover:-translate-y-0.5"
-            >
-              Start Learning Today
-            </Link>
-            <a
-              href="mailto:info@akshaglobals.com"
-              className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-xl hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg"
-            >
-              Contact Us
-            </a>
+      {/* Reviews from Students and Learners */}
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
+              Testimonials
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+              Reviews from Students &amp; Learners
+            </h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+              Hear directly from our community — real experiences from real people who transformed
+              their careers with Aksha Globals.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {reviews.map(review => (
+              <div
+                key={review.name}
+                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-300 flex flex-col gap-4"
+              >
+                {/* Stars */}
+                <div className="flex items-center gap-0.5">
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                {/* Review text */}
+                <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed italic">
+                  "{review.review}"
+                </p>
+                {/* Reviewer info */}
+                <div className="flex items-center gap-4 pt-2 border-t border-gray-100 dark:border-gray-700 mt-auto">
+                  <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
+                    {review.avatar}
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 dark:text-white text-sm">{review.name}</div>
+                    <div className="text-gray-500 dark:text-gray-400 text-xs">{review.role} · {review.company}</div>
+                    <div className="text-teal-600 dark:text-teal-400 text-xs font-medium mt-0.5">{review.course}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
