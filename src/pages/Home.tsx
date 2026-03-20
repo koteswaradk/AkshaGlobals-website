@@ -186,13 +186,6 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
           <span className="inline-block text-xs font-bold tracking-widest text-teal-600 dark:text-teal-400 uppercase mb-3 border border-teal-200 dark:border-teal-800 px-4 py-1 rounded-full">
             Testimonials
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-            Reviews
-          </h2>
-          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            Hear directly from our community — real experiences from real people who transformed
-            their careers with Aksha Globals.
-          </p>
         </div>
 
         <div className="relative max-w-3xl mx-auto">
@@ -215,7 +208,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
               &ldquo;{review.review}&rdquo;
             </p>
             {/* Reviewer info */}
-            <div className="flex items-center justify-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-700 mt-auto">
+            <div className="flex items-center justify-center gap-4 mt-auto">
               <div className="w-12 h-12 rounded-full bg-teal-50 dark:bg-teal-900/30 border border-teal-100 dark:border-teal-800 flex items-center justify-center text-2xl flex-shrink-0">
                 {review.avatar}
               </div>
