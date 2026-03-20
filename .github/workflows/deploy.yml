@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - copilot/create-aksha-globals-website
   workflow_dispatch:
 
 permissions:
