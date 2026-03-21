@@ -187,17 +187,6 @@ export default function Studio() {
             >
               {/* Left - Text content */}
               <div className="flex-1 text-center md:text-left">
-                <div
-                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-8"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.3)' }}
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25z" />
-                  </svg>
-                  <span className="text-sm font-medium" style={{ color: '#F9FAFB' }}>
-                    Premium Video Production Studio
-                  </span>
-                </div>
 
                 {currentSlide.isHero ? (
                   <h1
@@ -227,21 +216,7 @@ export default function Studio() {
                   {currentSlide.subtitle}
                 </p>
 
-                {currentSlide.category && (
-                  <button
-                    onClick={() => handleCategoryClick(currentSlide.category as 'devotional' | 'rhymes' | 'stories')}
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-                    style={{
-                      background: 'linear-gradient(135deg, #F97316 0%, #EF4444 100%)',
-                      color: '#F9FAFB',
-                    }}
-                  >
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                    Watch {currentSlide.title}
-                  </button>
-                )}
+
               </div>
             </div>
           </div>
