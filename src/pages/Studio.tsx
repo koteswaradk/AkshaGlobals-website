@@ -291,6 +291,76 @@ export default function Studio() {
 
       {/* Main Content Area */}
       <div id="studio-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        {/* Categories View */}
+        {view === null && (
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center" style={{ color: '#F9FAFB' }}>
+              Explore Our <span style={{ color: '#F97316' }}>Video Categories</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {categories.map(cat => {
+                const catPlaylists = playlists.filter(pl => pl.category === cat.id)
+                const totalVideos = catPlaylists.reduce((sum, pl) => sum + pl.videos.length, 0)
+                const thumbnail = catPlaylists[0]?.thumbnail
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className="group rounded-2xl overflow-hidden text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl border"
+                    style={{ backgroundColor: '#111827', borderColor: 'rgba(249,115,22,0.2)' }}
+                  >
+                    {/* Category Thumbnail */}
+                    <div className="relative aspect-video overflow-hidden">
+                      {thumbnail ? (
+                        <img
+                          src={thumbnail}
+                          alt={cat.label}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-5xl" style={{ backgroundColor: '#1F2937' }}>
+                          {cat.icon}
+                        </div>
+                      )}
+                      {/* Count overlay */}
+                      <div
+                        className="absolute bottom-0 right-0 px-3 py-1.5 text-xs font-bold flex items-center gap-1.5"
+                        style={{ backgroundColor: 'rgba(0,0,0,0.85)', color: '#F9FAFB' }}
+                      >
+                        <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z" />
+                        </svg>
+                        {catPlaylists.length} playlists · {totalVideos} videos
+                      </div>
+                      {/* Icon overlay */}
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div
+                          className="w-14 h-14 rounded-full flex items-center justify-center"
+                          style={{ backgroundColor: '#F97316' }}
+                        >
+                          <span className="text-3xl">{cat.icon}</span>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Category Info */}
+                    <div className="p-4">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-xl">{cat.icon}</span>
+                        <h3 className="font-bold text-lg" style={{ color: '#F9FAFB' }}>
+                          {cat.label}
+                        </h3>
+                      </div>
+                      <p className="text-sm line-clamp-2" style={{ color: '#9CA3AF' }}>
+                        {cat.description}
+                      </p>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        )}
+
         {/* Playlists View */}
         {view !== null && view.mode === 'playlists' && (
           <div>
