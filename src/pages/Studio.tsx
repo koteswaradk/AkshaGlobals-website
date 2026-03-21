@@ -17,7 +17,7 @@ const sliderData: Array<{
   isHero?: boolean
 }> = [
   {
-    title: 'Bringing Stories\nTo Life',
+    title: 'Bringing Stories To Life',
     subtitle: 'Premium video production studio — captivating stories, rhymes and devotional content for all ages.',
     category: null,
     gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
@@ -182,7 +182,7 @@ export default function Studio() {
 
                 {currentSlide.category && (
                   <button
-                    onClick={() => handleCategoryClick(currentSlide.category!)}
+                    onClick={() => handleCategoryClick(currentSlide.category as 'devotional' | 'rhymes' | 'stories')}
                     className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
                     style={{
                       background: 'linear-gradient(135deg, #F97316 0%, #EF4444 100%)',
