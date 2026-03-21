@@ -17,7 +17,7 @@ const sliderData: Array<{
   bannerImage?: string
 }> = [
   {
-    title: 'Bringing Stories To Life',
+    title: 'Bringing Life to Stories',
     subtitle: 'Premium video production studio — captivating stories, rhymes and devotional content for all ages.',
     category: null,
     gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
@@ -231,7 +231,7 @@ export default function Studio() {
                         backgroundClip: 'text',
                       }}
                     >
-                      Bringing Stories<br />To Life
+                      Bringing Life<br />to Stories
                     </h1>
                   </>
                 ) : (
