@@ -168,100 +168,7 @@ export default function Studio() {
         path="/studio"
       />
 
-      {/* Hero Banner — matches Home page HeroSlider design with Studio colours */}
-      <section
-        className="relative overflow-hidden text-white"
-        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #0F172A 100%)' }}
-        aria-label="Studio hero banner"
-      >
-        {/* Decorative circles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
-          <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03]" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Text content */}
-            <div
-              className="flex-1 text-center lg:text-left"
-              style={{ animation: 'studioHeroFadeIn 0.6s ease-out' }}
-            >
-              <span
-                className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-4 py-1 rounded-full backdrop-blur-sm"
-                style={{ color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.3)' }}
-              >
-                Welcome to Aksha Globals Studios
-              </span>
-
-              <h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
-                style={{
-                  background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 50%, #F9FAFB 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                Bringing Stories
-                <span className="block" style={{ WebkitTextFillColor: 'transparent' }}>To Life</span>
-              </h1>
-
-              <p className="text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed" style={{ color: '#D1D5DB' }}>
-                Premium video production studio — captivating stories, rhymes and devotional content for all ages.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <a
-                  href="#studio-content"
-                  className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
-                  style={{ backgroundColor: '#F97316', color: '#FFFFFF' }}
-                >
-                  Explore Content
-                </a>
-                <a
-                  href="#studio-content"
-                  className="px-8 py-4 font-bold rounded-full transition-all duration-200 border shadow-lg text-center backdrop-blur-sm"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)' }}
-                >
-                  Watch Now
-                </a>
-              </div>
-            </div>
-
-            {/* Visual panel — category cards matching Home's product grid */}
-            <div
-              className="flex-shrink-0 w-full lg:w-80 xl:w-96"
-              style={{ animation: 'studioHeroFadeInRight 0.6s ease-out' }}
-            >
-              <div className="grid grid-cols-2 gap-4">
-                {categories.map(cat => {
-                  const count = playlists.filter(p => p.category === cat.id).length
-                  return (
-                    <button
-                      key={cat.id}
-                      onClick={() => handleCategoryClick(cat.id)}
-                      aria-label={`View ${cat.label} playlists`}
-                      className="rounded-2xl p-5 border text-center transition-all duration-200 hover:-translate-y-1 shadow-lg backdrop-blur-md"
-                      style={{
-                        backgroundColor: 'rgba(255,255,255,0.08)',
-                        borderColor: 'rgba(255,255,255,0.15)',
-                      }}
-                    >
-                      <div className="text-4xl mb-2">{cat.icon}</div>
-                      <div className="text-sm font-bold" style={{ color: '#F9FAFB' }}>{cat.label}</div>
-                      <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>{count} playlists</div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Combined Banner with Sliding Carousel */}
+      {/* Combined Sliding Banner */}
       <section
         className="relative overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
@@ -272,27 +179,42 @@ export default function Studio() {
           className="transition-all duration-700"
           style={{ background: currentSlide.gradient }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+          {/* Decorative circles */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+            <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
+            <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03]" />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
             <div
               key={sliderIndex}
-              className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
+              className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12"
               style={{ animation: 'studioFadeIn 0.5s ease-out' }}
             >
               {/* Left - Text content */}
-              <div className="flex-1 text-center md:text-left">
+              <div className="flex-1 text-center lg:text-left">
 
                 {currentSlide.isHero ? (
-                  <h1
-                    className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6"
-                    style={{
-                      background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    Bringing Stories<br />To Life
-                  </h1>
+                  <>
+                    <span
+                      className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-4 py-1 rounded-full backdrop-blur-sm"
+                      style={{ color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.3)' }}
+                    >
+                      Welcome to Aksha Globals Studios
+                    </span>
+                    <h1
+                      className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
+                      style={{
+                        background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      Bringing Stories<br />To Life
+                    </h1>
+                  </>
                 ) : (
                   <h2
                     className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4"
@@ -303,13 +225,102 @@ export default function Studio() {
                 )}
 
                 <p
-                  className="text-lg md:text-xl mb-8 max-w-xl leading-relaxed"
+                  className="text-lg md:text-xl mb-8 max-w-xl leading-relaxed mx-auto lg:mx-0"
                   style={{ color: '#D1D5DB' }}
                 >
                   {currentSlide.subtitle}
                 </p>
 
+                {currentSlide.isHero && (
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a
+                      href="#studio-content"
+                      className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
+                      style={{ backgroundColor: '#F97316', color: '#FFFFFF' }}
+                    >
+                      Explore Content
+                    </a>
+                    <a
+                      href="#studio-content"
+                      className="px-8 py-4 font-bold rounded-full transition-all duration-200 border shadow-lg text-center backdrop-blur-sm"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)' }}
+                    >
+                      Watch Now
+                    </a>
+                  </div>
+                )}
 
+                {!currentSlide.isHero && currentSlide.category && (() => {
+                  const category = currentSlide.category
+                  return (
+                    <button
+                      onClick={() => handleCategoryClick(category)}
+                      className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5"
+                      style={{ backgroundColor: '#F97316', color: '#FFFFFF' }}
+                    >
+                      Explore {currentSlide.title}
+                    </button>
+                  )
+                })()}
+              </div>
+
+              {/* Right - Visual panel */}
+              <div
+                className="flex-shrink-0 w-full lg:w-80 xl:w-96"
+                style={{ animation: 'studioHeroFadeInRight 0.6s ease-out' }}
+              >
+                {currentSlide.isHero ? (
+                  <div className="grid grid-cols-2 gap-4">
+                    {categories.map(cat => {
+                      const count = playlists.filter(p => p.category === cat.id).length
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => handleCategoryClick(cat.id)}
+                          aria-label={`View ${cat.label} playlists`}
+                          className="rounded-2xl p-5 border text-center transition-all duration-200 hover:-translate-y-1 shadow-lg backdrop-blur-md"
+                          style={{
+                            backgroundColor: 'rgba(255,255,255,0.08)',
+                            borderColor: 'rgba(255,255,255,0.15)',
+                          }}
+                        >
+                          <div className="text-4xl mb-2">{cat.icon}</div>
+                          <div className="text-sm font-bold" style={{ color: '#F9FAFB' }}>{cat.label}</div>
+                          <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>{count} playlists</div>
+                        </button>
+                      )
+                    })}
+                  </div>
+                ) : currentSlide.category ? (
+                  (() => {
+                    const cat = categories.find(c => c.id === currentSlide.category)
+                    const catPlaylists = playlists.filter(p => p.category === currentSlide.category)
+                    const totalVideos = catPlaylists.reduce((sum, pl) => sum + pl.videos.length, 0)
+                    return (
+                      <div
+                        className="rounded-2xl p-6 sm:p-8 border text-center backdrop-blur-md shadow-2xl"
+                        style={{
+                          backgroundColor: 'rgba(255,255,255,0.08)',
+                          borderColor: 'rgba(255,255,255,0.15)',
+                        }}
+                      >
+                        <div className="text-6xl md:text-7xl mb-4 drop-shadow-xl">{cat?.icon}</div>
+                        <div className="text-2xl font-bold mb-1" style={{ color: '#F9FAFB' }}>{cat?.label}</div>
+                        <div className="text-sm mb-4" style={{ color: 'rgba(255,255,255,0.7)' }}>{cat?.description}</div>
+                        <div className="grid grid-cols-2 gap-3">
+                          <div className="rounded-xl p-3" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
+                            <div className="text-xs mb-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>Playlists</div>
+                            <div className="font-bold text-sm" style={{ color: '#F9FAFB' }}>{catPlaylists.length}</div>
+                          </div>
+                          <div className="rounded-xl p-3" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}>
+                            <div className="text-xs mb-0.5" style={{ color: 'rgba(255,255,255,0.6)' }}>Videos</div>
+                            <div className="font-bold text-sm" style={{ color: '#F9FAFB' }}>{totalVideos}</div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })()
+                ) : null}
               </div>
             </div>
           </div>
