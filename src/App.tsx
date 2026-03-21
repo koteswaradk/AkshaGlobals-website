@@ -9,6 +9,8 @@ import Training from './pages/Training'
 import TrainingDetail from './pages/TrainingDetail'
 import Blog from './pages/Blog'
 import BlogDetail from './pages/BlogDetail'
+import Studio from './pages/Studio'
+import StudioVideoPlayer from './pages/StudioVideoPlayer'
 import Contact from './pages/Contact'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
@@ -26,6 +28,8 @@ function App() {
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/training" element={<Training />} />
               <Route path="/training/:id" element={<TrainingDetail />} />
+              <Route path="/studio" element={<Studio />} />
+              <Route path="/studio/:id" element={<StudioVideoPlayer />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogDetail />} />
               <Route path="/contact" element={<Contact />} />
