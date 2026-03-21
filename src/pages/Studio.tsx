@@ -14,6 +14,7 @@ const sliderData: Array<{
   category: 'stories' | 'rhymes' | 'devotional' | null
   gradient: string
   isHero?: boolean
+  bannerImage?: string
 }> = [
   {
     title: 'Bringing Stories To Life',
@@ -21,6 +22,7 @@ const sliderData: Array<{
     category: null,
     gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
     isHero: true,
+    bannerImage: 'https://github.com/user-attachments/assets/70ca7d48-284c-494c-b239-df4535cb46cd',
   },
   {
     title: 'Captivating Stories',
@@ -179,6 +181,23 @@ export default function Studio() {
           className="transition-all duration-700"
           style={{ background: currentSlide.gradient }}
         >
+          {/* Banner background image */}
+          {currentSlide.bannerImage && (
+            <div className="absolute inset-0">
+              <img
+                src={currentSlide.bannerImage}
+                alt="Devotional Stories and Rhymes banner"
+                className="w-full h-full object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 40%, rgba(17,24,39,0.35) 100%)',
+                }}
+              />
+            </div>
+          )}
+
           {/* Decorative circles */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
