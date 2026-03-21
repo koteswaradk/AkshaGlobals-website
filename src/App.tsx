@@ -8,6 +8,8 @@ import ProductDetail from './pages/ProductDetail'
 import Training from './pages/Training'
 import TrainingDetail from './pages/TrainingDetail'
 import Contact from './pages/Contact'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
               <Route path="/training" element={<Training />} />
               <Route path="/training/:id" element={<TrainingDetail />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
             </Routes>
           </main>
           <Footer />
