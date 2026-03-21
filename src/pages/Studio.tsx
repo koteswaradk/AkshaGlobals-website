@@ -168,6 +168,99 @@ export default function Studio() {
         path="/studio"
       />
 
+      {/* Hero Banner — matches Home page HeroSlider design with Studio colours */}
+      <section
+        className="relative overflow-hidden text-white"
+        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #0F172A 100%)' }}
+        aria-label="Studio hero banner"
+      >
+        {/* Decorative circles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
+          <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03]" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Text content */}
+            <div
+              className="flex-1 text-center lg:text-left"
+              style={{ animation: 'studioHeroFadeIn 0.6s ease-out' }}
+            >
+              <span
+                className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-4 py-1 rounded-full backdrop-blur-sm"
+                style={{ color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.3)' }}
+              >
+                Welcome to Aksha Globals Studios
+              </span>
+
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight"
+                style={{
+                  background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 50%, #F9FAFB 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Bringing Stories
+                <span className="block" style={{ WebkitTextFillColor: 'transparent' }}>To Life</span>
+              </h1>
+
+              <p className="text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed" style={{ color: '#D1D5DB' }}>
+                Premium video production studio — captivating stories, rhymes and devotional content for all ages.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a
+                  href="#studio-content"
+                  className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
+                  style={{ backgroundColor: '#F97316', color: '#FFFFFF' }}
+                >
+                  Explore Content
+                </a>
+                <a
+                  href="#studio-content"
+                  className="px-8 py-4 font-bold rounded-full transition-all duration-200 border shadow-lg text-center backdrop-blur-sm"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)' }}
+                >
+                  Watch Now
+                </a>
+              </div>
+            </div>
+
+            {/* Visual panel — category cards matching Home's product grid */}
+            <div
+              className="flex-shrink-0 w-full lg:w-80 xl:w-96"
+              style={{ animation: 'studioHeroFadeInRight 0.6s ease-out' }}
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {categories.map(cat => {
+                  const count = playlists.filter(p => p.category === cat.id).length
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => handleCategoryClick(cat.id)}
+                      aria-label={`View ${cat.label} playlists`}
+                      className="rounded-2xl p-5 border text-center transition-all duration-200 hover:-translate-y-1 shadow-lg backdrop-blur-md"
+                      style={{
+                        backgroundColor: 'rgba(255,255,255,0.08)',
+                        borderColor: 'rgba(255,255,255,0.15)',
+                      }}
+                    >
+                      <div className="text-4xl mb-2">{cat.icon}</div>
+                      <div className="text-sm font-bold" style={{ color: '#F9FAFB' }}>{cat.label}</div>
+                      <div className="text-xs mt-1" style={{ color: 'rgba(255,255,255,0.6)' }}>{count} playlists</div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Combined Banner with Sliding Carousel */}
       <section
         className="relative overflow-hidden"
@@ -661,6 +754,14 @@ export default function Studio() {
         @keyframes studioProgress {
           from { width: 0%; }
           to   { width: 100%; }
+        }
+        @keyframes studioHeroFadeIn {
+          from { opacity: 0; transform: translateX(-24px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes studioHeroFadeInRight {
+          from { opacity: 0; transform: translateX(24px); }
+          to   { opacity: 1; transform: translateX(0); }
         }
       `}</style>
     </div>
