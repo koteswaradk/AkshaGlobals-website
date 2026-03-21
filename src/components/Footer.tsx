@@ -53,8 +53,8 @@ const FooterLogo = () => {
   const [imgError, setImgError] = useState(false)
   return imgError ? (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="24" r="24" fill="#1a6a7a"/>
-      <circle cx="24" cy="24" r="21" fill="none" stroke="#4DB8D6" strokeWidth="2"/>
+      <circle cx="24" cy="24" r="24" fill="#1F2937"/>
+      <circle cx="24" cy="24" r="21" fill="none" stroke="#F97316" strokeWidth="2"/>
       <text x="24" y="32" textAnchor="middle" fill="white" fontSize="24" fontWeight="bold" fontFamily="serif">A</text>
     </svg>
   ) : (
@@ -71,7 +71,7 @@ const FooterLogo = () => {
 
 export default function Footer() {
   return (
-    <footer className="bg-m3-primary-10 dark:bg-m3-dark-surface-container text-m3-dark-on-surface pt-14 pb-0">
+    <footer className="bg-[#111827] text-gray-300 pt-14 pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
@@ -81,10 +81,10 @@ export default function Footer() {
               <FooterLogo />
               <div>
                 <div className="text-white text-xl font-bold leading-tight">Aksha Globals</div>
-                <div className="text-m3-primary-container text-sm font-medium">Imagination to Innovation</div>
+                <div className="text-[#F97316] text-sm font-medium">Imagination to Innovation</div>
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-m3-dark-on-surface-variant mt-4">
+            <p className="text-sm leading-relaxed text-gray-400 mt-4">
               Leading provider of innovative software solutions and professional training programs.
               Empowering developers and businesses to build the future with cutting-edge technology.
             </p>
@@ -93,12 +93,12 @@ export default function Footer() {
           {/* Send a Message */}
           <div>
             <h3 className="text-white text-lg font-medium tracking-wide mb-5">Send a Message</h3>
-            <p className="text-sm text-m3-dark-on-surface-variant leading-relaxed mb-4">
+            <p className="text-sm text-gray-400 leading-relaxed mb-4">
               Have a question or want to work with us? We'd love to hear from you.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-m3-dark-primary-container text-m3-dark-on-primary-container hover:bg-m3-primary hover:text-m3-on-primary text-sm font-medium transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F97316] text-white hover:bg-[#EA580C] text-sm font-medium transition-colors duration-200"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -117,25 +117,25 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 flex items-center justify-center rounded-full bg-m3-dark-primary-container text-m3-dark-on-primary-container hover:bg-m3-primary hover:text-m3-on-primary transition-colors duration-200"
+                  className="w-11 h-11 flex items-center justify-center rounded-full bg-[#1F2937] text-gray-300 hover:bg-[#F97316] hover:text-white transition-colors duration-200"
                   aria-label={social.name}
                 >
                   {social.icon}
                 </a>
               ))}
             </div>
-            <p className="text-sm text-m3-dark-on-surface-variant leading-relaxed">
+            <p className="text-sm text-gray-400 leading-relaxed">
               Join our community for the latest updates, industry insights, and exclusive learning resources.
             </p>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-m3-outline-variant/30 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-m3-dark-outline">
+        <div className="border-t border-gray-700/50 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Aksha Globals. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
-            <Link to="/privacy-policy" className="hover:text-m3-dark-primary transition-colors duration-200">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-m3-dark-primary transition-colors duration-200">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-[#F97316] transition-colors duration-200">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-[#F97316] transition-colors duration-200">Terms of Service</Link>
           </div>
         </div>
       </div>
