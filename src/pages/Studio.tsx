@@ -44,7 +44,7 @@ export default function Studio() {
       {/* Banner */}
       <div
         className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1a1030 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)' }}
       >
         {/* Floating decorative icon - music note (top-left) */}
         <div
