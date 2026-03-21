@@ -149,7 +149,7 @@ export default function TrainingDetail() {
 
               <button
                 onClick={() => handleRegister(currentLevel)}
-                className="w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary font-bold rounded-full transition-colors duration-200 text-lg"
+                className="w-full py-3 bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-full transition-colors duration-200 text-lg"
               >
                 Register &amp; Pay
               </button>

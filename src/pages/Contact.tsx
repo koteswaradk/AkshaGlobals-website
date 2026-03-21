@@ -111,7 +111,7 @@ export default function Contact() {
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3 rounded-full bg-m3-primary text-m3-on-primary hover:shadow-m3-1 font-semibold text-sm transition-colors duration-200"
+                className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#F97316] text-white hover:bg-[#EA580C] hover:shadow-m3-1 font-semibold text-sm transition-colors duration-200"
               >
                 Send Message
               </button>

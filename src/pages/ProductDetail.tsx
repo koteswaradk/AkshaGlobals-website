@@ -53,7 +53,7 @@ export default function ProductDetail() {
                   href={product.playStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-primary-10 text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[#F97316] text-white rounded-full hover:bg-[#EA580C] transition-colors duration-200 text-sm font-semibold"
                 >
                   <PlayStoreIcon />
                   Get on Google Play
@@ -62,7 +62,7 @@ export default function ProductDetail() {
                   href={product.appStoreUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 bg-m3-primary-10 text-white rounded-full hover:bg-m3-primary transition-colors duration-200 text-sm font-semibold"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[#F97316] text-white rounded-full hover:bg-[#EA580C] transition-colors duration-200 text-sm font-semibold"
                 >
                   <AppStoreIcon />
                   Download on App Store
@@ -118,7 +118,7 @@ export default function ProductDetail() {
                 href={product.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary rounded-full transition-colors duration-200 font-semibold"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-[#1F2937] hover:bg-[#374151] text-white rounded-full transition-colors duration-200 font-semibold"
               >
                 <PlayStoreIcon />
                 Google Play Store
@@ -127,7 +127,7 @@ export default function ProductDetail() {
                 href={product.appStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 w-full px-4 py-3 bg-m3-secondary hover:bg-m3-secondary/90 text-m3-on-secondary rounded-full transition-colors duration-200 font-semibold"
+                className="flex items-center gap-3 w-full px-4 py-3 bg-[#F97316] hover:bg-[#EA580C] text-white rounded-full transition-colors duration-200 font-semibold"
               >
                 <AppStoreIcon />
                 Apple App Store

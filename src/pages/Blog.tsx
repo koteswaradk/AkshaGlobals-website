@@ -22,10 +22,10 @@ export default function Blog() {
       />
 
       {/* Hero */}
-      <div className="bg-gradient-to-br from-m3-primary-10 to-m3-primary text-white py-16">
+      <div className="bg-gradient-to-br from-[#111827] to-[#1F2937] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Insights &amp; Blog</h1>
-          <p className="text-m3-primary-container text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Tutorials, technical deep-dives, and career advice from the Aksha Globals team
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function Blog() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
                 activeCategory === cat
-                  ? 'bg-m3-primary text-m3-on-primary'
+                  ? 'bg-[#1F2937] text-white'
                   : 'bg-m3-surface-container-high dark:bg-m3-dark-surface-container-high text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:bg-m3-primary-container dark:hover:bg-m3-dark-primary-container'
               }`}
             >
