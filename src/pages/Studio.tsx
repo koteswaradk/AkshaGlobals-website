@@ -13,8 +13,6 @@ const sliderData: Array<{
   subtitle: string
   category: 'stories' | 'rhymes' | 'devotional' | null
   gradient: string
-  icon: JSX.Element | null
-  emoji: string
   isHero?: boolean
 }> = [
   {
@@ -22,8 +20,6 @@ const sliderData: Array<{
     subtitle: 'Premium video production studio — captivating stories, rhymes and devotional content for all ages.',
     category: null,
     gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
-    icon: null,
-    emoji: '',
     isHero: true,
   },
   {
@@ -31,36 +27,18 @@ const sliderData: Array<{
     subtitle: 'Animated tales that inspire imagination and teach valuable life lessons',
     category: 'stories' as const,
     gradient: 'linear-gradient(135deg, #1e3a5f 0%, #0f2027 50%, #203a43 100%)',
-    icon: (
-      <svg className="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-      </svg>
-    ),
-    emoji: '📖',
   },
   {
     title: 'Joyful Rhymes',
     subtitle: 'Colorful animated nursery rhymes that children love to sing along',
     category: 'rhymes' as const,
     gradient: 'linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 50%, #16213e 100%)',
-    icon: (
-      <svg className="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
-      </svg>
-    ),
-    emoji: '🎵',
   },
   {
     title: 'Divine Devotionals',
     subtitle: 'Sacred chants, bhajans and spiritual content for peace and harmony',
     category: 'devotional' as const,
     gradient: 'linear-gradient(135deg, #4a1a2e 0%, #1a0a0e 50%, #2d1b1b 100%)',
-    icon: (
-      <svg className="w-16 h-16" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
-      </svg>
-    ),
-    emoji: '🙏',
   },
 ]
 
@@ -265,28 +243,6 @@ export default function Studio() {
                   </button>
                 )}
               </div>
-
-              {/* Right - Visual */}
-              {currentSlide.isHero ? (
-                <div className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
-                  <img
-                    src="https://github.com/user-attachments/assets/b28fb353-0c2b-4bd7-9fa4-d4bb545fe7d6"
-                    alt="Video Camera"
-                    className="w-full h-full object-contain drop-shadow-2xl"
-                    style={{ filter: 'invert(1) brightness(0.9)' }}
-                  />
-                </div>
-              ) : (
-                <div className="flex-shrink-0 flex flex-col items-center gap-4">
-                  <div
-                    className="w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', border: '2px solid rgba(249,115,22,0.3)' }}
-                  >
-                    {currentSlide.icon}
-                  </div>
-                  <span className="text-5xl">{currentSlide.emoji}</span>
-                </div>
-              )}
             </div>
           </div>
 
