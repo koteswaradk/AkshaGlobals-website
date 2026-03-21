@@ -23,14 +23,6 @@ const slides = [
   })),
 ]
 
-const gradients = [
-  'from-m3-primary-10 via-m3-primary to-m3-secondary',
-  'from-m3-primary via-m3-secondary to-m3-tertiary',
-  'from-m3-secondary via-m3-primary to-m3-primary-10',
-  'from-m3-tertiary via-m3-primary to-m3-secondary',
-  'from-m3-primary-10 via-m3-tertiary to-m3-primary',
-]
-
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -58,35 +50,37 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
-  const bgGradient = gradients[current % gradients.length]
 
   return (
     <section
-      className={`relative bg-gradient-to-br ${bgGradient} text-white overflow-hidden transition-all duration-700`}
+      className="relative bg-gradient-to-br from-[#111827] via-[#1F2937] to-[#111827] text-white overflow-hidden transition-all duration-700"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
-      {/* Decorative circles */}
+      {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
-        <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/3" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#F97316]/5" />
+        <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-[#F97316]/5" />
+        <div className="absolute top-1/4 right-1/4 w-3 h-3 rounded-full bg-[#F97316]/40" />
+        <div className="absolute top-3/4 right-1/3 w-2 h-2 rounded-full bg-[#F97316]/30" />
+        <div className="absolute top-1/3 left-1/4 w-2 h-2 rounded-full bg-[#F97316]/20" />
+        <div className="absolute bottom-1/4 left-1/3 w-4 h-4 rounded-full bg-white/5" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Text content */}
           <div
             key={current}
-            className="flex-1 text-center lg:text-left animate-fade-in"
+            className="flex-1 text-center lg:text-left"
             style={{ animation: 'fadeSlideIn 0.5s ease-out' }}
           >
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-white/70 mb-4 border border-white/30 px-4 py-1 rounded-full backdrop-blur-sm">
+            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-[#F97316] mb-4 border border-[#F97316]/30 px-4 py-1 rounded-full backdrop-blur-sm">
               {slide.tag}
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-[#F9FAFB]">
               {slide.product ? (
                 <>
                   <span className="mr-3">{slide.icon}</span>
@@ -95,12 +89,12 @@ export default function HeroSlider() {
               ) : (
                 <>
                   Innovate. Learn.
-                  <span className="block text-white/80 font-black mt-1">Transform.</span>
+                  <span className="block text-[#F97316] font-black mt-1">Transform.</span>
                 </>
               )}
             </h1>
 
-            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               {slide.sub}
             </p>
 
@@ -110,7 +104,7 @@ export default function HeroSlider() {
                 {slide.product.features.slice(0, 3).map(f => (
                   <span
                     key={f}
-                    className="text-xs bg-white/15 backdrop-blur-sm border border-white/25 px-3 py-2 rounded-full font-medium"
+                    className="text-xs bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-2 rounded-full font-medium text-gray-200"
                   >
                     ✓ {f}
                   </span>
@@ -120,13 +114,13 @@ export default function HeroSlider() {
 
             {/* Rating & downloads for products */}
             {slide.product && (
-              <div className="flex items-center gap-6 justify-center lg:justify-start mb-8 text-white/80 text-sm">
+              <div className="flex items-center gap-6 justify-center lg:justify-start mb-8 text-gray-300 text-sm">
                 {(['Rating', 'Downloads'] as const).map(label => {
                   const spec = slide.product!.specs.find(s => s.label === label)
                   if (!spec) return null
                   return (
                     <div key={label} className="flex items-center gap-1">
-                      <span className="font-bold text-white">{spec.value}</span>
+                      <span className="font-bold text-[#F97316]">{spec.value}</span>
                       <span>{spec.label}</span>
                     </div>
                   )
@@ -137,13 +131,13 @@ export default function HeroSlider() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 to={slide.cta.to}
-                className="px-8 py-4 bg-white text-m3-primary font-bold rounded-full hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
+                className="px-8 py-4 bg-[#F97316] text-white font-bold rounded-full hover:bg-[#EA580C] transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
               >
                 {slide.cta.label}
               </Link>
               <Link
                 to={slide.ctaAlt.to}
-                className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 transition-all duration-200 border border-white/20 shadow-lg text-center"
               >
                 {slide.ctaAlt.label}
               </Link>
@@ -153,22 +147,22 @@ export default function HeroSlider() {
           {/* Visual panel */}
           <div
             key={`visual-${current}`}
-            className="flex-shrink-0 w-full lg:w-80 xl:w-96"
+            className="flex-shrink-0 w-full lg:w-[45%]"
             style={{ animation: 'fadeSlideInRight 0.5s ease-out' }}
           >
             {slide.product ? (
-              <div className="bg-white/10 backdrop-blur-md rounded-m3-xl p-5 sm:p-8 border border-white/20 shadow-2xl text-center">
+              <div className="bg-white/5 backdrop-blur-md rounded-m3-xl p-5 sm:p-8 border border-white/10 shadow-2xl text-center">
                 <div className="text-6xl md:text-8xl mb-6 drop-shadow-xl">{slide.icon}</div>
-                <div className="text-2xl font-bold mb-1">{slide.product.name}</div>
-                <div className="text-white/70 text-sm mb-6">{slide.product.tagline}</div>
+                <div className="text-2xl font-bold mb-1 text-[#F9FAFB]">{slide.product.name}</div>
+                <div className="text-gray-400 text-sm mb-6">{slide.product.tagline}</div>
                 <div className="grid grid-cols-2 gap-3">
                   {(['Platform', 'Version', 'Rating', 'Downloads'] as const).map(label => {
                     const spec = slide.product!.specs.find(s => s.label === label)
                     if (!spec) return null
                     return (
-                      <div key={label} className="bg-white/10 rounded-xl p-3">
-                        <div className="text-xs text-white/60 mb-0.5">{spec.label}</div>
-                        <div className="font-bold text-sm">{spec.value}</div>
+                      <div key={label} className="bg-white/5 rounded-xl p-3">
+                        <div className="text-xs text-gray-400 mb-0.5">{spec.label}</div>
+                        <div className="font-bold text-sm text-[#F9FAFB]">{spec.value}</div>
                       </div>
                     )
                   })}
@@ -178,7 +172,7 @@ export default function HeroSlider() {
                     href={slide.product.playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
+                    className="flex items-center gap-2 bg-[#F97316]/20 hover:bg-[#F97316]/30 border border-[#F97316]/30 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200 text-[#F97316]"
                   >
                     <span>▶</span> Play Store
                   </a>
@@ -186,25 +180,22 @@ export default function HeroSlider() {
                     href={slide.product.appStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200 text-gray-200"
                   >
                     <span>🍎</span> App Store
                   </a>
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-2 gap-4">
-                {products.map(p => (
-                  <Link
-                    key={p.id}
-                    to={`/products/${p.id}`}
-                    className="bg-white/10 backdrop-blur-md rounded-m3-lg p-5 border border-white/20 text-center hover:bg-white/20 transition-all duration-200 hover:-translate-y-1 shadow-lg"
-                  >
-                    <div className="text-4xl mb-2">{p.icon}</div>
-                    <div className="text-sm font-bold">{p.name}</div>
-                    <div className="text-xs text-white/60 mt-1">{p.category}</div>
-                  </Link>
-                ))}
+              <div className="relative">
+                <img
+                  src="https://github.com/user-attachments/assets/2776809e-2185-4aab-99ac-b24bdbf20b37"
+                  alt="Video Production Studio"
+                  className="w-full rounded-2xl shadow-2xl"
+                />
+                <div className="absolute -bottom-4 -left-4 bg-[#F97316] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                  🎬 Studio Ready
+                </div>
               </div>
             )}
           </div>
@@ -220,8 +211,8 @@ export default function HeroSlider() {
             aria-label={`Go to slide ${i + 1}`}
             className={`transition-all duration-300 rounded-full ${
               i === current
-                ? 'w-8 h-3 bg-white'
-                : 'w-3 h-3 bg-white/40 hover:bg-white/70'
+                ? 'w-8 h-3 bg-[#F97316]'
+                : 'w-3 h-3 bg-white/30 hover:bg-white/60'
             }`}
           />
         ))}
@@ -231,7 +222,7 @@ export default function HeroSlider() {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 rounded-full w-11 h-11 flex items-center justify-center transition-all duration-200 shadow-lg"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-[#F97316]/30 backdrop-blur-sm border border-white/20 rounded-full w-11 h-11 flex items-center justify-center transition-all duration-200 shadow-lg"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -240,7 +231,7 @@ export default function HeroSlider() {
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 rounded-full w-11 h-11 flex items-center justify-center transition-all duration-200 shadow-lg"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-[#F97316]/30 backdrop-blur-sm border border-white/20 rounded-full w-11 h-11 flex items-center justify-center transition-all duration-200 shadow-lg"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -249,10 +240,10 @@ export default function HeroSlider() {
 
       {/* Progress bar */}
       {!isPaused && (
-        <div className="absolute bottom-0 left-0 h-0.5 bg-white/30 w-full">
+        <div className="absolute bottom-0 left-0 h-0.5 bg-white/10 w-full">
           <div
             key={current}
-            className="h-full bg-white"
+            className="h-full bg-[#F97316]"
             style={{ animation: 'progressBar 5s linear' }}
           />
         </div>
