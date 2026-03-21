@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 
 const Logo = () => {
@@ -30,6 +30,8 @@ const Logo = () => {
 export default function Navbar() {
   const { isDark, toggleTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const isStudio = location.pathname === '/studio'
 
   const navLinks = [
     { to: '/', label: 'Home' },
@@ -61,7 +63,7 @@ export default function Navbar() {
           >
             <Logo />
             <span className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
-              Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Globals</span>
+              Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Globals{isStudio ? ' Studios' : ''}</span>
             </span>
           </a>
 
