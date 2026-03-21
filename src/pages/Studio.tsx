@@ -8,8 +8,6 @@ type ViewState =
   | { mode: 'videos'; playlist: Playlist }
   | { mode: 'player'; playlist: Playlist; video: Video }
 
-const STUDIO_LOGO = 'https://github.com/user-attachments/assets/47577bb3-e8cd-4289-b81a-4913c64aed88'
-
 export default function Studio() {
   const [view, setView] = useState<ViewState>({ mode: 'categories' })
 
@@ -46,62 +44,83 @@ export default function Studio() {
       {/* Banner */}
       <div
         className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1a1030 100%)' }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Logo + Title */}
-            <div className="flex-shrink-0">
-              <img
-                src={STUDIO_LOGO}
-                alt="Aksha Globals Studio"
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4"
-                style={{ borderColor: '#F97316', backgroundColor: '#F9FAFB' }}
-              />
-            </div>
-            <div className="text-center md:text-left flex-1">
-              <h1
-                className="text-3xl md:text-5xl font-extrabold mb-3"
-                style={{ color: '#F9FAFB' }}
-              >
-                Aksha Globals <span style={{ color: '#F97316' }}>Studio</span>
-              </h1>
-              <p className="text-lg md:text-xl max-w-2xl" style={{ color: '#D1D5DB' }}>
-                Your destination for Stories, Rhymes &amp; Devotional videos — crafted with love and uploaded to YouTube.
-              </p>
-            </div>
-            {/* Pictorial Icons */}
-            <div className="flex gap-6 md:gap-8">
-              <div className="flex flex-col items-center gap-2">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '2px solid #F97316' }}
-                >
-                  📖
-                </div>
-                <span className="text-xs font-semibold" style={{ color: '#F97316' }}>Stories</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '2px solid #F97316' }}
-                >
-                  🎵
-                </div>
-                <span className="text-xs font-semibold" style={{ color: '#F97316' }}>Rhymes</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '2px solid #F97316' }}
-                >
-                  🙏
-                </div>
-                <span className="text-xs font-semibold" style={{ color: '#F97316' }}>Devotional</span>
-              </div>
-            </div>
+        {/* Floating decorative icon - music note (top-left) */}
+        <div
+          className="studio-banner-float absolute top-8 left-6 md:left-12 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg"
+          style={{ backgroundColor: '#F97316' }}
+        >
+          <svg className="w-7 h-7 md:w-8 md:h-8" fill="#F9FAFB" viewBox="0 0 24 24">
+            <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6zM10 19a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" />
+          </svg>
+        </div>
+
+        {/* Floating decorative icon - book (right side) */}
+        <div
+          className="studio-banner-float-delayed absolute bottom-24 right-6 md:right-16 w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-lg"
+          style={{ backgroundColor: 'rgba(249,115,22,0.2)', border: '2px solid rgba(249,115,22,0.4)' }}
+        >
+          <svg className="w-7 h-7 md:w-8 md:h-8" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+          </svg>
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center relative z-10">
+          {/* Badge */}
+          <div className="studio-banner-fade-up inline-flex items-center gap-2 px-5 py-2 rounded-full mb-8"
+            style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.3)' }}
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25z" />
+            </svg>
+            <span className="text-sm font-medium" style={{ color: '#F9FAFB' }}>
+              Premium Video Production Studio
+            </span>
+          </div>
+
+          {/* Main Heading */}
+          <h1
+            className="studio-banner-fade-up-delay-1 text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6"
+            style={{
+              background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Bringing Stories<br />To Life
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            className="studio-banner-fade-up-delay-2 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            style={{ color: '#D1D5DB' }}
+          >
+            Creating magical moments with animated rhymes, devotional videos, and captivating stories that inspire and entertain
+          </p>
+
+          {/* CTA Button */}
+          <div className="studio-banner-fade-up-delay-3">
+            <button
+              onClick={() => {
+                const contentEl = document.getElementById('studio-content')
+                contentEl?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="studio-banner-pulse inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-semibold transition-shadow duration-300 hover:shadow-xl"
+              style={{
+                background: 'linear-gradient(135deg, #F97316 0%, #EF4444 100%)',
+                color: '#F9FAFB',
+              }}
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Our Work
+            </button>
           </div>
         </div>
+
         {/* Decorative bottom border */}
         <div className="h-1" style={{ background: 'linear-gradient(90deg, #F97316, #1F2937, #F97316)' }} />
       </div>
@@ -123,7 +142,7 @@ export default function Studio() {
       )}
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <div id="studio-content" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Categories View */}
         {view.mode === 'categories' && (
           <div>

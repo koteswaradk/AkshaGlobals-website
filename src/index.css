@@ -95,3 +95,58 @@
   70% { box-shadow: 0 0 0 8px rgba(0, 104, 116, 0); }
   100% { box-shadow: 0 0 0 0 rgba(0, 104, 116, 0); }
 }
+
+/* Studio Banner Animations */
+@keyframes studioBannerFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes studioBannerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes studioBannerFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes studioBannerPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.studio-banner-fade-up {
+  animation: studioBannerFadeUp 0.8s ease-out both;
+}
+
+.studio-banner-fade-up-delay-1 {
+  animation: studioBannerFadeUp 0.8s ease-out 0.2s both;
+}
+
+.studio-banner-fade-up-delay-2 {
+  animation: studioBannerFadeUp 0.8s ease-out 0.4s both;
+}
+
+.studio-banner-fade-up-delay-3 {
+  animation: studioBannerFadeUp 0.8s ease-out 0.6s both;
+}
+
+.studio-banner-float {
+  animation: studioBannerFloat 3s ease-in-out infinite;
+}
+
+.studio-banner-float-delayed {
+  animation: studioBannerFloat 3.5s ease-in-out 1s infinite;
+}
+
+.studio-banner-pulse {
+  animation: studioBannerPulse 2s ease-in-out infinite;
+}
