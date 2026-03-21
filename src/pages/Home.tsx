@@ -33,41 +33,9 @@ const courseIcons: Record<string, JSX.Element> = {
   ),
 }
 
-const blogArticles = [
-  {
-    icon: '📱',
-    category: 'Android Development',
-    title: 'Getting Started with Android Development in 2024',
-    excerpt:
-      "A complete beginner's guide covering Kotlin fundamentals, Jetpack Compose, and building your first real-world Android app from scratch.",
-    author: 'Aksha Globals Team',
-    date: 'March 10, 2024',
-    readTime: '8 min read',
-    color: 'from-m3-primary to-m3-primary-10',
-  },
-  {
-    icon: '🤖',
-    category: 'GenAI & Prompt Engineering',
-    title: 'Mastering Prompt Engineering: Tips, Tricks & Best Practices',
-    excerpt:
-      'Unlock the full potential of large language models with proven prompt design strategies used by AI engineers in top tech companies.',
-    author: 'Aksha Globals Team',
-    date: 'February 22, 2024',
-    readTime: '6 min read',
-    color: 'from-m3-tertiary to-m3-tertiary-10',
-  },
-  {
-    icon: '🚀',
-    category: 'Career Growth',
-    title: 'How Our Students Land Top Tech Jobs After Training',
-    excerpt:
-      'Real stories and actionable strategies from our alumni who cracked placements at leading product companies and startups.',
-    author: 'Aksha Globals Team',
-    date: 'January 15, 2024',
-    readTime: '5 min read',
-    color: 'from-m3-secondary to-m3-secondary-10',
-  },
-]
+import { blogPosts } from '../data/blogPosts'
+
+const blogArticles = blogPosts.slice(0, 3)
 
 const reviews = [
   {
@@ -344,8 +312,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {blogArticles.map(article => (
-              <article
-                key={article.title}
+              <Link
+                key={article.id}
+                to={`/blog/${article.id}`}
                 className="bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl overflow-hidden shadow-sm hover:shadow-xl border border-m3-outline-variant transition-all duration-300 hover:-translate-y-1 flex flex-col group"
               >
                 {/* Colored header banner */}
@@ -372,8 +341,17 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-m3-primary text-m3-on-primary font-semibold rounded-full transition-colors duration-200 hover:bg-m3-primary/90"
+            >
+              View All Posts <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </section>
