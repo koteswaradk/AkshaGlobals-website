@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { playlists, categories, Playlist, Video } from '../data/studioVideos'
 
@@ -566,7 +567,26 @@ export default function Studio() {
         )}
       </div>
 
+      {/* Bottom bar */}
+      <div
+        className="border-t py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm px-4 sm:px-6 lg:px-8"
+        style={{ borderColor: 'rgba(107,114,128,0.3)', backgroundColor: '#1F2937', color: '#9CA3AF' }}
+      >
+        <p>© {new Date().getFullYear()} Aksha Globals Studio. All rights reserved.</p>
+        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
+          <Link to="/privacy-policy" className="studio-footer-link">Privacy Policy</Link>
+          <Link to="/terms-of-service" className="studio-footer-link">Terms of Service</Link>
+        </div>
+      </div>
+
       <style>{`
+        .studio-footer-link {
+          color: #9CA3AF;
+          transition: color 0.2s;
+        }
+        .studio-footer-link:hover {
+          color: #F97316;
+        }
         @keyframes studioFadeIn {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
