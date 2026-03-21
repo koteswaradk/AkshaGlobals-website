@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Aksha Globals Team',
     date: 'March 10, 2024',
     readTime: '8 min read',
-    color: 'from-m3-primary to-m3-primary-10',
+    color: 'from-m3-primary-10 to-m3-tertiary',
     tags: ['Android', 'Kotlin', 'Jetpack Compose', 'Mobile Development'],
     content: [
       'Android development continues to evolve rapidly, and 2024 is an exciting time to start building apps. With Kotlin as the official language and Jetpack Compose as the modern UI toolkit, developers have powerful tools at their disposal to create beautiful, performant mobile applications.',
@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Aksha Globals Team',
     date: 'February 22, 2024',
     readTime: '6 min read',
-    color: 'from-m3-tertiary to-m3-tertiary-10',
+    color: 'from-m3-tertiary-20 to-m3-tertiary',
     tags: ['GenAI', 'Prompt Engineering', 'LLM', 'ChatGPT'],
     content: [
       'Prompt engineering has emerged as one of the most in-demand skills in the AI era. As large language models (LLMs) like GPT-4, Claude, and Gemini become integral to business workflows, the ability to craft effective prompts separates good AI outputs from great ones.',
@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Aksha Globals Team',
     date: 'January 15, 2024',
     readTime: '5 min read',
-    color: 'from-m3-secondary to-m3-secondary-10',
+    color: 'from-m3-secondary to-m3-primary-10',
     tags: ['Career', 'Placements', 'Tech Jobs', 'Success Stories'],
     content: [
       'At Aksha Globals, we measure our success by the success of our students. Over the past year, our graduates have secured positions at leading tech companies, startups, and product firms — and their journeys are both inspiring and instructive.',
@@ -92,7 +92,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Aksha Globals Team',
     date: 'December 5, 2023',
     readTime: '7 min read',
-    color: 'from-m3-primary-10 to-m3-primary',
+    color: 'from-m3-primary to-m3-primary-30',
     tags: ['iOS', 'Swift', 'SwiftUI', 'Apple', 'Mobile Development'],
     content: [
       'SwiftUI has revolutionized iOS development since its introduction, and it continues to gain new features and capabilities with each release. For developers looking to build modern Apple platform apps, SwiftUI is the clear path forward.',
@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Aksha Globals Team',
     date: 'November 18, 2023',
     readTime: '7 min read',
-    color: 'from-m3-tertiary to-m3-tertiary-10',
+    color: 'from-m3-tertiary-20 to-m3-tertiary',
     tags: ['GenAI', 'Business', 'Enterprise AI', 'Innovation'],
     content: [
       'Generative AI is no longer just a research curiosity — it is transforming how businesses operate across every industry. From automating customer support to generating marketing content, the applications are vast and growing rapidly.',
@@ -138,7 +138,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Aksha Globals Team',
     date: 'October 28, 2023',
     readTime: '6 min read',
-    color: 'from-m3-secondary to-m3-secondary-10',
+    color: 'from-m3-secondary to-m3-primary-10',
     tags: ['Mobile', 'Trends', 'Android', 'iOS', 'Cross-Platform'],
     content: [
       'The mobile app development landscape is evolving faster than ever. As we move through 2024, several key trends are shaping how developers build, deploy, and maintain mobile applications.',
