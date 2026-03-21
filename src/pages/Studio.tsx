@@ -7,7 +7,24 @@ type ViewState =
   | { mode: 'videos'; playlist: Playlist }
   | { mode: 'player'; playlist: Playlist; video: Video }
 
-const sliderData = [
+const sliderData: Array<{
+  title: string
+  subtitle: string
+  category: 'stories' | 'rhymes' | 'devotional' | null
+  gradient: string
+  icon: JSX.Element | null
+  emoji: string
+  isHero?: boolean
+}> = [
+  {
+    title: 'Bringing Stories To Life',
+    subtitle: 'Premium video production studio — captivating stories, rhymes and devotional content for all ages.',
+    category: null,
+    gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
+    icon: null,
+    emoji: '',
+    isHero: true,
+  },
   {
     title: 'Captivating Stories',
     subtitle: 'Animated tales that inspire imagination and teach valuable life lessons',
@@ -104,57 +121,7 @@ export default function Studio() {
         path="/studio"
       />
 
-      {/* Banner */}
-      <div
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)' }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            {/* Left - Text */}
-            <div className="flex-1 text-center md:text-left">
-              <div
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-8"
-                style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.3)' }}
-              >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25z" />
-                </svg>
-                <span className="text-sm font-medium" style={{ color: '#F9FAFB' }}>
-                  Premium Video Production Studio
-                </span>
-              </div>
-
-              <h1
-                className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6"
-                style={{
-                  background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                Bringing Stories<br />To Life
-              </h1>
-            </div>
-
-            {/* Right - Camera Image */}
-            <div className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
-              <img
-                src="https://github.com/user-attachments/assets/b28fb353-0c2b-4bd7-9fa4-d4bb545fe7d6"
-                alt="Video Camera"
-                className="w-full h-full object-contain drop-shadow-2xl"
-                style={{ filter: 'invert(1) brightness(0.9)' }}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Decorative bottom border */}
-        <div className="h-1" style={{ background: 'linear-gradient(90deg, #F97316, #1F2937, #F97316)' }} />
-      </div>
-
-      {/* Sliding Banners */}
+      {/* Combined Banner with Sliding Carousel */}
       <section
         className="relative overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
@@ -165,51 +132,92 @@ export default function Studio() {
           className="transition-all duration-700"
           style={{ background: currentSlide.gradient }}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
             <div
               key={sliderIndex}
               className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
               style={{ animation: 'studioFadeIn 0.5s ease-out' }}
             >
-              {/* Slide icon/visual */}
-              <div className="flex-shrink-0 flex flex-col items-center gap-4">
-                <div
-                  className="w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.1)', border: '2px solid rgba(249,115,22,0.3)' }}
-                >
-                  {currentSlide.icon}
-                </div>
-                <span className="text-5xl">{currentSlide.emoji}</span>
-              </div>
-
-              {/* Slide text */}
+              {/* Left - Text content */}
               <div className="flex-1 text-center md:text-left">
-                <h2
-                  className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4"
-                  style={{ color: '#F9FAFB' }}
+                <div
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-8"
+                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '1px solid rgba(249,115,22,0.3)' }}
                 >
-                  {currentSlide.title}
-                </h2>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="#F97316" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25z" />
+                  </svg>
+                  <span className="text-sm font-medium" style={{ color: '#F9FAFB' }}>
+                    Premium Video Production Studio
+                  </span>
+                </div>
+
+                {currentSlide.isHero ? (
+                  <h1
+                    className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6"
+                    style={{
+                      background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Bringing Stories<br />To Life
+                  </h1>
+                ) : (
+                  <h2
+                    className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4"
+                    style={{ color: '#F9FAFB' }}
+                  >
+                    {currentSlide.title}
+                  </h2>
+                )}
+
                 <p
                   className="text-lg md:text-xl mb-8 max-w-xl leading-relaxed"
                   style={{ color: '#D1D5DB' }}
                 >
                   {currentSlide.subtitle}
                 </p>
-                <button
-                  onClick={() => handleCategoryClick(currentSlide.category)}
-                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-                  style={{
-                    background: 'linear-gradient(135deg, #F97316 0%, #EF4444 100%)',
-                    color: '#F9FAFB',
-                  }}
-                >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Watch {currentSlide.title}
-                </button>
+
+                {currentSlide.category && (
+                  <button
+                    onClick={() => handleCategoryClick(currentSlide.category as 'devotional' | 'rhymes' | 'stories')}
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+                    style={{
+                      background: 'linear-gradient(135deg, #F97316 0%, #EF4444 100%)',
+                      color: '#F9FAFB',
+                    }}
+                  >
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    Watch {currentSlide.title}
+                  </button>
+                )}
               </div>
+
+              {/* Right - Visual */}
+              {currentSlide.isHero ? (
+                <div className="flex-shrink-0 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
+                  <img
+                    src="https://github.com/user-attachments/assets/b28fb353-0c2b-4bd7-9fa4-d4bb545fe7d6"
+                    alt="Video Camera"
+                    className="w-full h-full object-contain drop-shadow-2xl"
+                    style={{ filter: 'invert(1) brightness(0.9)' }}
+                  />
+                </div>
+              ) : (
+                <div className="flex-shrink-0 flex flex-col items-center gap-4">
+                  <div
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'rgba(249,115,22,0.1)', border: '2px solid rgba(249,115,22,0.3)' }}
+                  >
+                    {currentSlide.icon}
+                  </div>
+                  <span className="text-5xl">{currentSlide.emoji}</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -248,6 +256,9 @@ export default function Studio() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
+
+          {/* Decorative bottom border */}
+          <div className="h-1" style={{ background: 'linear-gradient(90deg, #F97316, #1F2937, #F97316)' }} />
 
           {/* Progress bar */}
           {!isPaused && (
