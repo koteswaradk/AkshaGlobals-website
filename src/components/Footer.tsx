@@ -53,8 +53,8 @@ const FooterLogo = () => {
   const [imgError, setImgError] = useState(false)
   return imgError ? (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="24" r="24" fill="#1a6a7a"/>
-      <circle cx="24" cy="24" r="21" fill="none" stroke="#4DB8D6" strokeWidth="2"/>
+      <circle cx="24" cy="24" r="24" fill="#064E3B"/>
+      <circle cx="24" cy="24" r="21" fill="none" stroke="#34D399" strokeWidth="2"/>
       <text x="24" y="32" textAnchor="middle" fill="white" fontSize="24" fontWeight="bold" fontFamily="serif">A</text>
     </svg>
   ) : (
