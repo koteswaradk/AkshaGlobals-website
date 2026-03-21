@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { courses } from '../data/courses'
+import SEO from '../components/SEO'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
@@ -40,6 +41,11 @@ export default function Training() {
 
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
+      <SEO
+        title="Training Programs"
+        description="Industry-aligned training courses in Android, iOS, GenAI & ML, and Prompt Engineering — three skill levels to accelerate your tech career."
+        path="/training"
+      />
       {/* Hero */}
       <div className="bg-gradient-to-br from-m3-primary-10 to-m3-primary text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

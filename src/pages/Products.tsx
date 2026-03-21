@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
+import SEO from '../components/SEO'
 
 export default function Products() {
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
+      <SEO
+        title="Our Products"
+        description="Discover Aksha Globals' suite of powerful mobile and web applications built to solve real-world problems."
+        path="/products"
+      />
       {/* Hero */}
       <div className="bg-gradient-to-br from-m3-primary-10 to-m3-primary text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

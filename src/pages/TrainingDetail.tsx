@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { courses } from '../data/courses'
 import type { CourseLevel } from '../data/courses'
 import PaymentModal from '../components/PaymentModal'
+import SEO from '../components/SEO'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
@@ -60,6 +61,11 @@ export default function TrainingDetail() {
 
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
+      <SEO
+        title={course.name}
+        description={course.description}
+        path={`/training/${course.id}`}
+      />
       {/* Hero */}
       <div className={`bg-gradient-to-br ${course.color} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

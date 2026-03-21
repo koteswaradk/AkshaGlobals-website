@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { products } from '../data/products'
+import SEO from '../components/SEO'
 
 const PlayStoreIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -30,6 +31,11 @@ export default function ProductDetail() {
 
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
+      <SEO
+        title={product.name}
+        description={product.description}
+        path={`/products/${product.id}`}
+      />
       {/* Hero */}
       <div className={`bg-gradient-to-br ${product.color} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

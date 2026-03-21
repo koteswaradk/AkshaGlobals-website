@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
+import SEO from '../components/SEO'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
@@ -304,6 +305,11 @@ export default function Home() {
 
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface">
+      <SEO
+        title="Aksha Globals"
+        description="Aksha Globals builds innovative mobile apps and offers professional training in Android, iOS, GenAI, and Prompt Engineering."
+        path="/"
+      />
       {/* Hero Slider */}
       <HeroSlider />
 
