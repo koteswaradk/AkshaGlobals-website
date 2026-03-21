@@ -8,7 +8,12 @@ type ViewState =
   | { mode: 'videos'; playlist: Playlist }
   | { mode: 'player'; playlist: Playlist; video: Video }
 
-const STUDIO_LOGO = 'https://github.com/user-attachments/assets/47577bb3-e8cd-4289-b81a-4913c64aed88'
+const bannerCards = [
+  { id: 'stories' as const, icon: '📖', label: 'Stories', sub: 'Storytelling' },
+  { id: 'rhymes' as const, icon: '🎵', label: 'Rhymes', sub: 'Music & Fun' },
+  { id: 'devotional' as const, icon: '🙏', label: 'Devotional', sub: 'Spiritual' },
+  { icon: '🎬', label: 'Animation', sub: 'Video Production' },
+]
 
 export default function Studio() {
   const [view, setView] = useState<ViewState>({ mode: 'categories' })
@@ -44,67 +49,93 @@ export default function Studio() {
       />
 
       {/* Banner */}
-      <div
-        className="relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)' }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Logo + Title */}
-            <div className="flex-shrink-0">
-              <img
-                src={STUDIO_LOGO}
-                alt="Aksha Globals Studio"
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4"
-                style={{ borderColor: '#F97316', backgroundColor: '#F9FAFB' }}
-              />
-            </div>
-            <div className="text-center md:text-left flex-1">
-              <h1
-                className="text-3xl md:text-5xl font-extrabold mb-3"
-                style={{ color: '#F9FAFB' }}
-              >
-                Aksha Globals <span style={{ color: '#F97316' }}>Studio</span>
+      <section className="relative bg-gradient-to-br from-m3-primary-10 via-m3-primary to-m3-secondary text-white overflow-hidden">
+        {/* Decorative circles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
+          <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03]" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Text content */}
+            <div
+              className="flex-1 text-center lg:text-left"
+              style={{ animation: 'studioFadeIn 0.5s ease-out' }}
+            >
+              <span className="inline-block text-sm font-semibold tracking-widest uppercase text-white/70 mb-4 border border-white/30 px-4 py-1 rounded-full backdrop-blur-sm">
+                Aksha Globals Studio
+              </span>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                Create. Produce.
+                <span className="block text-white/80 font-black mt-1">Inspire.</span>
               </h1>
-              <p className="text-lg md:text-xl max-w-2xl" style={{ color: '#D1D5DB' }}>
-                Your destination for Stories, Rhymes &amp; Devotional videos — crafted with love and uploaded to YouTube.
+
+              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                Premium video production for Stories, Rhymes &amp; Devotional
+                content — crafted with love and shared on YouTube.
               </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('studio-categories')
+                    el?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="px-8 py-4 bg-white text-m3-primary font-bold rounded-full hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
+                >
+                  Browse Videos
+                </button>
+                <button
+                  onClick={() => setView({ mode: 'categories' })}
+                  className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
+                >
+                  Explore Categories
+                </button>
+              </div>
             </div>
-            {/* Pictorial Icons */}
-            <div className="flex gap-6 md:gap-8">
-              <div className="flex flex-col items-center gap-2">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '2px solid #F97316' }}
-                >
-                  📖
-                </div>
-                <span className="text-xs font-semibold" style={{ color: '#F97316' }}>Stories</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '2px solid #F97316' }}
-                >
-                  🎵
-                </div>
-                <span className="text-xs font-semibold" style={{ color: '#F97316' }}>Rhymes</span>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl"
-                  style={{ backgroundColor: 'rgba(249,115,22,0.15)', border: '2px solid #F97316' }}
-                >
-                  🙏
-                </div>
-                <span className="text-xs font-semibold" style={{ color: '#F97316' }}>Devotional</span>
+
+            {/* Visual panel — 2×2 category card grid */}
+            <div
+              className="flex-shrink-0 w-full lg:w-80 xl:w-96"
+              style={{ animation: 'studioFadeInRight 0.5s ease-out' }}
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {bannerCards.map(card => {
+                  const isCategory = 'id' in card
+                  const Wrapper = isCategory ? 'button' : 'div'
+                  return (
+                    <Wrapper
+                      key={card.label}
+                      {...(isCategory
+                        ? { onClick: () => handleCategoryClick(card.id as 'stories' | 'rhymes' | 'devotional') }
+                        : {})}
+                      className="bg-white/10 backdrop-blur-md rounded-m3-lg p-5 border border-white/20 text-center hover:bg-white/20 transition-all duration-200 hover:-translate-y-1 shadow-lg"
+                    >
+                      <div className="text-4xl mb-2">{card.icon}</div>
+                      <div className="text-sm font-bold">{card.label}</div>
+                      <div className="text-xs text-white/60 mt-1">{card.sub}</div>
+                    </Wrapper>
+                  )
+                })}
               </div>
             </div>
           </div>
         </div>
-        {/* Decorative bottom border */}
-        <div className="h-1" style={{ background: 'linear-gradient(90deg, #F97316, #1F2937, #F97316)' }} />
-      </div>
+
+        <style>{`
+          @keyframes studioFadeIn {
+            from { opacity: 0; transform: translateX(-24px); }
+            to   { opacity: 1; transform: translateX(0); }
+          }
+          @keyframes studioFadeInRight {
+            from { opacity: 0; transform: translateX(24px); }
+            to   { opacity: 1; transform: translateX(0); }
+          }
+        `}</style>
+      </section>
 
       {/* Breadcrumb navigation */}
       {view.mode !== 'categories' && (
@@ -123,7 +154,7 @@ export default function Studio() {
       )}
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+      <div id="studio-categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Categories View */}
         {view.mode === 'categories' && (
           <div>
