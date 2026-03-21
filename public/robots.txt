@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://koteswaradk.github.io/AkshaGlobals-website/sitemap.xml

@@ -1,3 +1,5 @@
+import SEO from '../components/SEO'
+
 export default function Contact() {
   // Coordinates for 23 Tech Park, Hyderabad Telangana, India 500001
   const lat = 17.3850
@@ -8,6 +10,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-m3-surface dark:bg-m3-dark-surface text-m3-on-surface dark:text-m3-dark-on-surface">
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Aksha Globals — reach us at our Hyderabad office or send us a message."
+        path="/contact"
+      />
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-m3-primary dark:text-m3-dark-primary mb-2">Contact Us</h1>
         <p className="text-center mb-10 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">

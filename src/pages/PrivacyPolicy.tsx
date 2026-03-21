@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-m3-surface dark:bg-m3-dark-surface text-m3-on-surface dark:text-m3-dark-on-surface">
+      <SEO
+        title="Privacy Policy"
+        description="Read the Aksha Globals privacy policy — how we collect, use, and protect your personal data."
+        path="/privacy-policy"
+      />
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-m3-primary dark:text-m3-dark-primary mb-2">Privacy Policy</h1>
         <p className="text-center mb-10 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
