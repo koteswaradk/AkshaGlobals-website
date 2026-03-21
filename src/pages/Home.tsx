@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { courses, Course } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
 import SEO from '../components/SEO'
+import VideoPlaylist from '../components/VideoPlaylist'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
@@ -127,7 +128,7 @@ function CourseCard({ course, isSelected, onSelect }: { course: Course; isSelect
       {/* Button */}
       <Link
         to={`/training/${course.id}`}
-        className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 bg-m3-primary text-m3-on-primary font-semibold rounded-full transition-colors duration-200"
+        className="mt-auto flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#F97316] text-white font-semibold rounded-full hover:bg-[#EA580C] transition-colors duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         Learn More <span aria-hidden="true">→</span>
@@ -182,7 +183,7 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3 bg-m3-primary-container text-m3-on-primary-container border border-m3-primary-container px-4 py-1 rounded-full">
+          <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3 bg-[#F97316] text-white px-4 py-1 rounded-full">
             Testimonials
           </span>
         </div>
@@ -304,7 +305,7 @@ export default function Home() {
       <section className="pt-20 pb-10 bg-m3-surface-container dark:bg-m3-dark-surface-container">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3 bg-m3-primary-container text-m3-on-primary-container border border-m3-primary-container px-4 py-1 rounded-full">
+            <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3 bg-[#F97316] text-white px-4 py-1 rounded-full">
               Insights
             </span>
 
@@ -348,13 +349,16 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-m3-primary text-m3-on-primary font-semibold rounded-full transition-colors duration-200 hover:bg-m3-primary/90"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#F97316] text-white font-semibold rounded-full transition-colors duration-200 hover:bg-[#EA580C]"
             >
               View All Posts <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Video Tutorials */}
+      <VideoPlaylist />
 
       {/* Reviews */}
       <ReviewSlider reviews={reviews} />
