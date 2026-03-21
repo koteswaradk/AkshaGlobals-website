@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 
 const Logo = () => {
@@ -50,12 +50,19 @@ export default function Navbar() {
     <nav className="bg-m3-surface-container-low dark:bg-m3-dark-surface-container shadow-m3-1 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-3">
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.reload()
+            }}
+            className="flex items-center gap-3 cursor-pointer"
+          >
             <Logo />
             <span className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
               Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Globals</span>
             </span>
-          </Link>
+          </a>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-2">
