@@ -2,6 +2,12 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 
+const studioCategories = [
+  { id: 'stories', label: 'Stories', icon: '📖' },
+  { id: 'rhymes', label: 'Rhymes', icon: '🎵' },
+  { id: 'devotional', label: 'Devotional', icon: '🙏' },
+]
+
 const slides = [
   {
     tag: 'Welcome to Aksha Globals',
@@ -11,6 +17,7 @@ const slides = [
     ctaAlt: { label: 'View Training', to: '/training' },
     icon: null,
     product: null,
+    isStudio: false,
   },
   ...products.map(p => ({
     tag: p.category,
@@ -20,7 +27,19 @@ const slides = [
     ctaAlt: { label: 'All Products', to: '/products' },
     icon: p.icon,
     product: p,
+    isStudio: false,
   })),
+  {
+    tag: 'Welcome to Aksha Globals Studios',
+    headline: 'Bringing Life to Thoughts...',
+    sub: 'Captivating stories, rhymes and devotional content for all ages.',
+    cta: { label: 'Visit Our Channel', to: 'https://youtube.com' },
+    ctaAlt: { label: 'Explore Content', to: 'https://youtube.com' },
+    icon: null,
+    product: null,
+    isStudio: true,
+    bannerImage: 'https://github.com/user-attachments/assets/70ca7d48-284c-494c-b239-df4535cb46cd',
+  },
 ]
 
 const gradients = [
@@ -62,11 +81,29 @@ export default function HeroSlider() {
 
   return (
     <section
-      className={`relative bg-gradient-to-br ${bgGradient} text-white overflow-hidden transition-all duration-700`}
+      className={`relative ${slide.isStudio ? '' : `bg-gradient-to-br ${bgGradient}`} text-white overflow-hidden transition-all duration-700`}
+      style={slide.isStudio ? { background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)' } : undefined}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
+      {/* Studio banner background image */}
+      {'bannerImage' in slide && slide.bannerImage && (
+        <div className="absolute inset-0">
+          <img
+            src={slide.bannerImage}
+            alt="Aksha Globals Studios — Bringing Life to Thoughts"
+            className="w-full h-full object-cover"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 40%, rgba(17,24,39,0.35) 100%)',
+            }}
+          />
+        </div>
+      )}
+
       {/* Decorative circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
         <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
@@ -92,6 +129,17 @@ export default function HeroSlider() {
                   <span className="mr-3">{slide.icon}</span>
                   {slide.headline}
                 </>
+              ) : slide.isStudio ? (
+                <span
+                  style={{
+                    background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  Bringing Life<br />to Thoughts...
+                </span>
               ) : (
                 <>
                   Innovate. Learn.
@@ -135,18 +183,42 @@ export default function HeroSlider() {
             )}
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                to={slide.cta.to}
-                className="px-8 py-4 bg-white text-m3-primary font-bold rounded-full hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
-              >
-                {slide.cta.label}
-              </Link>
-              <Link
-                to={slide.ctaAlt.to}
-                className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
-              >
-                {slide.ctaAlt.label}
-              </Link>
+              {slide.isStudio ? (
+                <>
+                  <a
+                    href={slide.cta.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center text-white"
+                    style={{ backgroundColor: '#F97316' }}
+                  >
+                    {slide.cta.label}
+                  </a>
+                  <a
+                    href={slide.ctaAlt.to}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
+                  >
+                    {slide.ctaAlt.label}
+                  </a>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to={slide.cta.to}
+                    className="px-8 py-4 bg-white text-m3-primary font-bold rounded-full hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
+                  >
+                    {slide.cta.label}
+                  </Link>
+                  <Link
+                    to={slide.ctaAlt.to}
+                    className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
+                  >
+                    {slide.ctaAlt.label}
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
@@ -191,6 +263,25 @@ export default function HeroSlider() {
                     <span>🍎</span> App Store
                   </a>
                 </div>
+              </div>
+            ) : slide.isStudio ? (
+              <div className="grid grid-cols-2 gap-4">
+                {studioCategories.map(cat => (
+                  <a
+                    key={cat.id}
+                    href="https://youtube.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-2xl p-5 border text-center transition-all duration-200 hover:-translate-y-1 shadow-lg backdrop-blur-md"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.08)',
+                      borderColor: 'rgba(255,255,255,0.15)',
+                    }}
+                  >
+                    <div className="text-4xl mb-2">{cat.icon}</div>
+                    <div className="text-sm font-bold">{cat.label}</div>
+                  </a>
+                ))}
               </div>
             ) : (
               <div className="grid grid-cols-2 gap-4">
