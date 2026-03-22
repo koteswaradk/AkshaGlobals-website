@@ -34,7 +34,7 @@ const slides = [
     headline: 'Bringing Life to Thoughts...',
     sub: 'Captivating stories, rhymes and devotional content for all ages.',
     cta: { label: 'Visit Our Channel', to: 'https://youtube.com' },
-    ctaAlt: { label: 'Explore Content', to: 'https://youtube.com' },
+    ctaAlt: { label: '', to: '' },
     icon: null,
     product: null,
     isStudio: true,
@@ -184,25 +184,15 @@ export default function HeroSlider() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               {slide.isStudio ? (
-                <>
-                  <a
-                    href={slide.cta.to}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center text-white"
-                    style={{ backgroundColor: '#F97316' }}
-                  >
-                    {slide.cta.label}
-                  </a>
-                  <a
-                    href={slide.ctaAlt.to}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
-                  >
-                    {slide.ctaAlt.label}
-                  </a>
-                </>
+                <a
+                  href={slide.cta.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center text-white"
+                  style={{ backgroundColor: '#F97316' }}
+                >
+                  {slide.cta.label}
+                </a>
               ) : (
                 <>
                   <Link
