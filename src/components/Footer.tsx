@@ -73,7 +73,7 @@ export default function Footer() {
   return (
     <footer className="bg-m3-primary-10 dark:bg-m3-dark-surface-container text-m3-dark-on-surface pt-14 pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
 
           {/* Company Info */}
           <div>
@@ -88,23 +88,6 @@ export default function Footer() {
               Leading provider of innovative software solutions and professional training programs.
               Empowering developers and businesses to build the future with cutting-edge technology.
             </p>
-          </div>
-
-          {/* Send a Message */}
-          <div>
-            <h3 className="text-white text-lg font-medium tracking-wide mb-5">Send a Message</h3>
-            <p className="text-sm text-m3-dark-on-surface-variant leading-relaxed mb-4">
-              Have a question or want to work with us? We'd love to hear from you.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-m3-dark-primary-container text-m3-dark-on-primary-container hover:bg-m3-primary hover:text-m3-on-primary text-sm font-medium transition-colors duration-200"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-              Send a Message
-            </Link>
           </div>
 
           {/* Connect With Us */}
