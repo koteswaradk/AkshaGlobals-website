@@ -18,7 +18,7 @@ const sliderData: Array<{
 }> = [
   {
     title: 'Bringing Life to Stories',
-    subtitle: 'Premium video production studio — captivating stories, rhymes and devotional content for all ages.',
+    subtitle: 'Captivating stories, rhymes and devotional content for all ages.',
     category: null,
     gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
     isHero: true,
@@ -249,25 +249,6 @@ export default function Studio() {
                 >
                   {currentSlide.subtitle}
                 </p>
-
-                {currentSlide.isHero && (
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a
-                      href="#studio-content"
-                      className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
-                      style={{ backgroundColor: '#F97316', color: '#FFFFFF' }}
-                    >
-                      Explore Content
-                    </a>
-                    <a
-                      href="#studio-content"
-                      className="px-8 py-4 font-bold rounded-full transition-all duration-200 border shadow-lg text-center backdrop-blur-sm"
-                      style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)' }}
-                    >
-                      Watch Now
-                    </a>
-                  </div>
-                )}
 
                 {!currentSlide.isHero && currentSlide.category && (() => {
                   const category = currentSlide.category
