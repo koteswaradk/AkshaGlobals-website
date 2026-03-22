@@ -186,7 +186,7 @@ export default function Studio() {
             <div className="absolute inset-0">
               <img
                 src={currentSlide.bannerImage}
-                alt="Devotional Stories and Rhymes banner"
+                alt="Aksha Globals Studios — Bringing Life to Thoughts"
                 className="w-full h-full object-cover"
               />
               <div
