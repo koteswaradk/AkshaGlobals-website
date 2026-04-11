@@ -30,6 +30,18 @@ const courseIcons: Record<string, JSX.Element> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
     </svg>
   ),
+  'kmp-dev': (
+    <svg className="w-14 h-14 text-white" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4 2v20h4v-8l8 8h5L13 14l8-10h-5L8 12V2H4z" />
+    </svg>
+  ),
+  'cmp-dev': (
+    <svg className="w-14 h-14 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 3h12a3 3 0 013 3v2a3 3 0 01-3 3H6a3 3 0 01-3-3V6a3 3 0 013-3z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 13h12a3 3 0 013 3v2a3 3 0 01-3 3H6a3 3 0 01-3-3v-2a3 3 0 013-3z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h8M8 17h8" />
+    </svg>
+  ),
 }
 
 export default function Training() {
@@ -43,7 +55,7 @@ export default function Training() {
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO
         title="Training Programs"
-        description="Industry-aligned training courses in Android, iOS, GenAI & ML, and Prompt Engineering — three skill levels to accelerate your tech career."
+        description="Industry-aligned training courses in Android, iOS, GenAI & ML, Prompt Engineering, KMP, and CMP — three skill levels to accelerate your tech career."
         path="/training"
       />
       {/* Hero */}
@@ -58,7 +70,7 @@ export default function Training() {
 
       {/* Courses Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map(course => (
             <div
               key={course.id}
