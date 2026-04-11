@@ -32,6 +32,18 @@ const courseIcons: Record<string, JSX.Element> = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
     </svg>
   ),
+  'kmp-dev': (
+    <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4 2v20h4v-8l8 8h5L13 14l8-10h-5L8 12V2H4z" />
+    </svg>
+  ),
+  'cmp-dev': (
+    <svg className="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 3h12a3 3 0 013 3v2a3 3 0 01-3 3H6a3 3 0 01-3-3V6a3 3 0 013-3z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6 13h12a3 3 0 013 3v2a3 3 0 01-3 3H6a3 3 0 01-3-3v-2a3 3 0 013-3z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h8M8 17h8" />
+    </svg>
+  ),
 }
 
 export default function TrainingDetail() {
