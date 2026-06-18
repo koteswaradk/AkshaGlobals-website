@@ -77,6 +77,7 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
+  const isFirstSlide = current === 0
   return (
     <section
       className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
@@ -92,7 +93,7 @@ export default function HeroSlider() {
             aria-hidden="true"
             className="w-full h-full object-cover"
             decoding="async"
-            fetchPriority="high"
+            fetchPriority={isFirstSlide ? 'high' : 'auto'}
           />
           <div
             className="absolute inset-0"
