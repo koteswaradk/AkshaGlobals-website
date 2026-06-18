@@ -42,12 +42,6 @@ const slides = [
   },
 ]
 
-const heroBackgroundImages = [
-  'https://github.com/user-attachments/assets/9e9d3796-8ff0-4624-a9b7-7dedc3167a97',
-  'https://github.com/user-attachments/assets/6be7ecd5-94e1-4184-bef5-51a8fb40a0cc',
-  'https://github.com/user-attachments/assets/11da78c3-3e6a-4581-832f-a6d6d72679c8',
-]
-
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -75,8 +69,6 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
-  const heroBackgroundImage = heroBackgroundImages[current % heroBackgroundImages.length]
-
   return (
     <section
       className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
@@ -85,12 +77,6 @@ export default function HeroSlider() {
       aria-label="Hero slider"
     >
       <div className="absolute inset-0">
-        <img
-          src={heroBackgroundImage}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover"
-        />
         <div
           className="absolute inset-0"
           style={{
