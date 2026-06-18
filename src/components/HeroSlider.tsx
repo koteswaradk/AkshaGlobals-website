@@ -42,12 +42,10 @@ const slides = [
   },
 ]
 
-const gradients = [
-  'from-m3-primary-10 via-m3-primary to-m3-secondary',
-  'from-m3-primary via-m3-secondary to-m3-tertiary',
-  'from-m3-secondary via-m3-primary to-m3-primary-10',
-  'from-m3-tertiary via-m3-primary to-m3-secondary',
-  'from-m3-primary-10 via-m3-tertiary to-m3-primary',
+const heroBackgroundImages = [
+  'https://github.com/user-attachments/assets/9e9d3796-8ff0-4624-a9b7-7dedc3167a97',
+  'https://github.com/user-attachments/assets/6be7ecd5-94e1-4184-bef5-51a8fb40a0cc',
+  'https://github.com/user-attachments/assets/11da78c3-3e6a-4581-832f-a6d6d72679c8',
 ]
 
 export default function HeroSlider() {
@@ -77,32 +75,29 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
-  const bgGradient = gradients[current % gradients.length]
+  const heroBackgroundImage = heroBackgroundImages[current % heroBackgroundImages.length]
 
   return (
     <section
-      className={`relative ${slide.isStudio ? '' : `bg-gradient-to-br ${bgGradient}`} text-white overflow-hidden transition-all duration-700`}
-      style={slide.isStudio ? { background: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)' } : undefined}
+      className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
-      {/* Studio banner background image */}
-      {'bannerImage' in slide && slide.bannerImage && (
-        <div className="absolute inset-0">
-          <img
-            src={slide.bannerImage}
-            alt="Aksha Globals Studios — Bringing Life to Thoughts"
-            className="w-full h-full object-cover"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 40%, rgba(17,24,39,0.35) 100%)',
-            }}
-          />
-        </div>
-      )}
+      <div className="absolute inset-0">
+        <img
+          src={heroBackgroundImage}
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
+          }}
+        />
+      </div>
 
       {/* Decorative circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
