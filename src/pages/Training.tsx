@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { courses, getCrossPlatformCourses, getDefaultSelectedCourseId } from '../data/courses'
+import { courses } from '../data/courses'
 import SEO from '../components/SEO'
 import TrainingSpotlight from '../components/TrainingSpotlight'
 
@@ -46,8 +46,7 @@ const courseIcons: Record<string, JSX.Element> = {
 }
 
 export default function Training() {
-  const crossPlatformCourses = getCrossPlatformCourses(courses)
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(courses))
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(courses[0]?.id ?? null)
   const selectedCourseData = courses.find(course => course.id === selectedCourse)
 
   const handleCourseSelect = (id: string) => {
@@ -57,53 +56,22 @@ export default function Training() {
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO
-        title="Training Programs"
-        description="Industry-aligned training courses in Android, iOS, GenAI & ML, Prompt Engineering, KMP, and CMP — three skill levels to accelerate your tech career."
+        title="Professional Training Programs"
+        description="Master the latest technologies with industry-aligned tracks in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP."
         path="/training"
       />
       {/* Hero */}
       <div className="bg-gradient-to-br from-m3-primary-10 to-m3-primary text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Training Programs</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Professional Training Programs</h1>
           <p className="text-m3-primary-container text-lg max-w-2xl mx-auto">
-            Industry-aligned courses with three skill levels to accelerate your tech career.
+            Master the latest technologies with industry-aligned tracks in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP.
           </p>
         </div>
       </div>
 
       {/* Courses Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2">
-          {crossPlatformCourses.map(course => (
-            <button
-              key={course.id}
-              type="button"
-              onClick={() => handleCourseSelect(course.id)}
-              className={`rounded-m3-xl border p-5 text-left transition-all duration-300 ${
-                selectedCourse === course.id
-                  ? 'border-m3-primary dark:border-m3-dark-primary bg-m3-primary-container/40 dark:bg-m3-dark-primary-container/20 shadow-m3-1'
-                  : 'border-m3-outline-variant dark:border-m3-dark-outline bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high hover:border-m3-primary dark:hover:border-m3-dark-primary'
-              }`}
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-sm font-semibold uppercase tracking-[0.2em] text-m3-primary dark:text-m3-dark-primary">
-                    Cross-platform track
-                  </div>
-                  <h2 className="mt-2 text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.name}</h2>
-                  <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
-                    {course.description}
-                  </p>
-                </div>
-                <div className={`bg-gradient-to-br ${course.color} rounded-full p-3`}>
-                  <div className="w-8 h-8 flex items-center justify-center">
-                    {courseIcons[course.id] || <span className="text-xl">{course.icon}</span>}
-                  </div>
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map(course => (
             <div
