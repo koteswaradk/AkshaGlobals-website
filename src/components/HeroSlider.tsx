@@ -92,7 +92,7 @@ export default function HeroSlider() {
             aria-hidden="true"
             className="w-full h-full object-cover"
             decoding="async"
-            fetchPriority={current === 0 ? 'high' : 'auto'}
+            fetchPriority="high"
           />
           <div
             className="absolute inset-0"
