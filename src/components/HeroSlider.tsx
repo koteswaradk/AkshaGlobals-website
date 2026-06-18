@@ -13,11 +13,6 @@ const heroImages = {
   products: 'https://github.com/user-attachments/assets/693eb987-ba88-4347-ac24-03d58d9d8f63',
   studio: 'https://github.com/user-attachments/assets/b133e8dd-f102-4fdb-8cfb-3cb3d48789c4',
 }
-const orderedBannerImages = [
-  { id: 'welcome', src: heroImages.welcome },
-  { id: 'products', src: heroImages.products },
-  { id: 'studio', src: heroImages.studio },
-]
 
 const slides = [
   {
@@ -90,19 +85,18 @@ export default function HeroSlider() {
       aria-label="Hero slider"
     >
       <div className="absolute inset-0">
-        <div className="grid h-full grid-cols-3">
-          {orderedBannerImages.map((image, index) => (
-            <img
-              key={image.id}
-              src={image.src}
-              alt=""
-              aria-hidden="true"
-              className="w-full h-full object-cover"
-              decoding="async"
-              fetchPriority={index === 0 ? 'high' : 'auto'}
-            />
-          ))}
-        </div>
+        {slides.map((s, i) => (
+          <img
+            key={s.bannerImage}
+            src={s.bannerImage}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+            style={{ opacity: i === current ? 1 : 0 }}
+            decoding="async"
+            fetchPriority={i === 0 ? 'high' : 'auto'}
+          />
+        ))}
         <div
           className="absolute inset-0"
           style={{
