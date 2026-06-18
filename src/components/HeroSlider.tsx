@@ -55,7 +55,7 @@ export default function HeroSlider() {
             key={i}
             src={slide.src}
             alt={slide.alt}
-            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-700"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
             style={{ opacity: i === current ? 1 : 0 }}
             decoding="async"
             fetchPriority={i === 0 ? 'high' : 'auto'}
