@@ -101,6 +101,64 @@ export default function TrainingDetail() {
           <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant leading-relaxed text-lg max-w-3xl">{course.description}</p>
         </div>
 
+        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="rounded-m3-xl bg-m3-surface-container dark:bg-m3-dark-surface-container p-5">
+            <div className="text-xs uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Students enrolled</div>
+            <div className="mt-2 text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.students}</div>
+          </div>
+          <div className="rounded-m3-xl bg-m3-surface-container dark:bg-m3-dark-surface-container p-5">
+            <div className="text-xs uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Course rating</div>
+            <div className="mt-2 text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.rating}/5</div>
+          </div>
+          <div className="rounded-m3-xl bg-m3-surface-container dark:bg-m3-dark-surface-container p-5">
+            <div className="text-xs uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Lead instructor</div>
+            <div className="mt-2 text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.instructor}</div>
+          </div>
+          <div className="rounded-m3-xl bg-m3-surface-container dark:bg-m3-dark-surface-container p-5">
+            <div className="text-xs uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Skill levels</div>
+            <div className="mt-2 text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.levels.length}</div>
+          </div>
+        </div>
+
+        <div className="mb-10">
+          <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Learning Path</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {course.levels.map(level => (
+              <button
+                key={level.name}
+                type="button"
+                onClick={() => setActiveLevel(level.name)}
+                className={`rounded-m3-xl border p-5 text-left transition-all duration-200 ${
+                  activeLevel === level.name
+                    ? 'border-m3-primary dark:border-m3-dark-primary bg-m3-primary-container/40 dark:bg-m3-dark-primary-container/20'
+                    : 'border-m3-outline-variant dark:border-m3-dark-outline bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-lg font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{level.name}</div>
+                    <div className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{level.duration}</div>
+                  </div>
+                  <div className="text-lg font-bold text-m3-primary dark:text-m3-dark-primary">
+                    ₹{level.price.toLocaleString()}
+                  </div>
+                </div>
+                <ul className="mt-4 space-y-2">
+                  {level.curriculum.slice(0, 3).map(item => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant"
+                    >
+                      <span className="mt-1 text-m3-primary dark:text-m3-dark-primary">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Level Tabs */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Choose Your Level</h2>

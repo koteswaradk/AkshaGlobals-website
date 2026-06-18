@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { courses } from '../data/courses'
 import SEO from '../components/SEO'
+import TrainingSpotlight from '../components/TrainingSpotlight'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
@@ -45,10 +46,12 @@ const courseIcons: Record<string, JSX.Element> = {
 }
 
 export default function Training() {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null)
+  const [selectedCourse, setSelectedCourse] = useState<string | null>('kmp-dev')
+  const selectedCourseData = courses.find(course => course.id === selectedCourse) ?? courses[0]
+  const crossPlatformCourses = courses.filter(course => course.id === 'kmp-dev' || course.id === 'cmp-dev')
 
   const handleCourseSelect = (id: string) => {
-    setSelectedCourse(prev => (prev === id ? null : id))
+    setSelectedCourse(id)
   }
 
   return (
@@ -70,6 +73,37 @@ export default function Training() {
 
       {/* Courses Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {crossPlatformCourses.map(course => (
+            <button
+              key={course.id}
+              type="button"
+              onClick={() => handleCourseSelect(course.id)}
+              className={`rounded-m3-xl border p-5 text-left transition-all duration-300 ${
+                selectedCourse === course.id
+                  ? 'border-m3-primary dark:border-m3-dark-primary bg-m3-primary-container/40 dark:bg-m3-dark-primary-container/20 shadow-m3-1'
+                  : 'border-m3-outline-variant dark:border-m3-dark-outline bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high hover:border-m3-primary dark:hover:border-m3-dark-primary'
+              }`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.2em] text-m3-primary dark:text-m3-dark-primary">
+                    Cross-platform specialization
+                  </div>
+                  <h2 className="mt-2 text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.name}</h2>
+                  <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+                    {course.description}
+                  </p>
+                </div>
+                <div className={`bg-gradient-to-br ${course.color} rounded-full p-3`}>
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    {courseIcons[course.id] || <span className="text-xl">{course.icon}</span>}
+                  </div>
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map(course => (
             <div
@@ -115,6 +149,7 @@ export default function Training() {
             </div>
           ))}
         </div>
+        <TrainingSpotlight course={selectedCourseData} title="Selected Training" />
       </div>
     </div>
   )
