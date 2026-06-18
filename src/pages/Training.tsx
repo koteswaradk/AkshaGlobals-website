@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { courses } from '../data/courses'
+import { courses, getCrossPlatformCourses, getDefaultSelectedCourseId } from '../data/courses'
 import SEO from '../components/SEO'
 import TrainingSpotlight from '../components/TrainingSpotlight'
 
@@ -46,8 +46,8 @@ const courseIcons: Record<string, JSX.Element> = {
 }
 
 export default function Training() {
-  const crossPlatformCourses = courses.filter(course => course.id === 'kmp-dev' || course.id === 'cmp-dev')
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(crossPlatformCourses[0]?.id ?? courses[0]?.id ?? null)
+  const crossPlatformCourses = getCrossPlatformCourses(courses)
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(courses))
   const selectedCourseData = courses.find(course => course.id === selectedCourse)
 
   const handleCourseSelect = (id: string) => {

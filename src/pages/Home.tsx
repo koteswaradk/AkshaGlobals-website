@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { courses, Course } from '../data/courses'
+import { courses, Course, getCrossPlatformCourses, getDefaultSelectedCourseId } from '../data/courses'
 import HeroSlider from '../components/HeroSlider'
 import SEO from '../components/SEO'
 import TrainingSpotlight from '../components/TrainingSpotlight'
@@ -49,8 +49,8 @@ const courseIcons: Record<string, JSX.Element> = {
 import { blogPosts } from '../data/blogPosts'
 
 const blogArticles = blogPosts.slice(0, 3)
-const crossPlatformCourses = courses.filter(course => course.id === 'kmp-dev' || course.id === 'cmp-dev')
-const defaultSelectedCourse = crossPlatformCourses[0]?.id ?? courses[0]?.id ?? null
+const crossPlatformCourses = getCrossPlatformCourses(courses)
+const defaultSelectedCourse = getDefaultSelectedCourseId(courses)
 
 const reviews = [
   {
