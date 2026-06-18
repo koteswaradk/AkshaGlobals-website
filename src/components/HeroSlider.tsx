@@ -48,14 +48,6 @@ const heroBackgroundImages = [
   'https://github.com/user-attachments/assets/11da78c3-3e6a-4581-832f-a6d6d72679c8',
 ]
 
-const gradients = [
-  'from-m3-primary-10 via-m3-primary to-m3-secondary',
-  'from-m3-primary via-m3-secondary to-m3-tertiary',
-  'from-m3-secondary via-m3-primary to-m3-primary-10',
-  'from-m3-tertiary via-m3-primary to-m3-secondary',
-  'from-m3-primary-10 via-m3-tertiary to-m3-primary',
-]
-
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
@@ -83,12 +75,11 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
-  const bgGradient = gradients[current % gradients.length]
   const heroBackgroundImage = heroBackgroundImages[current % heroBackgroundImages.length]
 
   return (
     <section
-      className={`relative bg-gradient-to-br ${bgGradient} text-white overflow-hidden transition-all duration-700`}
+      className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
