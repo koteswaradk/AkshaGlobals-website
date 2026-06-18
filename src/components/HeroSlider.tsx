@@ -1,52 +1,17 @@
 import { useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
-import { products } from '../data/products'
-
-const studioCategories = [
-  { id: 'stories', label: 'Stories', icon: '📖' },
-  { id: 'rhymes', label: 'Rhymes', icon: '🎵' },
-  { id: 'devotional', label: 'Devotional', icon: '🙏' },
-]
-
-const heroImages = {
-  welcome: 'https://github.com/user-attachments/assets/746c3cbe-b0c3-4e91-bcaa-b1f94df76f25',
-  products: 'https://github.com/user-attachments/assets/693eb987-ba88-4347-ac24-03d58d9d8f63',
-  studio: 'https://github.com/user-attachments/assets/b133e8dd-f102-4fdb-8cfb-3cb3d48789c4',
-}
 
 const slides = [
   {
-    tag: 'Welcome to Aksha Globals',
-    headline: 'Innovate. Learn. Transform.',
-    sub: 'World-class software products and technology training — empowering businesses and professionals across India.',
-    cta: { label: 'Explore Products', to: '/products' },
-    ctaAlt: { label: 'View Training', to: '/training' },
-    icon: null,
-    product: null,
-    isStudio: false,
-    bannerImage: heroImages.welcome,
+    src: 'https://github.com/user-attachments/assets/cde5589c-957a-41e7-83bf-011b991ea4f4',
+    alt: 'Solving Real Problems with AI & Roboast Solutions',
   },
-  ...products.map(p => ({
-    tag: p.category,
-    headline: p.name,
-    sub: p.description,
-    cta: { label: 'Learn More', to: `/products/${p.id}` },
-    ctaAlt: { label: 'All Products', to: '/products' },
-    icon: p.icon,
-    product: p,
-    isStudio: false,
-    bannerImage: heroImages.products,
-  })),
   {
-    tag: 'Welcome to Aksha Globals Studios',
-    headline: 'Bringing Life to Thoughts...',
-    sub: 'Captivating stories, rhymes and devotional content for all ages.',
-    cta: { label: 'Visit Our Channel', to: 'https://youtube.com' },
-    ctaAlt: { label: '', to: '' },
-    icon: null,
-    product: null,
-    isStudio: true,
-    bannerImage: heroImages.studio,
+    src: 'https://github.com/user-attachments/assets/e6a501b9-b55a-4b96-8c34-5471388d51bb',
+    alt: 'Master the Latest Technologies – Professional Training Programs',
+  },
+  {
+    src: 'https://github.com/user-attachments/assets/e1d53878-7981-498f-8a00-7b23055e22e3',
+    alt: 'Bringing Stories to Life – Audio & Video Production',
   },
 ]
 
@@ -62,7 +27,7 @@ export default function HeroSlider() {
       if (isAnimating) return
       setIsAnimating(true)
       setCurrent((index + total) % total)
-      setTimeout(() => setIsAnimating(false), 500)
+      setTimeout(() => setIsAnimating(false), 600)
     },
     [isAnimating, total],
   )
@@ -76,253 +41,58 @@ export default function HeroSlider() {
     return () => clearInterval(timer)
   }, [next, isPaused])
 
-  const slide = slides[current]
   return (
     <section
-      className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
+      className="relative w-full overflow-hidden bg-black"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
-      <div className="absolute inset-0">
-        {slides.map((s, i) => (
+      {/* Slides */}
+      <div className="relative w-full aspect-[16/7] sm:aspect-[16/6] md:aspect-[16/5]">
+        {slides.map((slide, i) => (
           <img
             key={i}
-            src={s.bannerImage}
-            alt=""
-            aria-hidden="true"
+            src={slide.src}
+            alt={slide.alt}
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
             style={{ opacity: i === current ? 1 : 0 }}
             decoding="async"
             fetchPriority={i === 0 ? 'high' : 'auto'}
           />
         ))}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
-          }}
-        />
       </div>
 
-      {/* Decorative circles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
-        <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/3" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Text content */}
-          <div
-            key={current}
-            className="flex-1 text-center lg:text-left animate-fade-in"
-            style={{ animation: 'fadeSlideIn 0.5s ease-out' }}
-          >
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-white/70 mb-4 border border-white/30 px-4 py-1 rounded-full backdrop-blur-sm">
-              {slide.tag}
-            </span>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
-              {slide.product ? (
-                <>
-                  <span className="mr-3">{slide.icon}</span>
-                  {slide.headline}
-                </>
-              ) : slide.isStudio ? (
-                <span
-                  style={{
-                    background: 'linear-gradient(135deg, #F97316 0%, #FBBF24 40%, #F9FAFB 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                  }}
-                >
-                  Bringing Life<br />to Thoughts...
-                </span>
-              ) : (
-                <>
-                  Innovate. Learn.
-                  <span className="block text-white/80 font-black mt-1">Transform.</span>
-                </>
-              )}
-            </h1>
-
-            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              {slide.sub}
-            </p>
-
-            {/* Feature badges for products */}
-            {slide.product && (
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8">
-                {slide.product.features.slice(0, 3).map(f => (
-                  <span
-                    key={f}
-                    className="text-xs bg-white/15 backdrop-blur-sm border border-white/25 px-3 py-2 rounded-full font-medium"
-                  >
-                    ✓ {f}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* Rating & downloads for products */}
-            {slide.product && (
-              <div className="flex items-center gap-6 justify-center lg:justify-start mb-8 text-white/80 text-sm">
-                {(['Rating', 'Downloads'] as const).map(label => {
-                  const spec = slide.product!.specs.find(s => s.label === label)
-                  if (!spec) return null
-                  return (
-                    <div key={label} className="flex items-center gap-1">
-                      <span className="font-bold text-white">{spec.value}</span>
-                      <span>{spec.label}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            )}
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              {slide.isStudio ? (
-                <a
-                  href={slide.cta.to}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-4 font-bold rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center text-white"
-                  style={{ backgroundColor: '#F97316' }}
-                >
-                  {slide.cta.label}
-                </a>
-              ) : (
-                <>
-                  <Link
-                    to={slide.cta.to}
-                    className="px-8 py-4 bg-white text-m3-primary font-bold rounded-full hover:bg-white/90 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 text-center"
-                  >
-                    {slide.cta.label}
-                  </Link>
-                  <Link
-                    to={slide.ctaAlt.to}
-                    className="px-8 py-4 bg-white/15 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/25 transition-all duration-200 border border-white/30 shadow-lg text-center"
-                  >
-                    {slide.ctaAlt.label}
-                  </Link>
-                </>
-              )}
-            </div>
-          </div>
-
-          {/* Visual panel */}
-          <div
-            key={`visual-${current}`}
-            className="flex-shrink-0 w-full lg:w-80 xl:w-96"
-            style={{ animation: 'fadeSlideInRight 0.5s ease-out' }}
-          >
-            {slide.product ? (
-              <div className="bg-white/10 backdrop-blur-md rounded-m3-xl p-5 sm:p-8 border border-white/20 shadow-2xl text-center">
-                <div className="text-6xl md:text-8xl mb-6 drop-shadow-xl">{slide.icon}</div>
-                <div className="text-2xl font-bold mb-1">{slide.product.name}</div>
-                <div className="text-white/70 text-sm mb-6">{slide.product.tagline}</div>
-                <div className="grid grid-cols-2 gap-3">
-                  {(['Platform', 'Version', 'Rating', 'Downloads'] as const).map(label => {
-                    const spec = slide.product!.specs.find(s => s.label === label)
-                    if (!spec) return null
-                    return (
-                      <div key={label} className="bg-white/10 rounded-xl p-3">
-                        <div className="text-xs text-white/60 mb-0.5">{spec.label}</div>
-                        <div className="font-bold text-sm">{spec.value}</div>
-                      </div>
-                    )
-                  })}
-                </div>
-                <div className="mt-6 flex gap-3 justify-center">
-                  <a
-                    href={slide.product.playStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
-                  >
-                    <span>▶</span> Play Store
-                  </a>
-                  <a
-                    href={slide.product.appStoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-white/15 hover:bg-white/25 border border-white/25 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-200"
-                  >
-                    <span>🍎</span> App Store
-                  </a>
-                </div>
-              </div>
-            ) : slide.isStudio ? (
-              <div className="grid grid-cols-2 gap-4">
-                {studioCategories.map(cat => (
-                  <a
-                    key={cat.id}
-                    href="https://youtube.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-2xl p-5 border text-center transition-all duration-200 hover:-translate-y-1 shadow-lg backdrop-blur-md"
-                    style={{
-                      backgroundColor: 'rgba(255,255,255,0.08)',
-                      borderColor: 'rgba(255,255,255,0.15)',
-                    }}
-                  >
-                    <div className="text-4xl mb-2">{cat.icon}</div>
-                    <div className="text-sm font-bold">{cat.label}</div>
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-4">
-                {products.map(p => (
-                  <Link
-                    key={p.id}
-                    to={`/products/${p.id}`}
-                    className="bg-white/10 backdrop-blur-md rounded-m3-lg p-5 border border-white/20 text-center hover:bg-white/20 transition-all duration-200 hover:-translate-y-1 shadow-lg"
-                  >
-                    <div className="text-4xl mb-2">{p.icon}</div>
-                    <div className="text-sm font-bold">{p.name}</div>
-                    <div className="text-xs text-white/60 mt-1">{p.category}</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Navigation controls */}
-      <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center gap-3">
+      {/* Dot indicators */}
+      <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
             aria-label={`Go to slide ${i + 1}`}
             className={`transition-all duration-300 rounded-full ${
-              i === current
-                ? 'w-8 h-3 bg-white'
-                : 'w-3 h-3 bg-white/40 hover:bg-white/70'
+              i === current ? 'w-8 h-3 bg-white' : 'w-3 h-3 bg-white/50 hover:bg-white/80'
             }`}
           />
         ))}
       </div>
 
-      {/* Arrow buttons */}
+      {/* Prev arrow */}
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 rounded-full w-11 h-11 flex items-center justify-center transition-all duration-200 shadow-lg"
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-lg text-white"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
+
+      {/* Next arrow */}
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/15 hover:bg-white/30 backdrop-blur-sm border border-white/25 rounded-full w-11 h-11 flex items-center justify-center transition-all duration-200 shadow-lg"
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 shadow-lg text-white"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -331,25 +101,17 @@ export default function HeroSlider() {
 
       {/* Progress bar */}
       {!isPaused && (
-        <div className="absolute bottom-0 left-0 h-0.5 bg-white/30 w-full">
+        <div className="absolute bottom-0 left-0 h-0.5 bg-white/20 w-full">
           <div
             key={current}
             className="h-full bg-white"
-            style={{ animation: 'progressBar 5s linear' }}
+            style={{ animation: 'sliderProgress 5s linear' }}
           />
         </div>
       )}
 
       <style>{`
-        @keyframes fadeSlideIn {
-          from { opacity: 0; transform: translateX(-24px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes fadeSlideInRight {
-          from { opacity: 0; transform: translateX(24px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes progressBar {
+        @keyframes sliderProgress {
           from { width: 0%; }
           to   { width: 100%; }
         }
