@@ -22,7 +22,7 @@ const sliderData: Array<{
     category: null,
     gradient: 'linear-gradient(135deg, #1F2937 0%, #111827 50%, #1F2937 100%)',
     isHero: true,
-    bannerImage: 'https://github.com/user-attachments/assets/70ca7d48-284c-494c-b239-df4535cb46cd',
+    bannerImage: 'https://github.com/user-attachments/assets/b133e8dd-f102-4fdb-8cfb-3cb3d48789c4',
   },
   {
     title: 'Captivating Stories',
