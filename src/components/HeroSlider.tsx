@@ -96,7 +96,8 @@ export default function HeroSlider() {
       <div className="absolute inset-0">
         <img
           src={heroBackgroundImage}
-          alt="Aksha Globals hero background"
+          alt=""
+          aria-hidden="true"
           className="w-full h-full object-cover"
         />
         <div
