@@ -90,17 +90,17 @@ export default function HeroSlider() {
             src={slide.bannerImage}
             alt={slide.headline}
             className="w-full h-full object-cover"
+            decoding="async"
+            fetchPriority={current === 0 ? 'high' : 'auto'}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
+            }}
           />
         </div>
       )}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
-          }}
-        />
-      </div>
 
       {/* Decorative circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
