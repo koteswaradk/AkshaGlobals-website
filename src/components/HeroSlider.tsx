@@ -8,6 +8,12 @@ const studioCategories = [
   { id: 'devotional', label: 'Devotional', icon: '🙏' },
 ]
 
+const heroImages = {
+  welcome: 'https://github.com/user-attachments/assets/746c3cbe-b0c3-4e91-bcaa-b1f94df76f25',
+  products: 'https://github.com/user-attachments/assets/693eb987-ba88-4347-ac24-03d58d9d8f63',
+  studio: 'https://github.com/user-attachments/assets/b133e8dd-f102-4fdb-8cfb-3cb3d48789c4',
+}
+
 const slides = [
   {
     tag: 'Welcome to Aksha Globals',
@@ -18,6 +24,7 @@ const slides = [
     icon: null,
     product: null,
     isStudio: false,
+    bannerImage: heroImages.welcome,
   },
   ...products.map(p => ({
     tag: p.category,
@@ -28,6 +35,7 @@ const slides = [
     icon: p.icon,
     product: p,
     isStudio: false,
+    bannerImage: heroImages.products,
   })),
   {
     tag: 'Welcome to Aksha Globals Studios',
@@ -38,7 +46,7 @@ const slides = [
     icon: null,
     product: null,
     isStudio: true,
-    bannerImage: 'https://github.com/user-attachments/assets/70ca7d48-284c-494c-b239-df4535cb46cd',
+    bannerImage: heroImages.studio,
   },
 ]
 
@@ -69,6 +77,7 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
+  const isFirstSlide = current === 0
   return (
     <section
       className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
@@ -76,14 +85,24 @@ export default function HeroSlider() {
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
-          }}
-        />
-      </div>
+      {slide.bannerImage && (
+        <div className="absolute inset-0">
+          <img
+            src={slide.bannerImage}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover"
+            decoding="async"
+            fetchPriority={isFirstSlide ? 'high' : 'auto'}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
+            }}
+          />
+        </div>
+      )}
 
       {/* Decorative circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
