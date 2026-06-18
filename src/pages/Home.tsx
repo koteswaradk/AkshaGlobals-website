@@ -329,8 +329,10 @@ export default function Home() {
                       {course.description}
                     </p>
                   </div>
-                  <div className="rounded-full bg-m3-primary-container dark:bg-m3-dark-primary-container p-3">
-                    {courseIcons[course.id]}
+                  <div className={`bg-gradient-to-br ${course.color} rounded-full p-3`}>
+                    <div className="w-8 h-8 flex items-center justify-center">
+                      {courseIcons[course.id]}
+                    </div>
                   </div>
                 </div>
               </button>

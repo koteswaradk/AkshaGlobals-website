@@ -88,7 +88,7 @@ export default function Training() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-sm font-semibold uppercase tracking-[0.2em] text-m3-primary dark:text-m3-dark-primary">
-                    Cross-platform specialization
+                    Cross-platform track
                   </div>
                   <h2 className="mt-2 text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.name}</h2>
                   <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
