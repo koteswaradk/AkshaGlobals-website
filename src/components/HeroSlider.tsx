@@ -87,7 +87,7 @@ export default function HeroSlider() {
       <div className="absolute inset-0">
         {slides.map((s, i) => (
           <img
-            key={s.bannerImage}
+            key={i}
             src={s.bannerImage}
             alt=""
             aria-hidden="true"
