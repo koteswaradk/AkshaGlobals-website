@@ -13,7 +13,11 @@ const heroImages = {
   products: 'https://github.com/user-attachments/assets/693eb987-ba88-4347-ac24-03d58d9d8f63',
   studio: 'https://github.com/user-attachments/assets/b133e8dd-f102-4fdb-8cfb-3cb3d48789c4',
 }
-const combinedBannerImages = Object.values(heroImages)
+const orderedBannerImages = [
+  { id: 'welcome', src: heroImages.welcome },
+  { id: 'products', src: heroImages.products },
+  { id: 'studio', src: heroImages.studio },
+]
 
 const slides = [
   {
@@ -78,7 +82,6 @@ export default function HeroSlider() {
   }, [next, isPaused])
 
   const slide = slides[current]
-  const isFirstSlide = current === 0
   return (
     <section
       className="relative bg-m3-primary-10 text-white overflow-hidden transition-all duration-700"
@@ -88,15 +91,15 @@ export default function HeroSlider() {
     >
       <div className="absolute inset-0">
         <div className="grid h-full grid-cols-3">
-          {combinedBannerImages.map((image, index) => (
+          {orderedBannerImages.map((image, index) => (
             <img
-              key={image}
-              src={image}
+              key={image.id}
+              src={image.src}
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover"
               decoding="async"
-              fetchPriority={isFirstSlide && index === 0 ? 'high' : 'auto'}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
             />
           ))}
         </div>
