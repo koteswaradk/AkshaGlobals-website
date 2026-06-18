@@ -50,6 +50,7 @@ import { blogPosts } from '../data/blogPosts'
 
 const blogArticles = blogPosts.slice(0, 3)
 const crossPlatformCourses = courses.filter(course => course.id === 'kmp-dev' || course.id === 'cmp-dev')
+const defaultSelectedCourse = crossPlatformCourses[0]?.id ?? courses[0]?.id ?? null
 
 const reviews = [
   {
@@ -279,11 +280,11 @@ function ReviewSlider({ reviews }: { reviews: { name: string; role: string; comp
 }
 
 export default function Home() {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>('kmp-dev')
-  const selectedCourseData = courses.find(course => course.id === selectedCourse) ?? courses[0]
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(defaultSelectedCourse)
+  const selectedCourseData = courses.find(course => course.id === selectedCourse)
 
   const handleCourseSelect = (id: string) => {
-    setSelectedCourse(id)
+    setSelectedCourse(prev => (prev === id ? null : id))
   }
 
   return (
@@ -343,7 +344,7 @@ export default function Home() {
               <CourseCard key={course.id} course={course} isSelected={selectedCourse === course.id} onSelect={handleCourseSelect} />
             ))}
           </div>
-          <TrainingSpotlight course={selectedCourseData} title="Selected Training" />
+          {selectedCourseData && <TrainingSpotlight course={selectedCourseData} title="Selected Training" />}
         </div>
       </section>
 

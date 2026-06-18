@@ -46,12 +46,12 @@ const courseIcons: Record<string, JSX.Element> = {
 }
 
 export default function Training() {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>('kmp-dev')
-  const selectedCourseData = courses.find(course => course.id === selectedCourse) ?? courses[0]
   const crossPlatformCourses = courses.filter(course => course.id === 'kmp-dev' || course.id === 'cmp-dev')
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(crossPlatformCourses[0]?.id ?? courses[0]?.id ?? null)
+  const selectedCourseData = courses.find(course => course.id === selectedCourse)
 
   const handleCourseSelect = (id: string) => {
-    setSelectedCourse(id)
+    setSelectedCourse(prev => (prev === id ? null : id))
   }
 
   return (
@@ -149,7 +149,7 @@ export default function Training() {
             </div>
           ))}
         </div>
-        <TrainingSpotlight course={selectedCourseData} title="Selected Training" />
+        {selectedCourseData && <TrainingSpotlight course={selectedCourseData} title="Selected Training" />}
       </div>
     </div>
   )
