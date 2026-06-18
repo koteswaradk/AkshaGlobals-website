@@ -13,6 +13,7 @@ const heroImages = {
   products: 'https://github.com/user-attachments/assets/693eb987-ba88-4347-ac24-03d58d9d8f63',
   studio: 'https://github.com/user-attachments/assets/b133e8dd-f102-4fdb-8cfb-3cb3d48789c4',
 }
+const combinedBannerImages = Object.values(heroImages)
 
 const slides = [
   {
@@ -85,24 +86,27 @@ export default function HeroSlider() {
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
-      {slide.bannerImage && (
-        <div className="absolute inset-0">
-          <img
-            src={slide.bannerImage}
-            alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover"
-            decoding="async"
-            fetchPriority={isFirstSlide ? 'high' : 'auto'}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
-            }}
-          />
+      <div className="absolute inset-0">
+        <div className="grid h-full grid-cols-3">
+          {combinedBannerImages.map((image, index) => (
+            <img
+              key={image}
+              src={image}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover"
+              decoding="async"
+              fetchPriority={isFirstSlide && index === 0 ? 'high' : 'auto'}
+            />
+          ))}
         </div>
-      )}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(17,24,39,0.92) 0%, rgba(17,24,39,0.75) 45%, rgba(17,24,39,0.5) 100%)',
+          }}
+        />
+      </div>
 
       {/* Decorative circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
