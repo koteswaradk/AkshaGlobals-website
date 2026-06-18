@@ -23,6 +23,16 @@ export interface Course {
   levels: CourseLevel[]
 }
 
+export const crossPlatformCourseIds = ['kmp-dev', 'cmp-dev'] as const
+
+export function getCrossPlatformCourses(courseList: Course[]) {
+  return courseList.filter(course => crossPlatformCourseIds.includes(course.id as (typeof crossPlatformCourseIds)[number]))
+}
+
+export function getDefaultSelectedCourseId(courseList: Course[]) {
+  return getCrossPlatformCourses(courseList)[0]?.id ?? courseList[0]?.id ?? null
+}
+
 export const courses: Course[] = [
   {
     id: 'android-dev',
