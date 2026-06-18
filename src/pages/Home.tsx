@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import HeroSlider from '../components/HeroSlider'
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
         description="Aksha Globals builds innovative mobile apps and offers professional training in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP."
         path="/"
       />
+
+      <HeroSlider />
 
       <section className="py-20 bg-m3-surface dark:bg-m3-dark-surface border-t border-m3-outline-variant dark:border-m3-dark-outline">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
