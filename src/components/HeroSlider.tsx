@@ -43,25 +43,23 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-black"
+      className="relative z-0 w-full overflow-hidden bg-black aspect-[16/7] sm:aspect-[16/6] md:aspect-[16/5]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
       {/* Slides */}
-      <div className="relative w-full aspect-[16/7] sm:aspect-[16/6] md:aspect-[16/5]">
-        {slides.map((slide, i) => (
-          <img
-            key={i}
-            src={slide.src}
-            alt={slide.alt}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-            style={{ opacity: i === current ? 1 : 0 }}
-            decoding="async"
-            fetchPriority={i === 0 ? 'high' : 'auto'}
-          />
-        ))}
-      </div>
+      {slides.map((slide, i) => (
+        <img
+          key={i}
+          src={slide.src}
+          alt={slide.alt}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+          style={{ opacity: i === current ? 1 : 0 }}
+          decoding="async"
+          fetchPriority={i === 0 ? 'high' : 'auto'}
+        />
+      ))}
 
       {/* Dot indicators */}
       <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
