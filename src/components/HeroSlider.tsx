@@ -88,7 +88,8 @@ export default function HeroSlider() {
         <div className="absolute inset-0">
           <img
             src={slide.bannerImage}
-            alt={slide.headline}
+            alt=""
+            aria-hidden="true"
             className="w-full h-full object-cover"
             decoding="async"
             fetchPriority={current === 0 ? 'high' : 'auto'}
