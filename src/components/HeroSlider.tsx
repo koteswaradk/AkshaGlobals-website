@@ -94,7 +94,7 @@ export default function HeroSlider() {
       <button
         onClick={prev}
         aria-label="Previous slide"
-        className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm border border-white/30 rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg z-10"
+      
       >
         <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -103,7 +103,7 @@ export default function HeroSlider() {
       <button
         onClick={next}
         aria-label="Next slide"
-        className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-sm border border-white/30 rounded-full w-14 h-14 flex items-center justify-center transition-all duration-200 shadow-lg z-10"
+        
       >
         <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
