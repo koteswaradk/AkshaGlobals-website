@@ -43,7 +43,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-black h-[60vh] max-h-[600px]"
+      className="relative w-full overflow-hidden bg-black h-[60vh] max-h-[520px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
