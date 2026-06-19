@@ -43,7 +43,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative z-0 w-full overflow-hidden bg-black aspect-[16/7] sm:aspect-[16/6] md:aspect-[16/5]"
+      className="relative w-full overflow-hidden bg-black aspect-[16/7] sm:aspect-[16/6] md:aspect-[16/5]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Hero slider"
