@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
 
 const Logo = () => {
   const [imgError, setImgError] = useState(false)
@@ -28,7 +27,6 @@ const Logo = () => {
 }
 
 export default function Navbar() {
-  const { isDark, toggleTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   const isStudio = location.pathname === '/studio'
@@ -74,24 +72,10 @@ export default function Navbar() {
                 {link.label}
               </NavLink>
             ))}
-            <button
-              onClick={toggleTheme}
-              className="ml-4 p-2 rounded-full bg-m3-surface-container-high dark:bg-m3-dark-surface-container-high hover:bg-m3-surface-container-highest dark:hover:bg-m3-dark-surface-container-highest transition-colors duration-200"
-              aria-label="Toggle theme"
-            >
-              {isDark ? '☀️' : '🌙'}
-            </button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-m3-surface-container-high dark:bg-m3-dark-surface-container-high"
-              aria-label="Toggle theme"
-            >
-              {isDark ? '☀️' : '🌙'}
-            </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="p-2 rounded-full text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:bg-m3-surface-container-high dark:hover:bg-m3-dark-surface-container-high"
