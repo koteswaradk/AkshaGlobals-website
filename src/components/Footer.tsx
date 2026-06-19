@@ -85,8 +85,8 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed text-m3-dark-on-surface-variant mt-4">
-              Leading provider of innovative software solutions and professional training programs.
-              Empowering developers and businesses to build the future with cutting-edge technology.
+              Innovative software solutions and professional training programs.
+              Empowering developers to build the future with cutting-edge technology.
             </p>
           </div>
 
