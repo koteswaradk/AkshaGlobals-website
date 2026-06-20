@@ -250,7 +250,7 @@ export const products: Product[] = [
     name: 'HealthSync',
     tagline: 'Health Monitoring App',
     description: 'HealthSync connects patients with healthcare providers seamlessly. Track vitals, schedule appointments, and access medical records securely from your smartphone.',
-    icon: '❤️',
+    icon: './product-icons/icon8.png',
     category: 'Healthcare',
     features: [
       'Vital signs monitoring',
