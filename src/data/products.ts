@@ -10,37 +10,65 @@ export interface Product {
   playStoreUrl: string
   appStoreUrl: string
   color: string
+  featureDetails?: Array<{ icon: string; title: string; description: string }>
+  testimonial?: string
+  stats?: Array<{ value: string; label: string }>
+  largeImage?: string
 }
 
 export const products: Product[] = [
   {
     id: 'Om SaiBaba',
     name: 'Om SaiBaba',
-    tagline: 'Manthra|Bajana|shloka in one place',
-    description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
+    tagline: 'Mantra | Bajana | Shloka in one place',
+    description: 'A divine companion for every devotee. Listen to powerful mantras, bhajans and shlokas, seek blessings, and feel Sai\'s presence every day in your life.',
     icon: './product-icons/icon1.png',
-    category: 'Education',
+    category: 'Devotional',
     features: [
-      'Real-time attendance tracking',
-      'Grade management and analytics',
-      'Parent-teacher communication portal',
-      'Assignment and homework tracking',
-      'Fee management integration',
-      'Timetable scheduling',
-      'Performance reports and insights',
-      'Multi-language support',
+      'Listen to divine mantras and bhajans',
+      'Powerful shlokas and aartis',
+      'Daily blessings and inspiration',
+      'Devotee community',
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
       { label: 'Version', value: '3.2.1' },
       { label: 'Size', value: '42 MB' },
-      { label: 'Rating', value: '4.7 ★' },
-      { label: 'Downloads', value: '50K+' },
+      { label: 'Rating', value: '4.8 ★' },
+      { label: 'Downloads', value: '100K+' },
       { label: 'Last Updated', value: 'Dec 2024' },
     ],
     playStoreUrl: 'https://play.google.com',
     appStoreUrl: 'https://apps.apple.com',
-    color: 'from-m3-primary to-m3-primary-10',
+    color: 'from-teal-900 to-slate-900',
+    featureDetails: [
+      {
+        icon: '🎵',
+        title: 'Mantras & Bhajans',
+        description: 'Listen to divine mantras and soulful bhajans'
+      },
+      {
+        icon: '📖',
+        title: 'Shlokas & Aartis',
+        description: 'Powerful shlokas and aartis for peace and strength'
+      },
+      {
+        icon: '🙏',
+        title: 'Daily Blessings',
+        description: 'Receive Sai Baba\'s blessings and daily inspiration'
+      },
+      {
+        icon: '❤️',
+        title: 'Devotee Community',
+        description: 'Connect with fellow devotees and share your faith'
+      },
+    ],
+    testimonial: 'Sabka Malik Ek',
+    stats: [
+      { value: '100K+', label: 'Happy Devotees' },
+      { value: '4.8', label: 'App Rating' },
+    ],
+    largeImage: './product-icons/icon1.png',
   },
   {
     id: 'edutrack',
