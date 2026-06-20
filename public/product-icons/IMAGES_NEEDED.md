@@ -20,7 +20,7 @@ This directory is set up to store the product icon images. The following PNG ima
    - Category: Healthcare
 
 4. **payquick.png** (256x256 minimum)
-   - Description: FinTech/Payment solution icon design (e.g., brain shield, digital payment symbol)
+   - Description: Payment/FinTech icon design (digital payment, wallet, or similar)
    - Used for: PayQuick - Payment Solution App
    - Category: FinTech
 

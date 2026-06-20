@@ -1,8 +1,26 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 import SEO from '../components/SEO'
 
 export default function Products() {
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set())
+
+  const handleImageError = (productId: string) => {
+    setFailedImages(prev => new Set(prev).add(productId))
+  }
+
+  // Function to get emoji fallback for products
+  const getEmojiFallback = (productId: string) => {
+    const emojiMap: { [key: string]: string } = {
+      'edutrack': '🎓',
+      'shopease': '🛒',
+      'healthsync': '❤️',
+      'payquick': '💳',
+    }
+    return emojiMap[productId.split('-')[0]] || '📱'
+  }
+
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO
@@ -30,10 +48,15 @@ export default function Products() {
               className="group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-1 overflow-hidden hover:shadow-m3-3 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
             >
               <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px]`}>
-                {product.icon.startsWith('/') ? (
-                  <img src={product.icon} alt={`${product.name} icon`} className="w-16 sm:w-20 h-16 sm:h-20 object-contain" />
+                {product.icon.startsWith('/') && !failedImages.has(product.id) ? (
+                  <img
+                    src={product.icon}
+                    alt={`${product.name} icon`}
+                    className="w-16 sm:w-20 h-16 sm:h-20 object-contain"
+                    onError={() => handleImageError(product.id)}
+                  />
                 ) : (
-                  <span className="text-4xl sm:text-6xl">{product.icon}</span>
+                  <span className="text-4xl sm:text-6xl">{failedImages.has(product.id) ? getEmojiFallback(product.id) : product.icon}</span>
                 )}
               </div>
               <div className="p-6 flex flex-col justify-between">

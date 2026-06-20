@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { products } from '../data/products'
 import SEO from '../components/SEO'
@@ -17,6 +18,7 @@ const AppStoreIcon = () => (
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
   const product = products.find(p => p.id === id)
+  const [imageLoadFailed, setImageLoadFailed] = useState(false)
 
   if (!product) {
     return (
@@ -27,6 +29,17 @@ export default function ProductDetail() {
         </div>
       </div>
     )
+  }
+
+  // Function to get emoji fallback
+  const getEmojiFallback = () => {
+    const emojiMap: { [key: string]: string } = {
+      'edutrack': '🎓',
+      'shopease': '🛒',
+      'healthsync': '❤️',
+      'payquick': '💳',
+    }
+    return emojiMap[product.id.split('-')[0]] || '📱'
   }
 
   return (
@@ -44,10 +57,15 @@ export default function ProductDetail() {
           </Link>
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
             <div className="text-6xl md:text-8xl flex items-center justify-center">
-              {product.icon.startsWith('/') ? (
-                <img src={product.icon} alt={`${product.name} icon`} className="w-32 md:w-40 h-32 md:h-40 object-contain" />
+              {product.icon.startsWith('/') && !imageLoadFailed ? (
+                <img
+                  src={product.icon}
+                  alt={`${product.name} icon`}
+                  className="w-32 md:w-40 h-32 md:h-40 object-contain"
+                  onError={() => setImageLoadFailed(true)}
+                />
               ) : (
-                <span>{product.icon}</span>
+                <span>{imageLoadFailed ? getEmojiFallback() : product.icon}</span>
               )}
             </div>
             <div>
