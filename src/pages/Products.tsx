@@ -31,7 +31,7 @@ export default function Products() {
             >
               <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-6 flex items-center justify-center min-w-[100px] sm:min-w-[120px]`}>
                 {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
-                  <img src={product.icon} alt={product.name} className="w-80 h-80 object-contain" />
+                  <img src={product.icon} alt={product.name} className="w-full h-full object-contain" />
                 ) : (
                   <span className="text-6xl sm:text-6xl">{product.icon || ''}</span>
                 )}
