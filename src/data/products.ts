@@ -19,6 +19,7 @@ export const products: Product[] = [
     tagline: 'Manthra|Bajana|shloka in one place',
     description: 'A divine companion for all devotees. Listen to powerful mantras, shlokas, and bhajans. Seeking Blessings and feel the Sai Baba Presence in your Daily life',
     icon: './product-icons/icon1.png',
+    category: "",
     features: [
       'Listen to Mantra|shlokas|bhajans',
       'Live darshan ',
@@ -46,6 +47,7 @@ export const products: Product[] = [
     tagline: '',
     description: 'A privacy-focused, AI-powered call management system that blocks spam, filters unwanted calls, and provides intelligent call handling across multiple modes..',
     icon: './product-icons/icon2.png',
+    category: "",
     features: [
       '🤖 AI Spam Detection - Machine learning-based spam classification',
       'Auto-Reply Customization - Personalized SMS responses per mode',
@@ -73,6 +75,7 @@ export const products: Product[] = [
     tagline: 'Sound meditation or Sound healing meditation',
     description: 'Meditating through sound is often called sound meditation or sound healing meditation. It uses sound as the main focus to calm the mind and body instead of focusing only on breathing or silence.',
     icon: './product-icons/icon3.png',
+    category: "",
     features: [
       'Helps calm the mind',
       'Reduces stress and anxiety',
