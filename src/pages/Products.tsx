@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { products } from '../data/products'
+import { getEmojiFallback } from '../utils/iconHelpers'
 import SEO from '../components/SEO'
 
 export default function Products() {
@@ -8,17 +9,6 @@ export default function Products() {
 
   const handleImageError = (productId: string) => {
     setFailedImages(prev => new Set(prev).add(productId))
-  }
-
-  // Function to get emoji fallback for products
-  const getEmojiFallback = (productId: string) => {
-    const emojiMap: { [key: string]: string } = {
-      'edutrack': '🎓',
-      'shopease': '🛒',
-      'healthsync': '❤️',
-      'payquick': '💳',
-    }
-    return emojiMap[productId.split('-')[0]] || '📱'
   }
 
   return (

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { products } from '../data/products'
+import { getEmojiFallback } from '../utils/iconHelpers'
 import SEO from '../components/SEO'
 
 const PlayStoreIcon = () => (
@@ -31,17 +32,6 @@ export default function ProductDetail() {
     )
   }
 
-  // Function to get emoji fallback
-  const getEmojiFallback = () => {
-    const emojiMap: { [key: string]: string } = {
-      'edutrack': '🎓',
-      'shopease': '🛒',
-      'healthsync': '❤️',
-      'payquick': '💳',
-    }
-    return emojiMap[product.id.split('-')[0]] || '📱'
-  }
-
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO
@@ -65,7 +55,7 @@ export default function ProductDetail() {
                   onError={() => setImageLoadFailed(true)}
                 />
               ) : (
-                <span>{imageLoadFailed ? getEmojiFallback() : product.icon}</span>
+                <span>{imageLoadFailed ? getEmojiFallback(product.id) : product.icon}</span>
               )}
             </div>
             <div>
