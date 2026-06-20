@@ -81,7 +81,7 @@ export const products: Product[] = [
       'Helps with sleep',
       'Creates a deeper meditative state',
       'Feel physically relaxed during sound meditation',
-      'Help people feel more connected, peaceful, or spiritually focused',
+      'Helps people feel more connected, peaceful, or spiritually focused',
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
