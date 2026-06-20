@@ -250,7 +250,7 @@ export const products: Product[] = [
     name: 'HealthSync',
     tagline: 'Health Monitoring App',
     description: 'HealthSync connects patients with healthcare providers seamlessly. Track vitals, schedule appointments, and access medical records securely from your smartphone.',
-    icon: './product-icons/icon8.png',
+    icon: './product-icons/icon9.png',
     category: 'Healthcare',
     features: [
       'Vital signs monitoring',
@@ -279,7 +279,7 @@ export const products: Product[] = [
     name: 'PayQuick',
     tagline: 'Payment Solution App',
     description: 'PayQuick is a lightning-fast digital payment solution supporting UPI, cards, and wallets. Built with enterprise-grade security and instant transaction processing.',
-    icon: '💳',
+    icon: './product-icons/icon10',
     category: 'FinTech',
     features: [
       'UPI & QR code payments',
