@@ -33,7 +33,7 @@ export default function Products() {
                 {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
                   <img src={product.icon} alt={product.name} className="w-full h-full object-contain" />
                 ) : (
-                  <span className="text-6xl sm:text-8xl">{product.icon || ''}</span>
+                  <span className="text-6xl sm:text-6xl">{product.icon || ''}</span>
                 )}
               </div>
               <div className="p-6 flex flex-col justify-between">
