@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom'
 import { products } from '../data/products'
 import SEO from '../components/SEO'
+import FirstProductCard from '../components/FirstProductCard'
+import { Link } from 'react-router-dom'
 
 export default function Products() {
+  const firstProduct = products[0]
+  const remainingProducts = products.slice(1)
+
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO
@@ -20,10 +24,16 @@ export default function Products() {
         </div>
       </div>
 
-      {/* Products Grid */}
+      {/* Products Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* First Product - Featured Card */}
+        <div className="mb-16">
+          <FirstProductCard product={firstProduct} />
+        </div>
+
+        {/* Remaining Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map(product => (
+          {remainingProducts.map(product => (
             <Link
               key={product.id}
               to={`/products/${product.id}`}
