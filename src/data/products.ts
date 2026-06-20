@@ -38,7 +38,7 @@ export const products: Product[] = [
       { label: 'Last Updated', value: 'Dec 2024' },
     ],
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.skyries.saibaba&hl=en_IN',
-    appStoreUrl: '',
+    appStoreUrl: 'https://apps.apple.com',
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
