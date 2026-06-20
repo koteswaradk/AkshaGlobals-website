@@ -29,7 +29,7 @@ export default function Products() {
               to={`/products/${product.id}`}
               className="group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-1 overflow-hidden hover:shadow-m3-3 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
             >
-              <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center min-w-[200px] sm:min-w-[200px]`}>
+              <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center min-w-[200px] sm:min-w-[250px]`}>
                 {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
                   <img src={product.icon} alt={product.name} className="w-full h-full object-contain" />
                 ) : (
