@@ -43,10 +43,10 @@ export default function ProductDetail() {
             ← All Products
           </Link>
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
-            {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
+            {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
               <img src={product.icon} alt={product.name} className="w-24 h-24 md:w-32 md:h-32 object-contain" />
             ) : (
-              <div className="text-6xl md:text-8xl">{product.icon}</div>
+              <div className="text-6xl md:text-8xl">{product.icon || ''}</div>
             )}
             <div>
               <span className="text-white/70 text-sm font-medium uppercase tracking-wider">{product.category}</span>
