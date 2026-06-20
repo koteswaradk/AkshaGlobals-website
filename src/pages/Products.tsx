@@ -22,14 +22,14 @@ export default function Products() {
 
       {/* Products Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map(product => (
             <Link
               key={product.id}
               to={`/products/${product.id}`}
-              className="group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-1 overflow-hidden hover:shadow-m3-3 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
+              className="group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-1 overflow-hidden hover:shadow-m3-3 transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
-              <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center min-w-[200px] sm:min-w-[2500px]`}>
+              <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center h-48 sm:h-40`}>
                 {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
                   <img src={product.icon} alt={product.name} className="w-full h-full object-contain" />
                 ) : (
