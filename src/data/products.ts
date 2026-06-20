@@ -279,7 +279,7 @@ export const products: Product[] = [
     name: 'PayQuick',
     tagline: 'Payment Solution App',
     description: 'PayQuick is a lightning-fast digital payment solution supporting UPI, cards, and wallets. Built with enterprise-grade security and instant transaction processing.',
-    icon: './product-icons/icon10',
+    icon: './product-icons/icon10.png',
     category: 'FinTech',
     features: [
       'UPI & QR code payments',
