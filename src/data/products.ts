@@ -43,7 +43,7 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'edutrack',
+    id: 'edutrack-2',
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
@@ -72,7 +72,7 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'edutrack',
+    id: 'edutrack-3',
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
@@ -101,7 +101,7 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'edutrack',
+    id: 'edutrack-4',
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
@@ -130,7 +130,7 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'edutrack',
+    id: 'edutrack-5',
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
@@ -159,7 +159,7 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'edutrack',
+    id: 'edutrack-6',
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
@@ -188,7 +188,7 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'edutrack',
+    id: 'edutrack-7',
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',

@@ -45,7 +45,7 @@ export default function ProductDetail() {
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
             <div className="text-6xl md:text-8xl flex items-center justify-center">
               {product.icon.startsWith('/') ? (
-                <img src={product.icon} alt={product.name} className="w-32 md:w-40 h-32 md:h-40 object-contain" />
+                <img src={product.icon} alt={`${product.name} icon`} className="w-32 md:w-40 h-32 md:h-40 object-contain" />
               ) : (
                 <span>{product.icon}</span>
               )}
