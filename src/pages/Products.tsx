@@ -30,7 +30,11 @@ export default function Products() {
               className="group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-1 overflow-hidden hover:shadow-m3-3 transition-all duration-300 hover:-translate-y-1 flex flex-col sm:flex-row"
             >
               <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px]`}>
-                <span className="text-4xl sm:text-6xl">{product.icon}</span>
+                {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
+                  <img src={product.icon} alt={product.name} className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+                ) : (
+                  <span className="text-4xl sm:text-6xl">{product.icon || ''}</span>
+                )}
               </div>
               <div className="p-6 flex flex-col justify-between">
                 <div>
