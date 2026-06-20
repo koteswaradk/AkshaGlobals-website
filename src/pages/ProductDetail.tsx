@@ -47,15 +47,19 @@ export default function ProductDetail() {
           </Link>
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
             <div className="text-6xl md:text-8xl flex items-center justify-center">
-              {product.icon.startsWith('/') && !imageLoadFailed ? (
-                <img
-                  src={product.icon}
-                  alt={`${product.name} icon`}
-                  className="w-32 md:w-40 h-32 md:h-40 object-contain"
-                  onError={() => setImageLoadFailed(true)}
-                />
+              {product.icon.startsWith('/') ? (
+                imageLoadFailed ? (
+                  <span>{getEmojiFallback(product.id)}</span>
+                ) : (
+                  <img
+                    src={product.icon}
+                    alt={`${product.name} icon`}
+                    className="w-32 md:w-40 h-32 md:h-40 object-contain"
+                    onError={() => setImageLoadFailed(true)}
+                  />
+                )
               ) : (
-                <span>{imageLoadFailed ? getEmojiFallback(product.id) : product.icon}</span>
+                <span>{product.icon}</span>
               )}
             </div>
             <div>
