@@ -18,7 +18,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -47,7 +47,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -76,7 +76,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -105,7 +105,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -134,7 +134,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -163,7 +163,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -192,7 +192,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/edutrack.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -221,7 +221,7 @@ export const products: Product[] = [
     name: 'ShopEase',
     tagline: 'E-commerce Mobile App',
     description: 'ShopEase is a feature-rich e-commerce mobile application that empowers businesses to set up online stores quickly. Supports multiple payment gateways and real-time inventory management.',
-    icon: '🛒',
+    icon: '/product-icons/shopease.png',
     category: 'E-commerce',
     features: [
       'Product catalog management',
@@ -250,7 +250,7 @@ export const products: Product[] = [
     name: 'HealthSync',
     tagline: 'Health Monitoring App',
     description: 'HealthSync connects patients with healthcare providers seamlessly. Track vitals, schedule appointments, and access medical records securely from your smartphone.',
-    icon: '❤️',
+    icon: '/product-icons/healthsync.png',
     category: 'Healthcare',
     features: [
       'Vital signs monitoring',
@@ -279,7 +279,7 @@ export const products: Product[] = [
     name: 'PayQuick',
     tagline: 'Payment Solution App',
     description: 'PayQuick is a lightning-fast digital payment solution supporting UPI, cards, and wallets. Built with enterprise-grade security and instant transaction processing.',
-    icon: '💳',
+    icon: '/product-icons/payquick.png',
     category: 'FinTech',
     features: [
       'UPI & QR code payments',

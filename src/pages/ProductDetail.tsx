@@ -43,7 +43,13 @@ export default function ProductDetail() {
             ← All Products
           </Link>
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
-            <div className="text-6xl md:text-8xl">{product.icon}</div>
+            <div className="text-6xl md:text-8xl flex items-center justify-center">
+              {product.icon.startsWith('/') ? (
+                <img src={product.icon} alt={product.name} className="w-32 md:w-40 h-32 md:h-40 object-contain" />
+              ) : (
+                <span>{product.icon}</span>
+              )}
+            </div>
             <div>
               <span className="text-white/70 text-sm font-medium uppercase tracking-wider">{product.category}</span>
               <h1 className="text-4xl md:text-5xl font-bold mt-1 mb-2">{product.name}</h1>
