@@ -44,7 +44,7 @@ export const products: Product[] = [
   {
     id: 'callshield',
     name: 'AiSmartCallShield',
-    tagline: '',
+    tagline: 'AI-powered call management system',
     description: 'A privacy-focused, AI-powered call management system that blocks spam, filters unwanted calls, and provides intelligent call handling across multiple modes..',
     icon: './product-icons/icon2.png',
     category: "TelePhony",
@@ -74,7 +74,7 @@ export const products: Product[] = [
     name: 'Resona',
     tagline: 'Sound meditation or Sound healing meditation',
     description: 'Meditating through sound is often called sound meditation or sound healing meditation. It uses sound as the main focus to calm the mind and body instead of focusing only on breathing or silence.',
-    icon: './product-icons/icon3.png',
+    icon: './product-icons/sm.png',
     category: "meditation",
     features: [
       'Helps calm the mind',
