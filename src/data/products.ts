@@ -18,7 +18,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon1.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -47,7 +47,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon2.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -76,7 +76,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon3.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -105,7 +105,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon4.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -134,7 +134,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon5.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -163,7 +163,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon6.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -192,7 +192,7 @@ export const products: Product[] = [
     name: 'EduTrack',
     tagline: 'Student Management App',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: '🎓',
+    icon: '/product-icons/icon7.png',
     category: 'Education',
     features: [
       'Real-time attendance tracking',
@@ -221,7 +221,7 @@ export const products: Product[] = [
     name: 'ShopEase',
     tagline: 'E-commerce Mobile App',
     description: 'ShopEase is a feature-rich e-commerce mobile application that empowers businesses to set up online stores quickly. Supports multiple payment gateways and real-time inventory management.',
-    icon: '🛒',
+    icon: '/product-icons/icon8.png',
     category: 'E-commerce',
     features: [
       'Product catalog management',
