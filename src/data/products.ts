@@ -20,12 +20,12 @@ export const products: Product[] = [
   {
     id: 'Om SaiBaba',
     name: 'Om SaiBaba',
-    tagline: 'Manthra | Bajana | Shloka in one place',
-    description: 'A divine companion for every devotee. Listen to powerful manthas, bhajans and shlokas, seek blessings, and feel Sai\'s presence everyday in your life.',
+    tagline: 'Mantra | Bajana | Shloka in one place',
+    description: 'A divine companion for every devotee. Listen to powerful mantras, bhajans and shlokas, seek blessings, and feel Sai\'s presence every day in your life.',
     icon: './product-icons/icon1.png',
     category: 'Devotional',
     features: [
-      'Listen to divine manthas and bhajans',
+      'Listen to divine mantras and bhajans',
       'Powerful shlokas and aartis',
       'Daily blessings and inspiration',
       'Devotee community',
@@ -44,8 +44,8 @@ export const products: Product[] = [
     featureDetails: [
       {
         icon: '🎵',
-        title: 'Manthas & Bhajans',
-        description: 'Listen to divine manthas and soulful bhajans'
+        title: 'Mantras & Bhajans',
+        description: 'Listen to divine mantras and soulful bhajans'
       },
       {
         icon: '📖',
