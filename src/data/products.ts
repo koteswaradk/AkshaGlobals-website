@@ -14,9 +14,9 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    id: 'edutrack',
-    name: 'EduTrack',
-    tagline: 'Student Management App',
+    id: 'Om SaiBaba',
+    name: 'Om SaiBaba',
+    tagline: 'Manthra|Bajana|shloka in one place',
     description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
     icon: './product-icons/icon1.png',
     category: 'Education',
