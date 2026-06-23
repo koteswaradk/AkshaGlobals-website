@@ -185,8 +185,8 @@ export const products: Product[] = [
     id: 'maacare',
     name: 'Maa Care',
     tagline: 'A Rural Maternal & Baby Care Ecosystem',
-    description: 'EduTrack is a comprehensive student management platform designed for schools and colleges. It streamlines attendance, grades, and communication between students, teachers, and parents.',
-    icon: './product-icons/icon7.png',
+    description: 'Lack of pregnancy awareness, limited access to gynecologists, poor nutrition knowledge, delayed hospital visits, medicine confusion, post-pregnancy baby care.',
+    icon: './product-icons/icon8.png',
     category: 'Education',
     features: [
       'Pregnancy Tracking System',
@@ -217,7 +217,7 @@ export const products: Product[] = [
     name: 'Kisan Sathi',
     tagline: 'AI Crop Profit Copilot',
     description: 'Farmer-first product that increases income, reduces crop risk, and improves decision-making using AI + local market intelligence + simple mobile experiences.',
-    icon: './product-icons/icon8.png',
+    icon: './product-icons/icon7.png',
     category: 'farming',
     features: [
       'Smart Crop Selection Engine',
