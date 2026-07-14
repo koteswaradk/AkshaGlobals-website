@@ -119,7 +119,7 @@ export const products: Product[] = [
       { label: 'Downloads', value: '50K+' },
       { label: 'Last Updated', value: 'Dec 2024' },
     ],
-    playStoreUrl: 'https://play.google.com',
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.akshaglobal.flowerclockwidget',
     appStoreUrl: 'https://apps.apple.com',
     color: 'from-m3-primary to-m3-primary-10',
   },
