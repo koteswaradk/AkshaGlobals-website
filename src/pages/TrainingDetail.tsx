@@ -229,6 +229,7 @@ export default function TrainingDetail() {
                 <div className="flex gap-3 justify-center">
                   <a href="/brochures/android-brochure-1.png" download className="inline-flex items-center gap-2 px-4 py-2 border border-m3-outline-variant rounded-full text-sm hover:shadow">Download Brochure 1</a>
                   <a href="/brochures/android-brochure-2.png" download className="inline-flex items-center gap-2 px-4 py-2 border border-m3-outline-variant rounded-full text-sm hover:shadow">Download Brochure 2</a>
+                  <a href="/brochures/android-syllabus.pdf" download className="inline-flex items-center gap-2 px-4 py-2 border border-m3-outline-variant rounded-full text-sm hover:shadow">Download Syllabus (PDF)</a>
                 </div>
 
                 <div className="mt-4 flex items-center justify-center gap-2 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-xs">
