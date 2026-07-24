@@ -3,7 +3,7 @@ export interface CurriculumItem {
 }
 
 export interface CourseLevel {
-  name: 'Basic' | 'Advanced' | 'Expert'
+  name: string
   duration: string
   price: number
   curriculum: string[]
@@ -46,7 +46,7 @@ export const courses: Course[] = [
     instructor: 'Rahul Sharma',
     levels: [
       {
-        name: 'Basic',
+        name: 'Beginner',
         duration: '4 Weeks',
         price: 4999,
         curriculum: [
@@ -61,7 +61,7 @@ export const courses: Course[] = [
         ],
       },
       {
-        name: 'Advanced',
+        name: 'Intermediate',
         duration: '6 Weeks',
         price: 8999,
         curriculum: [
@@ -76,7 +76,7 @@ export const courses: Course[] = [
         ],
       },
       {
-        name: 'Expert',
+        name: 'Certification',
         duration: '8 Weeks',
         price: 14999,
         curriculum: [
@@ -88,6 +88,7 @@ export const courses: Course[] = [
           'Play Store deployment strategies',
           'App security best practices',
           'Capstone project with mentorship',
+          'Certification exam & project evaluation',
         ],
       },
     ],
@@ -271,7 +272,7 @@ export const courses: Course[] = [
     id: 'kmp-dev',
     name: 'Kotlin Multiplatform (KMP)',
     tagline: 'Share business logic across Android, iOS, desktop, and web with Kotlin',
-    description: 'Master Kotlin Multiplatform to build cross-platform applications with shared business logic. Learn to write Kotlin code once and run it on Android, iOS, desktop, and web while leveraging platform-specific capabilities.',
+    description: 'Master Kotlin Multiplatform to build cross-platform applications with shared business logic. Learn to write Kotlin code once and run it on Android, iOS, desktop, and web while leveraging platform-specific integrations.',
     icon: '🔷',
     color: 'from-m3-primary-20 to-m3-secondary-30',
     students: '8,000+',
@@ -329,7 +330,7 @@ export const courses: Course[] = [
     id: 'cmp-dev',
     name: 'Compose Multiplatform (CMP)',
     tagline: 'Build beautiful shared UIs across platforms with Jetpack Compose',
-    description: 'Learn Compose Multiplatform to create stunning, shared user interfaces for Android, iOS, desktop, and web. Master declarative UI development with Jetpack Compose and deploy consistent experiences everywhere.',
+    description: 'Learn Compose Multiplatform to create stunning, shared user interfaces for Android, iOS, desktop, and web. Master declarative UI development with Jetpack Compose and deploy consistently across targets.',
     icon: '🎨',
     color: 'from-m3-tertiary-20 to-m3-primary-30',
     students: '6,500+',
