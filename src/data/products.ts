@@ -46,16 +46,13 @@ export const products: Product[] = [
     name: 'CallSecure',
     tagline: 'AI-powered call management system',
     description: 'A privacy-focused, AI-powered call management system that blocks spam, filters unwanted calls, and provides intelligent call handling across multiple modes..',
-    icon: './product-icons/icon2.png',
-    category: "Telephony",
+    icon: './product-icons/callsecure.png',
+    category: "Call",
     features: [
-      'AI Spam Detection - Machine learning-based spam classification',
-      'Auto-Reply Customization - Personalized SMS responses per mode',
-      'Analytics Dashboard - Detailed call statistics and insights',
-      'Cloud Sync - Backup and sync across devices',
-      'Ring Counter Logic - Auto-reply after N rings',
-      'GPS-Based Driving Detection - Automatic mode activation',
-      'Contact Management - Whitelist, Blacklist, Family, Emergency categories',
+       ✅ **Basic Whitelist Filtering** - Allow only selected contacts on modes
+       ✅ **Call Blocking** - Block spam and unwanted calls
+       ✅ **Call Logging** - Track all incoming and outgoing calls
+       ✅ **Contact Management** - Whitelist, Blacklist, Family, Emergency categories
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
@@ -131,13 +128,13 @@ export const products: Product[] = [
     icon: './product-icons/driveshield.png',
     category: 'Telephony',
     features: [
-      '🛡️ Smart Driving Mode**: A single-toggle activation to start your protective shield.'
-      '💬 Intelligent Auto-Replies**: Automatically sends custom SMS responses to allowed contacts when you're unable to answer.'
-      '🚫 Proactive Call Shielding**: Instantly rejects unknown numbers and potential spam while you drive.'
-      '👥 Flexible Contact Management**: Create custom "Allowed Lists" to ensure important people can always reach you.'
-      '📊 Activity Dashboard**: Real-time statistics and 24-hour trend charts showing calls received, rejected, and replies sent.'
-      '🔒 Privacy First**: All call screening and contact matching happens locally on your device.'
-      '🔔 Status Notifications**: Clear background indicators show when the app is actively protecting your journey.'
+      '🛡️ Smart Driving Mode: A single-toggle activation to start your protective shield.'
+      '💬 Intelligent Auto-Replies: Automatically sends custom SMS responses to allowed contacts when you're unable to answer.'
+      '🚫 Proactive Call Shielding: Instantly rejects unknown numbers and potential spam while you drive.'
+      '👥 Flexible Contact Management: Create custom "Allowed Lists" to ensure important people can always reach you.'
+      '📊 Activity Dashboard: Real-time statistics and 24-hour trend charts showing calls received, rejected, and replies sent.'
+      '🔒 Privacy First: All call screening and contact matching happens locally on your device.'
+      '🔔 Status Notifications: Clear background indicators show when the app is actively protecting your journey.'
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
