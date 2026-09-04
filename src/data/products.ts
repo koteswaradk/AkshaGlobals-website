@@ -102,7 +102,7 @@ export const products: Product[] = [
     id: 'custom clock',
     name: 'Floral Clock widget',
     tagline: 'clock widget',
-    description: 'Analog Clock widget with natural flower look  and feel which decorates the phone with a natural analog clock.',
+    description: 'Analog Clock widget with a natural flower look  and feel that decorates the phone with a natural analog clock.',
     icon: './product-icons/icon4.png',
     category: 'clock widget',
     features: [
@@ -124,22 +124,20 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'health',
-    name: 'Health Guide',
-    tagline: 'Your Daily Health Companion & Emergency First Aid Guide',
-    description: 'Health + Guidance + Prevention + Emergency Care, which makes it ideal for a comprehensive health companion. App much more differentiated than typical health apps because it combines preventive healthcare, emergency response, doctor-prescribed care, habit tracking, AI coaching, and yoga science.',
-    icon: './product-icons/icon5.png',
-    category: 'Health',
+    id: 'telephony',
+    name: 'DriveShield',
+    tagline: 'DriveShield - Intelligent Driving Assistant',
+    description: 'DriveShield is a modern Android application designed to keep you focused on the road while staying safely connected. It intelligently manages incoming calls, filters spam, and provides automated responses to your trusted contacts, ensuring a distraction-free driving experience.',
+    icon: './product-icons/driveshield.png',
+    category: 'Telephony',
     features: [
-      'Build healthy habits',
-      'Follow doctor-prescribed wellness routines',
-      'Learn emergency first aid',
-      'Track health improvements',
-      'Access trusted medical guidance',
-      'Prepare for emergencies',
-      'Health Knowledge Center',
-      'Personal Health Dashboard',
-      'AI Health Coach',
+      '🛡️ Smart Driving Mode**: A single-toggle activation to start your protective shield.'
+      '💬 Intelligent Auto-Replies**: Automatically sends custom SMS responses to allowed contacts when you're unable to answer.'
+      '🚫 Proactive Call Shielding**: Instantly rejects unknown numbers and potential spam while you drive.'
+      '👥 Flexible Contact Management**: Create custom "Allowed Lists" to ensure important people can always reach you.'
+      '📊 Activity Dashboard**: Real-time statistics and 24-hour trend charts showing calls received, rejected, and replies sent.'
+      '🔒 Privacy First**: All call screening and contact matching happens locally on your device.'
+      '🔔 Status Notifications**: Clear background indicators show when the app is actively protecting your journey.'
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
@@ -153,7 +151,7 @@ export const products: Product[] = [
     appStoreUrl: 'https://apps.apple.com',
     color: 'from-m3-primary to-m3-primary-10',
   },
-  {
+  /*{
     id: 'greetingcard',
     name: 'AIGreetingCard Maker',
     tagline: 'AI Card Generation (Prompt-based)',
@@ -292,5 +290,5 @@ export const products: Product[] = [
     playStoreUrl: 'https://play.google.com',
     appStoreUrl: 'https://apps.apple.com',
     color: 'from-m3-tertiary to-m3-tertiary-10',
-  },
+  },*/
 ]
