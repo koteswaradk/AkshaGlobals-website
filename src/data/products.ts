@@ -49,10 +49,10 @@ export const products: Product[] = [
     icon: './product-icons/callsecure.png',
     category: "Call",
     features: [
-       ✅ **Basic Whitelist Filtering** - Allow only selected contacts on modes
-       ✅ **Call Blocking** - Block spam and unwanted calls
-       ✅ **Call Logging** - Track all incoming and outgoing calls
-       ✅ **Contact Management** - Whitelist, Blacklist, Family, Emergency categories
+      'Basic Whitelist Filtering - Allow only selected contacts on modes',
+      'Call Blocking - Block spam and unwanted calls',
+      'Call Logging - Track all incoming and outgoing calls',
+      'Contact Management - Whitelist, Blacklist, Family, Emergency categories',
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
@@ -70,7 +70,7 @@ export const products: Product[] = [
     id: 'resona',
     name: 'Resona',
     tagline: 'Sound meditation or Sound healing meditation',
-    description: 'Meditating through sound is often called sound meditation or sound healing meditation. It uses sound as the main focus to calm the mind and body instead of focusing only on breathing or silence.',
+    description: 'Meditating through sound is often called sound meditation or sound healing meditation. It uses sound as the main focus to calm the mind and body instead of focusing only on breathing',
     icon: './product-icons/sm.png',
     category: "meditation",
     features: [
@@ -124,17 +124,17 @@ export const products: Product[] = [
     id: 'telephony',
     name: 'DriveShield',
     tagline: 'DriveShield - Intelligent Driving Assistant',
-    description: 'DriveShield is a modern Android application designed to keep you focused on the road while staying safely connected. It intelligently manages incoming calls, filters spam, and provides automated responses to your trusted contacts, ensuring a distraction-free driving experience.',
+    description: 'DriveShield is a modern Android application designed to keep you focused on the road while staying safely connected. It intelligently manages incoming calls, filters spam, and provides intelligent driving assistance features.',
     icon: './product-icons/driveshield.png',
     category: 'Telephony',
     features: [
-      '🛡️ Smart Driving Mode: A single-toggle activation to start your protective shield.'
-      '💬 Intelligent Auto-Replies: Automatically sends custom SMS responses to allowed contacts when you're unable to answer.'
-      '🚫 Proactive Call Shielding: Instantly rejects unknown numbers and potential spam while you drive.'
-      '👥 Flexible Contact Management: Create custom "Allowed Lists" to ensure important people can always reach you.'
-      '📊 Activity Dashboard: Real-time statistics and 24-hour trend charts showing calls received, rejected, and replies sent.'
-      '🔒 Privacy First: All call screening and contact matching happens locally on your device.'
-      '🔔 Status Notifications: Clear background indicators show when the app is actively protecting your journey.'
+      '🛡️ Smart Driving Mode: A single-toggle activation to start your protective shield.',
+      '💬 Intelligent Auto-Replies: Automatically sends custom SMS responses to allowed contacts when you're unable to answer.',
+      '🚫 Proactive Call Shielding: Instantly rejects unknown numbers and potential spam while you drive.',
+      '👥 Flexible Contact Management: Create custom "Allowed Lists" to ensure important people can always reach you.',
+      '📊 Activity Dashboard: Real-time statistics and 24-hour trend charts showing calls received, rejected, and replies sent.',
+      '🔒 Privacy First: All call screening and contact matching happens locally on your device.',
+      '🔔 Status Notifications: Clear background indicators show when the app is actively protecting your journey.',
     ],
     specs: [
       { label: 'Platform', value: 'Android & iOS' },
