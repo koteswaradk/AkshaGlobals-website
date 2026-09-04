@@ -42,12 +42,12 @@ export const products: Product[] = [
     color: 'from-m3-primary to-m3-primary-10',
   },
   {
-    id: 'callshield',
-    name: 'AiSmartCallShield',
+    id: 'Callsecure',
+    name: 'CallSecure',
     tagline: 'AI-powered call management system',
     description: 'A privacy-focused, AI-powered call management system that blocks spam, filters unwanted calls, and provides intelligent call handling across multiple modes..',
     icon: './product-icons/icon2.png',
-    category: "TelePhony",
+    category: "Telephony",
     features: [
       'AI Spam Detection - Machine learning-based spam classification',
       'Auto-Reply Customization - Personalized SMS responses per mode',
