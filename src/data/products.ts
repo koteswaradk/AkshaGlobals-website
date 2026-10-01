@@ -119,33 +119,5 @@ export const products: Product[] = [
     playStoreUrl: 'https://play.google.com/store/apps/details?id=com.akshaglobal.flowerclockwidget',
     appStoreUrl: 'https://apps.apple.com',
     color: 'from-m3-primary to-m3-primary-10',
-  },
-  {
-    id: 'telephony',
-    name: 'DriveShield',
-    tagline: 'DriveShield - Intelligent Driving Assistant',
-    description: 'DriveShield is a modern Android application designed to keep you focused on the road while staying safely connected. It intelligently manages incoming calls, filters spam, and provides intelligent driving assistance features',
-    icon: './product-icons/driveshield.png',
-    category: 'Telephony',
-    features: [
-      '🛡️ Smart Driving Mode: A single-toggle activation to start your protective shield',
-      '💬 Intelligent Auto-Replies: Automatically sends custom SMS responses to allowed contacts when you're unable to answer',
-      '🚫 Proactive Call Shielding: Instantly rejects unknown numbers and potential spam while you drive',
-      '👥 Flexible Contact Management: Create custom "Allowed Lists" to ensure important people can always reach you',
-      '📊 Activity Dashboard: Real-time statistics and 24-hour trend charts showing calls received, rejected, and replies sent',
-      '🔒 Privacy First: All call screening and contact matching happens locally on your device',
-      '🔔 Status Notifications: Clear background indicators show when the app is actively protecting your journey',
-    ],
-    specs: [
-      { label: 'Platform', value: 'Android & iOS' },
-      { label: 'Version', value: '3.2.1' },
-      { label: 'Size', value: '42 MB' },
-      { label: 'Rating', value: '4.7 ★' },
-      { label: 'Downloads', value: '50K+' },
-      { label: 'Last Updated', value: 'Dec 2024' },
-    ],
-    playStoreUrl: 'https://play.google.com',
-    appStoreUrl: 'https://apps.apple.com',
-    color: 'from-m3-primary to-m3-primary-10',
   }
 ]
