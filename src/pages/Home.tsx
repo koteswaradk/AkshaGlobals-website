@@ -144,31 +144,32 @@ export default function Home() {
                   </div>
 
                   <div className="rounded-[28px] border border-cyan-500/20 bg-slate-950/60 p-5 shadow-[0_0_32px_rgba(34,211,238,0.12)] sm:p-6">
-                    <div className="mb-5 flex items-center gap-4">
+                    <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-slate-900/70 p-4 sm:p-5">
                       <div
-                        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-2xl shadow-lg"
-                        style={{
-                          background: product.gradient,
-                          boxShadow: `0 0 22px ${product.glow}`,
-                        }}
-                      >
+                        className="pointer-events-none absolute inset-0 opacity-25"
+                        style={{ background: product.gradient }}
+                      />
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-400/20 bg-slate-950/80">
                         {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
                           <img
                             src={product.icon}
-                            alt={`${product.name} icon`}
-                            className="h-10 w-10 object-contain"
+                            alt={`${product.name} preview`}
+                            className="h-full w-full object-contain p-4 sm:p-6"
                             loading="lazy"
                           />
                         ) : (
-                          product.icon
+                          <span className="flex h-full w-full items-center justify-center text-5xl">
+                            {product.icon}
+                          </span>
                         )}
                       </div>
-                      <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
-                          Product Capabilities
-                        </p>
-                        <p className="mt-1 text-lg font-bold text-white">{product.name}</p>
-                      </div>
+                    </div>
+
+                    <div className="mt-5 mb-5">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
+                        Product Capabilities
+                      </p>
+                      <p className="mt-1 text-lg font-bold text-white">{product.name}</p>
                     </div>
 
                     <div className="grid gap-3 sm:grid-cols-2">
