@@ -121,26 +121,25 @@ export default function Home() {
                 />
 
                 <div className="relative z-10 p-6 sm:p-8">
-                  <div className="rounded-[28px] border border-cyan-500/20 bg-slate-950/60 p-5 shadow-[0_0_32px_rgba(34,211,238,0.12)] sm:p-6">
-                    <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-slate-900/70 p-4 sm:p-5">
-                      <div
-                        className="pointer-events-none absolute inset-0 opacity-25"
-                        style={{ background: product.gradient }}
-                      />
-                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-400/20 bg-slate-950/80">
-                        {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
-                          <img
-                            src={product.icon}
-                            alt={`${product.name} preview`}
-                            className="h-full w-full object-contain p-4 sm:p-6"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <span className="flex h-full w-full items-center justify-center text-5xl">
-                            {product.icon}
-                          </span>
-                        )}
-                      </div>
+                  <div className="relative overflow-hidden rounded-[28px] border border-cyan-400/25 bg-slate-950/65 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_18px_40px_rgba(2,6,23,0.55)] sm:p-5">
+                    <div
+                      className="pointer-events-none absolute inset-0 opacity-20"
+                      style={{ background: product.gradient }}
+                    />
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-300/20 bg-[linear-gradient(160deg,rgba(15,23,42,0.9),rgba(2,6,23,0.98))]">
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_60%)]" />
+                      {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
+                        <img
+                          src={product.icon}
+                          alt={`${product.name} preview`}
+                          className="relative z-10 h-full w-full object-contain p-4 sm:p-6"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span className="relative z-10 flex h-full w-full items-center justify-center text-5xl">
+                          {product.icon}
+                        </span>
+                      )}
                     </div>
                   </div>
 
