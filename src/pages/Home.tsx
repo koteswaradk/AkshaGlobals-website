@@ -103,7 +103,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid gap-8 md:grid-cols-2">
             {upcomingProducts.map(product => (
               <article
                 key={product.id}
@@ -120,29 +120,7 @@ export default function Home() {
                   style={{ background: product.gradient }}
                 />
 
-                <div className="relative z-10 grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:p-10">
-                  <div>
-                    <div className="mb-5 flex flex-wrap items-center gap-3">
-                      <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
-                        Upcoming Product
-                      </p>
-                      <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
-                        {product.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
-                      {product.name}
-                    </h3>
-                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
-                      {product.subtitle}
-                    </p>
-                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
-                      {product.description}
-                    </p>
-
-                  </div>
-
+                <div className="relative z-10 p-6 sm:p-8">
                   <div className="rounded-[28px] border border-cyan-500/20 bg-slate-950/60 p-5 shadow-[0_0_32px_rgba(34,211,238,0.12)] sm:p-6">
                     <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-slate-900/70 p-4 sm:p-5">
                       <div
@@ -164,8 +142,29 @@ export default function Home() {
                         )}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="mt-5 mb-5">
+                  <div className="mt-6">
+                    <div className="mb-5 flex items-center justify-between gap-3">
+                      <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
+                        Upcoming Product
+                      </p>
+                      <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
+                        {product.badge}
+                      </span>
+                    </div>
+
+                    <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+                      {product.name}
+                    </h3>
+                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      {product.subtitle}
+                    </p>
+                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+                      {product.description}
+                    </p>
+
+                    <div className="mb-5 mt-6">
                       <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
                         Product Capabilities
                       </p>
