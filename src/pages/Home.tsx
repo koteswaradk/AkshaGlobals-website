@@ -141,14 +141,6 @@ export default function Home() {
                       {product.description}
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-3">
-                      <button className="rounded-full bg-cyan-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-[0_0_24px_rgba(34,211,238,0.25)] transition hover:bg-cyan-400">
-                        Get Notified
-                      </button>
-                      <button className="rounded-full border border-cyan-400/40 bg-slate-900/60 px-6 py-3 text-sm font-bold text-cyan-100 transition hover:border-cyan-300 hover:bg-slate-800">
-                        Contact Us
-                      </button>
-                    </div>
                   </div>
 
                   <div className="rounded-[28px] border border-cyan-500/20 bg-slate-950/60 p-5 shadow-[0_0_32px_rgba(34,211,238,0.12)] sm:p-6">
@@ -198,14 +190,6 @@ export default function Home() {
               business operations, and solve real-world challenges globally.
             </p>
 
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <button className="rounded-xl bg-cyan-500 px-7 py-3 text-sm font-bold text-slate-950 transition-all hover:bg-cyan-400">
-                Get Notified
-              </button>
-              <button className="rounded-xl border border-cyan-400/50 bg-slate-900/40 px-7 py-3 text-sm font-bold text-cyan-100 transition-all hover:border-cyan-300 hover:bg-slate-800">
-                Contact Us
-              </button>
-            </div>
           </div>
         </div>
       </section>
