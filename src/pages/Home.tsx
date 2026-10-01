@@ -5,34 +5,64 @@ const baseUrl = import.meta.env.BASE_URL || '/'
 
 const upcomingProducts = [
   {
+    id: 'emergency-medical-care',
     name: 'Emergency Medical Care',
-    tag: 'Urgent Care & First Response',
+    subtitle: 'Urgent Care & First Response',
     description:
-      'Location-aware emergency support to connect users with nearby hospitals, clinics, pharmacies, and ambulance services in seconds.',
-    points: [
-      'Emergency medical assistance and first-response guidance',
-      'Nearby hospital, clinic and pharmacy discovery',
-      'Quick access to critical health profile and ICE information',
+      'A location-aware emergency support platform that connects users with nearby hospitals, clinics, pharmacies, and ambulance services instantly. Built for fast decisions, real-time guidance, and high-trust support in critical moments.',
+    icon: '🚑',
+    badge: 'Coming Soon',
+    features: [
+      'Emergency assistance and first-response guidance',
+      'Nearby hospital, pharmacy and clinic discovery',
+      'ICE profile and critical medical detail access',
+      'Ambulance dispatch coordination and status tracking',
     ],
-    accent: 'from-cyan-500 to-blue-500',
+    gradient: 'linear-gradient(135deg, #ef4444 0%, #f43f5e 100%)',
+    border: 'rgba(239, 68, 68, 0.35)',
+    glow: 'rgba(239, 68, 68, 0.22)',
   },
   {
+    id: 'nearserve',
     name: 'NearServe',
-    tag: 'Local Services. Trusted Professionals.',
+    subtitle: 'Local Services. Trusted Professionals.',
     description:
-      'A digital marketplace for local service discovery, trusted providers, bookings, payment flows, and backend management for service businesses.',
-    points: [
-      'User app for service discovery and booking',
-      'Provider app for scheduling, availability and payouts',
-      'Admin web dashboard for operations and payments',
+      'A modern marketplace for local services that connects customers with reliable professionals, simplifies booking, streamlines payments, and helps service businesses operate more efficiently at scale.',
+    icon: '📍',
+    badge: 'In Development',
+    features: [
+      'User app for discovery, booking and service requests',
+      'Provider app for availability, schedule and earnings',
+      'Admin dashboard for managing operations and payments',
+      'Multi-currency payment flow and settlement tracking',
     ],
-    accent: 'from-emerald-500 to-teal-500',
+    gradient: 'linear-gradient(135deg, #10b981 0%, #14b8a6 100%)',
+    border: 'rgba(16, 185, 129, 0.35)',
+    glow: 'rgba(16, 185, 129, 0.2)',
+  },
+  {
+    id: 'voicetranslate-pro',
+    name: 'VoiceTranslate Pro',
+    subtitle: 'Multilingual Voice-to-Text Conversion',
+    description:
+      'A premium voice-to-text solution built for global communication, supporting 50+ languages with intelligent transcription, real-time translation, and enterprise-grade accuracy for modern teams.',
+    icon: '🎤',
+    badge: 'Planning Phase',
+    features: [
+      'Real-time transcription across 50+ languages',
+      'AI-powered language detection and auto switching',
+      'Context-aware formatting for meetings and notes',
+      'Secure cloud storage and offline-ready workflows',
+    ],
+    gradient: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+    border: 'rgba(139, 92, 246, 0.35)',
+    glow: 'rgba(139, 92, 246, 0.22)',
   },
 ]
 
 export default function Home() {
   return (
-    <div className="bg-[#020b1a] text-white">
+    <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
         title="Aksha Globals"
         description="Aksha Globals builds innovative mobile apps and offers professional training in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP."
@@ -41,7 +71,10 @@ export default function Home() {
 
       <HeroSlider />
 
-      <section className="bg-[#020b1a] px-4 py-10 sm:px-6 lg:px-8" aria-label="Our core capabilities">
+      <section
+        className="bg-[#020b1a] px-4 py-10 sm:px-6 lg:px-8"
+        aria-label="Our core capabilities"
+      >
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[#041426] shadow-[0_0_40px_rgba(34,211,238,0.12)]">
           <img
             src={`${baseUrl}capabilites.png`}
@@ -52,49 +85,102 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#020b1a] px-4 pb-20 pt-8 sm:px-6 lg:px-8">
+      <section className="bg-[#020b1a] px-4 pb-24 pt-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-8 text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">Upcoming Products</p>
-            <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Built for real-world <span className="text-cyan-300">needs</span>
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-cyan-300/80">
+              Upcoming Products
+            </p>
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Innovation Beyond{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Boundaries
+              </span>
             </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-300">
+              Transforming ideas into powerful solutions that solve real-world problems
+              with a global, professional, and human-centered approach.
+            </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-3">
             {upcomingProducts.map(product => (
               <article
-                key={product.name}
-                className="overflow-hidden rounded-[30px] border border-cyan-400/20 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.15),transparent_30%),linear-gradient(180deg,#071827,#0a1525)] shadow-[0_0_35px_rgba(34,211,238,0.12)]"
+                key={product.id}
+                className="group relative overflow-hidden rounded-[28px] transition-transform duration-500 hover:-translate-y-2"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(13, 23, 38, 0.98), rgba(8, 14, 24, 0.98))',
+                  border: `1px solid ${product.border}`,
+                  boxShadow: `0 0 35px ${product.glow}`,
+                }}
               >
-                <div className={`h-2 bg-gradient-to-r ${product.accent}`} />
+                <div
+                  className="absolute inset-0 opacity-80"
+                  style={{ background: product.gradient }}
+                />
+                <div
+                  className="absolute inset-0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ background: product.glow }}
+                />
 
-                <div className="p-6 sm:p-8">
-                  <div className="mb-4 flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/80">{product.tag}</p>
-                      <h3 className="mt-2 text-3xl font-black text-white">{product.name}</h3>
+                <div className="relative z-10 px-7 py-7 sm:px-8 sm:py-8">
+                  <div className="mb-6 flex items-start justify-between gap-4">
+                    <div
+                      className="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl shadow-lg"
+                      style={{
+                        background: product.gradient,
+                        boxShadow: `0 0 22px ${product.glow}`,
+                      }}
+                    >
+                      {product.icon}
                     </div>
-                    <div className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${product.accent} text-xl font-black text-white shadow-[0_0_20px_rgba(34,211,238,0.25)]`}>
-                      {product.name === 'Emergency Medical Care' ? '🚑' : '📍'}
-                    </div>
+
+                    <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
+                      {product.badge}
+                    </span>
                   </div>
 
-                  <p className="mb-6 text-base leading-7 text-slate-300">{product.description}</p>
+                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
+                    {product.subtitle}
+                  </p>
+                  <h3 className="mb-4 text-2xl font-bold text-white">{product.name}</h3>
+
+                  <p className="mb-6 text-sm leading-6 text-slate-200/90">
+                    {product.description}
+                  </p>
 
                   <div className="space-y-3">
-                    {product.points.map(point => (
-                      <div key={point} className="flex items-start gap-3 rounded-2xl border border-slate-700/70 bg-slate-900/40 p-3">
-                        <span className="mt-1 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-xs font-bold text-cyan-300">
+                    {product.features.map(feature => (
+                      <div key={feature} className="flex items-start gap-3">
+                        <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[10px] font-bold text-white">
                           ✓
                         </span>
-                        <p className="text-sm leading-6 text-slate-200">{point}</p>
+                        <p className="text-sm leading-6 text-slate-200/90">{feature}</p>
                       </div>
                     ))}
                   </div>
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-16 rounded-[28px] border border-cyan-400/20 bg-[linear-gradient(135deg,rgba(14,165,233,0.10),rgba(59,130,246,0.08))] px-8 py-10 text-center sm:px-10 sm:py-12">
+            <h3 className="mb-3 text-2xl font-bold text-white sm:text-3xl">
+              Want to be part of our innovation journey?
+            </h3>
+            <p className="mx-auto max-w-2xl text-slate-300">
+              We build the next generation of experiences that improve lives, simplify
+              business operations, and solve real-world challenges globally.
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <button className="rounded-xl bg-cyan-500 px-7 py-3 text-sm font-bold text-slate-950 transition-all hover:bg-cyan-400">
+                Get Notified
+              </button>
+              <button className="rounded-xl border border-cyan-400/50 bg-slate-900/40 px-7 py-3 text-sm font-bold text-cyan-100 transition-all hover:border-cyan-300 hover:bg-slate-800">
+                Contact Us
+              </button>
+            </div>
           </div>
         </div>
       </section>
