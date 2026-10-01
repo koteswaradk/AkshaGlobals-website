@@ -10,7 +10,7 @@ const upcomingProducts = [
     subtitle: 'Urgent Care & First Response',
     description:
       'A location-aware emergency support platform that connects users with nearby hospitals, clinics, pharmacies, and ambulance services instantly. Built for fast decisions, real-time guidance, and high-trust support in critical moments.',
-    icon: '🚑',
+    icon: `${baseUrl}product-icons/em.png`,
     badge: 'Coming Soon',
     features: [
       'Emergency assistance and first-response guidance',
@@ -28,7 +28,7 @@ const upcomingProducts = [
     subtitle: 'Local Services. Trusted Professionals.',
     description:
       'A modern marketplace for local services that connects customers with reliable professionals, simplifies booking, streamlines payments, and helps service businesses operate more efficiently at scale.',
-    icon: '📍',
+    icon: `${baseUrl}product-icons/emm.png`,
     badge: 'In Development',
     features: [
       'User app for discovery, booking and service requests',
@@ -46,7 +46,7 @@ const upcomingProducts = [
     subtitle: 'Multilingual Voice-to-Text Conversion',
     description:
       'A premium voice-to-text solution built for global communication, supporting 50+ languages with intelligent transcription, real-time translation, and enterprise-grade accuracy for modern teams.',
-    icon: '🎤',
+    icon: `${baseUrl}product-icons/voxflow.png`,
     badge: 'Planning Phase',
     features: [
       'Real-time transcription across 50+ languages',
@@ -152,7 +152,16 @@ export default function Home() {
                           boxShadow: `0 0 22px ${product.glow}`,
                         }}
                       >
-                        {product.icon}
+                        {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
+                          <img
+                            src={product.icon}
+                            alt={`${product.name} icon`}
+                            className="h-10 w-10 object-contain"
+                            loading="lazy"
+                          />
+                        ) : (
+                          product.icon
+                        )}
                       </div>
                       <div>
                         <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
