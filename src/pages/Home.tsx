@@ -103,61 +103,86 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="space-y-8">
             {upcomingProducts.map(product => (
               <article
                 key={product.id}
-                className="group relative overflow-hidden rounded-[28px] transition-transform duration-500 hover:-translate-y-2"
+                className="group relative overflow-hidden rounded-[32px] transition-transform duration-500 hover:-translate-y-1"
                 style={{
-                  background: 'linear-gradient(180deg, rgba(13, 23, 38, 0.98), rgba(8, 14, 24, 0.98))',
+                  background:
+                    'radial-gradient(circle at left, rgba(14,165,233,0.12), transparent 32%), linear-gradient(180deg, rgba(9,16,30,0.98), rgba(7,12,20,1))',
                   border: `1px solid ${product.border}`,
                   boxShadow: `0 0 35px ${product.glow}`,
                 }}
               >
                 <div
-                  className="absolute inset-0 opacity-80"
+                  className="absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-20 blur-3xl transition-opacity duration-500 group-hover:opacity-40"
                   style={{ background: product.gradient }}
                 />
-                <div
-                  className="absolute inset-0 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: product.glow }}
-                />
 
-                <div className="relative z-10 px-7 py-7 sm:px-8 sm:py-8">
-                  <div className="mb-6 flex items-start justify-between gap-4">
-                    <div
-                      className="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl shadow-lg"
-                      style={{
-                        background: product.gradient,
-                        boxShadow: `0 0 22px ${product.glow}`,
-                      }}
-                    >
-                      {product.icon}
+                <div className="relative z-10 grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:p-10">
+                  <div>
+                    <div className="mb-5 flex flex-wrap items-center gap-3">
+                      <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
+                        Upcoming Product
+                      </p>
+                      <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
+                        {product.badge}
+                      </span>
                     </div>
 
-                    <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
-                      {product.badge}
-                    </span>
+                    <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+                      {product.name}
+                    </h3>
+                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                      {product.subtitle}
+                    </p>
+                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+                      {product.description}
+                    </p>
+
+                    <div className="mt-8 flex flex-wrap gap-3">
+                      <button className="rounded-full bg-cyan-500 px-6 py-3 text-sm font-bold text-slate-950 shadow-[0_0_24px_rgba(34,211,238,0.25)] transition hover:bg-cyan-400">
+                        Get Notified
+                      </button>
+                      <button className="rounded-full border border-cyan-400/40 bg-slate-900/60 px-6 py-3 text-sm font-bold text-cyan-100 transition hover:border-cyan-300 hover:bg-slate-800">
+                        Contact Us
+                      </button>
+                    </div>
                   </div>
 
-                  <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-300">
-                    {product.subtitle}
-                  </p>
-                  <h3 className="mb-4 text-2xl font-bold text-white">{product.name}</h3>
-
-                  <p className="mb-6 text-sm leading-6 text-slate-200/90">
-                    {product.description}
-                  </p>
-
-                  <div className="space-y-3">
-                    {product.features.map(feature => (
-                      <div key={feature} className="flex items-start gap-3">
-                        <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-[10px] font-bold text-white">
-                          ✓
-                        </span>
-                        <p className="text-sm leading-6 text-slate-200/90">{feature}</p>
+                  <div className="rounded-[28px] border border-cyan-500/20 bg-slate-950/60 p-5 shadow-[0_0_32px_rgba(34,211,238,0.12)] sm:p-6">
+                    <div className="mb-5 flex items-center gap-4">
+                      <div
+                        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-2xl shadow-lg"
+                        style={{
+                          background: product.gradient,
+                          boxShadow: `0 0 22px ${product.glow}`,
+                        }}
+                      >
+                        {product.icon}
                       </div>
-                    ))}
+                      <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
+                          Product Capabilities
+                        </p>
+                        <p className="mt-1 text-lg font-bold text-white">{product.name}</p>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {product.features.map(feature => (
+                        <div
+                          key={feature}
+                          className="flex min-h-24 items-start gap-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-4"
+                        >
+                          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-xs font-bold text-cyan-300">
+                            ✓
+                          </span>
+                          <p className="text-sm leading-6 text-slate-200">{feature}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </article>
