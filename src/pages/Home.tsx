@@ -10,26 +10,10 @@ const emergencyFeatures = [
 ]
 
 const nearbyServiceCards = [
-  {
-    name: 'Emergency Care',
-    detail: 'Critical care locator',
-    icon: '🚑',
-  },
-  {
-    name: 'Hospitals',
-    detail: 'Nearest facilities',
-    icon: '🏥',
-  },
-  {
-    name: 'Pharmacies',
-    detail: '24/7 medicines',
-    icon: '💊',
-  },
-  {
-    name: 'Ambulance',
-    detail: 'Fast dispatch',
-    icon: '🚐',
-  },
+  { name: 'Emergency Care', detail: 'Critical care locator', icon: '🚑' },
+  { name: 'Hospitals', detail: 'Nearest facilities', icon: '🏥' },
+  { name: 'Pharmacies', detail: '24/7 medicines', icon: '💊' },
+  { name: 'Ambulance', detail: 'Fast dispatch', icon: '🚐' },
 ]
 
 export default function Home() {
@@ -44,14 +28,14 @@ export default function Home() {
       <HeroSlider />
 
       <section className="relative overflow-hidden bg-[#020b1a] px-4 py-20 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(90,91,255,0.22),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(22,163,74,0.12),_transparent_25%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(90,91,255,0.22),_transparent_38%),radial-gradient(circle_at_bottom_right,_rgba(96,165,250,0.15),_transparent_25%)]" />
 
         <div className="relative mx-auto max-w-7xl">
-          <div className="mb-8 text-center">
+          <div className="mb-10 text-center">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-cyan-300/80">
               Our Core Capabilities
             </p>
-            <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl lg:text-[4rem] lg:leading-[1.05]">
               Technology That Turns{' '}
               <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-violet-500 bg-clip-text text-transparent">
                 Ideas Into Products
@@ -66,7 +50,7 @@ export default function Home() {
             {capabilities.map(card => (
               <article
                 key={card.id}
-                className="group relative overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[linear-gradient(180deg,rgba(12,22,45,0.9),rgba(8,15,29,0.95))] p-5 shadow-[0_0_30px_rgba(36,99,235,0.12)] transition-transform duration-300 hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[linear-gradient(180deg,rgba(12,22,45,0.96),rgba(8,15,29,0.98))] p-5 shadow-[0_0_30px_rgba(36,99,235,0.12)] transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-10`} />
                 <div className="relative z-10">
@@ -74,12 +58,12 @@ export default function Home() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/30 bg-slate-900/60 text-2xl shadow-[0_0_18px_rgba(56,189,248,0.28)]">
                       {card.icon}
                     </div>
-                    <span className="rounded-full border border-cyan-400/30 bg-sky-500/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-200">
+                    <span className="rounded-full border border-cyan-400/30 bg-sky-500/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-cyan-200">
                       {card.tagline}
                     </span>
                   </div>
 
-                  <h3 className="mb-3 text-3xl font-bold leading-tight text-white">{card.title}</h3>
+                  <h3 className="mb-3 text-[2rem] font-bold leading-tight text-white">{card.title}</h3>
                   <p className="mb-5 text-sm leading-6 text-slate-300">{card.description}</p>
 
                   <div className="mb-5 flex flex-wrap gap-2">
@@ -112,12 +96,12 @@ export default function Home() {
 
       <section className="bg-[#020b1a] px-4 pb-24 pt-6 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl rounded-[32px] border border-cyan-400/20 bg-[radial-gradient(circle_at_left,_rgba(14,165,233,0.18),_transparent_28%),linear-gradient(180deg,rgba(9,16,30,0.98),rgba(7,12,20,1))] p-6 shadow-[0_0_40px_rgba(34,211,238,0.08)] sm:p-8 lg:p-10">
-          <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
                 Upcoming Product
               </p>
-              <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-[3rem] lg:leading-[1.1]">
                 Emergency Medical Care & Nearby Services
               </h3>
               <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
