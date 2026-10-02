@@ -14,6 +14,13 @@ const AppStoreIcon = () => (
   </svg>
 )
 
+type StoreLink = {
+  label: string
+  href: string
+  icon: JSX.Element
+  className: string
+}
+
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
   const product = products.find(p => p.id === id)
@@ -30,6 +37,27 @@ export default function ProductDetail() {
     )
   }
 
+  const getSpecValue = (label: string, fallback: string) => product.specs.find(spec => spec.label === label)?.value ?? fallback
+  const quickStats = [
+    ['Platform', getSpecValue('Platform', 'Android & iOS')],
+    ['Rating', getSpecValue('Rating', '4.5 ★')],
+    ['Downloads', getSpecValue('Downloads', '10K+')],
+  ] as const
+  const storeLinks: StoreLink[] = [
+    {
+      label: 'Get on Google Play',
+      href: product.playStoreUrl,
+      icon: <PlayStoreIcon />,
+      className: 'bg-cyan-500 text-slate-950 hover:bg-cyan-400',
+    },
+    {
+      label: 'Download on App Store',
+      href: product.appStoreUrl,
+      icon: <AppStoreIcon />,
+      className: 'border border-white/30 bg-white/10 text-white hover:bg-white/20',
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
@@ -38,53 +66,59 @@ export default function ProductDetail() {
         path={`/products/${product.id}`}
       />
 
-      <section className={`bg-gradient-to-br ${product.color} py-16`}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link to="/products" className="inline-flex items-center gap-1 text-sm text-white/80 transition-colors hover:text-white">
+      <section className={`relative overflow-hidden bg-gradient-to-br ${product.color} py-16`}>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_45%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Link to="/products" className="inline-flex items-center gap-1 text-sm font-medium text-white/80 transition-colors hover:text-white">
             ← All Products
           </Link>
 
-          <div className="mt-6 grid gap-8 rounded-[28px] border border-white/15 bg-slate-950/45 p-6 shadow-[0_24px_70px_rgba(2,6,23,0.45)] backdrop-blur-sm md:grid-cols-2 md:p-10">
-            <div>
-              <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
-                {product.category}
-              </span>
-              <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl">{product.name}</h1>
-              <p className="mt-3 text-lg font-medium text-cyan-100/95">{product.tagline}</p>
-              <p className="mt-5 text-base leading-relaxed text-slate-200/90">{product.description}</p>
+          <div className="mt-6 rounded-[30px] border border-white/20 bg-slate-950/50 p-6 shadow-[0_28px_80px_rgba(2,6,23,0.55)] backdrop-blur-sm md:p-10">
+            <div className="grid items-center gap-10 md:grid-cols-2">
+              <div>
+                <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+                  {product.category}
+                </span>
+                <h1 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-5xl">{product.name}</h1>
+                <p className="mt-3 text-lg font-medium text-cyan-100/95">{product.tagline}</p>
+                <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-200/90">{product.description}</p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={product.playStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-400"
-                >
-                  <PlayStoreIcon />
-                  Get on Google Play
-                </a>
-                <a
-                  href={product.appStoreUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/20"
-                >
-                  <AppStoreIcon />
-                  Download on App Store
-                </a>
+                <div className="mt-7 grid gap-3 sm:grid-cols-3">
+                  {quickStats.map(([label, value]) => (
+                    <div key={label} className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">{label}</p>
+                      <p className="mt-1 text-lg font-bold text-white">{value}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {storeLinks.map(link => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors ${link.className}`}
+                    >
+                      {link.icon}
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-cyan-300/30 bg-[linear-gradient(165deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_50px_rgba(2,6,23,0.65)]">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.25),transparent_60%)]" />
-              <div className="relative z-10">
-                <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-cyan-200/80">Feature Image</p>
-                <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/20 bg-slate-950/70 p-5">
-                  {hasProductImage ? (
-                    <img src={product.icon} alt={`${product.name} feature preview`} className="h-full w-full object-contain" />
-                  ) : (
-                    <span className="text-7xl">{product.icon || ''}</span>
-                  )}
+              <div className="relative overflow-hidden rounded-3xl border border-cyan-300/30 bg-[linear-gradient(165deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_50px_rgba(2,6,23,0.65)]">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.25),transparent_60%)]" />
+                <div className="relative z-10">
+                  <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-cyan-200/80">Product Preview</p>
+                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/20 bg-slate-950/70 p-5">
+                    {hasProductImage ? (
+                      <img src={product.icon} alt={`${product.name} feature preview`} className="h-full w-full object-contain" />
+                    ) : (
+                      <span className="text-7xl">{product.icon || ''}</span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -93,60 +127,55 @@ export default function ProductDetail() {
       </section>
 
       <section className="px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-3">
-          <div className="space-y-6 lg:col-span-2">
-            <div className="rounded-3xl border border-cyan-400/15 bg-slate-900/65 p-6 shadow-[0_18px_45px_rgba(2,6,23,0.55)]">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-6">
+            <div className="rounded-3xl border border-cyan-400/15 bg-slate-900/65 p-6 shadow-[0_18px_45px_rgba(2,6,23,0.55)] sm:p-8">
               <h2 className="text-2xl font-bold text-white">About {product.name}</h2>
               <p className="mt-4 text-base leading-relaxed text-slate-300">{product.description}</p>
             </div>
 
-            <div className="rounded-3xl border border-cyan-400/15 bg-slate-900/65 p-6 shadow-[0_18px_45px_rgba(2,6,23,0.55)]">
+            <div className="rounded-3xl border border-cyan-400/15 bg-slate-900/65 p-6 shadow-[0_18px_45px_rgba(2,6,23,0.55)] sm:p-8">
               <h2 className="text-2xl font-bold text-white">Key Features</h2>
               <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {product.features.map((feature, i) => (
-                  <div key={i} className="flex items-start gap-3 rounded-xl border border-cyan-300/10 bg-slate-950/60 p-3">
-                    <span className="mt-0.5 text-cyan-300">✓</span>
-                    <span className="text-sm text-slate-200">{feature}</span>
+                  <div key={i} className="flex items-start gap-3 rounded-xl border border-cyan-300/10 bg-slate-950/60 p-4">
+                    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-cyan-200/40 bg-cyan-400/10 text-xs font-semibold text-cyan-200">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm leading-relaxed text-slate-200">{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-cyan-400/15 bg-slate-900/65 p-6 shadow-[0_18px_45px_rgba(2,6,23,0.55)]">
+          <div className="rounded-3xl border border-cyan-400/15 bg-slate-900/65 p-6 shadow-[0_18px_45px_rgba(2,6,23,0.55)] lg:sticky lg:top-24 lg:h-fit">
             <h2 className="text-2xl font-bold text-white">Specifications</h2>
             <div className="mt-5 overflow-hidden rounded-2xl border border-cyan-300/15 bg-slate-950/50">
-              <table className="w-full">
-                <tbody>
-                  {product.specs.map((spec, i) => (
-                    <tr key={i} className={i % 2 === 0 ? 'bg-slate-900/55' : 'bg-slate-950/70'}>
-                      <td className="px-4 py-3 text-sm font-medium text-slate-400">{spec.label}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-white">{spec.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              {product.specs.map((spec, i) => (
+                <div
+                  key={i}
+                  className={`flex items-center justify-between gap-3 px-4 py-3 ${i % 2 === 0 ? 'bg-slate-900/55' : 'bg-slate-950/70'}`}
+                >
+                  <p className="text-sm font-medium text-slate-400">{spec.label}</p>
+                  <p className="text-sm font-semibold text-white">{spec.value}</p>
+                </div>
+              ))}
             </div>
 
             <div className="mt-6 space-y-3">
-              <a
-                href={product.playStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex w-full items-center gap-3 rounded-full bg-cyan-500 px-4 py-3 font-semibold text-slate-950 transition-colors duration-200 hover:bg-cyan-400"
-              >
-                <PlayStoreIcon />
-                Google Play Store
-              </a>
-              <a
-                href={product.appStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex w-full items-center gap-3 rounded-full border border-white/30 bg-white/10 px-4 py-3 font-semibold text-white transition-colors duration-200 hover:bg-white/20"
-              >
-                <AppStoreIcon />
-                Apple App Store
-              </a>
+              {storeLinks.map(link => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex w-full items-center justify-center gap-3 rounded-full px-4 py-3 text-sm font-semibold transition-colors duration-200 ${link.className}`}
+                >
+                  {link.icon}
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
