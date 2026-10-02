@@ -3,58 +3,102 @@ import { products } from '../data/products'
 import SEO from '../components/SEO'
 
 export default function Products() {
+  const uniqueCategories = [...new Set(products.map(product => product.category))]
+
   return (
-    <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
+    <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
         title="Our Products"
         description="Discover Aksha Globals' suite of powerful mobile and web applications built to solve real-world problems."
         path="/products"
       />
-      {/* Hero */}
-      <div className="bg-gradient-to-br from-m3-primary-10 to-m3-primary text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
-          <p className="text-m3-primary-container text-lg max-w-2xl mx-auto">
-            Discover our suite of powerful mobile and web applications built to solve real-world problems.
-          </p>
-        </div>
-      </div>
 
-      {/* Products Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="relative overflow-hidden px-4 pb-16 pt-16 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.2),transparent_55%)]" />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-cyan-300/90">
+              Aksha Globals Products
+            </p>
+            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Solutions Built for{' '}
+              <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
+                Real-World Impact
+              </span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              Explore our modern suite of mobile products crafted around safety, wellness, communication, and everyday utility.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-cyan-400/20 bg-slate-900/55 p-5 text-center">
+              <p className="text-3xl font-black text-cyan-300">{products.length}</p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Products</p>
+            </div>
+            <div className="rounded-2xl border border-cyan-400/20 bg-slate-900/55 p-5 text-center">
+              <p className="text-3xl font-black text-cyan-300">{uniqueCategories.length}</p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Categories</p>
+            </div>
+            <div className="rounded-2xl border border-cyan-400/20 bg-slate-900/55 p-5 text-center">
+              <p className="text-3xl font-black text-cyan-300">24/7</p>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">Global Access</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {products.map(product => (
             <Link
               key={product.id}
               to={`/products/${product.id}`}
-              className="group bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high rounded-m3-xl shadow-m3-1 overflow-hidden hover:shadow-m3-3 transition-all duration-300 hover:-translate-y-1 flex flex-col"
+              className="group relative overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[linear-gradient(160deg,rgba(10,25,47,0.95),rgba(2,8,20,0.95))] shadow-[0_20px_45px_rgba(2,6,23,0.45)] transition-all duration-500 hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_24px_60px_rgba(6,182,212,0.3)]"
             >
-              <div className={`bg-gradient-to-br ${product.color} p-6 sm:p-8 flex items-center justify-center h-48 sm:h-40`}>
-                {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
-                  <img src={product.icon} alt={product.name} className="w-full h-full object-contain" />
-                ) : (
-                  <span className="text-6xl sm:text-6xl">{product.icon || ''}</span>
-                )}
-              </div>
-              <div className="p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <h2 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{product.name}</h2>
-                    <span className="text-xs bg-m3-surface-container-high dark:bg-m3-dark-surface-container-highest text-m3-on-surface-variant rounded-full px-2 py-0.5">
-                      {product.category}
-                    </span>
-                  </div>
-                  <p className="text-m3-primary dark:text-m3-dark-primary text-sm font-medium mb-2">{product.tagline}</p>
-                  <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant text-sm line-clamp-3">{product.description}</p>
+              <div className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-cyan-400/20 blur-3xl transition-opacity duration-500 group-hover:opacity-80" />
+
+              <div className="relative p-6">
+                <div className="mb-5 flex items-center justify-between">
+                  <span className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cyan-100/90">
+                    {product.category}
+                  </span>
+                  <span className="text-xs font-semibold text-slate-300/90">Mobile App</span>
                 </div>
-                <div className="mt-4 flex items-center text-m3-primary dark:text-m3-dark-primary text-sm font-semibold group-hover:gap-2 transition-all duration-200">
-                  View Details →
+
+                <div className={`rounded-2xl border border-white/10 bg-gradient-to-br ${product.color} p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]`}>
+                  <div className="flex h-36 items-center justify-center">
+                    {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
+                      <img src={product.icon} alt={product.name} className="h-full w-full object-contain" />
+                    ) : (
+                      <span className="text-6xl sm:text-6xl">{product.icon || ''}</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative border-t border-cyan-500/15 p-6 pt-5">
+                <h2 className="text-2xl font-black tracking-tight text-white">{product.name}</h2>
+                <p className="mt-2 text-sm font-medium text-cyan-200/95">{product.tagline}</p>
+                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-300/95">{product.description}</p>
+
+                <ul className="mt-5 space-y-2">
+                  {product.features.slice(0, 2).map(feature => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-slate-200/90">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                      <span className="line-clamp-1">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition-all duration-200 group-hover:gap-3">
+                  Explore Product <span aria-hidden="true">→</span>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   )
 }
