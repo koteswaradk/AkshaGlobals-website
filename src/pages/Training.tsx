@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { courses, getDefaultSelectedCourseId } from '../data/courses'
 import SEO from '../components/SEO'
@@ -50,35 +50,10 @@ function parseStudents(value: string) {
 }
 
 export default function Training() {
-  const [activeLevel, setActiveLevel] = useState<string>('All Levels')
   const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(courses))
 
-  const allLevels = useMemo(
-    () => ['All Levels', ...new Set(courses.flatMap(course => course.levels.map(level => level.name)))],
-    []
-  )
-
-  const filteredCourses = useMemo(() => {
-    return courses.filter(course => {
-      const matchesLevel = activeLevel === 'All Levels' || course.levels.some(level => level.name === activeLevel)
-
-      return matchesLevel
-    })
-  }, [activeLevel])
-
-  useEffect(() => {
-    if (!filteredCourses.length) {
-      setSelectedCourse(null)
-      return
-    }
-
-    if (!selectedCourse || !filteredCourses.some(course => course.id === selectedCourse)) {
-      setSelectedCourse(filteredCourses[0].id)
-    }
-  }, [filteredCourses, selectedCourse])
-
-  const selectedCourseData = filteredCourses.find(course => course.id === selectedCourse) ?? filteredCourses[0] ?? null
-  const featuredCourse = filteredCourses.find(course => course.featured) ?? filteredCourses[0] ?? null
+  const selectedCourseData = courses.find(course => course.id === selectedCourse) ?? courses[0] ?? null
+  const featuredCourse = courses.find(course => course.featured) ?? courses[0] ?? null
   const averageRating = courses.reduce((sum, course) => sum + course.rating, 0) / courses.length
   const totalLearners = courses.reduce((sum, course) => sum + parseStudents(course.students), 0)
 
@@ -116,39 +91,11 @@ export default function Training() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="rounded-m3-2xl border border-m3-outline-variant bg-m3-surface-container-lowest p-5 shadow-m3-1 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container-high sm:p-6">
-          <div>
-            <div>
-              <p className="mb-2 text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">Filter by level</p>
-              <div className="flex flex-wrap gap-2">
-                {allLevels.map(level => (
-                  <button
-                    key={level}
-                    type="button"
-                    onClick={() => setActiveLevel(level)}
-                    className={`rounded-full px-4 py-2 text-xs font-semibold transition ${
-                      activeLevel === level
-                        ? 'bg-m3-primary text-m3-on-primary dark:bg-m3-dark-primary dark:text-m3-dark-on-primary'
-                        : 'bg-m3-surface-container text-m3-on-surface-variant hover:bg-m3-surface-container-high dark:bg-m3-dark-surface-container dark:text-m3-dark-on-surface-variant'
-                    }`}
-                  >
-                    {level}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        {!filteredCourses.length ? (
+        {!courses.length ? (
           <div className="rounded-m3-xl border border-dashed border-m3-outline p-10 text-center dark:border-m3-dark-outline">
             <h2 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">No programs found</h2>
-            <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
-              Try a different level filter.
-            </p>
+            <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Please check back soon.</p>
           </div>
         ) : (
           <>
@@ -174,27 +121,34 @@ export default function Training() {
             )}
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {filteredCourses.map(course => {
+              {courses.map(course => {
                 const isSelected = selectedCourseData?.id === course.id
                 return (
                   <article
                     key={course.id}
-                    className={`group flex h-full flex-col overflow-hidden rounded-m3-xl border transition-all duration-300 ${
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-m3-2xl border transition-all duration-300 ${
                       isSelected
-                        ? 'border-m3-primary shadow-m3-3 dark:border-m3-dark-primary'
-                        : 'border-m3-outline-variant shadow-m3-1 hover:-translate-y-1 hover:shadow-m3-3 dark:border-m3-dark-outline'
+                        ? 'border-m3-primary shadow-m3-4 dark:border-m3-dark-primary'
+                        : 'border-m3-outline-variant shadow-m3-2 hover:-translate-y-1 hover:shadow-m3-4 dark:border-m3-dark-outline'
                     }`}
                   >
-                    <div className={`bg-gradient-to-br ${course.color} p-6`}>
-                      <div className="flex items-center justify-between">
-                        <span className="inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                          {course.levels.length} Levels
-                        </span>
+                    <div className={`relative overflow-hidden bg-gradient-to-br ${course.color} p-6`}>
+                      <div className="pointer-events-none absolute inset-0 opacity-40">
+                        <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/20 blur-2xl" />
+                        <div className="absolute -bottom-12 -left-8 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+                      </div>
+                      <div className="relative flex items-start justify-between">
+                        <div>
+                          <span className="inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                            {course.levels.length} Levels
+                          </span>
+                          <div className="mt-3 text-sm font-semibold text-white/90">{course.students} learners</div>
+                        </div>
                         {courseIcons[course.id] ?? <span className="text-3xl">{course.icon}</span>}
                       </div>
                     </div>
 
-                    <div className="flex flex-1 flex-col p-5">
+                    <div className="flex flex-1 flex-col p-6">
                       <h3 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.name}</h3>
                       <p className="mt-1 text-sm font-medium text-m3-primary dark:text-m3-dark-primary">{course.tagline}</p>
                       <p className="mt-3 text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
@@ -213,19 +167,30 @@ export default function Training() {
                         ))}
                       </div>
 
+                      <div className="mt-5 grid grid-cols-2 gap-2 rounded-m3-lg bg-m3-surface-container p-3 text-center dark:bg-m3-dark-surface-container">
+                        <div>
+                          <div className="text-[11px] uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Rating</div>
+                          <div className="mt-1 text-sm font-bold text-m3-primary dark:text-m3-dark-primary">{course.rating.toFixed(1)}/5</div>
+                        </div>
+                        <div>
+                          <div className="text-[11px] uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Instructor</div>
+                          <div className="mt-1 truncate text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{course.instructor}</div>
+                        </div>
+                      </div>
+
                       <div className="mt-5 flex items-center justify-between gap-3">
                         <button
                           type="button"
                           onClick={() => setSelectedCourse(course.id)}
-                          className="text-sm font-semibold text-m3-on-surface-variant underline-offset-4 transition hover:underline dark:text-m3-dark-on-surface-variant"
+                          className="rounded-full border border-m3-outline-variant px-4 py-2 text-sm font-semibold text-m3-on-surface-variant transition hover:bg-m3-surface-container dark:border-m3-dark-outline dark:text-m3-dark-on-surface-variant dark:hover:bg-m3-dark-surface-container"
                         >
-                          Compare in spotlight
+                          Spotlight
                         </button>
                         <Link
                           to={`/training/${course.id}`}
-                          className="inline-flex items-center rounded-full bg-m3-primary px-4 py-2 text-xs font-semibold text-m3-on-primary transition hover:bg-m3-primary/90 dark:bg-m3-dark-primary dark:text-m3-dark-on-primary"
+                          className="inline-flex items-center rounded-full bg-m3-primary px-4 py-2 text-xs font-semibold text-m3-on-primary transition hover:scale-[1.02] hover:bg-m3-primary/90 dark:bg-m3-dark-primary dark:text-m3-dark-on-primary"
                         >
-                          Details
+                          Explore Program
                         </Link>
                       </div>
                     </div>
