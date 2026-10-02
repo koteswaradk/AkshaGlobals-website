@@ -50,7 +50,6 @@ function parseStudents(value: string) {
 }
 
 export default function Training() {
-  const [searchQuery, setSearchQuery] = useState('')
   const [activeLevel, setActiveLevel] = useState<string>('All Levels')
   const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(courses))
 
@@ -60,19 +59,12 @@ export default function Training() {
   )
 
   const filteredCourses = useMemo(() => {
-    const query = searchQuery.trim().toLowerCase()
-
     return courses.filter(course => {
       const matchesLevel = activeLevel === 'All Levels' || course.levels.some(level => level.name === activeLevel)
-      const matchesQuery =
-        query.length === 0 ||
-        course.name.toLowerCase().includes(query) ||
-        course.tagline.toLowerCase().includes(query) ||
-        course.description.toLowerCase().includes(query)
 
-      return matchesLevel && matchesQuery
+      return matchesLevel
     })
-  }, [activeLevel, searchQuery])
+  }, [activeLevel])
 
   useEffect(() => {
     if (!filteredCourses.length) {
@@ -126,20 +118,7 @@ export default function Training() {
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="rounded-m3-2xl border border-m3-outline-variant bg-m3-surface-container-lowest p-5 shadow-m3-1 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container-high sm:p-6">
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="md:col-span-2">
-              <label htmlFor="training-search" className="mb-2 block text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">
-                Search programs
-              </label>
-              <input
-                id="training-search"
-                type="search"
-                value={searchQuery}
-                onChange={event => setSearchQuery(event.target.value)}
-                placeholder="Search by technology, outcome, or track"
-                className="w-full rounded-m3-lg border border-m3-outline bg-m3-surface px-4 py-3 text-sm text-m3-on-surface outline-none transition focus:border-m3-primary dark:border-m3-dark-outline dark:bg-m3-dark-surface"
-              />
-            </div>
+          <div>
             <div>
               <p className="mb-2 text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">Filter by level</p>
               <div className="flex flex-wrap gap-2">
@@ -168,7 +147,7 @@ export default function Training() {
           <div className="rounded-m3-xl border border-dashed border-m3-outline p-10 text-center dark:border-m3-dark-outline">
             <h2 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">No programs found</h2>
             <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
-              Try a different search keyword or clear level filters.
+              Try a different level filter.
             </p>
           </div>
         ) : (
