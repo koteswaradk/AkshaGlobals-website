@@ -46,7 +46,7 @@ export default function Contact() {
               <span className="text-2xl">✉️</span>
               <div>
                 <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Email</p>
-                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">info@akshaglobals.com</p>
+                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">infoakshaglobal@gmail.com</p>
               </div>
             </div>
 
@@ -57,6 +57,19 @@ export default function Contact() {
                 <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Mon – Fri: 9:00 AM – 6:00 PM</p>
                 <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Sat: 10:00 AM – 2:00 PM</p>
               </div>
+            </div>
+
+            <div className="rounded-m3-lg border border-m3-outline-variant p-4 bg-m3-surface dark:bg-m3-dark-surface">
+              <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface mb-2">Internship Requests</p>
+              <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant mb-3">
+                College students can send internship requests with resume and academic details.
+              </p>
+              <a
+                href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
+                className="inline-flex items-center rounded-full bg-m3-primary px-4 py-2 text-sm font-semibold text-m3-on-primary hover:bg-m3-primary/90"
+              >
+                Send Internship Request
+              </a>
             </div>
           </div>
 

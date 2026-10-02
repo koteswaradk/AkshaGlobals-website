@@ -24,6 +24,7 @@ export default function TrainingDetail() {
   }
 
   const currentLevel = course.levels.find(level => level.name === activeLevel) ?? course.levels[0]
+  const isInternship = course.id === 'internship'
   const selectLevel = (level: CourseLevel) => setActiveLevel(level.name)
   const handleRegister = (level: CourseLevel) => {
     setSelectedLevel(level)
@@ -48,6 +49,28 @@ export default function TrainingDetail() {
           <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-3">Course Overview</h2>
           <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant leading-relaxed text-lg max-w-3xl">{course.description}</p>
         </div>
+        {isInternship && (
+          <div className="mb-10 rounded-m3-xl border border-m3-outline-variant bg-m3-surface-container-lowest p-5">
+            <h3 className="text-xl font-bold text-m3-on-surface mb-2">Contact Us for Internship Request</h3>
+            <p className="text-sm text-m3-on-surface-variant mb-4">
+              Send your internship request with your college name, degree, and resume.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
+                className="inline-flex items-center justify-center rounded-full bg-m3-primary px-5 py-2.5 text-sm font-semibold text-m3-on-primary hover:bg-m3-primary/90"
+              >
+                Email Internship Request
+              </a>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full border border-m3-outline px-5 py-2.5 text-sm font-semibold text-m3-on-surface hover:bg-m3-surface-container"
+              >
+                Contact Us Page
+              </Link>
+            </div>
+          </div>
+        )}
 
         <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
           {[
@@ -76,15 +99,26 @@ export default function TrainingDetail() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2"><h3 className="text-xl font-bold mb-4">{currentLevel.name} Curriculum</h3><div className="space-y-2">{currentLevel.curriculum.map((item, index) => <div key={item} className="flex items-start gap-3 p-3 bg-m3-surface-container rounded-m3"><span className="font-bold">{index + 1}</span><span className="text-sm">{item}</span></div>)}</div></div>
           <div className="bg-m3-surface-container-lowest rounded-m3-xl shadow-m3-2 p-6 border border-m3-outline-variant h-fit">
-            <div className="text-center mb-6"><div className="text-3xl font-bold">₹{currentLevel.price.toLocaleString()}</div><div className="text-sm mt-1">{currentLevel.duration} program</div></div>
+            <div className="text-center mb-6"><div className="text-3xl font-bold">{isInternship ? 'Free' : `₹${currentLevel.price.toLocaleString()}`}</div><div className="text-sm mt-1">{currentLevel.duration} program</div></div>
             <div className="space-y-3 mb-6 text-sm"><div>✅ {currentLevel.curriculum.length} topics covered</div><div>✅ Certificate of completion</div><div>✅ Mentor support</div><div>✅ Project-based learning</div></div>
-            <button onClick={() => handleRegister(currentLevel)} className="w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary font-bold rounded-full text-lg">Register &amp; Pay</button>
-            <div className="mt-6 space-y-2">{course.levels.map(level => <button key={level.name} onClick={() => handleRegister(level)} className="w-full flex justify-between text-sm hover:underline"><span>{level.name}</span><span>₹{level.price.toLocaleString()} · Enroll →</span></button>)}</div>
+            {isInternship ? (
+              <a
+                href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
+                className="block w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-center text-m3-on-primary font-bold rounded-full text-lg"
+              >
+                Apply via Email
+              </a>
+            ) : (
+              <>
+                <button onClick={() => handleRegister(currentLevel)} className="w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary font-bold rounded-full text-lg">Register &amp; Pay</button>
+                <div className="mt-6 space-y-2">{course.levels.map(level => <button key={level.name} onClick={() => handleRegister(level)} className="w-full flex justify-between text-sm hover:underline"><span>{level.name}</span><span>₹{level.price.toLocaleString()} · Enroll →</span></button>)}</div>
+              </>
+            )}
           </div>
         </div>
       </div>
 
-      {selectedLevel && <PaymentModal isOpen={paymentOpen} onClose={() => setPaymentOpen(false)} courseName={course.name} level={selectedLevel.name} price={selectedLevel.price} />}
+      {!isInternship && selectedLevel && <PaymentModal isOpen={paymentOpen} onClose={() => setPaymentOpen(false)} courseName={course.name} level={selectedLevel.name} price={selectedLevel.price} />}
     </div>
   )
 }
