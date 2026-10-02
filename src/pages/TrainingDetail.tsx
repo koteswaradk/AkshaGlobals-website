@@ -5,6 +5,15 @@ import type { CourseLevel } from '../data/courses'
 import PaymentModal from '../components/PaymentModal'
 import SEO from '../components/SEO'
 
+const detailPageGradients: Record<string, string> = {
+  'android-dev': 'from-m3-primary-20 via-m3-primary to-m3-primary-50',
+  internship: 'from-m3-secondary-20 via-m3-secondary to-m3-secondary-30',
+  'genai-ml': 'from-m3-tertiary-20 via-m3-tertiary to-m3-tertiary-30',
+  'prompt-engineering': 'from-m3-primary-20 via-m3-tertiary-30 to-m3-primary',
+  'kmp-dev': 'from-m3-primary-20 via-m3-primary-30 to-m3-secondary-30',
+  'cmp-dev': 'from-m3-tertiary-20 via-m3-primary-30 to-m3-tertiary-30',
+}
+
 export default function TrainingDetail() {
   const { id } = useParams<{ id: string }>()
   const course = courses.find(item => item.id === id)
@@ -34,7 +43,7 @@ export default function TrainingDetail() {
   return (
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO title={course.name} description={course.description} path={`/training/${course.id}`} />
-      <div className={`bg-gradient-to-br ${course.color} text-white py-16`}>
+      <div className={`bg-gradient-to-br ${detailPageGradients[course.id] ?? course.color} text-white py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/training" className="text-white/80 hover:text-white text-sm mb-6 inline-flex">← All Courses</Link>
           <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
