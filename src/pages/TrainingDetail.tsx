@@ -14,10 +14,14 @@ const detailPageGradients: Record<string, string> = {
   'cmp-dev': 'from-m3-tertiary-20 via-m3-primary-30 to-m3-tertiary-30',
 }
 
+function formatPrice(price: number) {
+  return price === 0 ? 'Free' : `₹${price.toLocaleString()}`
+}
+
 export default function TrainingDetail() {
   const { id } = useParams<{ id: string }>()
   const course = courses.find(item => item.id === id)
-  const [activeLevel, setActiveLevel] = useState<string>('Basic')
+  const [activeLevel, setActiveLevel] = useState<string>('')
   const [paymentOpen, setPaymentOpen] = useState(false)
   const [selectedLevel, setSelectedLevel] = useState<CourseLevel | null>(null)
 
@@ -25,7 +29,7 @@ export default function TrainingDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-m3-surface dark:bg-m3-dark-surface">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Course Not Found</h1>
+          <h1 className="mb-4 text-4xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">Course Not Found</h1>
           <Link to="/training" className="text-m3-primary hover:underline">← Back to Training</Link>
         </div>
       </div>
@@ -34,100 +38,173 @@ export default function TrainingDetail() {
 
   const currentLevel = course.levels.find(level => level.name === activeLevel) ?? course.levels[0]
   const isInternship = course.id === 'internship'
-  const selectLevel = (level: CourseLevel) => setActiveLevel(level.name)
+
   const handleRegister = (level: CourseLevel) => {
     setSelectedLevel(level)
     setPaymentOpen(true)
   }
 
   return (
-    <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
+    <div className="min-h-screen bg-m3-surface dark:bg-m3-dark-surface">
       <SEO title={course.name} description={course.description} path={`/training/${course.id}`} />
-      <div className={`bg-gradient-to-br ${detailPageGradients[course.id] ?? course.color} text-white py-16`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/training" className="text-white/80 hover:text-white text-sm mb-6 inline-flex">← All Courses</Link>
-          <div className="flex flex-col md:flex-row items-center gap-8 mt-4">
-            <div className="text-8xl">{course.icon}</div>
-            <div><h1 className="text-4xl md:text-5xl font-bold mb-2">{course.name}</h1><p className="text-xl text-white/90">{course.tagline}</p></div>
+
+      <section className={`bg-gradient-to-br ${detailPageGradients[course.id] ?? course.color} text-white`}>
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+          <Link to="/training" className="inline-flex text-sm font-medium text-white/85 transition hover:text-white">← Back to all programs</Link>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/80">Professional Program</p>
+              <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">{course.name}</h1>
+              <p className="mt-3 text-lg text-white/90">{course.tagline}</p>
+              <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/85 sm:text-base">{course.description}</p>
+            </div>
+
+            <div className="rounded-m3-xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm">
+              <div className="text-sm text-white/80">Trusted by learners globally</div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {[
+                  ['Learners', course.students],
+                  ['Rating', `${course.rating}/5`],
+                  ['Levels', String(course.levels.length)],
+                  ['Mentor', course.instructor],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-m3-lg bg-white/10 p-3">
+                    <div className="text-[11px] uppercase tracking-wide text-white/70">{label}</div>
+                    <div className="mt-1 text-sm font-semibold text-white">{value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-10">
-          <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-3">Course Overview</h2>
-          <p className="text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant leading-relaxed text-lg max-w-3xl">{course.description}</p>
+      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-4 md:grid-cols-3">
+          {course.levels.map(level => {
+            const isActive = currentLevel.name === level.name
+            return (
+              <button
+                key={level.name}
+                type="button"
+                onClick={() => setActiveLevel(level.name)}
+                className={`rounded-m3-xl border p-5 text-left transition ${
+                  isActive
+                    ? 'border-m3-primary bg-m3-primary-container/40 shadow-m3-1 dark:border-m3-dark-primary'
+                    : 'border-m3-outline-variant bg-m3-surface-container-lowest hover:border-m3-primary/60 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container-high'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h2 className="text-lg font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{level.name}</h2>
+                    <p className="mt-1 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{level.duration}</p>
+                  </div>
+                  <p className="text-base font-bold text-m3-primary dark:text-m3-dark-primary">{formatPrice(level.price)}</p>
+                </div>
+                <ul className="mt-4 space-y-1 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+                  {level.curriculum.slice(0, 3).map(item => (
+                    <li key={item} className="flex gap-2">
+                      <span className="mt-1 text-m3-primary dark:text-m3-dark-primary">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </button>
+            )
+          })}
         </div>
-        {isInternship && (
-          <div className="mb-10 rounded-m3-xl border border-m3-outline-variant bg-m3-surface-container-lowest p-5">
-            <h3 className="text-xl font-bold text-m3-on-surface mb-2">Contact Us for Internship Request</h3>
-            <p className="text-sm text-m3-on-surface-variant mb-4">
-              Send your internship request with your college name, degree, and resume.
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_0.8fr]">
+          <article className="rounded-m3-2xl border border-m3-outline-variant bg-m3-surface-container-lowest p-6 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container-high sm:p-8">
+            <h3 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{currentLevel.name} Curriculum</h3>
+            <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+              Structured learning journey designed for practical skill development and real-world application.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
-                className="inline-flex items-center justify-center rounded-full bg-m3-primary px-5 py-2.5 text-sm font-semibold text-m3-on-primary hover:bg-m3-primary/90"
-              >
-                Email Internship Request
-              </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-full border border-m3-outline px-5 py-2.5 text-sm font-semibold text-m3-on-surface hover:bg-m3-surface-container"
-              >
-                Contact Us Page
-              </Link>
+
+            <div className="mt-6 space-y-3">
+              {currentLevel.curriculum.map((item, index) => (
+                <div key={item} className="flex gap-3 rounded-m3-lg border border-m3-outline-variant bg-m3-surface-container p-3 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-m3-primary-container text-xs font-bold text-m3-primary dark:bg-m3-dark-primary-container dark:text-m3-dark-primary">
+                    {index + 1}
+                  </div>
+                  <p className="text-sm leading-relaxed text-m3-on-surface dark:text-m3-dark-on-surface">{item}</p>
+                </div>
+              ))}
             </div>
-          </div>
-        )}
+          </article>
 
-        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {[
-            ['Students enrolled', course.students],
-            ['Course rating', `${course.rating}/5`],
-            ['Lead instructor', course.instructor],
-            ['Skill levels', course.levels.length],
-          ].map(([label, value]) => (
-            <div key={label} className="rounded-m3-xl bg-m3-surface-container dark:bg-m3-dark-surface-container p-5">
-              <div className="text-xs uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{label}</div>
-              <div className="mt-2 text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{value}</div>
+          <aside className="h-fit rounded-m3-2xl border border-m3-outline-variant bg-m3-surface-container-low p-6 shadow-m3-2 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container sm:p-7 lg:sticky lg:top-24">
+            <h3 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">Enrollment</h3>
+            <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{currentLevel.duration} guided track · {currentLevel.curriculum.length} modules</p>
+
+            <div className="mt-5 rounded-m3-xl bg-m3-surface px-4 py-5 text-center dark:bg-m3-dark-surface">
+              <p className="text-xs uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Program fee</p>
+              <p className="mt-2 text-3xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{formatPrice(currentLevel.price)}</p>
             </div>
-          ))}
-        </div>
 
-        <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface mb-4">Choose Your Level</h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mb-10">
-          {course.levels.map(level => (
-            <button key={level.name} type="button" onClick={() => selectLevel(level)} className={`rounded-m3-xl border p-5 text-left transition-all ${activeLevel === level.name ? 'border-m3-primary bg-m3-primary-container/40' : 'border-m3-outline-variant bg-m3-surface-container-lowest'}`}>
-              <div className="flex items-center justify-between gap-3"><div><div className="text-lg font-bold">{level.name}</div><div className="text-sm">{level.duration}</div></div><div className="text-lg font-bold text-m3-primary">₹{level.price.toLocaleString()}</div></div>
-              <ul className="mt-4 space-y-2">{level.curriculum.slice(0, 3).map(item => <li key={item} className="text-sm">• {item}</li>)}</ul>
-            </button>
-          ))}
-        </div>
+            <div className="mt-5 space-y-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+              <p>✓ Curriculum aligned to industry outcomes</p>
+              <p>✓ Mentor-supported practical learning</p>
+              <p>✓ Certificate on successful completion</p>
+              <p>✓ Project-focused hands-on experience</p>
+            </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2"><h3 className="text-xl font-bold mb-4">{currentLevel.name} Curriculum</h3><div className="space-y-2">{currentLevel.curriculum.map((item, index) => <div key={item} className="flex items-start gap-3 p-3 bg-m3-surface-container rounded-m3"><span className="font-bold">{index + 1}</span><span className="text-sm">{item}</span></div>)}</div></div>
-          <div className="bg-m3-surface-container-lowest rounded-m3-xl shadow-m3-2 p-6 border border-m3-outline-variant h-fit">
-            <div className="text-center mb-6"><div className="text-3xl font-bold">{isInternship ? 'Free' : `₹${currentLevel.price.toLocaleString()}`}</div><div className="text-sm mt-1">{currentLevel.duration} program</div></div>
-            <div className="space-y-3 mb-6 text-sm"><div>✅ {currentLevel.curriculum.length} topics covered</div><div>✅ Certificate of completion</div><div>✅ Mentor support</div><div>✅ Project-based learning</div></div>
             {isInternship ? (
-              <a
-                href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
-                className="block w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-center text-m3-on-primary font-bold rounded-full text-lg"
-              >
-                Apply via Email
-              </a>
+              <div className="mt-6 space-y-3">
+                <a
+                  href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
+                  className="block w-full rounded-full bg-m3-primary px-5 py-3 text-center text-sm font-semibold text-m3-on-primary transition hover:bg-m3-primary/90"
+                >
+                  Apply via Email
+                </a>
+                <Link
+                  to="/contact"
+                  className="block w-full rounded-full border border-m3-outline px-5 py-3 text-center text-sm font-semibold text-m3-on-surface transition hover:bg-m3-surface-container"
+                >
+                  Contact Admissions
+                </Link>
+              </div>
             ) : (
               <>
-                <button onClick={() => handleRegister(currentLevel)} className="w-full py-3 bg-m3-primary hover:bg-m3-primary/90 text-m3-on-primary font-bold rounded-full text-lg">Register &amp; Pay</button>
-                <div className="mt-6 space-y-2">{course.levels.map(level => <button key={level.name} onClick={() => handleRegister(level)} className="w-full flex justify-between text-sm hover:underline"><span>{level.name}</span><span>₹{level.price.toLocaleString()} · Enroll →</span></button>)}</div>
+                <button
+                  type="button"
+                  onClick={() => handleRegister(currentLevel)}
+                  className="mt-6 w-full rounded-full bg-m3-primary px-5 py-3 text-sm font-semibold text-m3-on-primary transition hover:bg-m3-primary/90"
+                >
+                  Register &amp; Pay
+                </button>
+
+                <div className="mt-4 space-y-2">
+                  {course.levels.map(level => (
+                    <button
+                      key={level.name}
+                      type="button"
+                      onClick={() => handleRegister(level)}
+                      className="flex w-full items-center justify-between rounded-m3 px-3 py-2 text-sm text-m3-on-surface-variant transition hover:bg-m3-surface-container hover:text-m3-on-surface dark:text-m3-dark-on-surface-variant dark:hover:bg-m3-dark-surface-container"
+                    >
+                      <span>{level.name}</span>
+                      <span>{formatPrice(level.price)} · Enroll</span>
+                    </button>
+                  ))}
+                </div>
               </>
             )}
-          </div>
+          </aside>
         </div>
-      </div>
+      </section>
 
-      {!isInternship && selectedLevel && <PaymentModal isOpen={paymentOpen} onClose={() => setPaymentOpen(false)} courseName={course.name} level={selectedLevel.name} price={selectedLevel.price} />}
+      {!isInternship && selectedLevel && (
+        <PaymentModal
+          isOpen={paymentOpen}
+          onClose={() => setPaymentOpen(false)}
+          courseName={course.name}
+          level={selectedLevel.name}
+          price={selectedLevel.price}
+        />
+      )}
     </div>
   )
 }
