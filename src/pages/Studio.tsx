@@ -202,7 +202,7 @@ export default function Studio() {
           <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
             <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-white/5" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-white/[0.03]" />
+            <div className="absolute top-1/2 left-1/2 h-[85vw] w-[85vw] max-h-[600px] max-w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.03]" />
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
