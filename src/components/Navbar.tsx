@@ -34,7 +34,7 @@ export default function Navbar() {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/products', label: 'Products' },
-    { to: '/training', label: 'Training' },
+    { to: '/training', label: 'Training', end: true },
     { to: '/training/internship', label: 'Internship' },
     // { to: '/studio', label: 'Studio' }, // Hidden for now — can be re-enabled in the future
     { to: '/contact', label: 'Contact Us' },
@@ -68,7 +68,7 @@ export default function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map(link => (
-              <NavLink key={link.to} to={link.to} className={linkClass} end={link.to === '/'}>
+              <NavLink key={link.to} to={link.to} className={linkClass} end={link.end ?? link.to === '/'}>
                 {link.label}
               </NavLink>
             ))}
@@ -109,7 +109,7 @@ export default function Navbar() {
                     : 'text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant hover:text-m3-primary dark:hover:text-m3-dark-primary hover:bg-m3-surface-container-high dark:hover:bg-m3-dark-surface-container-high'
                 }`
               }
-              end={link.to === '/'}
+              end={link.end ?? link.to === '/'}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
