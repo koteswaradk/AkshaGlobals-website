@@ -105,7 +105,7 @@ export const products: Product[] = [
     tagline: 'Sound meditation or Sound healing meditation',
     description: 'Meditating through sound is often called sound meditation or sound healing meditation. It uses sound as the main focus to calm the mind and body instead of focusing only on breath.',
     icon: `${productIconBase}sm.png`,
-    featureImage: `${productIconBase}sm.png`,
+    featureImage: `${productIconBase}resonafeature.png`,
     category: "meditation",
     features: [
       'Helps calm the mind',
@@ -135,7 +135,7 @@ export const products: Product[] = [
     tagline: 'clock widget',
     description: 'Analog Clock widget with a natural flower look  and feel that decorates the phone with a natural analog clock.',
     icon: `${productIconBase}icon4.png`,
-    featureImage: `${productIconBase}icon4.png`,
+    featureImage: `${productIconBase}clockfeature.png`,
     category: 'clock widget',
     features: [
       'Analog Clock widget',
