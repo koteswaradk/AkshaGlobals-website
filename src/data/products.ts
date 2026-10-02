@@ -22,7 +22,7 @@ export const products: Product[] = [
     tagline: 'Manthra|Bajana|shloka in one place',
     description: 'A divine companion for all devotees. Listen to powerful mantras, shlokas, and bhajans. Seeking Blessings and feel the Sai Baba Presence in your Daily life',
     icon: `${productIconBase}icon1.png`,
-    featureImage: `${productIconBase}icon1.png`,
+    featureImage: `${import.meta.env.BASE_URL}saibabafeaturescreen.png`,
     category: "Devotional",
     features: [
       'Listen to Mantra|shlokas|bhajans',
@@ -51,7 +51,7 @@ export const products: Product[] = [
     tagline: 'AI-powered call management system',
     description: 'A privacy-focused, AI-powered call management system that blocks spam, filters unwanted calls, and provides intelligent call handling across multiple modes..',
     icon: `${productIconBase}callsecure.png`,
-    featureImage: `${productIconBase}callsecure.png`,
+    featureImage: `${import.meta.env.BASE_URL}bannersecure.png`,
     category: "Call",
     features: [
       'Basic Whitelist Filtering - Allow only selected contacts on modes',
@@ -77,7 +77,7 @@ export const products: Product[] = [
     tagline: 'Smart driving safety and vehicle protection',
     description: 'DriveShield is an advanced vehicle safety application that monitors driving behavior, detects potential hazards, and provides real-time alerts to ensure safe and secure driving experience.',
     icon: `${productIconBase}driveshield.png`,
-    featureImage: `${productIconBase}driveshield.png`,
+    featureImage: `${import.meta.env.BASE_URL}driveshieldfeature.png`,
     category: "Safety",
     features: [
       'Real-time driving monitoring',
