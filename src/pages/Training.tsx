@@ -61,20 +61,21 @@ export default function Training() {
   const totalLearners = trainingCourses.reduce((sum, course) => sum + parseStudents(course.students), 0)
 
   return (
-    <div className="min-h-screen bg-m3-surface dark:bg-m3-dark-surface">
+    <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
         title="Professional Training Programs"
         description="Industry-aligned programs in Android, AI, Prompt Engineering, KMP, CMP, and internships with project-based outcomes."
         path="/training"
       />
 
-      <section className="bg-gradient-to-br from-m3-primary-10 via-m3-primary to-m3-primary-40 text-white">
+      <section className="relative overflow-hidden bg-[linear-gradient(160deg,rgba(10,25,47,0.95),rgba(2,8,20,0.98))] text-white">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.2),transparent_55%)]" />
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/75">Aksha Globals Academy</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/90">Aksha Globals Academy</p>
           <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             International-Standard Tech Training for Career Growth
           </h1>
-          <p className="mt-5 max-w-3xl text-base text-white/90 sm:text-lg">
+          <p className="mt-5 max-w-3xl text-base text-slate-300 sm:text-lg">
             Explore job-ready training tracks built with modern curriculum design, mentor support, and practical outcomes across mobile and AI technologies.
           </p>
 
@@ -85,9 +86,9 @@ export default function Training() {
               ['Average rating', `${averageRating.toFixed(1)}/5`],
               ['Mentors', new Set(trainingCourses.map(course => course.instructor)).size],
             ].map(([label, value]) => (
-              <div key={label} className="rounded-m3-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
-                <div className="text-xs uppercase tracking-wide text-white/75">{label}</div>
-                <div className="mt-2 text-2xl font-bold">{value}</div>
+              <div key={label} className="rounded-m3-xl border border-cyan-400/20 bg-slate-900/55 p-4 backdrop-blur-sm">
+                <div className="text-xs uppercase tracking-wide text-slate-300">{label}</div>
+                <div className="mt-2 text-2xl font-bold text-cyan-300">{value}</div>
               </div>
             ))}
           </div>
@@ -96,26 +97,26 @@ export default function Training() {
 
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         {!trainingCourses.length ? (
-          <div className="rounded-m3-xl border border-dashed border-m3-outline p-10 text-center dark:border-m3-dark-outline">
-            <h2 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">No programs found</h2>
-            <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Please check back soon.</p>
+          <div className="rounded-m3-xl border border-dashed border-cyan-400/25 bg-slate-900/40 p-10 text-center">
+            <h2 className="text-xl font-bold text-white">No programs found</h2>
+            <p className="mt-2 text-sm text-slate-300">Please check back soon.</p>
           </div>
         ) : (
           <>
             {featuredCourse && (
-              <article className="mb-10 rounded-m3-2xl border border-m3-outline-variant bg-m3-surface-container-low p-6 shadow-m3-2 dark:border-m3-dark-outline dark:bg-m3-dark-surface-container sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-m3-primary dark:text-m3-dark-primary">Featured program</p>
+              <article className="mb-10 rounded-m3-2xl border border-cyan-400/20 bg-slate-900/55 p-6 shadow-[0_20px_45px_rgba(2,6,23,0.45)] sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Featured program</p>
                 <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{featuredCourse.name}</h2>
-                    <p className="mt-2 text-sm text-m3-primary dark:text-m3-dark-primary">{featuredCourse.tagline}</p>
-                    <p className="mt-3 max-w-3xl text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+                    <h2 className="text-2xl font-bold text-white">{featuredCourse.name}</h2>
+                    <p className="mt-2 text-sm text-cyan-200/95">{featuredCourse.tagline}</p>
+                    <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-300">
                       {featuredCourse.description}
                     </p>
                   </div>
                   <Link
                     to={`/training/${featuredCourse.id}`}
-                    className="inline-flex items-center justify-center rounded-full bg-m3-primary px-6 py-3 text-sm font-semibold text-m3-on-primary transition hover:bg-m3-primary/90 dark:bg-m3-dark-primary dark:text-m3-dark-on-primary"
+                    className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
                   >
                     View Program
                   </Link>
@@ -131,8 +132,8 @@ export default function Training() {
                     key={course.id}
                     className={`group relative flex h-full flex-col overflow-hidden rounded-m3-2xl border transition-all duration-300 ${
                       isSelected
-                        ? 'border-m3-primary shadow-m3-4 dark:border-m3-dark-primary'
-                        : 'border-m3-outline-variant shadow-m3-2 hover:-translate-y-1 hover:shadow-m3-4 dark:border-m3-dark-outline'
+                        ? 'border-cyan-300/70 shadow-[0_24px_60px_rgba(6,182,212,0.3)]'
+                        : 'border-cyan-400/20 shadow-[0_20px_45px_rgba(2,6,23,0.45)] hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_24px_60px_rgba(6,182,212,0.3)]'
                     }`}
                   >
                     <div className={`relative overflow-hidden bg-gradient-to-br ${course.color} p-6`}>
@@ -152,32 +153,32 @@ export default function Training() {
                     </div>
 
                     <div className="flex flex-1 flex-col p-6">
-                      <h3 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">{course.name}</h3>
-                      <p className="mt-1 text-sm font-medium text-m3-primary dark:text-m3-dark-primary">{course.tagline}</p>
-                      <p className="mt-3 text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+                      <h3 className="text-xl font-bold text-white">{course.name}</h3>
+                      <p className="mt-1 text-sm font-medium text-cyan-200/95">{course.tagline}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-slate-300/95">
                         {course.description}
                       </p>
 
                       <div className="mt-4 grid grid-cols-3 gap-2 text-center">
                         {course.levels.slice(0, 3).map(level => (
-                          <div key={level.name} className="rounded-m3 bg-m3-surface-container p-2 dark:bg-m3-dark-surface-container">
-                            <div className="text-[11px] font-semibold uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+                          <div key={level.name} className="rounded-m3 border border-cyan-500/15 bg-slate-900/65 p-2">
+                            <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-300">
                               {level.name}
                             </div>
-                            <div className="mt-1 text-xs text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{level.duration}</div>
-                            <div className="mt-1 text-sm font-bold text-m3-primary dark:text-m3-dark-primary">₹{level.price.toLocaleString()}</div>
+                            <div className="mt-1 text-xs text-slate-300">{level.duration}</div>
+                            <div className="mt-1 text-sm font-bold text-cyan-300">₹{level.price.toLocaleString()}</div>
                           </div>
                         ))}
                       </div>
 
-                      <div className="mt-5 grid grid-cols-2 gap-2 rounded-m3-lg bg-m3-surface-container p-3 text-center dark:bg-m3-dark-surface-container">
+                      <div className="mt-5 grid grid-cols-2 gap-2 rounded-m3-lg border border-cyan-500/15 bg-slate-900/65 p-3 text-center">
                         <div>
-                          <div className="text-[11px] uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Rating</div>
-                          <div className="mt-1 text-sm font-bold text-m3-primary dark:text-m3-dark-primary">{course.rating.toFixed(1)}/5</div>
+                          <div className="text-[11px] uppercase tracking-wide text-slate-300">Rating</div>
+                          <div className="mt-1 text-sm font-bold text-cyan-300">{course.rating.toFixed(1)}/5</div>
                         </div>
                         <div>
-                          <div className="text-[11px] uppercase tracking-wide text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Instructor</div>
-                          <div className="mt-1 truncate text-sm font-semibold text-m3-on-surface dark:text-m3-dark-on-surface">{course.instructor}</div>
+                          <div className="text-[11px] uppercase tracking-wide text-slate-300">Instructor</div>
+                          <div className="mt-1 truncate text-sm font-semibold text-white">{course.instructor}</div>
                         </div>
                       </div>
 
@@ -185,13 +186,13 @@ export default function Training() {
                         <button
                           type="button"
                           onClick={() => setSelectedCourse(course.id)}
-                          className="rounded-full border border-m3-outline-variant px-4 py-2 text-sm font-semibold text-m3-on-surface-variant transition hover:bg-m3-surface-container dark:border-m3-dark-outline dark:text-m3-dark-on-surface-variant dark:hover:bg-m3-dark-surface-container"
+                          className="rounded-full border border-cyan-400/25 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-900/70"
                         >
                           Spotlight
                         </button>
                         <Link
                           to={`/training/${course.id}`}
-                          className="inline-flex items-center rounded-full bg-m3-primary px-4 py-2 text-xs font-semibold text-m3-on-primary transition hover:scale-[1.02] hover:bg-m3-primary/90 dark:bg-m3-dark-primary dark:text-m3-dark-on-primary"
+                          className="inline-flex items-center rounded-full bg-cyan-400 px-4 py-2 text-xs font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-cyan-300"
                         >
                           Explore Program
                         </Link>
