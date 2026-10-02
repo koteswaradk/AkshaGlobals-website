@@ -14,6 +14,8 @@ const detailPageGradients: Record<string, string> = {
   'cmp-dev': 'from-m3-tertiary-20 via-m3-primary-30 to-m3-tertiary-30',
 }
 
+const internshipHeroImage = 'https://github.com/user-attachments/assets/5bcf305a-fa6a-4c1e-afac-6cd08e2ce124'
+
 function formatPrice(price: number) {
   return price === 0 ? 'Free' : `₹${price.toLocaleString()}`
 }
@@ -51,6 +53,17 @@ export default function TrainingDetail() {
       <section className={`bg-gradient-to-br ${detailPageGradients[course.id] ?? course.color} text-white`}>
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
           <Link to="/training" className="inline-flex text-sm font-medium text-white/85 transition hover:text-white">← Back to all programs</Link>
+
+          {isInternship && (
+            <div className="mt-6 overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3">
+              <img
+                src={internshipHeroImage}
+                alt="Build Your Future with Internship program banner"
+                className="h-auto w-full object-cover"
+                loading="eager"
+              />
+            </div>
+          )}
 
           <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
             <div>
