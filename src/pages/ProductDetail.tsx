@@ -54,7 +54,7 @@ export default function ProductDetail() {
       label: 'Download on App Store',
       href: product.appStoreUrl,
       icon: <AppStoreIcon />,
-      className: 'border border-white/30 bg-white/10 text-white hover:bg-white/20',
+      className: 'border border-cyan-200/40 bg-slate-900/80 text-cyan-100 hover:bg-slate-800',
     },
   ]
 
@@ -66,7 +66,8 @@ export default function ProductDetail() {
         path={`/products/${product.id}`}
       />
 
-      <section className={`relative overflow-hidden bg-gradient-to-br ${product.color} py-16`}>
+      <section className="relative overflow-hidden bg-slate-950 py-16">
+        <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${product.color} opacity-80`} />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_45%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link to="/products" className="inline-flex items-center gap-1 text-sm font-medium text-white/80 transition-colors hover:text-white">
@@ -85,7 +86,7 @@ export default function ProductDetail() {
 
                 <div className="mt-7 grid gap-3 sm:grid-cols-3">
                   {quickStats.map(([label, value]) => (
-                    <div key={label} className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3">
+                  <div key={label} className="rounded-2xl border border-cyan-300/20 bg-slate-900/70 px-4 py-3">
                       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">{label}</p>
                       <p className="mt-1 text-lg font-bold text-white">{value}</p>
                     </div>
