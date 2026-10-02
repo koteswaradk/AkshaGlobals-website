@@ -4,6 +4,7 @@ export interface Product {
   tagline: string
   description: string
   icon: string
+  featureImage?: string
   category: string
   features: string[]
   specs: { label: string; value: string }[]
@@ -21,6 +22,7 @@ export const products: Product[] = [
     tagline: 'Manthra|Bajana|shloka in one place',
     description: 'A divine companion for all devotees. Listen to powerful mantras, shlokas, and bhajans. Seeking Blessings and feel the Sai Baba Presence in your Daily life',
     icon: `${productIconBase}icon1.png`,
+    featureImage: `${productIconBase}icon1.png`,
     category: "Devotional",
     features: [
       'Listen to Mantra|shlokas|bhajans',
@@ -49,6 +51,7 @@ export const products: Product[] = [
     tagline: 'AI-powered call management system',
     description: 'A privacy-focused, AI-powered call management system that blocks spam, filters unwanted calls, and provides intelligent call handling across multiple modes..',
     icon: `${productIconBase}callsecure.png`,
+    featureImage: `${productIconBase}callsecure.png`,
     category: "Call",
     features: [
       'Basic Whitelist Filtering - Allow only selected contacts on modes',
@@ -74,6 +77,7 @@ export const products: Product[] = [
     tagline: 'Smart driving safety and vehicle protection',
     description: 'DriveShield is an advanced vehicle safety application that monitors driving behavior, detects potential hazards, and provides real-time alerts to ensure safe and secure driving experience.',
     icon: `${productIconBase}driveshield.png`,
+    featureImage: `${productIconBase}driveshield.png`,
     category: "Safety",
     features: [
       'Real-time driving monitoring',
@@ -101,6 +105,7 @@ export const products: Product[] = [
     tagline: 'Sound meditation or Sound healing meditation',
     description: 'Meditating through sound is often called sound meditation or sound healing meditation. It uses sound as the main focus to calm the mind and body instead of focusing only on breath.',
     icon: `${productIconBase}sm.png`,
+    featureImage: `${productIconBase}sm.png`,
     category: "meditation",
     features: [
       'Helps calm the mind',
@@ -130,6 +135,7 @@ export const products: Product[] = [
     tagline: 'clock widget',
     description: 'Analog Clock widget with a natural flower look  and feel that decorates the phone with a natural analog clock.',
     icon: `${productIconBase}icon4.png`,
+    featureImage: `${productIconBase}icon4.png`,
     category: 'clock widget',
     features: [
       'Analog Clock widget',
