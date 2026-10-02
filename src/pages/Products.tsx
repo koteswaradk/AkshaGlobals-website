@@ -80,19 +80,21 @@ export default function Products() {
                       <span className="flex h-full w-full items-center justify-center text-6xl sm:text-6xl">{product.icon || ''}</span>
                     )}
 
-                    <div className="absolute left-3 top-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-white/30 bg-slate-950/85 p-1.5 shadow-[0_8px_20px_rgba(2,6,23,0.45)]">
-                      {hasIconImage ? (
-                        <img src={product.icon} alt={`${product.name} icon`} className="h-full w-full object-contain" />
-                      ) : (
-                        <span className="text-xl">{product.icon || ''}</span>
-                      )}
-                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="relative border-t border-cyan-500/15 p-6 pt-5">
-                <h2 className="text-2xl font-black tracking-tight text-white">{product.name}</h2>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/30 bg-slate-950/85 p-1.5 shadow-[0_8px_20px_rgba(2,6,23,0.45)]">
+                    {hasIconImage ? (
+                      <img src={product.icon} alt={`${product.name} icon`} className="h-full w-full object-contain" />
+                    ) : (
+                      <span className="text-xl">{product.icon || ''}</span>
+                    )}
+                  </div>
+                  <h2 className="text-2xl font-black tracking-tight text-white">{product.name}</h2>
+                </div>
                 <p className="mt-2 text-sm font-medium text-cyan-200/95">{product.tagline}</p>
                 <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-slate-300/95">{product.description}</p>
 
