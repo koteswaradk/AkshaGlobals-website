@@ -50,11 +50,11 @@ export default function TrainingDetail() {
           )}
 
           {isInternship && (
-            <div className="relative mt-6 overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3">
+            <div className="relative mt-6 h-[70svh] min-h-[420px] w-full overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3 sm:h-screen sm:min-h-[520px]">
               <img
                 src={internshipHeroImage}
                 alt="Build Your Future with Internship program banner"
-                className="h-auto w-full object-contain"
+                className="h-full w-full object-cover"
                 loading="eager"
               />
             </div>
