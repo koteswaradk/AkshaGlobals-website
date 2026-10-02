@@ -15,6 +15,7 @@ const detailPageGradients: Record<string, string> = {
 }
 
 const internshipHeroImage = 'https://github.com/user-attachments/assets/5bcf305a-fa6a-4c1e-afac-6cd08e2ce124'
+const internshipApplyMailTo = 'mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals'
 
 function formatPrice(price: number) {
   return price === 0 ? 'Free' : `₹${price.toLocaleString()}`
@@ -55,13 +56,19 @@ export default function TrainingDetail() {
           <Link to="/training" className="inline-flex text-sm font-medium text-white/85 transition hover:text-white">← Back to all programs</Link>
 
           {isInternship && (
-            <div className="mt-6 overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3">
+            <div className="relative mt-6 overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3">
               <img
                 src={internshipHeroImage}
                 alt="Build Your Future with Internship program banner"
-                className="h-auto w-full object-cover"
+                className="h-auto w-full object-contain"
                 loading="eager"
               />
+              <a
+                href={internshipApplyMailTo}
+                className="absolute bottom-4 left-4 rounded-full bg-m3-primary px-4 py-2 text-xs font-semibold text-m3-on-primary transition hover:bg-m3-primary/90 sm:px-5 sm:py-2.5 sm:text-sm"
+              >
+                Apply Now
+              </a>
             </div>
           )}
 
@@ -168,7 +175,7 @@ export default function TrainingDetail() {
             {isInternship ? (
               <div className="mt-6 space-y-3">
                 <a
-                  href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
+                  href={internshipApplyMailTo}
                   className="block w-full rounded-full bg-m3-primary px-5 py-3 text-center text-sm font-semibold text-m3-on-primary transition hover:bg-m3-primary/90"
                 >
                   Apply via Email
