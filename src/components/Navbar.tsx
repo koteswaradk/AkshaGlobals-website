@@ -36,7 +36,6 @@ export default function Navbar() {
     { to: '/products', label: 'Products' },
     { to: '/training', label: 'Training' },
     // { to: '/studio', label: 'Studio' }, // Hidden for now — can be re-enabled in the future
-    { to: '/blog', label: 'Blog' },
     { to: '/contact', label: 'Contact Us' },
   ]
 
