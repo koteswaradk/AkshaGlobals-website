@@ -50,7 +50,12 @@ export default function Products() {
 
       <section className="px-4 pb-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map(product => (
+          {products.map(product => {
+            const featureImage = product.featureImage ?? product.icon
+            const hasFeatureImage = Boolean(featureImage && featureImage.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i))
+            const hasIconImage = Boolean(product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i))
+
+            return (
             <Link
               key={product.id}
               to={`/products/${product.id}`}
@@ -66,13 +71,22 @@ export default function Products() {
                   <span className="text-xs font-semibold text-slate-300/90">Mobile App</span>
                 </div>
 
-                <div className={`rounded-2xl border border-white/10 bg-gradient-to-br ${product.color} p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]`}>
-                  <div className="flex h-36 items-center justify-center">
-                    {product.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
-                      <img src={product.icon} alt={product.name} className="h-full w-full object-contain" />
+                <div className={`relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${product.color} p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]`}>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-slate-900/70">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_60%)]" />
+                    {hasFeatureImage ? (
+                      <img src={featureImage} alt={`${product.name} feature`} className="h-full w-full object-cover" />
                     ) : (
-                      <span className="text-6xl sm:text-6xl">{product.icon || ''}</span>
+                      <span className="flex h-full w-full items-center justify-center text-6xl sm:text-6xl">{product.icon || ''}</span>
                     )}
+
+                    <div className="absolute left-3 top-3 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-white/30 bg-slate-950/85 p-1.5 shadow-[0_8px_20px_rgba(2,6,23,0.45)]">
+                      {hasIconImage ? (
+                        <img src={product.icon} alt={`${product.name} icon`} className="h-full w-full object-contain" />
+                      ) : (
+                        <span className="text-xl">{product.icon || ''}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -96,7 +110,8 @@ export default function Products() {
                 </div>
               </div>
             </Link>
-          ))}
+            )
+          })}
         </div>
       </section>
     </div>
