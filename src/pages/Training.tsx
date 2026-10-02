@@ -50,12 +50,15 @@ function parseStudents(value: string) {
 }
 
 export default function Training() {
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(courses))
+  const trainingCourses = courses.filter(course => course.id !== 'internship')
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(trainingCourses))
 
-  const selectedCourseData = courses.find(course => course.id === selectedCourse) ?? courses[0] ?? null
-  const featuredCourse = courses.find(course => course.featured) ?? courses[0] ?? null
-  const averageRating = courses.reduce((sum, course) => sum + course.rating, 0) / courses.length
-  const totalLearners = courses.reduce((sum, course) => sum + parseStudents(course.students), 0)
+  const selectedCourseData = trainingCourses.find(course => course.id === selectedCourse) ?? trainingCourses[0] ?? null
+  const featuredCourse = trainingCourses.find(course => course.featured) ?? trainingCourses[0] ?? null
+  const averageRating = trainingCourses.length
+    ? trainingCourses.reduce((sum, course) => sum + course.rating, 0) / trainingCourses.length
+    : 0
+  const totalLearners = trainingCourses.reduce((sum, course) => sum + parseStudents(course.students), 0)
 
   return (
     <div className="min-h-screen bg-m3-surface dark:bg-m3-dark-surface">
@@ -77,10 +80,10 @@ export default function Training() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ['Programs', courses.length],
+              ['Programs', trainingCourses.length],
               ['Enrolled learners', `${totalLearners.toLocaleString()}+`],
               ['Average rating', `${averageRating.toFixed(1)}/5`],
-              ['Mentors', new Set(courses.map(course => course.instructor)).size],
+              ['Mentors', new Set(trainingCourses.map(course => course.instructor)).size],
             ].map(([label, value]) => (
               <div key={label} className="rounded-m3-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
                 <div className="text-xs uppercase tracking-wide text-white/75">{label}</div>
@@ -92,7 +95,7 @@ export default function Training() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
-        {!courses.length ? (
+        {!trainingCourses.length ? (
           <div className="rounded-m3-xl border border-dashed border-m3-outline p-10 text-center dark:border-m3-dark-outline">
             <h2 className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">No programs found</h2>
             <p className="mt-2 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Please check back soon.</p>
@@ -121,7 +124,7 @@ export default function Training() {
             )}
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {courses.map(course => {
+              {trainingCourses.map(course => {
                 const isSelected = selectedCourseData?.id === course.id
                 return (
                   <article
