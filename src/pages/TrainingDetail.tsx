@@ -45,7 +45,9 @@ export default function TrainingDetail() {
       <section className="relative overflow-hidden bg-[linear-gradient(160deg,rgba(10,25,47,0.95),rgba(2,8,20,0.98))] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.2),transparent_55%)]" />
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-          <Link to="/training" className="inline-flex text-sm font-medium text-white/85 transition hover:text-white">← Back to all programs</Link>
+          {!isInternship && (
+            <Link to="/training" className="inline-flex text-sm font-medium text-white/85 transition hover:text-white">← Back to all programs</Link>
+          )}
 
           {isInternship && (
             <div className="relative mt-6 overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3">
@@ -55,12 +57,6 @@ export default function TrainingDetail() {
                 className="h-auto w-full object-contain"
                 loading="eager"
               />
-              <a
-                href={internshipApplyMailTo}
-                className="absolute bottom-4 left-4 rounded-full bg-cyan-400 px-4 py-2 text-xs font-semibold text-slate-950 transition hover:bg-cyan-300 sm:px-5 sm:py-2.5 sm:text-sm"
-              >
-                Apply Now
-              </a>
             </div>
           )}
 
