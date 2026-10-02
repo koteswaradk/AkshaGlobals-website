@@ -103,7 +103,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {upcomingProducts.map(product => (
               <article
                 key={product.id}
@@ -153,7 +153,7 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
+                    <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">
                       {product.name}
                     </h3>
                     <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">

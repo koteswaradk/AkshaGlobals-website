@@ -48,9 +48,11 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative w-full h-screen overflow-hidden bg-black"
+      className="relative w-full h-[70svh] min-h-[420px] overflow-hidden bg-black sm:h-screen sm:min-h-[520px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
       {/* Image slides */}
@@ -75,7 +77,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Navigation controls */}
-      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center gap-3 z-10">
+      <div className="absolute bottom-4 left-0 right-0 z-10 flex items-center justify-center gap-3 sm:bottom-8">
         {slides.map((_, i) => (
           <button
             key={i}
@@ -94,7 +96,7 @@ export default function HeroSlider() {
       <button
         onClick={prev}
         aria-label="Previous slide"
-      
+        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white transition-colors duration-200 hover:bg-black/50 sm:left-4 sm:p-3"
       >
         <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -103,7 +105,7 @@ export default function HeroSlider() {
       <button
         onClick={next}
         aria-label="Next slide"
-        
+        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white transition-colors duration-200 hover:bg-black/50 sm:right-4 sm:p-3"
       >
         <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

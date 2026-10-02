@@ -57,10 +57,10 @@ export default function Navbar() {
               e.preventDefault()
               window.location.reload()
             }}
-            className="flex items-center gap-3 cursor-pointer"
+            className="flex min-w-0 items-center gap-2 sm:gap-3 cursor-pointer"
           >
             <Logo />
-            <span className="text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
+            <span className="truncate text-base sm:text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
               Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Globals{isStudio ? ' Studios' : ''}</span>
             </span>
           </a>
