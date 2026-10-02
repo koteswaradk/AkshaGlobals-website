@@ -50,12 +50,14 @@ export default function TrainingDetail() {
           )}
 
           {isInternship && (
-            <div className="relative mt-6 w-full overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3">
+            <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-m3-2xl border border-white/20 bg-black/20 shadow-m3-3 sm:aspect-[5/2] lg:aspect-[3/1]">
               <img
                 src={internshipHeroImage}
                 alt="Build Your Future with Internship program banner"
-                className="h-auto w-full"
+                className="h-full w-full object-cover"
                 loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
           )}

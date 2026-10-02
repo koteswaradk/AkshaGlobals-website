@@ -48,7 +48,7 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative w-full h-[70svh] min-h-[420px] overflow-hidden bg-black sm:h-screen sm:min-h-[520px]"
+      className="relative w-full h-[55svh] min-h-[320px] overflow-hidden bg-black sm:h-[70svh] sm:min-h-[420px] lg:h-screen lg:min-h-[520px]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
@@ -69,6 +69,9 @@ export default function HeroSlider() {
               alt={s.alt}
               className="w-full h-full object-cover"
               loading={idx === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              fetchPriority={idx === 0 ? 'high' : 'auto'}
+              sizes="100vw"
             />
             {/* Overlay for better text readability if needed */}
             <div className="absolute inset-0 bg-black/10" />
