@@ -144,48 +144,51 @@ export default function Home() {
                           )}
                         </div>
                       </div>
+                      <p className="mt-5 hidden text-base leading-7 text-slate-300 lg:block">
+                        {product.description}
+                      </p>
                     </div>
 
                     <div className="min-w-0 flex-1">
-                    <div className="mb-5 flex items-center justify-between gap-3">
-                      <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
-                        Upcoming Product
+                      <div className="mb-5 flex items-center justify-between gap-3">
+                        <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
+                          Upcoming Product
+                        </p>
+                        <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
+                          {product.badge}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">
+                        {product.name}
+                      </h3>
+                      <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+                        {product.subtitle}
                       </p>
-                      <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
-                        {product.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl lg:text-4xl">
-                      {product.name}
-                    </h3>
-                    <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
-                      {product.subtitle}
-                    </p>
-                    <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
-                      {product.description}
-                    </p>
-
-                    <div className="mb-5 mt-6">
-                      <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
-                        Product Capabilities
+                      <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 lg:hidden">
+                        {product.description}
                       </p>
-                      <p className="mt-1 text-lg font-bold text-white">{product.name}</p>
-                    </div>
 
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      {product.features.map(feature => (
-                        <div
-                          key={feature}
-                          className="flex min-h-24 items-start gap-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-4"
-                        >
-                          <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-xs font-bold text-cyan-300">
-                            ✓
-                          </span>
-                          <p className="text-sm leading-6 text-slate-200">{feature}</p>
-                        </div>
-                      ))}
-                    </div>
+                      <div className="mb-5 mt-6">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
+                          Product Capabilities
+                        </p>
+                        <p className="mt-1 text-lg font-bold text-white">{product.name}</p>
+                      </div>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        {product.features.map(feature => (
+                          <div
+                            key={feature}
+                            className="flex min-h-24 items-start gap-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-4"
+                          >
+                            <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-xs font-bold text-cyan-300">
+                              ✓
+                            </span>
+                            <p className="text-sm leading-6 text-slate-200">{feature}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
