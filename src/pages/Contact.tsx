@@ -12,13 +12,36 @@ export default function Contact() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setSubmissionStatus('sending')
 
-    const subject = encodeURIComponent(`Contact Us message from ${name}`)
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
-    window.location.href = `mailto:infoakshaglobal@gmail.com?subject=${subject}&body=${body}`
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/infoakshaglobal@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Contact Us message from ${name}`,
+        }),
+      })
+      const result: { success?: boolean | string } = await response.json()
+
+      if (!response.ok || String(result.success).toLowerCase() !== 'true') {
+        throw new Error('Message submission failed')
+      }
+
+      setSubmissionStatus('success')
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch {
+      setSubmissionStatus('error')
+    }
   }
 
   return (
@@ -144,11 +167,23 @@ export default function Contact() {
             <div className="sm:col-span-2">
               <button
                 type="submit"
+                disabled={submissionStatus === 'sending'}
                 className="w-full rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 sm:w-auto"
               >
-                Send Message
+                {submissionStatus === 'sending' ? 'Sending…' : 'Send Message'}
               </button>
             </div>
+            <p
+              role="status"
+              aria-live="polite"
+              className={`sm:col-span-2 text-sm ${
+                submissionStatus === 'error' ? 'text-red-300' : 'text-cyan-300'
+              }`}
+            >
+              {submissionStatus === 'success' && 'Your message was sent. Thank you for contacting us.'}
+              {submissionStatus === 'error' &&
+                'We could not send your message. Please try again or email infoakshaglobal@gmail.com.'}
+            </p>
           </form>
         </div>
       </div>
