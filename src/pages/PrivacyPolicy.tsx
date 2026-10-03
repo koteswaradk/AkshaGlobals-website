@@ -150,8 +150,8 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant mt-3">
               To exercise any of these rights, please contact us at{' '}
-              <a href="mailto:info@akshaglobal.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
-                info@akshaglobal.com
+              <a href="mailto:infoakshaglobal@gmail.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
+                infoakshaglobal@gmail.com
               </a>.
             </p>
           </section>
@@ -178,8 +178,8 @@ export default function PrivacyPolicy() {
               <p>Bengaluru, Karnataka 560040, India</p>
               <p>
                 Email:{' '}
-                <a href="mailto:info@akshaglobal.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
-                  info@akshaglobal.com
+                <a href="mailto:infoakshaglobal@gmail.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
+                  infoakshaglobal@gmail.com
                 </a>
               </p>
               <p>Phone: +91 9740488603</p>
