@@ -173,15 +173,15 @@ export default function TrainingDetail() {
                 </Link>
               </div>
             ) : (
-              <>
+              <div className="mt-6 grid gap-4">
                 <Link
                   to="/contact"
-                  className="mt-6 flex w-full items-center justify-center rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+                  className="flex min-h-12 w-full items-center justify-center rounded-full bg-cyan-400 px-5 py-3 text-center text-sm font-semibold leading-5 text-slate-950 transition hover:bg-cyan-300"
                 >
                   Register &amp; Pay
                 </Link>
 
-                <div className="mt-4 space-y-2">
+                <div className="grid gap-2">
                   {course.levels.map(level => (
                     <button
                       key={level.name}
@@ -194,7 +194,7 @@ export default function TrainingDetail() {
                     </button>
                   ))}
                 </div>
-              </>
+              </div>
             )}
           </aside>
         </div>

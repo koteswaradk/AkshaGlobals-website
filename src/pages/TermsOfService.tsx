@@ -162,8 +162,8 @@ export default function TermsOfService() {
               <p>Hyderabad, Telangana 500001, India</p>
               <p>
                 Email:{' '}
-                <a href="mailto:info@akshaglobal.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
-                  info@akshaglobal.com
+                <a href="mailto:infoakshglobal@gmail.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
+                  infoakshglobal@gmail.com
                 </a>
               </p>
               <p>Phone: +91 98765 43210</p>
