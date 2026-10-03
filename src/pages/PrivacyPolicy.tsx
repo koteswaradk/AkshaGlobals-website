@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
             <p className="text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
               All content published on this website — including but not limited to text, graphics, logos,
               images, audio, video, software, and documentation — is the exclusive property of Aksha
-              Globals or its licensors. You may view and download content for personal, non-commercial
+              Global or its licensors. You may view and download content for personal, non-commercial
               use only. Any reproduction, distribution, modification, or republication of website content
               without prior written consent from Aksha Global is strictly prohibited.
             </p>
@@ -87,8 +87,8 @@ export default function PrivacyPolicy() {
             <p className="text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
               All ideas, concepts, methodologies, training curricula, course materials, and innovations
               presented on this website or through our services are the intellectual property of Aksha
-              Globals. Any unsolicited ideas or suggestions you submit to us may be used by Aksha
-              Globals without obligation of confidentiality, compensation, or acknowledgment. We
+              Global. Any unsolicited ideas or suggestions you submit to us may be used by Aksha
+              Global without obligation of confidentiality, compensation, or acknowledgment. We
               encourage you not to share confidential or proprietary information through our website
               unless covered by a separate written agreement.
             </p>
@@ -174,15 +174,16 @@ export default function PrivacyPolicy() {
             </p>
             <div className="mt-3 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant space-y-1">
               <p><strong className="text-m3-on-surface dark:text-m3-dark-on-surface">Aksha Global</strong></p>
-              <p>123 Tech Park, 4th Floor, Innovation District</p>
-              <p>Hyderabad, Telangana 500001, India</p>
+              <p>51/102, 20th, Marenahalli Main Rd, Govindaraja Nagar Ward, PF Layout, Vijayanagar</p>
+              <p>Bengaluru, Karnataka 560040, India</p>
               <p>
                 Email:{' '}
                 <a href="mailto:info@akshaglobals.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
                   info@akshaglobals.com
                 </a>
               </p>
-              <p>Phone: +91 98765 43210</p>
+              <p>Phone: +91 9740488603</p>
+              <p>Phone: +91 7795589555</p>
             </div>
           </section>
         </div>
