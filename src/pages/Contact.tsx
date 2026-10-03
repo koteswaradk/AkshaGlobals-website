@@ -13,10 +13,12 @@ export default function Contact() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [submissionError, setSubmissionError] = useState('')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmissionStatus('sending')
+    setSubmissionError('')
 
     try {
       const response = await fetch('https://formsubmit.co/ajax/infoakshaglobal@gmail.com', {
@@ -29,10 +31,17 @@ export default function Contact() {
           _subject: `Contact Us message from ${name}`,
         }),
       })
-      const result: { success?: boolean | string } = await response.json()
+      const result: { success?: boolean | string; message?: string } = await response.json()
 
       if (!response.ok || String(result.success).toLowerCase() !== 'true') {
-        throw new Error('Message submission failed')
+        const responseMessage = typeof result.message === 'string' ? result.message : ''
+        setSubmissionError(
+          responseMessage.toLowerCase().includes('activation')
+            ? "The contact form needs activation. Check infoakshaglobal@gmail.com's inbox for FormSubmit's activation email, click its link, then try again."
+            : responseMessage || 'We could not send your message. Please try again.',
+        )
+        setSubmissionStatus('error')
+        return
       }
 
       setSubmissionStatus('success')
@@ -40,9 +49,14 @@ export default function Contact() {
       setEmail('')
       setMessage('')
     } catch {
+      setSubmissionError('We could not send your message. Please try again.')
       setSubmissionStatus('error')
     }
   }
+
+  const emailFallback = `mailto:infoakshaglobal@gmail.com?subject=${encodeURIComponent(
+    `Contact Us message from ${name}`,
+  )}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`
 
   return (
     <div className="min-h-screen bg-[#020b1a] px-4 py-12 text-white sm:px-6 lg:px-8">
@@ -181,8 +195,15 @@ export default function Contact() {
               }`}
             >
               {submissionStatus === 'success' && 'Your message was sent. Thank you for contacting us.'}
-              {submissionStatus === 'error' &&
-                'We could not send your message. Please try again or email infoakshaglobal@gmail.com.'}
+              {submissionStatus === 'error' && (
+                <>
+                  {submissionError}{' '}
+                  <a className="underline" href={emailFallback}>
+                    Email us directly
+                  </a>
+                  .
+                </>
+              )}
             </p>
           </form>
         </div>
