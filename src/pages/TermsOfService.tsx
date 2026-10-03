@@ -158,15 +158,15 @@ export default function TermsOfService() {
             </p>
             <div className="mt-3 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant space-y-1">
               <p><strong className="text-m3-on-surface dark:text-m3-dark-on-surface">Aksha Global</strong></p>
-              <p>123 Tech Park, 4th Floor, Innovation District</p>
-              <p>Hyderabad, Telangana 500001, India</p>
+              <p>51/102, 20th, Marenahalli Main Rd, Govindaraja Nagar Ward, PF Layout, Vijayanagar, Bengaluru, Karnataka 560040</p>
+  
               <p>
                 Email:{' '}
                 <a href="mailto:infoakshglobal@gmail.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
                   infoakshglobal@gmail.com
                 </a>
               </p>
-              <p>Phone: +91 98765 43210</p>
+              <p>Phone: +91 +91 9740488603 +91 7795589555</p>
             </div>
           </section>
         </div>
