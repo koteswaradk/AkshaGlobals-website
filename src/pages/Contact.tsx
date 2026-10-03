@@ -1,10 +1,11 @@
 import SEO from '../components/SEO'
 
 export default function Contact() {
-  // Coordinates for 23 Tech Park, Hyderabad Telangana, India 500001
-  const lat = 17.3850
-  const lng = 78.4867
-  const address = '23 Tech Park, Hyderabad, Telangana, India 500001'
+  // Coordinates for Vijayanagar, Bengaluru, Karnataka, India 560040
+  const lat = 12.9696
+  const lng = 77.5337
+  const address =
+    '51/102, 20th, Marenahalli Main Rd, Govindaraja Nagar Ward, PF Layout, Vijayanagar, Bengaluru, Karnataka 560040'
 
   const mapSrc = `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`
 
@@ -12,7 +13,7 @@ export default function Contact() {
     <div className="min-h-screen bg-[#020b1a] px-4 py-12 text-white sm:px-6 lg:px-8">
       <SEO
         title="Contact Us"
-        description="Get in touch with Aksha Globals — reach us at our Hyderabad office or send us a message."
+        description="Get in touch with Aksha Globals — reach us at our Bengaluru office or send us a message."
         path="/contact"
       />
       <div className="mx-auto max-w-5xl">
@@ -38,7 +39,8 @@ export default function Contact() {
               <span className="text-2xl">📞</span>
               <div>
                 <p className="font-medium text-white">Phone</p>
-                <p className="text-sm text-slate-300">+91 98765 43210</p>
+                <p className="text-sm text-slate-300">+91 9740488603</p>
+                <p className="text-sm text-slate-300">+91 7795589555</p>
               </div>
             </div>
 
