@@ -149,10 +149,12 @@ export default function TrainingDetail() {
             <h3 className="text-xl font-bold text-white">Enrollment</h3>
             <p className="mt-2 text-sm text-slate-300">{currentLevel.duration} guided track · {currentLevel.curriculum.length} modules</p>
 
-            <div className="mt-5 rounded-m3-xl border border-cyan-500/15 bg-slate-900/75 px-4 py-5 text-center">
-              <p className="text-xs uppercase tracking-wide text-slate-300">Program fee</p>
-              <p className="mt-2 text-3xl font-bold text-cyan-300">{formatPrice(currentLevel.price)}</p>
-            </div>
+            {!isInternship && (
+              <div className="mt-5 rounded-m3-xl border border-cyan-500/15 bg-slate-900/75 px-4 py-5 text-center">
+                <p className="text-xs uppercase tracking-wide text-slate-300">Program fee</p>
+                <p className="mt-2 text-3xl font-bold text-cyan-300">{formatPrice(currentLevel.price)}</p>
+              </div>
+            )}
 
             <div className="mt-5 space-y-2 text-sm text-slate-300">
               <p>✓ Curriculum aligned to industry outcomes</p>
