@@ -24,7 +24,8 @@ type StoreLink = {
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>()
   const product = products.find(p => p.id === id)
-  const hasProductImage = Boolean(product?.icon && product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i))
+  const previewImage = product?.featureImage ?? product?.icon
+  const hasPreviewImage = Boolean(previewImage && previewImage.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i))
 
   if (!product) {
     return (
@@ -113,9 +114,9 @@ export default function ProductDetail() {
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.25),transparent_60%)]" />
                 <div className="relative z-10">
                   <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-cyan-200/80">Product Preview</p>
-                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/20 bg-slate-950/70 p-5">
-                    {hasProductImage ? (
-                      <img src={product.icon} alt={`${product.name} feature preview`} className="h-full w-full object-contain" />
+                  <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/20 bg-slate-950/70">
+                    {hasPreviewImage ? (
+                      <img src={previewImage} alt={`${product.name} feature preview`} className="h-full w-full object-cover object-center" />
                     ) : (
                       <span className="text-7xl">{product.icon || ''}</span>
                     )}
