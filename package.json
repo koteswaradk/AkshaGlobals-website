@@ -1,7 +1,7 @@
 {
-  "name": "akshaglobals-website",
+  "name": "akshaglobal-website",
   "version": "1.0.0",
-  "description": "Professional website for Aksha Globals",
+  "description": "Professional website for Aksha Global",
   "type": "module",
   "scripts": {
     "dev": "vite",

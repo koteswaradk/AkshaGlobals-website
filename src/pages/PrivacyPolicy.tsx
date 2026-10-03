@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-m3-surface dark:bg-m3-dark-surface text-m3-on-surface dark:text-m3-dark-on-surface">
       <SEO
         title="Privacy Policy"
-        description="Read the Aksha Globals privacy policy — how we collect, use, and protect your personal data."
+        description="Read the Aksha Global privacy policy — how we collect, use, and protect your personal data."
         path="/privacy-policy"
       />
       <div className="max-w-4xl mx-auto">
@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-m3-primary dark:text-m3-dark-primary mb-3">1. Introduction</h2>
             <p className="text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
-              Aksha Globals ("we," "our," or "us") respects your privacy and is committed to protecting
+              Aksha Global ("we," "our," or "us") respects your privacy and is committed to protecting
               your personal data. This Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website and use our products and services.
               Please read this policy carefully to understand our views and practices regarding your
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
               images, audio, video, software, and documentation — is the exclusive property of Aksha
               Globals or its licensors. You may view and download content for personal, non-commercial
               use only. Any reproduction, distribution, modification, or republication of website content
-              without prior written consent from Aksha Globals is strictly prohibited.
+              without prior written consent from Aksha Global is strictly prohibited.
             </p>
           </section>
 
@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-semibold text-m3-primary dark:text-m3-dark-primary mb-3">5. Product Copyrights</h2>
             <p className="text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
               All software products, applications, tools, and related materials developed and distributed
-              by Aksha Globals are protected by copyright, trademark, and other intellectual property
+              by Aksha Global are protected by copyright, trademark, and other intellectual property
               laws. Unauthorized copying, reverse engineering, decompilation, or distribution of our
               products is prohibited. Purchasing or licensing a product does not transfer ownership of
               the underlying intellectual property.
@@ -173,7 +173,7 @@ export default function PrivacyPolicy() {
               If you have any questions or concerns about this Privacy Policy, please contact us:
             </p>
             <div className="mt-3 text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant space-y-1">
-              <p><strong className="text-m3-on-surface dark:text-m3-dark-on-surface">Aksha Globals</strong></p>
+              <p><strong className="text-m3-on-surface dark:text-m3-dark-on-surface">Aksha Global</strong></p>
               <p>123 Tech Park, 4th Floor, Innovation District</p>
               <p>Hyderabad, Telangana 500001, India</p>
               <p>

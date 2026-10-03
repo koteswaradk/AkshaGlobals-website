@@ -64,8 +64,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
-        title="Aksha Globals"
-        description="Aksha Globals builds innovative mobile apps and offers professional training in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP."
+        title="Aksha Global"
+        description="Aksha Global builds innovative mobile apps and offers professional training in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP."
         path="/"
       />
 
@@ -78,7 +78,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[#041426] shadow-[0_0_40px_rgba(34,211,238,0.12)]">
           <img
             src={`${baseUrl}capabilites.png`}
-            alt="Aksha Globals core capabilities"
+            alt="Aksha Global core capabilities"
             className="block h-auto w-full object-contain"
             loading="lazy"
           />

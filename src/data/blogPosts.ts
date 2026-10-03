@@ -20,7 +20,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Getting Started with Android Development in 2024',
     excerpt:
       "A complete beginner's guide covering Kotlin fundamentals, Jetpack Compose, and building your first real-world Android app from scratch.",
-    author: 'Aksha Globals Team',
+    author: 'Aksha Global Team',
     date: 'March 10, 2024',
     readTime: '8 min read',
     color: 'from-m3-primary to-m3-primary-10',
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
       'Understanding the Android application lifecycle is crucial. Activities and Fragments manage the UI, while ViewModels survive configuration changes and hold your app state. The combination of these components with Compose creates a robust architecture for any app.',
       'Modern Android development also emphasizes architecture patterns like MVVM (Model-View-ViewModel) and clean architecture. These patterns help you write testable, maintainable code that scales well as your app grows. Libraries like Hilt for dependency injection and Room for local database make implementation straightforward.',
       'Networking is another essential skill. Retrofit paired with Kotlin coroutines makes it easy to fetch data from REST APIs asynchronously. You will learn to handle loading states, errors, and data caching effectively — skills that every professional Android developer needs.',
-      'At Aksha Globals, our Android Development training program covers all these topics and more. From basic Kotlin syntax to publishing your app on the Google Play Store, we guide you through every step with hands-on projects and expert mentorship.',
+      'At Aksha Global, our Android Development training program covers all these topics and more. From basic Kotlin syntax to publishing your app on the Google Play Store, we guide you through every step with hands-on projects and expert mentorship.',
     ],
   },
   {
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Mastering Prompt Engineering: Tips, Tricks & Best Practices',
     excerpt:
       'Unlock the full potential of large language models with proven prompt design strategies used by AI engineers in top tech companies.',
-    author: 'Aksha Globals Team',
+    author: 'Aksha Global Team',
     date: 'February 22, 2024',
     readTime: '6 min read',
     color: 'from-m3-tertiary to-m3-tertiary-10',
@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
       'Role-based prompting involves assigning the model a specific persona or expertise area. For example, asking it to respond "as a senior Android developer" or "as a data scientist" helps focus the response and leverage the model\'s training data more effectively.',
       'System prompts are the backbone of AI applications. They define the model\'s behavior, constraints, and personality. Well-crafted system prompts ensure consistent, high-quality outputs across thousands of user interactions — a critical skill for building production AI systems.',
       'Evaluation and iteration are essential parts of prompt engineering. You should systematically test your prompts across diverse inputs, measure output quality, and refine your approach. Building a library of tested, effective prompts is a valuable asset for any organization.',
-      'Our Prompt Engineering course at Aksha Globals takes you from fundamentals to advanced techniques including tree-of-thought prompting, constitutional AI principles, and building enterprise-grade prompt systems. Join us to master this essential skill for the AI-powered future.',
+      'Our Prompt Engineering course at Aksha Global takes you from fundamentals to advanced techniques including tree-of-thought prompting, constitutional AI principles, and building enterprise-grade prompt systems. Join us to master this essential skill for the AI-powered future.',
     ],
   },
   {
@@ -66,20 +66,20 @@ export const blogPosts: BlogPost[] = [
     title: 'How Our Students Land Top Tech Jobs After Training',
     excerpt:
       'Real stories and actionable strategies from our alumni who cracked placements at leading product companies and startups.',
-    author: 'Aksha Globals Team',
+    author: 'Aksha Global Team',
     date: 'January 15, 2024',
     readTime: '5 min read',
     color: 'from-m3-secondary to-m3-secondary-10',
     tags: ['Career', 'Placements', 'Tech Jobs', 'Success Stories'],
     content: [
-      'At Aksha Globals, we measure our success by the success of our students. Over the past year, our graduates have secured positions at leading tech companies, startups, and product firms — and their journeys are both inspiring and instructive.',
+      'At Aksha Global, we measure our success by the success of our students. Over the past year, our graduates have secured positions at leading tech companies, startups, and product firms — and their journeys are both inspiring and instructive.',
       'The most common trait among our successful alumni is consistency. Students who dedicated regular hours to learning, practiced coding daily, and actively participated in live sessions consistently outperformed others. The key is building a habit of continuous learning rather than cramming before interviews.',
       'Building real projects is what separates a resume that gets callbacks from one that does not. Our training programs emphasize hands-on project work — from building Android apps with Jetpack Compose to creating AI-powered chatbots. These portfolio projects give students tangible evidence of their skills.',
       'Technical preparation for interviews involves more than knowing a programming language. Our placement support team helps students with data structure and algorithm practice, system design concepts, and behavioral interview preparation. This holistic approach ensures students are ready for every stage of the hiring process.',
       'Networking plays a crucial role in landing opportunities. We encourage students to build their LinkedIn presence, contribute to open-source projects, and attend tech meetups. Many of our alumni have received job offers through connections they made during and after our training programs.',
-      'One standout story is Priya, who went from a non-tech background to an Android Developer role at a leading product company in just 4 months. She credits the structured curriculum, hands-on projects, and mentorship at Aksha Globals for her transformation.',
+      'One standout story is Priya, who went from a non-tech background to an Android Developer role at a leading product company in just 4 months. She credits the structured curriculum, hands-on projects, and mentorship at Aksha Global for her transformation.',
       'Another inspiring example is Rahul, who leveraged our GenAI and Prompt Engineering track to transition into an AI/ML engineering role. His capstone project — a retrieval-augmented generation system for enterprise knowledge management — impressed recruiters and led to multiple offers.',
-      'If you are looking to start or accelerate your tech career, Aksha Globals provides the training, mentorship, and placement support you need to succeed. Explore our training programs and take the first step toward your dream tech job.',
+      'If you are looking to start or accelerate your tech career, Aksha Global provides the training, mentorship, and placement support you need to succeed. Explore our training programs and take the first step toward your dream tech job.',
     ],
   },
   {
@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Building Beautiful iOS Apps with SwiftUI: A Practical Guide',
     excerpt:
       'Learn how to create stunning, native iOS applications using SwiftUI — Apple\'s declarative framework that is reshaping mobile development.',
-    author: 'Aksha Globals Team',
+    author: 'Aksha Global Team',
     date: 'December 5, 2023',
     readTime: '7 min read',
     color: 'from-m3-primary-10 to-m3-primary',
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
       'State management is central to SwiftUI development. Property wrappers like @State, @Binding, @ObservedObject, and @EnvironmentObject help you manage data flow through your app. Understanding when to use each is crucial for building responsive, well-architectured applications.',
       'SwiftUI also excels at animations and transitions. With simple modifiers like .animation() and .transition(), you can add polished, smooth animations that enhance the user experience without complex animation code.',
       'The combination of SwiftUI with Swift\'s modern language features — optionals, protocol-oriented programming, generics, and async/await — makes iOS development both powerful and enjoyable.',
-      'At Aksha Globals, our iOS Development program covers SwiftUI from fundamentals to advanced topics including custom views, Core Data integration, and App Store deployment. Join us to build your iOS development career with industry-relevant skills.',
+      'At Aksha Global, our iOS Development program covers SwiftUI from fundamentals to advanced topics including custom views, Core Data integration, and App Store deployment. Join us to build your iOS development career with industry-relevant skills.',
     ],
   },
   {
@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Generative AI in Business: Real-World Applications and Strategies',
     excerpt:
       'Explore how enterprises are leveraging generative AI to transform operations, customer experience, and product innovation across industries.',
-    author: 'Aksha Globals Team',
+    author: 'Aksha Global Team',
     date: 'November 18, 2023',
     readTime: '7 min read',
     color: 'from-m3-tertiary to-m3-tertiary-10',
@@ -125,7 +125,7 @@ export const blogPosts: BlogPost[] = [
       'In healthcare, generative AI assists with medical documentation, drug discovery research, and patient communication. Financial services firms use it for risk analysis reports, regulatory compliance documentation, and personalized investment advice generation.',
       'However, deploying generative AI in business requires careful consideration of data privacy, accuracy, bias, and cost. Organizations need governance frameworks that ensure responsible AI use while maximizing business value.',
       'Building an AI-ready workforce is essential. Companies that invest in training their teams on prompt engineering, AI application development, and responsible AI practices gain a significant competitive advantage.',
-      'Aksha Globals offers comprehensive Generative AI training programs that cover both the technical foundations and practical business applications. Our courses prepare professionals to lead AI transformation initiatives in their organizations.',
+      'Aksha Global offers comprehensive Generative AI training programs that cover both the technical foundations and practical business applications. Our courses prepare professionals to lead AI transformation initiatives in their organizations.',
     ],
   },
   {
@@ -135,7 +135,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Top Mobile App Development Trends to Watch in 2024',
     excerpt:
       'Stay ahead of the curve with the latest trends in mobile development — from AI integration to cross-platform solutions and beyond.',
-    author: 'Aksha Globals Team',
+    author: 'Aksha Global Team',
     date: 'October 28, 2023',
     readTime: '6 min read',
     color: 'from-m3-secondary to-m3-secondary-10',
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
       'Super apps — applications that serve as platforms for multiple services — are gaining traction. Inspired by the success of apps like WeChat and Grab in Asia, developers worldwide are exploring how to create unified app experiences that reduce friction and increase engagement.',
       'Edge computing and on-device processing are reducing dependence on cloud servers. Modern devices are powerful enough to run complex computations locally, enabling faster responses, offline functionality, and improved privacy — all critical for next-generation mobile experiences.',
       'Augmented reality (AR) is finding practical applications beyond gaming. From virtual try-on experiences in retail to interactive learning in education, AR features are becoming mainstream in mobile apps across industries.',
-      'At Aksha Globals, our training programs stay current with these trends, ensuring our students learn not just today\'s technology but tomorrow\'s as well. Explore our Android and iOS development courses to start building the future of mobile.',
+      'At Aksha Global, our training programs stay current with these trends, ensuring our students learn not just today\'s technology but tomorrow\'s as well. Explore our Android and iOS development courses to start building the future of mobile.',
     ],
   },
 ]
