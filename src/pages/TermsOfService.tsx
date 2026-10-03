@@ -68,7 +68,7 @@ export default function TermsOfService() {
               Aksha Global values innovation and creativity. All ideas, concepts, methodologies,
               innovations, training curricula, course structures, and business processes presented on
               this website or through our services are the exclusive intellectual property of Aksha
-              Globals. By using our website, you acknowledge and agree to the following:
+              Global. By using our website, you acknowledge and agree to the following:
             </p>
             <ul className="list-disc list-inside text-sm leading-relaxed text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant space-y-2 ml-2">
               <li>You shall not replicate, adapt, or commercialize any ideas, concepts, or methodologies from our website or services without prior written consent.</li>
@@ -162,8 +162,8 @@ export default function TermsOfService() {
               <p>Hyderabad, Telangana 500001, India</p>
               <p>
                 Email:{' '}
-                <a href="mailto:info@akshaglobals.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
-                  info@akshaglobals.com
+                <a href="mailto:infoakshglobal@gmail.com" className="text-m3-primary dark:text-m3-dark-primary hover:underline">
+                  infoakshglobal@gmail.com
                 </a>
               </p>
               <p>Phone: +91 98765 43210</p>
