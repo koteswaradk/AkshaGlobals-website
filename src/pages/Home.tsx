@@ -144,9 +144,6 @@ export default function Home() {
                           )}
                         </div>
                       </div>
-                      <p className="mt-5 text-base leading-7 text-slate-300">
-                        {product.description}
-                      </p>
                     </div>
 
                     <div className="min-w-0 flex-1">
@@ -162,20 +159,24 @@ export default function Home() {
                       <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
                         {product.subtitle}
                       </p>
-                      <div className="grid gap-3 sm:grid-cols-2">
-                        {product.features.map(feature => (
-                          <div
-                            key={feature}
-                            className="flex min-h-24 items-start gap-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-4"
-                          >
-                            <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-xs font-bold text-cyan-300">
-                              ✓
-                            </span>
-                            <p className="text-sm leading-6 text-slate-200">{feature}</p>
-                          </div>
-                        ))}
-                      </div>
+                      <p className="mt-5 text-base leading-7 text-slate-300">
+                        {product.description}
+                      </p>
                     </div>
+                  </div>
+
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                    {product.features.map(feature => (
+                      <div
+                        key={feature}
+                        className="flex min-h-24 items-start gap-3 rounded-2xl border border-slate-700/80 bg-slate-900/70 p-4"
+                      >
+                        <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-xs font-bold text-cyan-300">
+                          ✓
+                        </span>
+                        <p className="text-sm leading-6 text-slate-200">{feature}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </article>
