@@ -174,13 +174,12 @@ export default function TrainingDetail() {
               </div>
             ) : (
               <>
-                <button
-                  type="button"
-                  onClick={() => handleRegister(currentLevel)}
+                <Link
+                  to="/contact"
                   className="mt-6 w-full rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
                 >
                   Register &amp; Pay
-                </button>
+                </Link>
 
                 <div className="mt-4 space-y-2">
                   {course.levels.map(level => (
