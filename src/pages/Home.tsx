@@ -169,13 +169,6 @@ export default function Home() {
                         {product.description}
                       </p>
 
-                      <div className="mb-5 mt-6">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-cyan-300/80">
-                          Product Capabilities
-                        </p>
-                        <p className="mt-1 text-lg font-bold text-white">{product.name}</p>
-                      </div>
-
                       <div className="grid gap-3 sm:grid-cols-2">
                         {product.features.map(feature => (
                           <div
