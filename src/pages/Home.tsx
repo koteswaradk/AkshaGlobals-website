@@ -103,7 +103,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8">
             {upcomingProducts.map(product => (
               <article
                 key={product.id}
