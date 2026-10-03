@@ -121,29 +121,32 @@ export default function Home() {
                 />
 
                 <div className="relative z-10 p-6 sm:p-8">
-                  <div className="relative overflow-hidden rounded-[28px] border border-cyan-400/25 bg-slate-950/65 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_18px_40px_rgba(2,6,23,0.55)] sm:p-5">
-                    <div
-                      className="pointer-events-none absolute inset-0 opacity-20"
-                      style={{ background: product.gradient }}
-                    />
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-300/20 bg-[linear-gradient(160deg,rgba(15,23,42,0.9),rgba(2,6,23,0.98))]">
-                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_60%)]" />
-                      {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
-                        <img
-                          src={product.icon}
-                          alt={`${product.name} preview`}
-                          className="relative z-10 h-full w-full object-contain p-4 sm:p-6"
-                          loading="lazy"
+                  <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+                    <div className="w-full lg:w-[38%] lg:shrink-0">
+                      <div className="relative overflow-hidden rounded-[28px] border border-cyan-400/25 bg-slate-950/65 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_18px_40px_rgba(2,6,23,0.55)] sm:p-5">
+                        <div
+                          className="pointer-events-none absolute inset-0 opacity-20"
+                          style={{ background: product.gradient }}
                         />
-                      ) : (
-                        <span className="relative z-10 flex h-full w-full items-center justify-center text-5xl">
-                          {product.icon}
-                        </span>
-                      )}
+                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-cyan-300/20 bg-[linear-gradient(160deg,rgba(15,23,42,0.9),rgba(2,6,23,0.98))]">
+                          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_60%)]" />
+                          {product.icon.match(/\.(png|jpg|jpeg|gif|svg|webp)$/i) ? (
+                            <img
+                              src={product.icon}
+                              alt={`${product.name} preview`}
+                              className="relative z-10 h-full w-full object-contain p-4 sm:p-6"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <span className="relative z-10 flex h-full w-full items-center justify-center text-5xl">
+                              {product.icon}
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="mt-6">
+                    <div className="min-w-0 flex-1">
                     <div className="mb-5 flex items-center justify-between gap-3">
                       <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
                         Upcoming Product
@@ -182,6 +185,7 @@ export default function Home() {
                           <p className="text-sm leading-6 text-slate-200">{feature}</p>
                         </div>
                       ))}
+                    </div>
                     </div>
                   </div>
                 </div>
