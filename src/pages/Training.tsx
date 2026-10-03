@@ -66,7 +66,7 @@ export default function Training() {
       <section className="relative overflow-hidden bg-[linear-gradient(160deg,rgba(10,25,47,0.95),rgba(2,8,20,0.98))] text-white">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.2),transparent_55%)]" />
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/90">Aksha Globals Academy</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/90">Aksha Global Academy</p>
           <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             International-Standard Tech Training for Career Growth
           </h1>

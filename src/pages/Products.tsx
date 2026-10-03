@@ -9,7 +9,7 @@ export default function Products() {
     <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
         title="Our Products"
-        description="Discover Aksha Globals' suite of powerful mobile and web applications built to solve real-world problems."
+        description="Discover Aksha Global's suite of powerful mobile and web applications built to solve real-world problems."
         path="/products"
       />
 
@@ -18,7 +18,7 @@ export default function Products() {
         <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-cyan-300/90">
-              Aksha Globals Products
+              Aksha Global Products
             </p>
             <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
               Solutions Built for{' '}

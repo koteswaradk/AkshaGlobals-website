@@ -60,7 +60,7 @@ const FooterLogo = () => {
   ) : (
     <img
       src="https://github.com/user-attachments/assets/a3566f73-012a-405e-a33f-dd12f0982201"
-      alt="Aksha Globals Logo"
+      alt="Aksha Global Logo"
       width="48"
       height="48"
       className="rounded-full object-cover"
@@ -80,7 +80,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-3">
               <FooterLogo />
               <div>
-                <div className="text-white text-xl font-bold leading-tight">Aksha Globals</div>
+                <div className="text-white text-xl font-bold leading-tight">Aksha Global</div>
                 <div className="text-m3-primary-container text-sm font-medium">Imagination to Innovation</div>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-m3-outline-variant/30 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-m3-dark-outline">
-          <p>© {new Date().getFullYear()} Aksha Globals. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Aksha Global. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
             <Link to="/privacy-policy" className="hover:text-m3-dark-primary transition-colors duration-200">Privacy Policy</Link>
             <Link to="/terms-of-service" className="hover:text-m3-dark-primary transition-colors duration-200">Terms of Service</Link>

@@ -96,8 +96,8 @@ export const courses: Course[] = [
   {
     id: 'internship',
     name: 'Internship Program',
-    tagline: 'Aksha Globals internship program for college students',
-    description: 'Aksha Globals provides internship opportunities for college students with hands-on coding, mentor-led code reviews, agile collaboration, and capstone delivery aligned with real software team workflows.',
+    tagline: 'Aksha Global internship program for college students',
+    description: 'Aksha Global provides internship opportunities for college students with hands-on coding, mentor-led code reviews, agile collaboration, and capstone delivery aligned with real software team workflows.',
     icon: '🎓',
     color: 'from-m3-secondary to-m3-secondary-10',
     students: '5,000+',

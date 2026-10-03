@@ -17,7 +17,7 @@ export default function Blog() {
     <div className="bg-m3-surface dark:bg-m3-dark-surface min-h-screen">
       <SEO
         title="Blog"
-        description="Insights, tutorials, and tech articles from Aksha Globals — covering Android, iOS, Generative AI, Prompt Engineering, and career growth."
+        description="Insights, tutorials, and tech articles from Aksha Global — covering Android, iOS, Generative AI, Prompt Engineering, and career growth."
         path="/blog"
       />
 
@@ -26,7 +26,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Insights &amp; Blog</h1>
           <p className="text-m3-primary-container text-lg max-w-2xl mx-auto">
-            Tutorials, technical deep-dives, and career advice from the Aksha Globals team
+            Tutorials, technical deep-dives, and career advice from the Aksha Global team
           </p>
         </div>
       </div>

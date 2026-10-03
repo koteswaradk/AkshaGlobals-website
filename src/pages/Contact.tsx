@@ -13,7 +13,7 @@ export default function Contact() {
     <div className="min-h-screen bg-[#020b1a] px-4 py-12 text-white sm:px-6 lg:px-8">
       <SEO
         title="Contact Us"
-        description="Get in touch with Aksha Globals — visit our Bengaluru office or contact us by phone or email."
+        description="Get in touch with Aksha Global — visit our Bengaluru office or contact us by phone or email."
         path="/contact"
       />
       <div className="mx-auto max-w-5xl">
@@ -62,15 +62,15 @@ export default function Contact() {
             </div>
 
             <div className="rounded-m3-lg border border-cyan-500/15 bg-slate-900/70 p-4">
-              <p className="mb-2 font-medium text-white">Internship Requests</p>
+              <p className="mb-2 font-medium text-white">Connect With Us</p>
               <p className="mb-3 text-sm text-slate-300">
-                College students can send internship requests with resume and academic details.
+                College students interested in internships and anyone with questions can connect with us by email.
               </p>
               <a
-                href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
+                href="mailto:infoakshaglobal@gmail.com?subject=Connect%20with%20Aksha%20Global"
                 className="inline-flex items-center rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
               >
-                Send Internship Request
+                Connect With Us
               </a>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function Contact() {
           {/* Google Map */}
           <div className="overflow-hidden rounded-m3-xl border border-cyan-400/20 bg-slate-900/55 shadow-[0_20px_45px_rgba(2,6,23,0.45)]">
             <iframe
-              title="Aksha Globals Location"
+              title="Aksha Global Location"
               src={mapSrc}
               width="100%"
               height="100%"

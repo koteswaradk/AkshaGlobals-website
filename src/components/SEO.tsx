@@ -6,7 +6,7 @@ interface SEOProps {
   path?: string
 }
 
-const SITE_NAME = 'Aksha Globals'
+const SITE_NAME = 'Aksha Global'
 const BASE_URL = 'https://koteswaradk.github.io/AkshaGlobals-website/'
 
 export default function SEO({ title, description, path = '' }: SEOProps) {

@@ -103,7 +103,7 @@ function StudioFooterLogo() {
   ) : (
     <img
       src="https://github.com/user-attachments/assets/a3566f73-012a-405e-a33f-dd12f0982201"
-      alt="Aksha Globals Logo"
+      alt="Aksha Global Logo"
       width="48"
       height="48"
       className="rounded-full object-cover"
@@ -165,8 +165,8 @@ export default function Studio() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#1F2937' }}>
       <SEO
-        title="Aksha Globals Studios"
-        description="Watch devotional videos, rhymes and stories from Aksha Globals Studio. High quality video content for all ages."
+        title="Aksha Global Studios"
+        description="Watch devotional videos, rhymes and stories from Aksha Global Studio. High quality video content for all ages."
         path="/studio"
       />
 
@@ -186,7 +186,7 @@ export default function Studio() {
             <div className="absolute inset-0">
               <img
                 src={currentSlide.bannerImage}
-                alt="Aksha Globals Studios — Bringing Life to Thoughts"
+                alt="Aksha Global Studios — Bringing Life to Thoughts"
                 className="w-full h-full object-cover"
               />
               <div
@@ -220,7 +220,7 @@ export default function Studio() {
                       className="inline-block text-sm font-semibold tracking-widest uppercase mb-4 px-4 py-1 rounded-full backdrop-blur-sm"
                       style={{ color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.3)' }}
                     >
-                      Welcome to Aksha Globals Studios
+                      Welcome to Aksha Global Studios
                     </span>
                     <h1
                       className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
@@ -680,7 +680,7 @@ export default function Studio() {
               <div className="flex items-center gap-3 mb-3">
                 <StudioFooterLogo />
                 <div>
-                  <div className="text-xl font-bold leading-tight" style={{ color: '#F9FAFB' }}>Aksha Globals</div>
+                  <div className="text-xl font-bold leading-tight" style={{ color: '#F9FAFB' }}>Aksha Global</div>
                   <div className="text-sm font-medium" style={{ color: '#F97316' }}>Imagination to Innovation</div>
                 </div>
               </div>
@@ -741,7 +741,7 @@ export default function Studio() {
             className="border-t py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm"
             style={{ borderColor: 'rgba(107,114,128,0.3)', color: '#9CA3AF' }}
           >
-            <p>© {new Date().getFullYear()} Aksha Globals. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Aksha Global. All rights reserved.</p>
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
               <Link to="/privacy-policy" className="studio-footer-link">Privacy Policy</Link>
               <Link to="/terms-of-service" className="studio-footer-link">Terms of Service</Link>

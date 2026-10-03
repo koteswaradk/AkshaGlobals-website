@@ -17,7 +17,7 @@ const Logo = () => {
   return (
     <img
       src="https://github.com/user-attachments/assets/a3566f73-012a-405e-a33f-dd12f0982201"
-      alt="Aksha Globals Logo"
+      alt="Aksha Global Logo"
       width="40"
       height="40"
       className="rounded-full object-cover"
@@ -61,7 +61,7 @@ export default function Navbar() {
           >
             <Logo />
             <span className="truncate text-base sm:text-xl font-bold text-m3-on-surface dark:text-m3-dark-on-surface">
-              Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Globals{isStudio ? ' Studios' : ''}</span>
+              Aksha<span className="text-m3-primary dark:text-m3-dark-primary"> Global{isStudio ? ' Studios' : ''}</span>
             </span>
           </a>
 
