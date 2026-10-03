@@ -144,16 +144,13 @@ export default function Home() {
                           )}
                         </div>
                       </div>
-                      <p className="mt-5 hidden text-base leading-7 text-slate-300 lg:block">
+                      <p className="mt-5 text-base leading-7 text-slate-300">
                         {product.description}
                       </p>
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <div className="mb-5 flex items-center justify-between gap-3">
-                        <p className="text-xs font-bold uppercase tracking-[0.28em] text-cyan-300/80">
-                          Upcoming Product
-                        </p>
+                      <div className="mb-5 flex justify-end">
                         <span className="rounded-full border border-cyan-400/30 bg-cyan-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-cyan-100">
                           {product.badge}
                         </span>
@@ -165,10 +162,6 @@ export default function Home() {
                       <p className="mt-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
                         {product.subtitle}
                       </p>
-                      <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300 lg:hidden">
-                        {product.description}
-                      </p>
-
                       <div className="grid gap-3 sm:grid-cols-2">
                         {product.features.map(feature => (
                           <div
