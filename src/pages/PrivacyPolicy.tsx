@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-m3-primary dark:text-m3-dark-primary mb-2">Privacy Policy</h1>
         <p className="text-center mb-10 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
-          Last updated: March 2026
+          Last updated: September 2026
         </p>
 
         <div className="rounded-m3-xl shadow-m3-1 p-8 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high space-y-8">
