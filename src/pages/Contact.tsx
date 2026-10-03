@@ -1,3 +1,4 @@
+import { FormEvent, useState } from 'react'
 import SEO from '../components/SEO'
 
 export default function Contact() {
@@ -8,6 +9,17 @@ export default function Contact() {
     '51/102, 20th, Marenahalli Main Rd, Govindaraja Nagar Ward, PF Layout, Vijayanagar, Bengaluru, Karnataka 560040'
 
   const mapSrc = `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const subject = encodeURIComponent(`Contact Us message from ${name}`)
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)
+    window.location.href = `mailto:infoakshaglobal@gmail.com?subject=${subject}&body=${body}`
+  }
 
   return (
     <div className="min-h-screen bg-[#020b1a] px-4 py-12 text-white sm:px-6 lg:px-8">
@@ -94,16 +106,16 @@ export default function Contact() {
           <h2 className="mb-6 text-2xl font-semibold text-cyan-300">Send Us a Message</h2>
           <form
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-            onSubmit={e => {
-              // TODO: Implement form submission (e.g., send to a backend API or email service)
-              e.preventDefault()
-            }}
+            onSubmit={handleSubmit}
           >
             <div className="flex flex-col gap-1">
               <label className="text-sm font-medium text-slate-300">Name</label>
               <input
                 type="text"
                 placeholder="Your name"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
                 className="rounded-xs border border-cyan-500/25 bg-slate-900/70 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-300"
               />
             </div>
@@ -112,6 +124,9 @@ export default function Contact() {
               <input
                 type="email"
                 placeholder="Your email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
                 className="rounded-xs border border-cyan-500/25 bg-slate-900/70 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-300"
               />
             </div>
@@ -120,6 +135,9 @@ export default function Contact() {
               <textarea
                 rows={4}
                 placeholder="Write your message..."
+                value={message}
+                onChange={e => setMessage(e.target.value)}
+                required
                 className="resize-none rounded-xs border border-cyan-500/25 bg-slate-900/70 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-300"
               />
             </div>
