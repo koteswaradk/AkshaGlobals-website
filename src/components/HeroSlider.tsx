@@ -48,83 +48,82 @@ export default function HeroSlider() {
 
   return (
     <section
-      className="relative w-full h-[55svh] min-h-[320px] overflow-hidden bg-black sm:h-[70svh] sm:min-h-[420px] lg:h-screen lg:min-h-[520px]"
+      className="relative w-full overflow-hidden bg-[#020b1a] px-4 py-6 sm:px-6 lg:px-8"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
       aria-label="Hero slider"
     >
-      {/* Image slides */}
-      <div className="relative w-full h-full">
-        {slides.map((s, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              idx === current ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <img
-              src={s.image}
-              alt={s.alt}
-              className="w-full h-full object-cover"
-              loading={idx === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-              fetchPriority={idx === 0 ? 'high' : 'auto'}
-              sizes="100vw"
-            />
-            {/* Overlay for better text readability if needed */}
-            <div className="absolute inset-0 bg-black/10" />
-          </div>
-        ))}
-      </div>
-
-      {/* Navigation controls */}
-      <div className="absolute bottom-4 left-0 right-0 z-10 flex items-center justify-center gap-3 sm:bottom-8">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`transition-all duration-300 rounded-full ${
-              i === current
-                ? 'w-8 h-3 bg-white'
-                : 'w-3 h-3 bg-white/40 hover:bg-white/70'
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* Arrow buttons */}
-      <button
-        onClick={prev}
-        aria-label="Previous slide"
-        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white transition-colors duration-200 hover:bg-black/50 sm:left-4 sm:p-3"
-      >
-        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button
-        onClick={next}
-        aria-label="Next slide"
-        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white transition-colors duration-200 hover:bg-black/50 sm:right-4 sm:p-3"
-      >
-        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-
-      {/* Progress bar */}
-      {!isPaused && (
-        <div className="absolute bottom-0 left-0 h-1 bg-white/20 w-full z-10">
-          <div
-            key={current}
-            className="h-full bg-white"
-            style={{ animation: 'progressBar 5s linear' }}
-          />
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[#041426] shadow-[0_0_40px_rgba(34,211,238,0.12)]">
+        <div className="relative aspect-[16/9] w-full">
+          {slides.map((s, idx) => (
+            <div
+              key={idx}
+              className={`absolute inset-0 transition-opacity duration-700 ${
+                idx === current ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img
+                src={s.image}
+                alt={s.alt}
+                className="h-full w-full object-contain"
+                loading={idx === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchPriority={idx === 0 ? 'high' : 'auto'}
+                sizes="100vw"
+              />
+            </div>
+          ))}
         </div>
-      )}
+
+        {/* Navigation controls */}
+        <div className="absolute bottom-4 left-0 right-0 z-10 flex items-center justify-center gap-3 sm:bottom-6">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`transition-all duration-300 rounded-full ${
+                i === current
+                  ? 'w-8 h-3 bg-white'
+                  : 'w-3 h-3 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Arrow buttons */}
+        <button
+          onClick={prev}
+          aria-label="Previous slide"
+          className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white transition-colors duration-200 hover:bg-black/50 sm:left-4 sm:p-3"
+        >
+          <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next slide"
+          className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/30 p-2 text-white transition-colors duration-200 hover:bg-black/50 sm:right-4 sm:p-3"
+        >
+          <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Progress bar */}
+        {!isPaused && (
+          <div className="absolute bottom-0 left-0 z-10 h-1 w-full bg-white/20">
+            <div
+              key={current}
+              className="h-full bg-white"
+              style={{ animation: 'progressBar 5s linear' }}
+            />
+          </div>
+        )}
+      </div>
 
       <style>{`
         @keyframes progressBar {
