@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { courses, getDefaultSelectedCourseId } from '../data/courses'
+import { courses } from '../data/courses'
 import SEO from '../components/SEO'
-import TrainingSpotlight from '../components/TrainingSpotlight'
 
 const courseIcons: Record<string, JSX.Element> = {
   'android-dev': (
@@ -51,9 +49,6 @@ function parseStudents(value: string) {
 
 export default function Training() {
   const trainingCourses = courses.filter(course => course.id !== 'internship')
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(getDefaultSelectedCourseId(trainingCourses))
-
-  const selectedCourseData = trainingCourses.find(course => course.id === selectedCourse) ?? trainingCourses[0] ?? null
   const featuredCourse = trainingCourses.find(course => course.featured) ?? trainingCourses[0] ?? null
   const averageRating = trainingCourses.length
     ? trainingCourses.reduce((sum, course) => sum + course.rating, 0) / trainingCourses.length
@@ -126,15 +121,10 @@ export default function Training() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
               {trainingCourses.map(course => {
-                const isSelected = selectedCourseData?.id === course.id
                 return (
                   <article
                     key={course.id}
-                    className={`group relative flex h-full flex-col overflow-hidden rounded-m3-2xl border transition-all duration-300 ${
-                      isSelected
-                        ? 'border-cyan-300/70 shadow-[0_24px_60px_rgba(6,182,212,0.3)]'
-                        : 'border-cyan-400/20 shadow-[0_20px_45px_rgba(2,6,23,0.45)] hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_24px_60px_rgba(6,182,212,0.3)]'
-                    }`}
+                    className="group relative flex h-full flex-col overflow-hidden rounded-m3-2xl border border-cyan-400/20 shadow-[0_20px_45px_rgba(2,6,23,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_24px_60px_rgba(6,182,212,0.3)]"
                   >
                     <div className={`relative overflow-hidden bg-gradient-to-br ${course.color} p-6`}>
                       <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -182,14 +172,7 @@ export default function Training() {
                         </div>
                       </div>
 
-                      <div className="mt-5 flex items-center justify-between gap-3">
-                        <button
-                          type="button"
-                          onClick={() => setSelectedCourse(course.id)}
-                          className="rounded-full border border-cyan-400/25 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-900/70"
-                        >
-                          Spotlight
-                        </button>
+                      <div className="mt-5 flex items-center justify-end gap-3">
                         <Link
                           to={`/training/${course.id}`}
                           className="inline-flex items-center rounded-full bg-cyan-400 px-4 py-2 text-xs font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-cyan-300"
@@ -202,8 +185,6 @@ export default function Training() {
                 )
               })}
             </div>
-
-            {selectedCourseData && <TrainingSpotlight course={selectedCourseData} title="Program Spotlight" />}
           </>
         )}
       </section>

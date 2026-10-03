@@ -6,7 +6,6 @@ import PaymentModal from '../components/PaymentModal'
 import SEO from '../components/SEO'
 
 const internshipHeroImage = 'https://github.com/user-attachments/assets/5bcf305a-fa6a-4c1e-afac-6cd08e2ce124'
-const internshipApplyMailTo = 'mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals'
 
 function formatPrice(price: number) {
   return price === 0 ? 'Free' : `₹${price.toLocaleString()}`
@@ -164,12 +163,6 @@ export default function TrainingDetail() {
 
             {isInternship ? (
               <div className="mt-6 space-y-3">
-                <a
-                  href={internshipApplyMailTo}
-                  className="block w-full rounded-full bg-cyan-400 px-5 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
-                >
-                  Apply via Email
-                </a>
                 <Link
                   to="/contact"
                   className="block w-full rounded-full border border-cyan-400/25 px-5 py-3 text-center text-sm font-semibold text-slate-200 transition hover:bg-slate-900/70"

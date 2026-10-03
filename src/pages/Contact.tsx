@@ -9,64 +9,64 @@ export default function Contact() {
   const mapSrc = `https://maps.google.com/maps?q=${lat},${lng}&z=15&output=embed`
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-m3-surface dark:bg-m3-dark-surface text-m3-on-surface dark:text-m3-dark-on-surface">
+    <div className="min-h-screen bg-[#020b1a] px-4 py-12 text-white sm:px-6 lg:px-8">
       <SEO
         title="Contact Us"
         description="Get in touch with Aksha Globals — reach us at our Hyderabad office or send us a message."
         path="/contact"
       />
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-m3-primary dark:text-m3-dark-primary mb-2">Contact Us</h1>
-        <p className="text-center mb-10 text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">
+      <div className="mx-auto max-w-5xl">
+        <h1 className="mb-2 text-center text-4xl font-black tracking-tight text-white">Contact Us</h1>
+        <p className="mb-10 text-center text-slate-300">
           We'd love to hear from you. Reach out to us anytime.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Contact Details */}
-          <div className="rounded-m3-xl shadow-m3-1 p-8 flex flex-col gap-6 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high">
-            <h2 className="text-2xl font-semibold text-m3-primary dark:text-m3-dark-primary">Get in Touch</h2>
+          <div className="flex flex-col gap-6 rounded-m3-xl border border-cyan-400/20 bg-slate-900/55 p-8 shadow-[0_20px_45px_rgba(2,6,23,0.45)]">
+            <h2 className="text-2xl font-semibold text-cyan-300">Get in Touch</h2>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">📍</span>
               <div>
-                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Address</p>
-                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">{address}</p>
+                <p className="font-medium text-white">Address</p>
+                <p className="text-sm text-slate-300">{address}</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">📞</span>
               <div>
-                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Phone</p>
-                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">+91 98765 43210</p>
+                <p className="font-medium text-white">Phone</p>
+                <p className="text-sm text-slate-300">+91 98765 43210</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">✉️</span>
               <div>
-                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Email</p>
-                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">infoakshaglobal@gmail.com</p>
+                <p className="font-medium text-white">Email</p>
+                <p className="text-sm text-slate-300">infoakshaglobal@gmail.com</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-2xl">🕐</span>
               <div>
-                <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface">Business Hours</p>
-                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Mon – Fri: 9:00 AM – 6:00 PM</p>
-                <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant">Sat: 10:00 AM – 2:00 PM</p>
+                <p className="font-medium text-white">Business Hours</p>
+                <p className="text-sm text-slate-300">Mon – Fri: 9:00 AM – 6:00 PM</p>
+                <p className="text-sm text-slate-300">Sat: 10:00 AM – 2:00 PM</p>
               </div>
             </div>
 
-            <div className="rounded-m3-lg border border-m3-outline-variant p-4 bg-m3-surface dark:bg-m3-dark-surface">
-              <p className="font-medium text-m3-on-surface dark:text-m3-dark-on-surface mb-2">Internship Requests</p>
-              <p className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant mb-3">
+            <div className="rounded-m3-lg border border-cyan-500/15 bg-slate-900/70 p-4">
+              <p className="mb-2 font-medium text-white">Internship Requests</p>
+              <p className="mb-3 text-sm text-slate-300">
                 College students can send internship requests with resume and academic details.
               </p>
               <a
                 href="mailto:infoakshaglobal@gmail.com?subject=Internship%20Request%20-%20Aksha%20Globals"
-                className="inline-flex items-center rounded-full bg-m3-primary px-4 py-2 text-sm font-semibold text-m3-on-primary hover:bg-m3-primary/90"
+                className="inline-flex items-center rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
               >
                 Send Internship Request
               </a>
@@ -74,7 +74,7 @@ export default function Contact() {
           </div>
 
           {/* Google Map */}
-          <div className="rounded-m3-xl shadow-m3-1 overflow-hidden bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high">
+          <div className="overflow-hidden rounded-m3-xl border border-cyan-400/20 bg-slate-900/55 shadow-[0_20px_45px_rgba(2,6,23,0.45)]">
             <iframe
               title="Aksha Globals Location"
               src={mapSrc}
@@ -88,8 +88,8 @@ export default function Contact() {
           </div>
         </div>
         {/* Contact Form */}
-        <div className="mt-10 rounded-m3-xl shadow-m3-1 p-8 bg-m3-surface-container-lowest dark:bg-m3-dark-surface-container-high">
-          <h2 className="text-2xl font-semibold text-m3-primary dark:text-m3-dark-primary mb-6">Send Us a Message</h2>
+        <div className="mt-10 rounded-m3-xl border border-cyan-400/20 bg-slate-900/55 p-8 shadow-[0_20px_45px_rgba(2,6,23,0.45)]">
+          <h2 className="mb-6 text-2xl font-semibold text-cyan-300">Send Us a Message</h2>
           <form
             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
             onSubmit={e => {
@@ -98,33 +98,33 @@ export default function Contact() {
             }}
           >
             <div className="flex flex-col gap-1">
-              <label className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant font-medium">Name</label>
+              <label className="text-sm font-medium text-slate-300">Name</label>
               <input
                 type="text"
                 placeholder="Your name"
-                className="rounded-xs px-4 py-2 text-sm border border-m3-outline dark:border-m3-dark-outline bg-transparent text-m3-on-surface dark:text-m3-dark-on-surface focus:outline-none focus:border-m3-primary focus:border-2 placeholder-m3-on-surface-variant dark:placeholder-m3-dark-on-surface-variant"
+                className="rounded-xs border border-cyan-500/25 bg-slate-900/70 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-300"
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant font-medium">Email</label>
+              <label className="text-sm font-medium text-slate-300">Email</label>
               <input
                 type="email"
                 placeholder="Your email"
-                className="rounded-xs px-4 py-2 text-sm border border-m3-outline dark:border-m3-dark-outline bg-transparent text-m3-on-surface dark:text-m3-dark-on-surface focus:outline-none focus:border-m3-primary focus:border-2 placeholder-m3-on-surface-variant dark:placeholder-m3-dark-on-surface-variant"
+                className="rounded-xs border border-cyan-500/25 bg-slate-900/70 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-300"
               />
             </div>
             <div className="flex flex-col gap-1 sm:col-span-2">
-              <label className="text-sm text-m3-on-surface-variant dark:text-m3-dark-on-surface-variant font-medium">Message</label>
+              <label className="text-sm font-medium text-slate-300">Message</label>
               <textarea
                 rows={4}
                 placeholder="Write your message..."
-                className="rounded-xs px-4 py-2 text-sm border border-m3-outline dark:border-m3-dark-outline bg-transparent text-m3-on-surface dark:text-m3-dark-on-surface focus:outline-none focus:border-m3-primary focus:border-2 resize-none placeholder-m3-on-surface-variant dark:placeholder-m3-dark-on-surface-variant"
+                className="resize-none rounded-xs border border-cyan-500/25 bg-slate-900/70 px-4 py-2 text-sm text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-1 focus:ring-cyan-300"
               />
             </div>
             <div className="sm:col-span-2">
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3 rounded-full bg-m3-primary text-m3-on-primary hover:shadow-m3-1 font-semibold text-sm transition-colors duration-200"
+                className="w-full rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 sm:w-auto"
               >
                 Send Message
               </button>
