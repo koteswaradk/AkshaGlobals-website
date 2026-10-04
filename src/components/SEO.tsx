@@ -12,8 +12,8 @@ const SOCIAL_IMAGE_URL = `${BASE_URL}slider-images/slide1.webp`
 
 export default function SEO({ title, description, path = '' }: SEOProps) {
   const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`
-  const route = path ? `/${path.replace(/^\/+/, '')}` : ''
-  const url = route ? `${BASE_URL}#${route}` : BASE_URL
+  const route = path.replace(/^\/+|\/+$/g, '')
+  const url = route ? `${BASE_URL}#/${route}` : BASE_URL
 
   return (
     <Helmet>
