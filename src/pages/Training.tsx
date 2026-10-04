@@ -74,6 +74,17 @@ export default function Training() {
             Explore job-ready training tracks built with modern curriculum design, mentor support, and practical outcomes across mobile and AI technologies.
           </p>
 
+          <a
+            href={`${import.meta.env.BASE_URL}broucher.jpeg`}
+            download="aksha-global-training-brochure.jpeg"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+          >
+            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M5 17v3h14v-3" />
+            </svg>
+            Download Training Brochure
+          </a>
+
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               ['Programs', trainingCourses.length],
