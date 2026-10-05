@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://koteswaradk.github.io/AkshaGlobals-website/sitemap.xml
+Sitemap: https://akshaglobal.com/sitemap.xml
