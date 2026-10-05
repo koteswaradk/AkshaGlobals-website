@@ -94,4 +94,4 @@ There is currently no test script configured in `package.json`.
 
 The GitHub Actions workflow at `.github/workflows/deploy.yml` installs the locked dependencies with `npm ci`, runs `npm run build`, and publishes the `dist/` directory to GitHub Pages. It runs on pushes to the configured branches and can also be started manually with `workflow_dispatch`.
 
-Vite's `base` is set to `/` in `vite.config.ts` for the custom domain. The public `CNAME` file is copied into the deployment artifact so GitHub Pages keeps serving `akshaglobal.com`.
+Vite uses a relative base in `vite.config.ts` so generated assets resolve correctly both on the custom domain and under the repository path on GitHub Pages. The public `CNAME` file is copied into the deployment artifact so GitHub Pages keeps serving `akshaglobal.com`.
