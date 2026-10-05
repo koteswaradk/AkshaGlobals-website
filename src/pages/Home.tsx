@@ -10,7 +10,7 @@ const upcomingProducts = [
     subtitle: 'Urgent Care & First Response',
     description:
       'A location-aware emergency support platform that connects users with nearby hospitals, clinics, pharmacies, and ambulance services instantly. Built for fast decisions, real-time guidance, and high-trust support in critical moments.',
-    icon: `${baseUrl}product-icons/em.png`,
+    icon: `${baseUrl}product-icons/em.webp`,
     badge: 'Coming Soon',
     features: [
       'Emergency assistance and first-response guidance',
@@ -28,7 +28,7 @@ const upcomingProducts = [
     subtitle: 'Local Services. Trusted Professionals.',
     description:
       'A modern marketplace for local services that connects customers with reliable professionals, simplifies booking, streamlines payments, and helps service businesses operate more efficiently at scale.',
-    icon: `${baseUrl}product-icons/emm.png`,
+    icon: `${baseUrl}product-icons/emm.webp`,
     badge: 'In Development',
     features: [
       'User app for discovery, booking and service requests',
@@ -46,7 +46,7 @@ const upcomingProducts = [
     subtitle: 'Multilingual Voice-to-Text Conversion',
     description:
       'A premium voice-to-text solution built for global communication, supporting 50+ languages with intelligent transcription, real-time translation, and enterprise-grade accuracy for modern teams.',
-    icon: `${baseUrl}product-icons/voxflow.png`,
+    icon: `${baseUrl}product-icons/voxflow.webp`,
     badge: 'Planning Phase',
     features: [
       'Real-time transcription across 50+ languages',
@@ -77,10 +77,13 @@ export default function Home() {
       >
         <div className="mx-auto max-w-7xl overflow-hidden rounded-[28px] border border-cyan-400/20 bg-[#041426] shadow-[0_0_40px_rgba(34,211,238,0.12)]">
           <img
-            src={`${baseUrl}capabilites.png`}
+            src={`${baseUrl}capabilites.webp`}
             alt="Aksha Global core capabilities"
             className="block h-auto w-full object-contain"
+            width="1536"
+            height="1024"
             loading="lazy"
+            decoding="async"
           />
         </div>
       </section>
@@ -136,6 +139,7 @@ export default function Home() {
                               alt={`${product.name} preview`}
                               className="relative z-10 h-full w-full object-contain p-4 sm:p-6"
                               loading="lazy"
+                              decoding="async"
                             />
                           ) : (
                             <span className="relative z-10 flex h-full w-full items-center justify-center text-5xl">

@@ -21,6 +21,7 @@ const Logo = () => {
       width="40"
       height="40"
       className="rounded-full object-cover"
+      decoding="async"
       onError={() => setImgError(true)}
     />
   )

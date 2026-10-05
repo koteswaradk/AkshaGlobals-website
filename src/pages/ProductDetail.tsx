@@ -116,7 +116,13 @@ export default function ProductDetail() {
                   <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-cyan-200/80">Product Preview</p>
                   <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl border border-cyan-200/20 bg-slate-950/70">
                     {hasPreviewImage ? (
-                      <img src={previewImage} alt={`${product.name} feature preview`} className="h-full w-full object-contain object-center" />
+                      <img
+                        src={previewImage}
+                        alt={`${product.name} feature preview`}
+                        className="h-full w-full object-contain object-center"
+                        decoding="async"
+                        fetchPriority="high"
+                      />
                     ) : (
                       <span className="text-7xl">{product.icon || ''}</span>
                     )}

@@ -4,17 +4,17 @@ const baseUrl: string = import.meta.env.BASE_URL || '/'
 
 const slides = [
   {
-    image: `${baseUrl}slider-images/slide1.png`,
+    image: `${baseUrl}slider-images/slide1.webp`,
     title: 'Solving Real Problems with AI & Roboast Solutions',
     alt: 'AI-powered solutions with robot',
   },
   {
-    image: `${baseUrl}slider-images/slide2.png`,
+    image: `${baseUrl}slider-images/slide2.webp`,
     title: 'Master the Latest Technologies',
     alt: 'Professional training programs',
   },
   {
-    image: `${baseUrl}slider-images/slide3.png`,
+    image: `${baseUrl}slider-images/slide3.webp`,
     title: 'Bringing Stories to Life',
     alt: 'Audio and video production',
   },

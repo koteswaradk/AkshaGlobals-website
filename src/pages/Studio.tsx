@@ -188,6 +188,7 @@ export default function Studio() {
                 src={currentSlide.bannerImage}
                 alt="Aksha Global Studios — Bringing Life to Thoughts"
                 className="w-full h-full object-cover"
+                decoding="async"
               />
               <div
                 className="absolute inset-0"
@@ -420,6 +421,8 @@ export default function Studio() {
                           src={thumbnail}
                           alt={cat.label}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-5xl" style={{ backgroundColor: '#1F2937' }}>
@@ -490,6 +493,8 @@ export default function Studio() {
                         src={playlist.thumbnail}
                         alt={playlist.title}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                       />
                       {/* Video count overlay */}
                       <div
@@ -553,6 +558,8 @@ export default function Studio() {
                       src={video.thumbnail}
                       alt={video.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                     {/* Index badge */}
                     <div
@@ -649,6 +656,8 @@ export default function Studio() {
                         src={v.thumbnail}
                         alt={v.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
