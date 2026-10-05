@@ -7,7 +7,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = 'Aksha Global'
-const BASE_URL = 'https://koteswaradk.github.io/AkshaGlobals-website/'
+const BASE_URL = 'https://akshaglobal.com/'
 const SOCIAL_IMAGE_URL = `${BASE_URL}slider-images/slide1.webp`
 
 export default function SEO({ title, description, path = '' }: SEOProps) {

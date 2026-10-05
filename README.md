@@ -2,7 +2,7 @@
 
 Aksha Global's responsive website presents the company's mobile apps, software capabilities, training programs, and articles. It also includes contact information, a video studio page, and legal pages.
 
-**Live website:** [https://koteswaradk.github.io/AkshaGlobals-website/](https://koteswaradk.github.io/AkshaGlobals-website/)
+**Live website:** [https://akshaglobal.com/](https://akshaglobal.com/)
 
 ## Website sections
 
@@ -14,7 +14,7 @@ Aksha Global's responsive website presents the company's mobile apps, software c
 - **Contact** — contact details and an embedded map.
 - **Privacy Policy** and **Terms of Service** — legal information.
 
-The site uses hash-based navigation. On the published site, for example, the products page is available at `https://koteswaradk.github.io/AkshaGlobals-website/#/products`.
+The site uses hash-based navigation. On the published site, for example, the products page is available at `https://akshaglobal.com/#/products`.
 
 > **Payment demo:** The enrollment modal validates sample card or UPI fields and displays a success state in the browser. It is a front-end demonstration only; it does not connect to a payment provider, charge a payment method, or complete an enrollment. Do not enter real payment information.
 
@@ -94,4 +94,4 @@ There is currently no test script configured in `package.json`.
 
 The GitHub Actions workflow at `.github/workflows/deploy.yml` installs the locked dependencies with `npm ci`, runs `npm run build`, and publishes the `dist/` directory to GitHub Pages. It runs on pushes to the configured branches and can also be started manually with `workflow_dispatch`.
 
-Vite's `base` is set to `/AkshaGlobals-website/` in `vite.config.ts` for this repository's GitHub Pages project site. If the repository is renamed or hosted at a different path, update that setting and any site URLs in `index.html` and `src/components/SEO.tsx`.
+Vite's `base` is set to `/` in `vite.config.ts` for the custom domain. The public `CNAME` file is copied into the deployment artifact so GitHub Pages keeps serving `akshaglobal.com`.
