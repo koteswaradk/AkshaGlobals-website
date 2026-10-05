@@ -75,7 +75,13 @@ export default function Products() {
                   <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-slate-900/70">
                     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.2),transparent_60%)]" />
                     {hasFeatureImage ? (
-                      <img src={featureImage} alt={`${product.name} feature`} className="h-full w-full object-contain object-center" />
+                      <img
+                        src={featureImage}
+                        alt={`${product.name} feature`}
+                        className="h-full w-full object-contain object-center"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     ) : (
                       <span className="flex h-full w-full items-center justify-center text-6xl sm:text-6xl">{product.icon || ''}</span>
                     )}
@@ -88,7 +94,13 @@ export default function Products() {
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/30 bg-slate-950/85 p-1.5 shadow-[0_8px_20px_rgba(2,6,23,0.45)]">
                     {hasIconImage ? (
-                      <img src={product.icon} alt={`${product.name} icon`} className="h-full w-full object-contain" />
+                      <img
+                        src={product.icon}
+                        alt={`${product.name} icon`}
+                        className="h-full w-full object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     ) : (
                       <span className="text-xl">{product.icon || ''}</span>
                     )}
