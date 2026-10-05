@@ -64,8 +64,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#020b1a] text-white">
       <SEO
-        title="Aksha Global | Mobile App Development & AI Training"
-        description="Aksha Global builds mobile apps and delivers professional training in Android, iOS, AI, and Kotlin Multiplatform. Explore our products, capabilities, and courses."
+        title="Aksha Global"
+        description="Aksha Global builds innovative mobile apps and offers professional training in Android, iOS, GenAI, Prompt Engineering, KMP, and CMP."
         path="/"
       />
 
